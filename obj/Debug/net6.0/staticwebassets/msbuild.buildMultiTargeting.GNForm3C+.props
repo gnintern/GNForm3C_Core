@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GNForm3C+.props" />
+</Project>
