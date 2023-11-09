@@ -1,4 +1,5 @@
-﻿<!--begin::Header-->
+﻿@using GNForm3C_.BAL;
+<!--begin::Header-->
 <div id="kt_app_header" class="app-header">
     <!--begin::Header container-->
     <div class="app-container container-fluid d-flex align-items-stretch justify-content-between">
@@ -19,7 +20,7 @@
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <a href="#" class="d-lg-none">
-                <img alt="Logo" src="~/Theme/assets/media/logos/default-small.svg" class="h-30px" />
+                <img alt="Logo" src=@CommonVariables.SmallLogo class="h-30px" />
             </a>
         </div>
         <!--end::Mobile logo-->
