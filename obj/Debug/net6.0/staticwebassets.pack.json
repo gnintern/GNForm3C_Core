@@ -4629,16 +4629,20 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\illustrations\\unitedpalms-1\\9.png"
     },
     {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\logos\\GNForm3CPlus_Logo.png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\logos\\GNForm3CPlus_Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\logos\\GNForm3CPlus_OnlyLogo.png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\logos\\GNForm3CPlus_OnlyLogo.png"
+    },
+    {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\logos\\GNWebsoft_Logo.png",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\logos\\GNWebsoft_Logo.png"
     },
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\logos\\GNWebsoft_NameLogo.png",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\logos\\GNWebsoft_NameLogo.png"
-    },
-    {
-      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\logos\\GNWebsoft_OnlyLogo.png",
-      "PackagePath": "staticwebassets\\Theme\\assets\\media\\logos\\GNWebsoft_OnlyLogo.png"
     },
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\logos\\custom-1.png",
