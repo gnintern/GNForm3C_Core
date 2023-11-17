@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewData["Title"] = "SEC_UserAddEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model GNForm3C_.Areas.SEC_User.Models.SEC_UserModel;
+<!--begin::Content-->
+<div id="kt_app_content" class="app-content flex-column-fluid">
+<!--begin::Content container-->
+<div id="kt_app_content_container" class="app-container container-fluid">
+    <div class="card">
+        <div class="card-body p-5 px-lg-10 py-lg-7">
+            <div>
+                <form method="post" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Save">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                 @Html.HiddenFor(x=>x.UserID)
+
+                    <!--begin::Input group-->
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <!--begin::Label-->
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="UserName">
+                            <span>User Name </span> <span class="text-danger">*</span>
+                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique country name"></i>
+                        </label>
+                        <!--end::Label-->
+                        <input type="text" class="form-control form-control-solid" asp-for="UserName" placeholder="Enter User Name" autocomplete="off" />
+                        <span class="text-danger" asp-validation-for="UserName"></span>
+                    </div>
+                    <!--end::Input group-->
+                    <!--begin::Input group-->
+                    <div class="row">
+                        <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Password">
+                                <span>Password </span> <span class="text-danger">*</span>
+                            </label>
+                            <!--end::Label-->
+                            <!--begin::Wrapper-->
+                            <div class="mb-1">
+                                <!--begin::Input wrapper-->
+                                <div class="position-relative mb-3">
+                                    <input class="form-control bg-transparent" type="password" asp-for="Password" placeholder="Password" autocomplete=" off" />
+                                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                                        <i class="bi bi-eye-slash fs-2"></i>
+                                        <i class="bi bi-eye fs-2 d-none"></i>
+                                    </span>
+                                </div>
+                                <!--end::Input wrapper-->
+                                <!--begin::Meter-->
+                                <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+                                </div>
+                                <!--end::Meter-->
+                            </div>
+                            <!--end::Wrapper-->
+                            <!--begin::Hint-->
+                            <div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp; symbols.</div>
+                            <!--end::Hint-->
+                        </div>
+
+                        <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ConfirmPassword">
+                                <span>Re-Enter Password </span> <span class="text-danger">*</span>
+                            </label>
+                            <!--end::Label-->
+                            <!--begin::Wrapper-->
+                            <div class="mb-1">
+                                <!--begin::Input wrapper-->
+                                <div class="position-relative mb-3">
+                                    <input class="form-control bg-transparent" type="password" placeholder="Re-Enter Password" asp-for="ConfirmPassword" autocomplete=" off" />
+                                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                                        <i class="bi bi-eye-slash fs-2"></i>
+                                        <i class="bi bi-eye fs-2 d-none"></i>
+                                    </span>
+                                </div>
+                                <!--end::Input wrapper-->
+                                <!--begin::Meter-->
+                                <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                    <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+                                </div>
+                                <!--end::Meter-->
+                            </div>
+                            <!--end::Wrapper-->
+                            <!--begin::Hint-->
+                            <div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp; symbols.</div>
+                            <!--end::Hint-->
+                        </div>
+                    </div>
+                    <!--end::Input group-->
+                    <!--begin::Actions-->
+                    <div>
+                        <button type="submit" class="btn btn-primary" style="margin-right:5px;">
+                            <span class="indicator-label">Submit</span>
+                        </button>
+                        <a type="submit" class="btn btn-light me-3" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Index">
+                            Back to List
+                        </a>
+                    </div>
+                    <!--end::Actions-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end::Content container-->
+</div>
+<!--end::Content-->
