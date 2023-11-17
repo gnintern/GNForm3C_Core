@@ -11,14 +11,16 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
     [Route("[Controller]/[action]")]
     public class SEC_UserController : Controller
     {
-        MST_DAL dalMST= new MST_DAL();
+        MST_DAL dalMST = new MST_DAL();
 
-        #region SelectAll
+        #region Function: SelectAll
         public IActionResult Index()
-        { 
-            DataTable dt =dalMST.PR_SEC_User_SelectAll();
+        {
+            DataTable dt = dalMST.PR_SEC_User_SelectAll();
+
+            #region Fill the record into List
             List<SEC_UserModel> Users = new List<SEC_UserModel>();
-            foreach(DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 SEC_UserModel modelSEC_User = new SEC_UserModel();
                 modelSEC_User.UserID = Convert.ToInt32(dr["UserID"]);
@@ -28,11 +30,13 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
                 Users.Add(modelSEC_User);
             }
             ViewBag.UserList = Users;
+            #endregion
+
             return View("SEC_UserList");
         }
         #endregion
 
-        #region Delete
+        #region Function: Delete record
         public IActionResult Delete(string? UserID)
         {
             #region Decrypt the Id
@@ -40,34 +44,42 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
             int id = decryptedID.Value;
             #endregion
 
+            #region Deleteing Record
             if (Convert.ToBoolean(dalMST.PR_User_Delete(id)))
             {
                 TempData["success"] = "Record Deleted successfully.";
             }
+            #endregion
+
             return RedirectToAction("Index");
-
-
         }
         #endregion
 
-        #region AddEdit
+        #region Function: Upsert the Record
 
-        #region Add
+        #region Add Record
         public IActionResult Add(string? UserID)
         {
 
             if (ModelState.IsValid)
             {
+                #region Form Title
+                TempData["Action"] = "Add";
+                #endregion
 
                 if (UserID != null)
                 {
+                    #region Form Title
+                    TempData["Action"] = "Edit";
+                    #endregion
+
                     #region Decrypt the Id
                     SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(UserID);
                     int id = decryptedID.Value;
                     #endregion
 
+                    #region Update record
                     DataTable dt = dalMST.PR_User_SelectPK(id);
-
                     SEC_UserModel modelSEC_User = new SEC_UserModel();
                     foreach (DataRow dr in dt.Rows)
                     {
@@ -75,6 +87,8 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
                         modelSEC_User.UserName = dr["UserName"].ToString();
                         modelSEC_User.Password = dr["Password"].ToString();
                     }
+                    #endregion
+
                     return View("SEC_UserAddEdit", modelSEC_User);
                 }
             }
@@ -84,47 +98,51 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 
 
         [HttpPost]
-        #region Save
+        #region Save Record
         public IActionResult Save(SEC_UserModel modelSEC_User, string UserID)
         {
             if (modelSEC_User.Password == modelSEC_User.ConfirmPassword)
             {
 
-            if (modelSEC_User.UserID == null)
-            {
-                if (UserID == null)
+                if (modelSEC_User.UserID == null)
                 {
-                    if (Convert.ToBoolean(dalMST.PR_User_Insert(modelSEC_User)))
+                    if (UserID == null)
                     {
-                        TempData["success"] = "Record Inserted Successfully";
-                        return RedirectToAction("Index");
+                        #region Inserting Record
+                        if (Convert.ToBoolean(dalMST.PR_User_Insert(modelSEC_User)))
+                        {
+                            TempData["success"] = "Record Inserted Successfully";
+                            return RedirectToAction("Index");
+                        }
+                        #endregion
+                    }
+
+                    else
+                    {
+                        #region Decrypt Id
+                        SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(UserID);
+                        int id = decryptedID.Value;
+                        #endregion
+
+                        #region Updating Record
+                        if (Convert.ToBoolean(dalMST.PR_User_Update(modelSEC_User, id)))
+                        {
+                            TempData["success"] = "Record Updated Successfully";
+                            return RedirectToAction("Index");
+                        }
+                        #endregion
                     }
                 }
-
-                else
-                {
-                    #region Decrypt Id
-                    SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(UserID);
-                    int id = decryptedID.Value;
-                    #endregion
-
-                    if (Convert.ToBoolean(dalMST.PR_User_Update(modelSEC_User, id)))
-                    {
-                        TempData["success"] = "Record Updated Successfully";
-                        return RedirectToAction("Index");
-                    }
-                }
-            }
             }
             else
             {
-                TempData["error"] ="password and confirm password are not matched!";
-                return View("SEC_UserAddEdit");
+                #region Error if Password & Confirm Password not Matched
+                TempData["error"] = "password and confirm password are not matched!";
+                #endregion
 
+                return View("SEC_UserAddEdit");
             }
             return RedirectToAction("Index");
-
-
         }
         #endregion
 
