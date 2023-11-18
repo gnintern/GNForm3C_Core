@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewData["Title"] = "MST_HospitalAddEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model GNForm3C_.Areas.MST_Hospital.Models.MST_HospitalModel;
+<!--begin::Content-->
+<div id="kt_app_content" class="app-content flex-column-fluid">
+    <!--begin::Content container-->
+    <div id="kt_app_content_container" class="app-container container-fluid">
+        <div class="card my-lg-10">
+            <div class="card-body p-5 px-lg-10 py-lg-7">
+                <div>
+                    <form method="post" asp-area="MST_Hospital" asp-controller="MST_Hospital" asp-action="Save">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        @Html.HiddenFor(x=>x.HospitalID)
+
+                        <!--begin::Input Hospital group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Hospital">
+                                <span>Hospital Name </span> <span class="text-danger">*</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
+                            </label>
+                            <!--end::Label-->
+                            <input type="text" class="form-control form-control-solid" asp-for="Hospital" placeholder="Enter Hospital Name" autocomplete="off" />
+                            <span class="text-danger" asp-validation-for="Hospital"></span>
+                        </div>
+                        <!--end::Input Hospital group-->
+
+                        <!--begin::Input PrintName group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintName">
+                                <span>PrintName </span> <span class="text-danger">*</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
+                            </label>
+                            <!--end::Label-->
+                            <textarea class="form-control form-control-solid" asp-for="PrintName" placeholder="Enter PrintName" autocomplete="off"></textarea>
+                            <span class="text-danger" asp-validation-for="PrintName"></span>
+                        </div>
+                        <!--end::Input PrintName group-->
+
+                        <!--begin::Input PrintLine1 group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintLine1">
+                                <span>PrintLine1 </span> <span class="text-danger">*</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
+                            </label>
+                            <!--end::Label-->
+                            <textarea class="form-control form-control-solid" asp-for="PrintLine1" placeholder="Enter PrintLine1" autocomplete="off"></textarea>
+                            <span class="text-danger" asp-validation-for="PrintLine1"></span>
+                        </div>
+                        <!--end::Input PrintLine1 group-->
+
+                        <!--begin::Input PrintLine2 group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintLine2">
+                                <span>PrintLine2 </span> <span class="text-danger">*</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
+                            </label>
+                            <!--end::Label-->
+                            <textarea class="form-control form-control-solid" asp-for="PrintLine2" placeholder="Enter PrintLine2 " autocomplete="off" >
+                                </textarea>
+                            <span class="text-danger" asp-validation-for="PrintLine2"></span>
+                        </div>
+                        <!--end::Input PrintLine2 group-->
+
+                        <!--begin::Input PrintLine3 group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintLine3">
+                                <span>PrintLine3 </span> <span class="text-danger">*</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
+                            </label>
+                            <!--end::Label-->
+                            <textarea class="form-control form-control-solid" asp-for="PrintLine3" placeholder="Enter PrintLine3 " autocomplete="off">
+                            </textarea>
+                            <span class="text-danger" asp-validation-for="PrintLine3"></span>
+                        </div>
+                        <!--end::Input PrintLine3 group-->
+
+                        <!--begin::Input ReportHeaderName group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ReportHeaderName">
+                                <span>ReportHeaderName </span> <span class="text-danger">*</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
+                            </label>
+                            <!--end::Label-->
+                            <input type="text" class="form-control form-control-solid" asp-for="ReportHeaderName" placeholder="Enter ReportHeaderName " autocomplete="off" />
+                            <span class="text-danger" asp-validation-for="ReportHeaderName"></span>
+                        </div>
+                        <!--end::Input ReportHeaderName group-->
+
+                        <!--begin::Input FooterName group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="FooterName">
+                                <span>FooterName </span> <span class="text-danger">*</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
+                            </label>
+                            <!--end::Label-->
+                            <input type="text" class="form-control form-control-solid" asp-for="FooterName" placeholder="Enter FooterName " autocomplete="off" />
+                            <span class="text-danger" asp-validation-for="FooterName"></span>
+                        </div>
+                        <!--end::Input FooterName group-->
+
+
+                       
+                        <!--begin::Actions-->
+                        <div>
+                            <button type="submit" class="btn btn-primary" style="margin-right:5px;">
+                                <span class="indicator-label">Submit</span>
+                            </button>
+                            <a type="submit" class="btn btn-light me-3" asp-area="MST_Hospital" asp-controller="MST_Hospital" asp-action="Index">
+                                Back to List
+                            </a>
+                        </div>
+                        <!--end::Actions-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end::Content container-->
+</div>
+<!--end::Content-->
+
