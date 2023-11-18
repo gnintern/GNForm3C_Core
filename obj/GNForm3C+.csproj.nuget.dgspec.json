@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\GNForm3C+.csproj": {}
+    "D:\\Sagar\\GNForm3C_Core\\GNForm3C+.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\GNForm3C+.csproj": {
+    "D:\\Sagar\\GNForm3C_Core\\GNForm3C+.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\GNForm3C+.csproj",
+        "projectUniqueName": "D:\\Sagar\\GNForm3C_Core\\GNForm3C+.csproj",
         "projectName": "GNForm3C+",
-        "projectPath": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\GNForm3C+.csproj",
+        "projectPath": "D:\\Sagar\\GNForm3C_Core\\GNForm3C+.csproj",
         "packagesPath": "C:\\Users\\mayur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\obj\\",
+        "outputPath": "D:\\Sagar\\GNForm3C_Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mayur\\AppData\\Roaming\\NuGet\\NuGet.Config",
