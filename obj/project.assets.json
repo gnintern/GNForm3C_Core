@@ -10226,19 +10226,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Shree\\.nuget\\packages\\": {}
+    "C:\\Users\\mayur\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Office\\GNForm3C_Core\\GNForm3C+.csproj",
+      "projectUniqueName": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\GNForm3C+.csproj",
       "projectName": "GNForm3C+",
-      "projectPath": "D:\\Office\\GNForm3C_Core\\GNForm3C+.csproj",
-      "packagesPath": "C:\\Users\\Shree\\.nuget\\packages\\",
-      "outputPath": "D:\\Office\\GNForm3C_Core\\obj\\",
+      "projectPath": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\GNForm3C+.csproj",
+      "packagesPath": "C:\\Users\\mayur\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Shree\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mayur\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10300,7 +10300,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
