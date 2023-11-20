@@ -13,4 +13,10 @@
         public string ReportHeaderName { get; set; }
 
     }
+
+    public class HospitalDropDowmModel
+    {
+        public int? HospitalID { get; set; }
+        public string? Hospital { get; set; }
+    }
 }

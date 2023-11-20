@@ -35,9 +35,17 @@
         </div>
         <!--end::Page title-->
         <!--begin::Actions-->
-        <div class="d-flex align-items-center gap-2 gap-lg-3">
+        <div class="d-flex align-items-center fw-bold">
             <!--begin::Secondary button-->
-            <a class="btn btn-primary" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Add">Add User</a>
+            <a class="btn btn-sm btn-primary" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Add">
+                @* <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg>  *@
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                </svg>
+                <span class="fs-3 fw-bold">Add User</span>
+            </a>
             <!--end::Secondary button-->
             <!--begin::Primary button-->
             <!--end::Primary button-->
@@ -86,10 +94,30 @@
     <div id="kt_app_content_container" class="app-container container-fluid">
         <!--begin::Card-->
         <div class="card">
-            <div class="card-toolbar mx-8 mx-md-8">
-                <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+            <!--begin::Card header-->
+            <div class="card-header border-0">
+                <!--begin::Card toolbar-->
+                <div class="card-toolbar">
+                    <!--begin::Toolbar-->
+                    <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+                        <!--begin::Title-->
+                        <span>
+                            <h3 class="fs-x text-dark mt-5 mt-md-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list-nested" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z" />
+                                </svg>
+                                USER LIST
+                            </h3>
+                        </span>
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Toolbar-->
+                </div>
+                <!--end::Card toolbar-->
+                <!--begin::Card title-->
+                <div class="card-title">
                     <!--begin::Search-->
-                    <div class="d-flex align-items-center position-relative mt-5 mt-md-5">
+                    <div class="d-flex align-items-center position-relative">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
                         <span class="svg-icon svg-icon-1 position-absolute ms-6">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,44 +130,48 @@
                     </div>
                     <!--end::Search-->
                 </div>
-                <hr />
+                <!--begin::Card title-->
             </div>
+            <!--end::Card header-->
+
+
 
             <!--begin::Card body-->
             <div class="card-body pt-0">
+                <hr />
                 <!--begin::Table-->
-                <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
+                <table class="table align-middle table-row-dashed fs-6 gy-3" id="kt_customers_table">
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
-                            <th class="w-10px pe-2">
-                                <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                    <input class="form-check-input " type="checkbox" data-kt-check="true" data-kt-check-target="#kt_customers_table .form-check-input" value="1" />
-                                </div>
-                            </th>
                             <th>User Name</th>
-                            <th>Modified</th>
                             <th>Hospital</th>
-                            <th class="text-center">Action</th>
+                            <th>IsActive</th>
+                            <th>Created</th>
+                            <th>Modified</th>
+                            <th class="text-center" style="visibility:hidden;">Action</th>
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-dark-600 font-weight-normal">
                         @foreach (SEC_UserModel dr in ViewBag.UserList)
                         {
                             <tr>
-                                <!--begin::Checkbox-->
-                                <td>
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" id="SelectOne" name="SelectOne" value="@dr.UserID" />
-                                    </div>
-                                </td>
-                                <!--end::Checkbox-->
-
                                 <td>@dr.UserName</td>
-
-                                <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
                                 <td>@dr.Hospital</td>
-                                <td class="text-center">
+                                <td>
+                                    @if (dr.IsActive == true)
+                                    {
+                                        <h1 class="badge badge-light-success badge-circle fw-normal fs-6">Yes</h1>
+
+                                    }
+                                    else
+                                    {
+                                        <h1 class="badge badge-light-danger badge-circle fw-normal fs-6">No</h1>
+                                    }
+                                </td>
+                                <td>@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
+                                <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
+                                <td class="text-center" style="visibility:hidden;">
                                     <a class="text-decoration-none  text-primary edit-button"
                                        style="margin-right: 8px;" data-bs-toggle="tooltip"
                                        data-bs-placement="left" data-bs-title="Edit"

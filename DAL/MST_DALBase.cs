@@ -9,14 +9,31 @@ namespace GNForm3C_.DAL
     public class MST_DALBase : DAL_Helper
     {
         #region SEC_User
+
         #region PR_SEC_User_SelectAll
-        public DataTable PR_SEC_User_SelectAll()
+        public DataTable PR_SEC_User_SelectAll(SEC_UserModel modelSEC_User)
         {
             try
             {
                 SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
                 DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_User_SelectAll");
                 DataTable dt = new DataTable();
+
+                if (modelSEC_User.HospitalID != null || modelSEC_User.UserName != null)
+                {
+                    dbCMD = sqldb.GetStoredProcCommand("PR_User_SelectByUserNameHospital");
+                    if (modelSEC_User.HospitalID != null)
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelSEC_User.HospitalID);
+                    else
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
+
+                    if (modelSEC_User.UserName != null)
+                        sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
+                    else
+                        sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, DBNull.Value);
+                }
+
+
                 using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
                 {
                     dt.Load(dr);
@@ -30,7 +47,7 @@ namespace GNForm3C_.DAL
         }
         #endregion
 
-        #region Delete
+        #region PR_User_Delete
         public bool? PR_User_Delete(int UserID)
         {
             try
@@ -52,7 +69,6 @@ namespace GNForm3C_.DAL
             }
         }
         #endregion
-
 
         #region PR_User_SelectPK
         public DataTable PR_User_SelectPK(int? UserID)
@@ -89,6 +105,9 @@ namespace GNForm3C_.DAL
                 sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
                 sqldb.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, modelSEC_User.Password);
                 sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelSEC_User.HospitalID);
+                sqldb.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, modelSEC_User.IsActive);
+                sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 
                 int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
 
@@ -113,7 +132,10 @@ namespace GNForm3C_.DAL
                 sqldb.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
                 sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
                 sqldb.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, modelSEC_User.Password);
-                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, 1);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelSEC_User.HospitalID);
+                sqldb.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, modelSEC_User.IsActive);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.NVarChar, DBNull.Value);
+
 
                 int result = sqldb.ExecuteNonQuery(dbCMD);
                 //return (result == -1 ? false : true);
@@ -126,8 +148,8 @@ namespace GNForm3C_.DAL
             }
         }
 
-
         #endregion
+
         #endregion
 
         #region MST_Hospital
@@ -258,6 +280,27 @@ namespace GNForm3C_.DAL
         }
 
 
+        #endregion
+
+        #region PR_Hospital_SelectComboBox
+        public DataTable PR_Hospital_SelectComboBox()
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Hospital_SelectComboBox");
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         #endregion
         #endregion
     }

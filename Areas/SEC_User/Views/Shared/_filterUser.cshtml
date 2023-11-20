@@ -1,37 +1,37 @@
-﻿
+﻿@model GNForm3C_.Areas.SEC_User.Models.SEC_UserModel
 <form method="post">
-	<div class="d-flex row">
+    <div class="d-flex row">
 
-		<!--begin::Input group-->
-		<div class="row mb-8">
-			<!--begin::Col-->
-			<div class="col-6 col-md-6 fv-row">
-				<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" @* asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName"))" *@>
-					<option value="">Select Hospital</option>
-				</select>
-			</div>
-			<!--end::Col-->
-			<!--begin::Col-->
-			<div class="col-6 col-md-6 fv-row">
-				<!--begin::Input-->
-				<input type="search" class="form-control form-control-solid"
-					   name="UserName" placeholder="Enter User Name"
-					   autocomplete="off" />
-				<!--end::Input-->
-			</div>
-			<!--end::Col-->
-		</div>
-		<!--end::Input group-->
+        <!--begin::Input group-->
+        <div class="row mb-8">
+            <!--begin::Col-->
+            <div class="col-6 col-md-6 fv-row">
+                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+                    <option value="">Select Hospital</option>
+                </select>
+            </div>
+            <!--end::Col-->
+            <!--begin::Col-->
+            <div class="col-6 col-md-6 fv-row">
+                <!--begin::Input-->
+                <input type="search" class="form-control form-control-solid"
+                       name="UserName" asp-for="UserName" placeholder="Enter User Name"
+                       autocomplete="off" />
+                <!--end::Input-->
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
 
-		<div class="col-lg-4">
-			<button type="submit" class="btn btn-primary"
-					style="margin-right:15px;" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Index">
-				<span class="indicator-label">Search</span>
-			</button>
-			<a type="submit" class="btn btn-light me-3"
-			   asp-area="SEC_User" asp-controller="SEC_User" asp-action="Clear">
-				Clear
-			</a>
-		</div>
-	</div>
+        <div class="col-lg-4">
+            <button type="submit" class="btn btn-primary"
+                    style="margin-right:15px;" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Index">
+                <span class="indicator-label">Search</span>
+            </button>
+            <a type="submit" class="btn btn-light me-3"
+               asp-area="SEC_User" asp-controller="SEC_User" asp-action="Clear">
+                Clear
+            </a>
+        </div>
+    </div>
 </form>

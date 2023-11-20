@@ -65,14 +65,33 @@
         <div class="card-body p-5 px-lg-10 py-lg-7">
             <div>
                 <form method="post" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Save">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
                  @Html.HiddenFor(x=>x.UserID)
+
+                        <!--begin::Input group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="HospitalID">
+                                <span class="text-danger">*</span>Hospital Name 
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select hospital"></i>
+                            </label>
+                            <!--end::Label-->
+                            <div class="col-12 col-md-12 fv-row">
+                                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+                                    <option value="">Select Hospital</option>
+                                </select>
+                            </div>
+                            <span class="text-danger" asp-validation-for="HospitalID"></span>
+                        </div>
+                        <!--end::Input group-->
+
+
 
                     <!--begin::Input group-->
                     <div class="d-flex flex-column mb-8 fv-row">
                         <!--begin::Label-->
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="UserName">
-                            <span>User Name </span> <span class="text-danger">*</span>
+                                <span class="text-danger">*</span>User Name
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique user name"></i>
                         </label>
                         <!--end::Label-->
@@ -80,12 +99,16 @@
                         <span class="text-danger" asp-validation-for="UserName"></span>
                     </div>
                     <!--end::Input group-->
+
+                        
+
                     <!--begin::Input group-->
                     <div class="row">
                         <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Password">
-                                <span>Password </span> <span class="text-danger">*</span>
+                                    <span class="text-danger">*</span>Password
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique user name"></i>
                             </label>
                             <!--end::Label-->
                             <!--begin::Wrapper-->
@@ -93,6 +116,8 @@
                                 <!--begin::Input wrapper-->
                                 <div class="position-relative mb-3">
                                         <input class="form-control form-control-solid" type="password" asp-for="Password" placeholder="Password" autocomplete=" off" />
+                                        <span class="text-danger" asp-validation-for="Password"></span>
+
                                     <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
                                         <i class="bi bi-eye-slash fs-2"></i>
                                         <i class="bi bi-eye fs-2 d-none"></i>
@@ -117,18 +142,22 @@
                         <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ConfirmPassword">
-                                <span>Re-Enter Password </span> <span class="text-danger">*</span>
+                                    <span class="text-danger">*</span>Confirm Password
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique user name"></i>
+
                             </label>
                             <!--end::Label-->
                             <!--begin::Wrapper-->
                             <div class="mb-1">
                                 <!--begin::Input wrapper-->
                                 <div class="position-relative mb-3">
-                                        <input class="form-control form-control-solid" type="password" placeholder="Re-Enter Password" asp-for="ConfirmPassword" autocomplete=" off" />
+                                        <input class="form-control form-control-solid" type="password" placeholder="Confirm Password" asp-for="ConfirmPassword" autocomplete=" off" />
                                     <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
                                         <i class="bi bi-eye-slash fs-2"></i>
                                         <i class="bi bi-eye fs-2 d-none"></i>
                                     </span>
+                                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+
                                 </div>
                                 <!--end::Input wrapper-->
                                 <!--begin::Meter-->
@@ -139,6 +168,7 @@
                                     <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
                                 </div>
                                 <!--end::Meter-->
+             
                             </div>
                             <!--end::Wrapper-->
                             <!--begin::Hint-->
@@ -147,6 +177,16 @@
                         </div>
                     </div>
                     <!--end::Input group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2"><span class="text-danger">*</span>IsActive
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique user name"></i>
+                            </label>
+                            <div class="mt-2">
+                                <span class="m-3"><input type="radio" value="true" asp-for="IsActive" checked /> Yes</span>
+                                <span class="m-3"><input type="radio" value="false" asp-for="IsActive" /> No</span>
+                            </div>
+                            <span class="text-danger" asp-validation-for="IsActive"></span>
+                        </div>
                     <!--begin::Actions-->
                     <div>
                         <button type="submit" class="btn btn-primary" style="margin-right:5px;">
@@ -165,3 +205,10 @@
 <!--end::Content container-->
 </div>
 <!--end::Content-->
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

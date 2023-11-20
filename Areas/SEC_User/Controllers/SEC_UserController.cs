@@ -14,20 +14,23 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
         MST_DAL dalMST = new MST_DAL();
 
         #region Function: SelectAll
-        public IActionResult Index()
+        public IActionResult Index(SEC_UserModel modelSEC_User)
         {
-            DataTable dt = dalMST.PR_SEC_User_SelectAll();
+            ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
 
+            DataTable dt = dalMST.PR_SEC_User_SelectAll(modelSEC_User);
             #region Fill the record into List
             List<SEC_UserModel> Users = new List<SEC_UserModel>();
             foreach (DataRow dr in dt.Rows)
             {
-                SEC_UserModel modelSEC_User = new SEC_UserModel();
-                modelSEC_User.UserID = Convert.ToInt32(dr["UserID"]);
-                modelSEC_User.UserName = dr["UserName"].ToString();
-                modelSEC_User.Hospital = dr["Hospital"].ToString();
-                modelSEC_User.Modified = Convert.ToDateTime(dr["Modified"]);
-                Users.Add(modelSEC_User);
+                SEC_UserModel UserModel = new SEC_UserModel();
+                UserModel.UserID = Convert.ToInt32(dr["UserID"]);
+                UserModel.UserName = dr["UserName"].ToString();
+                UserModel.Hospital = dr["Hospital"].ToString();
+                UserModel.IsActive = Convert.ToBoolean(dr["IsActive"]);
+                UserModel.Created = Convert.ToDateTime(dr["Created"]);
+                UserModel.Modified = Convert.ToDateTime(dr["Modified"]);
+                Users.Add(UserModel);
             }
             ViewBag.UserList = Users;
             #endregion
@@ -67,6 +70,9 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
                 TempData["Action"] = "Add";
                 #endregion
 
+
+                ViewBag.HospitalDropDown =CommonFillMethod.SelectDropDownListForHospital().ToList();
+
                 if (UserID != null)
                 {
                     #region Form Title
@@ -78,7 +84,7 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
                     int id = decryptedID.Value;
                     #endregion
 
-                    #region Update record
+                    #region PR_User_SelectPK record
                     DataTable dt = dalMST.PR_User_SelectPK(id);
                     SEC_UserModel modelSEC_User = new SEC_UserModel();
                     foreach (DataRow dr in dt.Rows)
@@ -86,6 +92,8 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
                         modelSEC_User.UserID = Convert.ToInt32(dr["UserID"].ToString());
                         modelSEC_User.UserName = dr["UserName"].ToString();
                         modelSEC_User.Password = dr["Password"].ToString();
+                        modelSEC_User.HospitalID = Convert.ToInt32(dr["HospitalID"]);
+                        modelSEC_User.IsActive = Convert.ToBoolean(dr["IsActive"]);
                     }
                     #endregion
 
@@ -149,5 +157,19 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 
         #endregion
 
+
+        #region Function: Clear Search Result
+        public IActionResult Clear()
+        {
+            return RedirectToAction("Index");
+        }
+        #endregion
+
+        #region Login
+        public IActionResult Login()
+        {
+            return View();
+        }
+        #endregion
     }
 }
