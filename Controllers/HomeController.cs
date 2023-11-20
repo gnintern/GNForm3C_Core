@@ -1,10 +1,12 @@
-﻿using GNForm3C_.Models;
+﻿using GNForm3C_.BAL;
+using GNForm3C_.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace GNForm3C_.Controllers
 {
-    public class HomeController : Controller
+	[CheckAccess]
+	public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 

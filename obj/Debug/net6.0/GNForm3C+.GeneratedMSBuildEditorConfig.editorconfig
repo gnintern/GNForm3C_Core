@@ -16,12 +16,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\mayur\source\repos\GNForm3C_Core
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/MST_FinYear/MST_FinYearAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0ZpblllYXJcVmlld3NcTVNUX0ZpblllYXJcTVNUX0ZpblllYXJBZGRFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/MST_FinYear/MST_FinYearList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0ZpblllYXJcVmlld3NcTVNUX0ZpblllYXJcTVNUX0ZpblllYXJMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/Shared/_filterFinYear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0ZpblllYXJcVmlld3NcU2hhcmVkXF9maWx0ZXJGaW5ZZWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0ZpblllYXJcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Hospital/Views/MST_Hospital/MST_HospitalAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0hvc3BpdGFsXFZpZXdzXE1TVF9Ib3NwaXRhbFxNU1RfSG9zcGl0YWxBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Hospital/Views/MST_Hospital/MST_HospitalList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0hvc3BpdGFsXFZpZXdzXE1TVF9Ib3NwaXRhbFxNU1RfSG9zcGl0YWxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Hospital/Views/Shared/_filterHospital.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0hvc3BpdGFsXFZpZXdzXFNoYXJlZFxfZmlsdGVySG9zcGl0YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Hospital/Views/_ViewImports.cshtml]

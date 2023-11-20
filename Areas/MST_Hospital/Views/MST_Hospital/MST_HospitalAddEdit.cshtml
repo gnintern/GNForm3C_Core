@@ -1,10 +1,55 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "MST_HospitalAddEdit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model GNForm3C_.Areas.MST_Hospital.Models.MST_HospitalModel;
+
+<!--begin::Toolbar-->
+<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+    <!--begin::Toolbar container-->
+    <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+        <!--begin::Page title-->
+        <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+            <!--begin::Title-->
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Hospital</h1>
+            <!--end::Title-->
+            <!--begin::Breadcrumb-->
+            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">
+                    <a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary">Home</a>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item">
+                    <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">
+                    <a asp-area="MST_Hospital" asp-controller="MST_Hospital" asp-action="Index" class="text-muted text-hover-primary">Hospitals</a>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item">
+                    <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">@TempData["Action"] Hospital</li>
+                <!--end::Item-->
+            </ul>
+            <!--end::Breadcrumb-->
+        </div>
+        <!--end::Page title-->
+
+
+
+    </div>
+    <!--end::Toolbar container-->
+</div>
+<!--end::Toolbar-->
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
@@ -13,67 +58,63 @@
             <div class="card-body p-5 px-lg-10 py-lg-7">
                 <div>
                     <form method="post" asp-area="MST_Hospital" asp-controller="MST_Hospital" asp-action="Save">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div asp-validation-summary="All" class="text-danger"></div>
                         @Html.HiddenFor(x=>x.HospitalID)
 
                         <!--begin::Input Hospital group-->
                         <div class="d-flex flex-column mb-8 fv-row">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Hospital">
-                                <span>Hospital Name </span> <span class="text-danger">*</span>
-                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
+                                <span class="text-danger">*</span>Hospital Name
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
                             </label>
                             <!--end::Label-->
                             <input type="text" class="form-control form-control-solid" asp-for="Hospital" placeholder="Enter Hospital Name" autocomplete="off" />
                             <span class="text-danger" asp-validation-for="Hospital"></span>
                         </div>
                         <!--end::Input Hospital group-->
-
                         <!--begin::Input PrintName group-->
                         <div class="d-flex flex-column mb-8 fv-row">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintName">
-                                <span>PrintName </span> <span class="text-danger">*</span>
-                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
+                                <span class="text-danger">*</span>Print Name
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
                             </label>
                             <!--end::Label-->
                             <textarea class="form-control form-control-solid" asp-for="PrintName" placeholder="Enter PrintName" autocomplete="off"></textarea>
                             <span class="text-danger" asp-validation-for="PrintName"></span>
                         </div>
                         <!--end::Input PrintName group-->
-
                         <!--begin::Input PrintLine1 group-->
                         <div class="d-flex flex-column mb-8 fv-row">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintLine1">
-                                <span>PrintLine1 </span> <span class="text-danger">*</span>
-                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
+                                <span class="text-danger">*</span>Print Line-1
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
                             </label>
                             <!--end::Label-->
                             <textarea class="form-control form-control-solid" asp-for="PrintLine1" placeholder="Enter PrintLine1" autocomplete="off"></textarea>
                             <span class="text-danger" asp-validation-for="PrintLine1"></span>
                         </div>
                         <!--end::Input PrintLine1 group-->
-
                         <!--begin::Input PrintLine2 group-->
                         <div class="d-flex flex-column mb-8 fv-row">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintLine2">
-                                <span>PrintLine2 </span> <span class="text-danger">*</span>
+                                <span class="text-danger">*</span>Print Line-2
                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
                             </label>
                             <!--end::Label-->
-                            <textarea class="form-control form-control-solid" asp-for="PrintLine2" placeholder="Enter PrintLine2 " autocomplete="off" >
+                            <textarea class="form-control form-control-solid" asp-for="PrintLine2" placeholder="Enter PrintLine2 " autocomplete="off">
                                 </textarea>
                             <span class="text-danger" asp-validation-for="PrintLine2"></span>
                         </div>
                         <!--end::Input PrintLine2 group-->
-
                         <!--begin::Input PrintLine3 group-->
                         <div class="d-flex flex-column mb-8 fv-row">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintLine3">
-                                <span>PrintLine3 </span> <span class="text-danger">*</span>
+                                <span class="text-danger">*</span>Print Line-3
                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
                             </label>
                             <!--end::Label-->
@@ -82,12 +123,11 @@
                             <span class="text-danger" asp-validation-for="PrintLine3"></span>
                         </div>
                         <!--end::Input PrintLine3 group-->
-
                         <!--begin::Input ReportHeaderName group-->
                         <div class="d-flex flex-column mb-8 fv-row">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ReportHeaderName">
-                                <span>ReportHeaderName </span> <span class="text-danger">*</span>
+                                <span class="text-danger">*</span>Report Header Name
                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
                             </label>
                             <!--end::Label-->
@@ -95,12 +135,11 @@
                             <span class="text-danger" asp-validation-for="ReportHeaderName"></span>
                         </div>
                         <!--end::Input ReportHeaderName group-->
-
                         <!--begin::Input FooterName group-->
                         <div class="d-flex flex-column mb-8 fv-row">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="FooterName">
-                                <span>FooterName </span> <span class="text-danger">*</span>
+                                <span class="text-danger">*</span>Footer Name
                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"></i>
                             </label>
                             <!--end::Label-->
@@ -108,9 +147,6 @@
                             <span class="text-danger" asp-validation-for="FooterName"></span>
                         </div>
                         <!--end::Input FooterName group-->
-
-
-                       
                         <!--begin::Actions-->
                         <div>
                             <button type="submit" class="btn btn-primary" style="margin-right:5px;">
@@ -129,4 +165,8 @@
     <!--end::Content container-->
 </div>
 <!--end::Content-->
-
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

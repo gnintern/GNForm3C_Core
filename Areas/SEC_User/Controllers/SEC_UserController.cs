@@ -12,9 +12,10 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
     public class SEC_UserController : Controller
     {
         MST_DAL dalMST = new MST_DAL();
+		SEC_DAL dalSEC = new SEC_DAL();
 
-        #region Function: SelectAll
-        public IActionResult Index(SEC_UserModel modelSEC_User)
+		#region Function: SelectAll
+		public IActionResult Index(SEC_UserModel modelSEC_User)
         {
             ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
 
@@ -157,19 +158,75 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 
         #endregion
 
-
-        #region Function: Clear Search Result
-        public IActionResult Clear()
+		#region Function: Login
+		public IActionResult Login()
         {
-            return RedirectToAction("Index");
-        }
-        #endregion
+			ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
+			ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
 
-        #region Login
-        public IActionResult Login()
-        {
-            return View();
+			return View();
         }
-        #endregion
-    }
+		#endregion
+
+		#region Function: SignIn
+		[HttpPost]
+		public IActionResult SignIn(SEC_UserModel modelSEC_User)
+		{
+			string error1 = null;
+			string error2 = null;
+			if(modelSEC_User.UserName == null)
+			{
+				error1 += "User Name is required";
+			}
+			if(modelSEC_User.Password == null)
+			{
+				error2 += "Password is required";
+			}
+
+			if(error1 != null && error2 != null)
+			{
+				TempData["UserName"] = error1;
+				TempData["Password"] = error2;
+				return RedirectToAction("Login");
+			}
+			else
+			{
+				DataTable dt = dalSEC.PR_SEC_User_SelectByUserNamePassword(modelSEC_User.UserName, modelSEC_User.Password);
+				if(dt.Rows.Count > 0)
+				{
+					foreach(DataRow dr in dt.Rows)
+					{
+						HttpContext.Session.SetString("UserID", dr["UserID"].ToString());
+						HttpContext.Session.SetString("UserName", dr["UserName"].ToString());
+						HttpContext.Session.SetString("Password", dr["Password"].ToString());
+						HttpContext.Session.SetString("HospitalID", dr["HospitalID"].ToString());
+						HttpContext.Session.SetString("Password", dr["Password"].ToString());
+
+						break;
+					}
+				}
+				else
+				{
+					TempData["Error"] = "User Name or Password is invalid!";
+					return RedirectToAction("Login");
+				}
+				if(HttpContext.Session.GetString("UserName") != null && HttpContext.Session.GetString("Password") != null)
+				{
+					TempData["success"] = "Sign in Successfully ! ";
+
+					return RedirectToAction("Index", "Home");
+				}
+			}
+			return RedirectToAction("Login");
+		}
+		#endregion
+
+		#region Function: Logout
+		public IActionResult Logout()
+		{
+			HttpContext.Session.Clear();
+			return RedirectToAction("Login");
+		}
+		#endregion
+	}
 }

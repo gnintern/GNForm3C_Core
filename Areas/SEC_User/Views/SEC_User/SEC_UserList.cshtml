@@ -39,7 +39,7 @@
             <!--begin::Secondary button-->
             <a class="btn btn-sm btn-primary" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Add">
                 @* <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                 </svg>  *@
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
@@ -88,6 +88,7 @@
         </div>
     </div>
 </div>
+<!--end::Content-->
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
@@ -126,16 +127,13 @@
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
-                        <input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Users" />
+                        <input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Users" id="myInput" "    />
                     </div>
                     <!--end::Search-->
                 </div>
                 <!--begin::Card title-->
             </div>
             <!--end::Card header-->
-
-
-
             <!--begin::Card body-->
             <div class="card-body pt-0">
                 <hr />
@@ -152,14 +150,14 @@
                             <th class="text-center" style="visibility:hidden;">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="fw-semibold text-dark-600 font-weight-normal">
-                        @foreach (SEC_UserModel dr in ViewBag.UserList)
+                    <tbody class="fw-semibold text-dark-600 font-weight-normal" id="myTable">
+                        @foreach(SEC_UserModel dr in ViewBag.UserList)
                         {
                             <tr>
                                 <td>@dr.UserName</td>
                                 <td>@dr.Hospital</td>
                                 <td>
-                                    @if (dr.IsActive == true)
+                                    @if(dr.IsActive == true)
                                     {
                                         <h1 class="badge badge-light-success badge-circle fw-normal fs-6">Yes</h1>
 
@@ -172,8 +170,8 @@
                                 <td>@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
                                 <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
                                 <td class="text-center" style="visibility:hidden;">
-                                    <a class="text-decoration-none  text-primary edit-button"
-                                       style="margin-right: 8px;" data-bs-toggle="tooltip"
+                                    <a class="text-decoration-none text-primary edit-button"
+                                       data-bs-toggle="tooltip"
                                        data-bs-placement="left" data-bs-title="Edit"
                                        asp-area="SEC_User" asp-controller="SEC_User" asp-action="Add" asp-route-UserID="@CommonFunctions.EncryptBase64(dr.UserID.ToString())">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20"
@@ -209,3 +207,15 @@
     <!--end::Content container-->
 </div>
 <!--end::Content-->
+                        @section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+}

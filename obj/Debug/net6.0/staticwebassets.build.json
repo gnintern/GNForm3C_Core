@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oQHbKyS/HAIdIesWwXzF1gN/wPXauMaU7Hn2RTvpDYo=",
+  "Hash": "Ib+aY44aDQXE3VIXqzXayNBhA1GEv9O5njjnsqyhVS4=",
   "Source": "GNForm3C+",
   "BasePath": "_content/GNForm3C+",
   "Mode": "Default",
@@ -20859,6 +20859,23 @@
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\logos\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\logos\\GNForm3CFull.png",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/logos/GNForm3CFull.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\logos\\GNForm3CFull.png"
+    },
+    {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\logos\\GNForm3CPlus_Logo.png",
       "SourceId": "GNForm3C+",
       "SourceType": "Discovered",
@@ -20925,6 +20942,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\logos\\GNWebsoft_NameLogo.png"
+    },
+    {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\logos\\GNWebSoftFull.png",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/logos/GNWebSoftFull.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\logos\\GNWebSoftFull.png"
     },
     {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\logos\\landing.svg",

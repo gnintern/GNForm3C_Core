@@ -1,0 +1,158 @@
+﻿@{
+    ViewData["Title"] = "MST_FinYearAddEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model GNForm3C_.Areas.MST_FinYear.Models.MST_FinYearModel;
+
+
+<!--begin::Toolbar-->
+<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+    <!--begin::Toolbar container-->
+    <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+        <!--begin::Page title-->
+        <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+            <!--begin::Title-->
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">FinYear</h1>
+            <!--end::Title-->
+            <!--begin::Breadcrumb-->
+            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">
+                    <a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary">Home</a>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item">
+                    <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">
+                    <a asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Index" class="text-muted text-hover-primary">FinYear</a>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item">
+                    <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">@TempData["Action"] FinYear</li>
+                <!--end::Item-->
+            </ul>
+            <!--end::Breadcrumb-->
+        </div>
+        <!--end::Page title-->
+
+
+
+    </div>
+    <!--end::Toolbar container-->
+</div>
+<!--end::Toolbar-->
+<!--begin::Content-->
+<div id="kt_app_content" class="app-content flex-column-fluid">
+    <!--begin::Content container-->
+    <div id="kt_app_content_container" class="app-container container-fluid">
+        <div class="card">
+            <div class="card-body p-5 px-lg-10 py-lg-7">
+                <div>
+                    <form method="post" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Save">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+
+                        <!--begin::Input group-->
+                        <div class="row row-cols-lg-2 g-10">
+                            <div class="col">
+                                <div class="fv-row mb-9">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="FromDate">
+                                        <span class="text-danger">*</span>From Date
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select From Date"></i>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="date" class="form-control form-control-solid" asp-for="FromDate" />
+                                    <span class="text-danger" asp-validation-for="FromDate"></span>
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                            <div class="col" data-kt-calendar="datepicker">
+                                <div class="fv-row mb-9">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ToDate">
+                                        <span class="text-danger">*</span>To Date
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select To Date"></i>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="date" class="form-control form-control-solid" asp-for="ToDate" />
+                                    <span class="text-danger" asp-validation-for="ToDate"></span>
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Input group-->
+                        <div class="row row-cols-lg-2 g-10">
+                            <div class="col">
+                                <div class="fv-row mb-9">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="FinYearName">
+                                        <span class="text-danger">*</span>Fin Year Name
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select From Date"></i>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input class="form-control form-control-solid" asp-for="FinYearName" readonly />
+                                    <span class="text-danger" asp-validation-for="FinYearName"></span>
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--begin::Actions-->
+                        <div>
+                            <button type="submit" class="btn btn-primary" style="margin-right:5px;">
+                                <span class="indicator-label">Submit</span>
+                            </button>
+                            <a type="submit" class="btn btn-light me-3" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Index">
+                                Back to List
+                            </a>
+                        </div>
+                        <!--end::Actions-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end::Content container-->
+</div>
+<!--end::Content-->
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $("#fromDate, #toDate").change(function () {
+                var fromDate = new Date($("#fromDate").val());
+                var toDate = new Date($("#toDate").val());
+
+                if (fromDate > toDate) {
+                    alert("Invalid date range. From Date cannot be greater than To Date.");
+                    $("#finYearName").val("");
+                    return;
+                }
+
+                var financialYearStart = fromDate.getFullYear();
+                var financialYearEnd = toDate.getFullYear();
+
+                if (toDate.getMonth() < 4) {
+                    financialYearEnd--;
+                }
+
+                var financialYearName = financialYearStart + "-" + financialYearEnd;
+                $("#finYearName").val(financialYearName);
+            });
+        });
+    </script>
+}

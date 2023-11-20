@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace MetronicAddressBook.BAL
+namespace GNForm3C_.BAL
 {
     public class CheckAccess : ActionFilterAttribute, IAuthorizationFilter
     {
@@ -15,7 +15,7 @@ namespace MetronicAddressBook.BAL
 
             if (filterContext.HttpContext.Session.GetString("UserID") == null)
             {
-                filterContext.Result = new RedirectResult("~/SEC_User/Index");
+                filterContext.Result = new RedirectResult("~/SEC_User/Login");
             }
         }
 		#endregion

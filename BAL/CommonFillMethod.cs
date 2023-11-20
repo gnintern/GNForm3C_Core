@@ -1,4 +1,5 @@
-﻿using GNForm3C_.Areas.MST_Hospital.Models;
+﻿using GNForm3C_.Areas.MST_FinYear.Models;
+using GNForm3C_.Areas.MST_Hospital.Models;
 using GNForm3C_.DAL;
 using System.Data;
 
@@ -10,7 +11,9 @@ namespace GNForm3C_.BAL
         {
             
         }
-        public static List<HospitalDropDowmModel> SelectDropDownListForHospital()
+
+		#region HospitalDropDown
+		public static List<HospitalDropDowmModel> SelectDropDownListForHospital()
         {
             MST_DAL dalMST = new MST_DAL();
             DataTable dt1 = dalMST.PR_Hospital_SelectComboBox();
@@ -24,5 +27,23 @@ namespace GNForm3C_.BAL
             }
             return Hospital;
         }
-    }
+		#endregion
+
+		#region FinYearDropDown
+		public static List<FinYearDropdownModel> SelectDropDownListForFinYear()
+		{
+			MST_DAL dalMST = new MST_DAL();
+			DataTable dt1 = dalMST.PR_FinYear_SelectComboBox();
+			List<FinYearDropdownModel> FinYear = new List<FinYearDropdownModel>();
+			foreach(DataRow dr1 in dt1.Rows)
+			{
+				FinYearDropdownModel dropDownModel = new FinYearDropdownModel();
+				dropDownModel.FinYearID = Convert.ToInt32(dr1["FinYearID"]);
+				dropDownModel.FinYearName = dr1["FinYearName"].ToString();
+				FinYear.Add(dropDownModel);
+			}
+			return FinYear;
+		}
+		#endregion
+	}
 }

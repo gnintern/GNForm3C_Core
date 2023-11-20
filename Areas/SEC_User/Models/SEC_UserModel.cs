@@ -1,11 +1,12 @@
-﻿using System.ComponentModel;
+﻿using GNForm3C_.Areas.MST_FinYear.Models;
+using GNForm3C_.Areas.MST_Hospital.Models;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace GNForm3C_.Areas.SEC_User.Models
 {
     public class SEC_UserModel
     {
-
         public int? UserID { get; set; }
         [Required]
         [DisplayName("User Name")]
@@ -23,5 +24,9 @@ namespace GNForm3C_.Areas.SEC_User.Models
         public bool IsActive { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
         public DateTime Modified { get; set; } = DateTime.Now;
+
+        public FinYearDropdownModel MST_FinYear {  get; set; }
+
+        public HospitalDropDowmModel MST_Hospital { get; set; }
     }
 }
