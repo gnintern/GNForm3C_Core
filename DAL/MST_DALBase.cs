@@ -1,4 +1,5 @@
-﻿using GNForm3C_.Areas.MST_FinYear.Models;
+﻿using GNForm3C_.Areas.MST_ExpenseType.Models;
+using GNForm3C_.Areas.MST_FinYear.Models;
 using GNForm3C_.Areas.MST_Hospital.Models;
 using GNForm3C_.Areas.SEC_User.Models;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
@@ -469,8 +470,140 @@ namespace GNForm3C_.DAL
 				return null;
 			}
 		}
-		#endregion
+        #endregion
 
-		#endregion
-	}
+        #endregion
+
+        #region ExpenseType
+
+        #region PR_ExpenseType_SelectAll
+        public DataTable PR_ExpenseType_SelectAll(MST_ExpenseTypeModel modelMST_ExpenseType)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_SelectAll");
+                DataTable dt = new DataTable();
+
+                if(modelMST_ExpenseType.ExpenseType != null)
+                {
+                    dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_SearchForExpenseType");
+
+                    if(modelMST_ExpenseType.ExpenseType != null)
+                        sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, modelMST_ExpenseType.ExpenseType);
+                    else
+                        sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, DBNull.Value);
+                }
+
+                using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_ExpenseType_Delete
+        public bool? PR_ExpenseType_Delete(int ExpenseTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_Delete");
+                sqldb.AddInParameter(dbCMD, "ExpenseTypeID", SqlDbType.Int, ExpenseTypeID);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_ExpenseType_Insert
+        public bool? PR_ExpenseType_Insert(MST_ExpenseTypeModel modelMST_ExpenseType)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_Insert");
+                sqldb.AddOutParameter(dbCMD, "ExpenseTypeID", SqlDbType.Int, 4);
+                sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, modelMST_ExpenseType.ExpenseType);
+                sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_ExpenseType.Remarks);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ExpenseType.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_ExpenseType_Update
+        public bool? PR_ExpenseType_Update(MST_ExpenseTypeModel modelMST_ExpenseType, int ExpenseTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_Update");
+                sqldb.AddOutParameter(dbCMD, "ExpenseTypeID", SqlDbType.Int, ExpenseTypeID);
+                sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, modelMST_ExpenseType.ExpenseType);
+                sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_ExpenseType.Remarks);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ExpenseType.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+
+                int result = sqldb.ExecuteNonQuery(dbCMD);
+                //return (result == -1 ? false : true);
+                return (result == -1 ? true : false);
+
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+
+        #endregion
+
+        #region PR_ExpenseType_SelectPK
+        public DataTable PR_ExpenseType_SelectPK(int? ExpenseTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_SelectPK");
+
+                sqldb.AddInParameter(dbCMD, "ExpenseTypeID", SqlDbType.Int, ExpenseTypeID);
+
+                DataTable dt = new DataTable();
+                using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #endregion
+    }
 }

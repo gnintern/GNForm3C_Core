@@ -15,9 +15,9 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
         MST_DAL dalMST = new MST_DAL();
 
         #region SelectAll
-        public IActionResult Index()
+        public IActionResult Index(MST_FinYearModel modelMST_FinYear)
         {
-            DataTable dt = dalMST.PR_FinYear_SelectAll();
+            DataTable dt = dalMST.PR_FinYear_SelectAll(modelMST_FinYear);
 
             #region Fill the record into List
             List<MST_FinYearModel> FinYear = new List<MST_FinYearModel>();
@@ -34,6 +34,7 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
             }
             ViewBag.FinYearList = FinYear;
             #endregion
+
             return View("MST_FinYearList");
         }
         #endregion
