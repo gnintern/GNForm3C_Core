@@ -45,7 +45,7 @@
                     <!--begin::Content wrapper-->
                     <div class="d-flex flex-column flex-column-fluid">
                         <main role="main" class="pb-3">
-                            <partial name="_Notification"/>
+                            <partial name="_Notification" />
                             @RenderBody()
                         </main>
                     </div>
@@ -89,6 +89,17 @@
     <script src="~/Theme/assets/js/custom/utilities/modals/new-target.js"></script>
     <script src="~/Theme/assets/js/custom/utilities/modals/users-search.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 
     <!--end::Custom Javascript-->
     <!--end::Javascript-->

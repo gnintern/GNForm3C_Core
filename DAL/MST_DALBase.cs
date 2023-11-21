@@ -561,7 +561,7 @@ namespace GNForm3C_.DAL
             {
                 SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
                 DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_Update");
-                sqldb.AddOutParameter(dbCMD, "ExpenseTypeID", SqlDbType.Int, ExpenseTypeID);
+                sqldb.AddInParameter(dbCMD, "ExpenseTypeID", SqlDbType.Int, ExpenseTypeID);
                 sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, modelMST_ExpenseType.ExpenseType);
                 sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_ExpenseType.Remarks);
                 sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ExpenseType.HospitalID);

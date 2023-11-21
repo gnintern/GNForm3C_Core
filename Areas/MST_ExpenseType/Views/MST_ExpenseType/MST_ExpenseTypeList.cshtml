@@ -1,7 +1,8 @@
 ﻿@using GNForm3C_.Areas.MST_ExpenseType.Models;
 @using GNForm3C_.BAL;
+
 @{
-    ViewData["Title"] = "MST_ExpenseList";
+    ViewData["Title"] = "MST_ExpenseTypeList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -38,7 +39,7 @@
             <!--begin::Secondary button-->
             <a class="btn btn-sm btn-primary" asp-area="MST_ExpenseType" asp-controller="MST_ExpenseType" asp-action="Add">
                 @* <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                 </svg>  *@
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
@@ -54,7 +55,6 @@
     <!--end::Toolbar container-->
 </div>
 <!--end::Toolbar-->
-
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
@@ -122,21 +122,18 @@
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
-                        <input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search ExpenseType" />
+                        <input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search ExpenseType" id="myInput" />
                     </div>
                     <!--end::Search-->
                 </div>
                 <!--begin::Card title-->
             </div>
             <!--end::Card header-->
-
-
-
             <!--begin::Card body-->
             <div class="card-body pt-0">
                 <hr />
                 <!--begin::Table-->
-                <table class="table align-middle table-row-dashed fs-6 gy-3" id="kt_customers_table">
+                <table class="table align-middle table-row-dashed fs-6 gy-3" id="myTable">
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
@@ -149,7 +146,7 @@
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-dark-600 font-weight-normal">
-                        @foreach (MST_ExpenseTypeModel dr in ViewBag.ExpenseTypeList)
+                        @foreach(MST_ExpenseTypeModel dr in ViewBag.ExpenseTypeList)
                         {
                             <tr>
                                 <td>@dr.ExpenseType</td>
@@ -157,30 +154,7 @@
                                 <td>@dr.Hospital</td>
                                 <td>@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
                                 <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
-                                @* <td class="text-center">
-                                    <a class="text-decoration-none  text-primary edit-button"
-                                       style="margin-right: 8px;" data-bs-toggle="tooltip"
-                                       data-bs-placement="left" data-bs-title="Edit"
-                                       asp-area="MST_ExpenseType" asp-controller="MST_ExpenseType" asp-action="Add" asp-route-ExpenseTypeID="@CommonFunctions.EncryptBase64(dr.ExpenseTypeID.ToString())">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                             height="20" fill="currentColor"
-                                             class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                            <path fill-rule="evenodd"
-                                                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                        </svg>
-                                    </a>
-                                    <a class="text-decoration-none text-danger"
-                                       data-bs-toggle="tooltip" data-bs-placement="right"
-                                       data-bs-title="Delete"
-                                       asp-area="MST_ExpenseType" asp-controller="MST_ExpenseType" asp-action="Delete" asp-route-ExpenseTypeID="@CommonFunctions.EncryptBase64(dr.ExpenseTypeID.ToString())" onclick="return confirm('Are You sure delete it!!!')">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                             height="20" fill="currentColor" class="bi bi-trash3"
-                                             viewBox="0 0 16 16">
-                                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-                                        </svg>
-                                    </a>
-                                </td> *@
+                               
                                 <td class="text-center">
                                     <a class="text-decoration-none text-primary edit-button"
                                        data-bs-toggle="tooltip"
