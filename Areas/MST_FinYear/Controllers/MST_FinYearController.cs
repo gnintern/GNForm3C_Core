@@ -5,6 +5,7 @@ using GNForm3C_.DAL;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlTypes;
+using System.Reflection;
 
 namespace GNForm3C_.Areas.MST_FinYear.Controllers
 {
@@ -86,11 +87,10 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
                     MST_FinYearModel modelMST_FinYear = new MST_FinYearModel();
                     foreach (DataRow dr in dt.Rows)
                     {
-                        modelMST_FinYear.FinYearID = Convert.ToInt32(dr["FinYearID"]);
+                        modelMST_FinYear.FinYearID = Convert.ToInt32(dr["FinYearID"].ToString());
                         modelMST_FinYear.FinYearName = dr["FinYearName"].ToString();
                         modelMST_FinYear.FromDate = Convert.ToDateTime(dr["FromDate"]);
                         modelMST_FinYear.ToDate = Convert.ToDateTime(dr["ToDate"]);
-                        modelMST_FinYear.Created = Convert.ToDateTime(dr["Created"]);
                         modelMST_FinYear.Modified = Convert.ToDateTime(dr["Modified"]);
 
                     }
@@ -108,11 +108,38 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
         #region Save Record
         public IActionResult Save(MST_FinYearModel modelMST_FinYear, string FinYearID)
         {
+            var fromDate = modelMST_FinYear.FromDate;
+            var toDate = modelMST_FinYear.ToDate;
+
+            if (fromDate > toDate)
+            {
+                TempData["error"] = "From Date cannot be greater than To Date.";
+                return View("MST_FinYearAddEdit");
+            }
+
+            // Calculate the difference between From Date and To Date
+            var daysBetweenDates = (toDate - fromDate).TotalDays;
+
+            // Check if the difference is exactly one year, considering leap years
+            if (daysBetweenDates == 364 || (daysBetweenDates == 365 && IsLeapYear(toDate.Year)))
+            {
+                var financialYearStart = fromDate.Year;
+                var financialYearEnd = toDate.Year;
+
+                modelMST_FinYear.FinYearName = $"{financialYearStart}-{financialYearEnd.ToString().Substring(2, 2)}";
+            }
+            else
+            {
+                TempData["error"] = "The difference between From Date and To Date must be exactly one year.";
+                return View("MST_FinYearAddEdit");
+            }
+
 
             if (modelMST_FinYear.FinYearID == null)
             {
                 if (FinYearID == null)
                 {
+
                     #region Inserting Record
                     if (Convert.ToBoolean(dalMST.PR_FinYear_Insert(modelMST_FinYear)))
                     {
@@ -142,5 +169,78 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
             #endregion
         }
         #endregion
+
+        #region IsLeapYear
+        private bool IsLeapYear(int year)
+        {
+            if (year % 4 == 0)
+            {
+                if (year % 100 == 0)
+                {
+                    return year % 400 == 0;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
     }
 }
+
+/*if (fromDate > toDate)
+           {
+               TempData["error"] = "From Date cannot be greater than To Date.";
+               return View("MST_FinYearAddEdit");
+           }
+
+           // Check if the FromDate is later in the calendar year than the ToDate
+           if (fromDate.Month > toDate.Month||fromDate.Month == toDate.Month && fromDate.Day > toDate.Day)
+           {
+               // Adjust the financial year end year accordingly
+               toDate = toDate.AddYears(1);
+           }*/
+
+/*private bool IsLeapYear(int year)
+{
+    if (year % 4 == 0)
+    {
+        if (year % 100 == 0)
+        {
+            return year % 400 == 0;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}*/
+
+/* // Check if the difference between FromDate and ToDate is exactly one year -- (toDate - fromDate).TotalDays != 365
+            if ((toDate - fromDate).TotalDays != 365)
+            {
+                TempData["error"] = "The difference between From Date and To Date must be exactly one year.";
+                return View("MST_FinYearAddEdit");
+            }
+
+            var financialYearStart = fromDate.Year;
+            var financialYearEnd = toDate.Year;
+
+            modelMST_FinYear.FinYearName = $"{financialYearStart}-{financialYearEnd.ToString().Substring(2, 2)}";
+*/
+// var Fin = modelMST_FinYear.FinYearName;
+// Check if the financial year already exists
+/* if (Fin == FinYearName)
+  {
+      TempData["error"] = "FinYearName Already Exists";
+      return View("MST_FinYearAddEdit");
+  }*/

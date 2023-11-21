@@ -18,7 +18,7 @@
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
-                    <a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary">Home</a>
+                    <a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary"><i class="bi bi-house"></i>Home</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
@@ -59,7 +59,7 @@
                 <div>
                     <form method="post" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Save">
                         <div asp-validation-summary="All" class="text-danger"></div>
-
+                        @Html.HiddenFor(x=>x.FinYearID)
                         <!--begin::Input group-->
                         <div class="row row-cols-lg-2 g-10">
                             <div class="col">
@@ -76,7 +76,7 @@
                                     <!--end::Input-->
                                 </div>
                             </div>
-                            <div class="col" data-kt-calendar="datepicker">
+                            <div class="col">
                                 <div class="fv-row mb-9">
                                     <!--begin::Label-->
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ToDate">
@@ -92,17 +92,17 @@
                             </div>
                         </div>
                         <!--end::Input group-->
-                        <div class="row row-cols-lg-2 g-10">
+                        <div class="row row-cols-lg g-10">
                             <div class="col">
                                 <div class="fv-row mb-9">
                                     <!--begin::Label-->
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="FinYearName">
-                                        <span class="text-danger">*</span>Fin Year Name
-                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select From Date"></i>
+                                        <span class="text-danger">*</span>Financial Year Name
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select Finanacial Year Name"></i>
                                     </label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input class="form-control form-control-solid" asp-for="FinYearName" readonly />
+                                    <input disabled asp-for="FinYearName" id="finYearName" class="form-control form-control-solid" />
                                     <span class="text-danger" asp-validation-for="FinYearName"></span>
                                     <!--end::Input-->
                                 </div>
@@ -132,27 +132,28 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
     <script>
-        $(document).ready(function () {
-            $("#fromDate, #toDate").change(function () {
-                var fromDate = new Date($("#fromDate").val());
-                var toDate = new Date($("#toDate").val());
+        // Function to update FinYearName based on FromDate and ToDate
+        function updateFinYearName() {
+            var fromDate = new Date(document.getElementById('FromDate').value);
+            var toDate = new Date(document.getElementById('ToDate').value);
 
-                if (fromDate > toDate) {
-                    alert("Invalid date range. From Date cannot be greater than To Date.");
-                    $("#finYearName").val("");
-                    return;
-                }
+            if (!isNaN(fromDate.getTime()) && !isNaN(toDate.getTime())) {
+                var fromYear = fromDate.getFullYear();
+                var toYear = toDate.getFullYear();
 
-                var financialYearStart = fromDate.getFullYear();
-                var financialYearEnd = toDate.getFullYear();
+                document.getElementById('finYearName').value = fromYear + '-' + toYear.toString().substring(2, 4);
+            } else {
+                document.getElementById('finYearName').value = '';
+            }
+        }
 
-                if (toDate.getMonth() < 4) {
-                    financialYearEnd--;
-                }
+        // Attach the updateFinYearName function to the change event of FromDate and ToDate fields
+        document.getElementById('FromDate').addEventListener('change', updateFinYearName);
+        document.getElementById('ToDate').addEventListener('change', updateFinYearName);
 
-                var financialYearName = financialYearStart + "-" + financialYearEnd;
-                $("#finYearName").val(financialYearName);
-            });
-        });
+        // Initial update when the page loads
+        updateFinYearName();
     </script>
+
+
 }

@@ -27,10 +27,27 @@ namespace GNForm3C_.BAL
             }
             return Hospital;
         }
-		#endregion
+        #endregion
 
-		#region FinYearDropDown
-		public static List<FinYearDropdownModel> SelectDropDownListForFinYear()
+        #region SelectComboBoxCurrentYear
+        public static List<FinYearDropdownModel> SelectComboBoxCurrentYear()
+        {
+            MST_DAL dalMST = new MST_DAL();
+            DataTable dt1 = dalMST.PR_FinYear_SelectComboBoxCurrentYear();
+            List<FinYearDropdownModel> FinYear = new List<FinYearDropdownModel>();
+            foreach (DataRow dr1 in dt1.Rows)
+            {
+                FinYearDropdownModel dropDownModel = new FinYearDropdownModel();
+                dropDownModel.FinYearID = Convert.ToInt32(dr1["FinYearID"]);
+                dropDownModel.FinYearName = dr1["FinYearName"].ToString();
+                FinYear.Add(dropDownModel);
+            }
+            return FinYear;
+        }
+        #endregion
+
+        #region FinYearDropDown
+        public static List<FinYearDropdownModel> SelectDropDownListForFinYear()
 		{
 			MST_DAL dalMST = new MST_DAL();
 			DataTable dt1 = dalMST.PR_FinYear_SelectComboBox();

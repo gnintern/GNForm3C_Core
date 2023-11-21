@@ -1,6 +1,7 @@
 ﻿using GNForm3C_.Areas.MST_ExpenseType.Models;
 using GNForm3C_.Areas.MST_FinYear.Models;
 using GNForm3C_.Areas.MST_Hospital.Models;
+using GNForm3C_.Areas.MST_Treatment.Models;
 using GNForm3C_.Areas.SEC_User.Models;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data;
@@ -10,150 +11,6 @@ namespace GNForm3C_.DAL
 {
     public class MST_DALBase : DAL_Helper
     {
-        #region SEC_User
-
-        #region PR_SEC_User_SelectAll
-        public DataTable PR_SEC_User_SelectAll(SEC_UserModel modelSEC_User)
-        {
-            try
-            {
-                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
-                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_User_SelectAll");
-                DataTable dt = new DataTable();
-
-                if (modelSEC_User.HospitalID != null || modelSEC_User.UserName != null)
-                {
-                    dbCMD = sqldb.GetStoredProcCommand("PR_User_SelectByUserNameHospital");
-                    if (modelSEC_User.HospitalID != null)
-                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelSEC_User.HospitalID);
-                    else
-                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
-
-                    if (modelSEC_User.UserName != null)
-                        sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
-                    else
-                        sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, DBNull.Value);
-                }
-
-
-                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
-                {
-                    dt.Load(dr);
-                }
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-        #endregion
-
-        #region PR_User_Delete
-        public bool? PR_User_Delete(int UserID)
-        {
-            try
-            {
-                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
-                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_User_Delete");
-
-                sqldb.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
-
-
-                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
-                //return (vResultValue == -1 ? false : true);
-                return (vResultValue == -1 ? true : false);
-
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-        #endregion
-
-        #region PR_User_SelectPK
-        public DataTable PR_User_SelectPK(int? UserID)
-        {
-            try
-            {
-                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
-                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_User_SelectPK");
-
-                sqldb.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
-
-                DataTable dt = new DataTable();
-                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
-                {
-                    dt.Load(dr);
-                }
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-        #endregion
-
-        #region PR_User_Insert
-        public bool? PR_User_Insert(SEC_UserModel modelSEC_User)
-        {
-            try
-            {
-                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
-                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_User_Insert");
-                sqldb.AddOutParameter(dbCMD, "UserID", SqlDbType.Int, 4);
-                sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
-                sqldb.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, modelSEC_User.Password);
-                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelSEC_User.HospitalID);
-                sqldb.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, modelSEC_User.IsActive);
-                sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
-                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
-
-                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
-
-                //return (vResultValue == -1 ? false : true);
-                return (vResultValue == -1 ? true : false);
-
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-        #endregion
-
-        #region PR_User_Update
-        public bool? PR_User_Update(SEC_UserModel modelSEC_User, int UserID)
-        {
-            try
-            {
-                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
-                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_User_Update");
-                sqldb.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
-                sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
-                sqldb.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, modelSEC_User.Password);
-                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelSEC_User.HospitalID);
-                sqldb.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, modelSEC_User.IsActive);
-                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.NVarChar, DBNull.Value);
-
-
-                int result = sqldb.ExecuteNonQuery(dbCMD);
-                //return (result == -1 ? false : true);
-                return (result == -1 ? true : false);
-
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-
-        #endregion
-
-        #endregion
-
         #region MST_Hospital
 
         #region PR_Hospital_SelectAll
@@ -327,23 +184,23 @@ namespace GNForm3C_.DAL
                 DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_SelectAll");
                 DataTable dt = new DataTable();
 
-                if(modelMST_FinYear.FinYearName != null)
+                if (modelMST_FinYear.FinYearName != null)
                 {
                     dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_SelectForFinYearName");
 
-                    if(modelMST_FinYear.FinYearName != null)
+                    if (modelMST_FinYear.FinYearName != null)
                         sqldb.AddInParameter(dbCMD, "FinYearName", SqlDbType.NVarChar, modelMST_FinYear.FinYearName);
                     else
                         sqldb.AddInParameter(dbCMD, "FinYearName", SqlDbType.NVarChar, DBNull.Value);
                 }
 
-                using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
                 {
                     dt.Load(dr);
                 }
                 return dt;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return null;
             }
@@ -352,129 +209,149 @@ namespace GNForm3C_.DAL
 
         #region PR_FinYear_Delete
         public bool? PR_FinYear_Delete(int FinYearID)
-		{
-			try
-			{
-				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
-				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_Delete");
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_Delete");
 
-				sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, FinYearID);
+                sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, FinYearID);
 
 
-				int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
-				//return (vResultValue == -1 ? false : true);
-				return (vResultValue == -1 ? true : false);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
 
-			}
-			catch(Exception ex)
-			{
-				return null;
-			}
-		}
-		#endregion
-
-		#region PR_FinYear_SelectPK
-		public DataTable PR_FinYear_SelectPK(int? FinYearID)
-		{
-			try
-			{
-				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
-				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_SelectPK");
-
-				sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, FinYearID);
-
-				DataTable dt = new DataTable();
-				using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
-				{
-					dt.Load(dr);
-				}
-				return dt;
-			}
-			catch(Exception ex)
-			{
-				return null;
-			}
-		}
-		#endregion
-
-		#region PR_FinYear_Insert
-		public bool? PR_FinYear_Insert(MST_FinYearModel modelMST_FinYear)
-		{
-			try
-			{
-				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
-				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_Insert");
-				sqldb.AddOutParameter(dbCMD, "FinYearID", SqlDbType.Int, 4);
-				sqldb.AddInParameter(dbCMD, "FinYearName", SqlDbType.NVarChar, modelMST_FinYear.FinYearName);
-				sqldb.AddInParameter(dbCMD, "FromDate", SqlDbType.DateTime, modelMST_FinYear.FromDate);
-				sqldb.AddInParameter(dbCMD, "ToDate", SqlDbType.DateTime, modelMST_FinYear.ToDate);
-				sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
-				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
-
-				int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
-
-				return (vResultValue == -1 ? false : true);
-				//return (vResultValue == -1 ? true : false);
-
-			}
-			catch(Exception ex)
-			{
-				return null;
-			}
-		}
-		#endregion
-
-		#region PR_FinYear_Update
-		public bool? PR_FinYear_Update(MST_FinYearModel modelMST_FinYear, int FinYearID)
-		{
-			try
-			{
-				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
-				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_Update");
-				sqldb.AddOutParameter(dbCMD, "FinYearID", SqlDbType.Int, 4);
-				sqldb.AddInParameter(dbCMD, "FinYearName", SqlDbType.NVarChar, modelMST_FinYear.FinYearName);
-				sqldb.AddInParameter(dbCMD, "FromDate", SqlDbType.NVarChar, modelMST_FinYear.FromDate);
-				sqldb.AddInParameter(dbCMD, "ToDate", SqlDbType.NVarChar, modelMST_FinYear.ToDate);
-				sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
-				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
-
-				int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
-
-				return (vResultValue == -1 ? false : true);
-				//return (vResultValue == -1 ? true : false);
-
-			}
-			catch(Exception ex)
-			{
-				return null;
-			}
-		}
-		#endregion
-
-		#region PR_FinYear_SelectComboBox
-		public DataTable PR_FinYear_SelectComboBox()
-		{
-			try
-			{
-				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
-				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_SelectComboBox");
-				DataTable dt = new DataTable();
-				using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
-				{
-					dt.Load(dr);
-				}
-				return dt;
-			}
-			catch(Exception ex)
-			{
-				return null;
-			}
-		}
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         #endregion
 
+        #region PR_FinYear_SelectPK
+        public DataTable PR_FinYear_SelectPK(int? FinYearID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_SelectPK");
+
+                sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, FinYearID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         #endregion
 
-        #region ExpenseType
+        #region PR_FinYear_Insert
+        public bool? PR_FinYear_Insert(MST_FinYearModel modelMST_FinYear)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_Insert");
+                sqldb.AddOutParameter(dbCMD, "FinYearID", SqlDbType.Int, 4);
+                sqldb.AddInParameter(dbCMD, "FinYearName", SqlDbType.NVarChar, modelMST_FinYear.FinYearName);
+                sqldb.AddInParameter(dbCMD, "FromDate", SqlDbType.DateTime, modelMST_FinYear.FromDate);
+                sqldb.AddInParameter(dbCMD, "ToDate", SqlDbType.DateTime, modelMST_FinYear.ToDate);
+                sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_FinYear_Update
+        public bool? PR_FinYear_Update(MST_FinYearModel modelMST_FinYear, int FinYearID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_Update");
+                sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, FinYearID);
+                sqldb.AddInParameter(dbCMD, "FinYearName", SqlDbType.NVarChar, modelMST_FinYear.FinYearName);
+                sqldb.AddInParameter(dbCMD, "FromDate", SqlDbType.DateTime, modelMST_FinYear.FromDate);
+                sqldb.AddInParameter(dbCMD, "ToDate", SqlDbType.DateTime, modelMST_FinYear.ToDate);
+                //sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.DateTime, DBNull.Value);
+
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_FinYear_SelectComboBox
+        public DataTable PR_FinYear_SelectComboBox()
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_SelectComboBox");
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_FinYear_SelectComboBoxCurrentYear
+        public DataTable PR_FinYear_SelectComboBoxCurrentYear()
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_SelectComboBoxCurrentYear");
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+        #endregion
+
+        #region MST_ExpenseType
 
         #region PR_ExpenseType_SelectAll
         public DataTable PR_ExpenseType_SelectAll(MST_ExpenseTypeModel modelMST_ExpenseType)
@@ -602,6 +479,139 @@ namespace GNForm3C_.DAL
                 return null;
             }
         }
+        #endregion
+
+        #endregion
+
+        #region MST_Treatment
+
+        #region PR_Treatment_SelectAll
+        public DataTable PR_Treatment_SelectAll(MST_TreatmentModel modelMST_Treatment)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Treatment_SelectAll");
+                DataTable dt = new DataTable();
+
+                if (modelMST_Treatment.HospitalID != null || modelMST_Treatment.Treatment != null)
+                {
+                    dbCMD = sqldb.GetStoredProcCommand("PR_Treatment_SelectByTreatmentAndHospital");
+                    if (modelMST_Treatment.HospitalID != null)
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_Treatment.HospitalID);
+                    else
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
+
+                    if (modelMST_Treatment.Treatment != null)
+                        sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelMST_Treatment.Treatment);
+                    else
+                        sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, DBNull.Value);
+                }
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch(Exception ex)
+            {
+                return null; 
+            }
+        }
+        #endregion
+
+        #region PR_Treatment_Delete
+        public bool? PR_Treatment_Delete(int TreatmentID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Treatment_Delete");
+                sqldb.AddInParameter(dbCMD, "TreatmentID", SqlDbType.Int, TreatmentID);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+            }
+            catch( Exception ex) 
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_Treatment_SelectPK
+        public DataTable PR_Treatment_SelectPK(int? TreatmentID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Treatment_SelectPK");
+                sqldb.AddInParameter(dbCMD, "TreatmentID", SqlDbType.Int, TreatmentID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_Treatment_Insert
+        public bool? PR_Treatment_Insert(MST_TreatmentModel modelMST_Treatment)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Treatment_Insert");
+                sqldb.AddOutParameter(dbCMD, "TreatmentID", SqlDbType.Int, 4);
+                sqldb.AddInParameter(dbCMD, "Treatment", SqlDbType.NVarChar, modelMST_Treatment.Treatment);
+                sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_Treatment.Remarks);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_Treatment.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_Treatment_Update
+        public bool? PR_Treatment_Update(MST_TreatmentModel modelMST_Treatment, int TreatmentID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Treatment_Update");
+                sqldb.AddInParameter(dbCMD, "TreatmentID", SqlDbType.Int, TreatmentID);
+                sqldb.AddInParameter(dbCMD, "Treatment", SqlDbType.NVarChar, modelMST_Treatment.Treatment);
+                sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_Treatment.Remarks);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_Treatment.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+
+                int result = sqldb.ExecuteNonQuery(dbCMD);
+                //return (result == -1 ? false : true);
+                return (result == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         #endregion
 
         #endregion

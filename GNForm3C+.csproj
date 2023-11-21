@@ -21,6 +21,7 @@
     <Folder Include="Areas\MST_FinYear\Models\" />
     <Folder Include="Areas\MST_FinYear\Views\" />
     <Folder Include="Areas\MST_Hospital\Data\" />
+    <Folder Include="Areas\MST_Treatment\Data\" />
     <Folder Include="Areas\SEC_User\Data\" />
   </ItemGroup>
 

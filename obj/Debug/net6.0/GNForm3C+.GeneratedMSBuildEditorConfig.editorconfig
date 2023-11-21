@@ -64,6 +64,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0hvc3BpdGFsXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Sagar/GNForm3C_Core/Areas/MST_Treatment/Views/MST_Treatment/MST_TreatmentAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xNU1RfVHJlYXRtZW50XE1TVF9UcmVhdG1lbnRBZGRFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/MST_Treatment/Views/MST_Treatment/MST_TreatmentList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xNU1RfVHJlYXRtZW50XE1TVF9UcmVhdG1lbnRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/MST_Treatment/Views/Shared/_filterTreatment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xTaGFyZWRcX2ZpbHRlclRyZWF0bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/MST_Treatment/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Sagar/GNForm3C_Core/Areas/SEC_User/Views/SEC_User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcU0VDX1VzZXJcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
