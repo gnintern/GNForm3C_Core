@@ -144,7 +144,7 @@
                         <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
                             <th>User Name</th>
                             <th>Hospital</th>
-                            <th>IsActive</th>
+                            <th>Active?</th>
                             <th>Created</th>
                             <th>Modified</th>
                             <th class="text-center" style="visibility:hidden;">Action</th>
@@ -169,7 +169,7 @@
                                 </td>
                                 <td>@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
                                 <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
-                                <td class="text-center" style="visibility:hidden;">
+                                <td class="text-center">
                                     <a class="text-decoration-none text-primary edit-button"
                                        data-bs-toggle="tooltip"
                                        data-bs-placement="left" data-bs-title="Edit"
