@@ -55,7 +55,7 @@
             <div class="card-body p-5 px-lg-10 py-lg-7">
                 <div>
                     <form method="post" asp-area="MST_ExpenseType" asp-controller="MST_ExpenseType" asp-action="Save">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div asp-validation-summary="All" class="text-danger"></div>
                         @Html.HiddenFor(y=>y.ExpenseTypeID)
 
                         <!--begin::Input group-->
