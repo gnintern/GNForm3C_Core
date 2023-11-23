@@ -1,7 +1,7 @@
 ﻿@using GNForm3C_.Areas.SEC_User.Models;
 @using GNForm3C_.BAL;
 @{
-    ViewData["Title"] = "SEC_UserList";
+    ViewData["Title"] = "User List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -19,7 +19,7 @@
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
-                    <a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary"><i class="bi bi-house"></i>Home</a>
+                    <a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary"><i class="bi bi-house"></i> Home</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
@@ -28,7 +28,7 @@
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Users</li>
+                <li class="breadcrumb-item  fw-bolder">Users</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -41,10 +41,7 @@
                 @* <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                 </svg>  *@
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-                </svg>
-                <span class="fs-3 fw-bold">Add User</span>
+                <span class="fs-4 fw-bold"><i class="fa fa-plus fa-2x"></i> Add User</span>
             </a>
             <!--end::Secondary button-->
             <!--begin::Primary button-->
@@ -169,7 +166,7 @@
                                 </td>
                                 <td>@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
                                 <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
-                                <td class="text-center">
+                                <td class="text-center" style="visibility:hidden;">
                                     <a class="text-decoration-none text-primary edit-button"
                                        data-bs-toggle="tooltip"
                                        data-bs-placement="left" data-bs-title="Edit"
@@ -181,7 +178,7 @@
                                             <path fill-rule="evenodd"
                                                   d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                         </svg>
-                                    </a>
+                                    </a>&nbsp;
                                     <a class="text-decoration-none text-danger"
                                        data-bs-toggle="tooltip" data-bs-placement="right"
                                        data-bs-title="Delete"

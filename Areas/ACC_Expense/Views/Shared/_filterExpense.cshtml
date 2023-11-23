@@ -1,0 +1,55 @@
+﻿@model GNForm3C_.Areas.ACC_Expense.Models.ACC_ExpenseModel
+<form method="post">
+    <div class="d-flex row">
+
+        <!--begin::Input group-->
+        <div class="row mb-8">
+            <!--begin::Col-->
+            <div class="col-6 col-md-6 fv-row">
+                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+                    <option value="">Select Hospital</option>
+                </select>
+            </div>
+            <!--end::Col-->
+            <!--begin::Col-->
+            <div class="col-6 col-md-6 fv-row">
+                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Fin.Year" asp-for="FinYearID" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
+                    <option value="">Select Fin.Year</option>
+                </select>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
+        <!--begin::Input group-->
+        <div class="row mb-8">
+            <!--begin::Col-->
+            <div class="col-6 col-md-6 fv-row">
+                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Expense Type" asp-for="ExpenseTypeID" asp-items="@(new SelectList(ViewBag.ExpenseTypeDropDown,"ExpenseTypeID","ExpenseType"))">
+                    <option value="">Select Expense Type</option>
+                </select>
+            </div>
+            <!--end::Col-->
+            <!--begin::Col-->
+            <div class="col-6 col-md-6 fv-row">
+                <!--begin::Input-->
+                <input type="search" class="form-control form-control-solid"
+                       name="Amount" asp-for="Amount" placeholder="Enter Amount"
+                       autocomplete="off" />
+                <!--end::Input-->
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
+
+        <div class="col-lg-4">
+            <button type="submit" class="btn btn-primary"
+                    style="margin-right:15px;" asp-area="ACC_Expense" asp-controller="ACC_Expense" asp-action="Index">
+                <span class="indicator-label">Search</span>
+            </button>
+            <a type="submit" class="btn btn-light me-3"
+               asp-area="ACC_Expense" asp-controller="ACC_Expense" asp-action="Index">
+                Clear
+            </a>
+        </div>
+    </div>
+</form>

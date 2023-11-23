@@ -47,16 +47,24 @@ namespace GNForm3C_.Areas.MST_ExpenseType
             {
                 #region Form Title
                 TempData["Action"] = "Add";
-                #endregion
-                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+				#endregion
+
+				#region Form Title
+				ViewData["Title"] = "Add";
+				#endregion
+				ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
                 if(ExpenseTypeID != null)
                 {
                     #region Form Title
                     TempData["Action"] = "Edit";
-                    #endregion
+					#endregion
 
-                    #region Decrypt the Id
-                    SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(ExpenseTypeID);
+					#region Form Title
+					ViewData["Title"] = "Edit";
+					#endregion
+
+					#region Decrypt the Id
+					SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(ExpenseTypeID);
                     int id = decryptedID.Value;
                     #endregion
 

@@ -24,17 +24,9 @@ namespace GNForm3C_.DAL
                 if (modelSEC_User.HospitalID != null || modelSEC_User.UserName != null)
                 {
                     dbCMD = sqldb.GetStoredProcCommand("PR_User_SelectByUserNameHospital");
-                    if (modelSEC_User.HospitalID != null)
-                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelSEC_User.HospitalID);
-                    else
-                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
-
-                    if (modelSEC_User.UserName != null)
-                        sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
-                    else
-                        sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, DBNull.Value);
+                    sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelSEC_User.HospitalID);
+                    sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
                 }
-
 
                 using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
                 {

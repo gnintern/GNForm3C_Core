@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\ACC_Expense\Data\" />
     <Folder Include="Areas\MST_ExpenseType\Data\" />
     <Folder Include="Areas\MST_FinYear\Controllers\" />
     <Folder Include="Areas\MST_FinYear\Data\" />

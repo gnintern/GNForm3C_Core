@@ -16,4 +16,9 @@ namespace GNForm3C_.Areas.MST_ExpenseType.Models
         public DateTime Created { get; set; } = DateTime.Now;
         public DateTime Modified { get; set; } = DateTime.Now;
     }
+    public class ExpenseTypeDropdownModel
+    {
+        public int ExpenseTypeID { get; set; }
+        public string? ExpenseType { get; set; }
+    }
 }

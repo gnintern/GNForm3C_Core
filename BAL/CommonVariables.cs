@@ -15,6 +15,7 @@
 		#region Common Images
         public static string SmallLogo = "/Theme/assets/media/logos/GNForm3CPlus_OnlyLogo.png";
         public static string SlidebarImage = "/Theme/assets/media/logos/GNForm3CPlus_Logo.png";
+		public static string LoginCard = "/Theme/assets/media/logos/GNForm3CPlus_Logo.png";
 		public static string LoginImage = "/Theme/assets/media/logos/GNForm3CFull.png";
 		public static string LoginSmallImage = "/Theme/assets/media/logos/GNWebSoftFull.png";
 
@@ -58,7 +59,19 @@
 			}
 			return Password;
 		}
-		#endregion
-	}
+        #endregion
+
+        #region FinYearID
+        public static int? FinYearID()
+        {
+            int? FinYearID = null;
+            if (_httpContextAccessor.HttpContext.Session.GetString("FinYearID") != null)
+            {
+                FinYearID = Convert.ToInt32(_httpContextAccessor.HttpContext.Session.GetString("FinYearID"));
+            }
+            return FinYearID;
+        }
+        #endregion
+    }
 
 }

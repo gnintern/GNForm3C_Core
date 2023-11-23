@@ -64,7 +64,6 @@ namespace GNForm3C_.Areas.MST_Hospital.Controllers
         #region Function: Add Record
         public IActionResult Add(string? HospitalID)
         {
-
             if(ModelState.IsValid)
             {
                 #region Form Title

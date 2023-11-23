@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace GNForm3C_.Areas.MST_FinYear.Models
 {
@@ -7,9 +8,11 @@ namespace GNForm3C_.Areas.MST_FinYear.Models
         public int? FinYearID { get; set; }
         public string FinYearName { get; set; }
         [Required]
+        [DisplayName("From Date")]
         public DateTime FromDate { get; set; }
         [Required]
-        public DateTime ToDate { get; set; }
+		[DisplayName("To Date")]
+		public DateTime ToDate { get; set; }
         public DateTime? Created { get; set; } = DateTime.Now;
         public DateTime Modified { get; set; } = DateTime.Now;
     }

@@ -1,6 +1,7 @@
 ﻿using GNForm3C_.Areas.MST_ExpenseType.Models;
 using GNForm3C_.Areas.MST_FinYear.Models;
 using GNForm3C_.Areas.MST_Hospital.Models;
+using GNForm3C_.Areas.MST_IncomeType.Models;
 using GNForm3C_.Areas.MST_Treatment.Models;
 using GNForm3C_.Areas.SEC_User.Models;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
@@ -24,10 +25,7 @@ namespace GNForm3C_.DAL
                 if(modelMST_Hospital.Hospital != null)
                 {
                     dbCMD = sqldb.GetStoredProcCommand("PR_Hospital_SearchForHospitalName");
-                    if(modelMST_Hospital.Hospital != null)
-                        sqldb.AddInParameter(dbCMD, "HospitalName", SqlDbType.NVarChar, modelMST_Hospital.Hospital);
-                    else
-                        sqldb.AddInParameter(dbCMD, "HospitalName", SqlDbType.NVarChar, DBNull.Value);
+                    sqldb.AddInParameter(dbCMD, "HospitalName", SqlDbType.NVarChar, modelMST_Hospital.Hospital);
                 }
 
                 using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
@@ -175,6 +173,7 @@ namespace GNForm3C_.DAL
         #endregion
 
         #region MST_FinYear
+
         #region PR_FinYear_SelectAll
         public DataTable PR_FinYear_SelectAll(MST_FinYearModel modelMST_FinYear)
         {
@@ -187,11 +186,7 @@ namespace GNForm3C_.DAL
                 if (modelMST_FinYear.FinYearName != null)
                 {
                     dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_SelectForFinYearName");
-
-                    if (modelMST_FinYear.FinYearName != null)
-                        sqldb.AddInParameter(dbCMD, "FinYearName", SqlDbType.NVarChar, modelMST_FinYear.FinYearName);
-                    else
-                        sqldb.AddInParameter(dbCMD, "FinYearName", SqlDbType.NVarChar, DBNull.Value);
+                    sqldb.AddInParameter(dbCMD, "FinYearName", SqlDbType.NVarChar, modelMST_FinYear.FinYearName);
                 }
 
                 using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
@@ -365,11 +360,8 @@ namespace GNForm3C_.DAL
                 if(modelMST_ExpenseType.ExpenseType != null)
                 {
                     dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_SearchForExpenseType");
-
-                    if(modelMST_ExpenseType.ExpenseType != null)
-                        sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, modelMST_ExpenseType.ExpenseType);
-                    else
-                        sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, DBNull.Value);
+                    sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, modelMST_ExpenseType.ExpenseType);
+                   
                 }
 
                 using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
@@ -481,6 +473,27 @@ namespace GNForm3C_.DAL
         }
         #endregion
 
+        #region PR_ExpenseType_SelectComboBox
+        public DataTable PR_ExpenseType_SelectComboBox()
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_SelectComboBox");
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
         #endregion
 
         #region MST_Treatment
@@ -497,15 +510,8 @@ namespace GNForm3C_.DAL
                 if (modelMST_Treatment.HospitalID != null || modelMST_Treatment.Treatment != null)
                 {
                     dbCMD = sqldb.GetStoredProcCommand("PR_Treatment_SelectByTreatmentAndHospital");
-                    if (modelMST_Treatment.HospitalID != null)
-                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_Treatment.HospitalID);
-                    else
-                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
-
-                    if (modelMST_Treatment.Treatment != null)
-                        sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelMST_Treatment.Treatment);
-                    else
-                        sqldb.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, DBNull.Value);
+                    sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_Treatment.HospitalID);
+                    sqldb.AddInParameter(dbCMD, "Treatment", SqlDbType.NVarChar, modelMST_Treatment.Treatment);  
                 }
                 using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
                 {
@@ -612,6 +618,134 @@ namespace GNForm3C_.DAL
             }
         }
 
+        #endregion
+
+        #endregion
+
+        #region MST_IncomeType
+
+        #region PR_IncomeType_SelectAll
+        public DataTable PR_IncomeType_SelectAll(MST_IncomeTypeModel modelMST_IncomeType)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_IncomeType_SelectAll");
+                DataTable dt = new DataTable();
+
+                if (modelMST_IncomeType.IncomeType != null)
+                {
+                    dbCMD = sqldb.GetStoredProcCommand("PR_IncomeType_SearchForIncomeType");
+                    sqldb.AddInParameter(dbCMD, "IncomeType", SqlDbType.NVarChar, modelMST_IncomeType.IncomeType);
+                }
+
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_IncomeType_Delete
+        public bool? PR_IncomeType_Delete(int IncomeTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_IncomeType_Delete");
+                sqldb.AddInParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, IncomeTypeID);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_IncomeType_Insert
+        public bool? PR_IncomeType_Insert(MST_IncomeTypeModel modelMST_IncomeType)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_IncomeType_Insert");
+                sqldb.AddOutParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, 4);
+                sqldb.AddInParameter(dbCMD, "IncomeType", SqlDbType.NVarChar, modelMST_IncomeType.IncomeType);
+                sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_IncomeType.Remarks);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_IncomeType.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_IncomeType_Update
+        public bool? PR_IncomeType_Update(MST_IncomeTypeModel modelMST_IncomeType, int IncomeTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_IncomeType_Update");
+                sqldb.AddInParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, IncomeTypeID);
+                sqldb.AddInParameter(dbCMD, "IncomeType", SqlDbType.NVarChar, modelMST_IncomeType.IncomeType);
+                sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_IncomeType.Remarks);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_IncomeType.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+
+                int result = sqldb.ExecuteNonQuery(dbCMD);
+                //return (result == -1 ? false : true);
+                return (result == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        #endregion
+
+        #region PR_IncomeType_SelectPK
+        public DataTable PR_IncomeType_SelectPK(int? IncomeTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_IncomeType_SelectPK");
+
+                sqldb.AddInParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, IncomeTypeID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         #endregion
 
         #endregion

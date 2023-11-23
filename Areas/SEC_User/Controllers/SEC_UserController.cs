@@ -57,7 +57,7 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 
 			return RedirectToAction("Index");
 		}
-		#endregion
+		#endregion 
 
 		#region Function: Upsert the Record
 
@@ -159,12 +159,12 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 		#endregion
 
 		#region Function: Login
-		public IActionResult Login()
+		public IActionResult Login(SEC_UserModel modelSEC_User)
 		{
 			ViewBag.FinYearDropDown = CommonFillMethod.SelectComboBoxCurrentYear().ToList();
 			ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
 
-			return View();
+			return View(modelSEC_User);
 		}
 		#endregion
 
@@ -183,11 +183,12 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 				error2 += "Password is required";
 			}
 
-			if (error1 != null && error2 != null)
+			if (error1 != null || error2 != null)
 			{
 				TempData["UserName"] = error1;
 				TempData["Password"] = error2;
-				return RedirectToAction("Login");
+
+				return RedirectToAction("Login",modelSEC_User);
 			}
 			else
 			{
@@ -200,7 +201,7 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 						HttpContext.Session.SetString("UserName", dr["UserName"].ToString());
 						HttpContext.Session.SetString("Password", dr["Password"].ToString());
 						HttpContext.Session.SetString("HospitalID", dr["HospitalID"].ToString());
-						HttpContext.Session.SetString("Password", dr["Password"].ToString());
+						HttpContext.Session.SetString("FinYearID", dr["FinYearID"].ToString());
 
 						break;
 					}

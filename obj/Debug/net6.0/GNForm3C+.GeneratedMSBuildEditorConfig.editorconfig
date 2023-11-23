@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Sagar\GNForm3C_Core
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Sagar/GNForm3C_Core/Areas/ACC_Expense/Views/ACC_Expense/ACC_ExpenseAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcQUNDX0V4cGVuc2VcQUNDX0V4cGVuc2VBZGRFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/ACC_Expense/Views/ACC_Expense/ACC_ExpenseList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcQUNDX0V4cGVuc2VcQUNDX0V4cGVuc2VMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/ACC_Expense/Views/Shared/_filterExpense.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcU2hhcmVkXF9maWx0ZXJFeHBlbnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/ACC_Expense/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Sagar/GNForm3C_Core/Areas/MST_ExpenseType/Views/MST_ExpenseType/MST_ExpenseTypeAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0V4cGVuc2VUeXBlXFZpZXdzXE1TVF9FeHBlbnNlVHlwZVxNU1RfRXhwZW5zZVR5cGVBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -64,6 +80,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0hvc3BpdGFsXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Sagar/GNForm3C_Core/Areas/MST_IncomeType/Views/MST_IncomeType/MST_IncomeTypeAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcTVNUX0luY29tZVR5cGVcTVNUX0luY29tZVR5cGVBZGRFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/MST_IncomeType/Views/MST_IncomeType/MST_IncomeTypeList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcTVNUX0luY29tZVR5cGVcTVNUX0luY29tZVR5cGVMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/MST_IncomeType/Views/Shared/_filterIncomeType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcU2hhcmVkXF9maWx0ZXJJbmNvbWVUeXBlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/MST_IncomeType/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Sagar/GNForm3C_Core/Areas/MST_Treatment/Views/MST_Treatment/MST_TreatmentAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xNU1RfVHJlYXRtZW50XE1TVF9UcmVhdG1lbnRBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -94,6 +126,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Sagar/GNForm3C_Core/Areas/SEC_User/Views/Shared/_filterUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcU2hhcmVkXF9maWx0ZXJVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/SEC_User/Views/Shared/_loginForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcU2hhcmVkXF9sb2dpbkZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Sagar/GNForm3C_Core/Areas/SEC_User/Views/_ViewImports.cshtml]

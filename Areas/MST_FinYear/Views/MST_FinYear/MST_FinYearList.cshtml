@@ -1,7 +1,7 @@
 ﻿@using GNForm3C_.Areas.MST_FinYear.Models;
 @using GNForm3C_.BAL;
 @{
-    ViewData["Title"] = "MST_FinYearList";
+    ViewData["Title"] = "Finance Year List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -18,7 +18,7 @@
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
-                    <a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary"><i class="bi bi-house"></i>Home</a>
+                    <a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary"><i class="bi bi-house"></i> Home</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
@@ -27,7 +27,7 @@
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">FinYear</li>
+                <li class="breadcrumb-item fw-bolder">Finance Year</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -37,10 +37,7 @@
         <div class="d-flex align-items-center fw-bold">
             <!--begin::Secondary button-->
             <a class="btn btn-sm btn-primary" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Add">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-                </svg>
-                <span class="fs-3 fw-bold">Add FinYear</span>
+                <span class="fs-4 fw-bold"><i class="fa fa-plus fa-2x"></i> Add FinYear</span>
             </a>
             <!--end::Secondary button-->
             <!--begin::Primary button-->
@@ -163,7 +160,7 @@
                                             <path fill-rule="evenodd"
                                                   d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                         </svg>
-                                    </a>
+                                    </a>&nbsp;
                                     <a class="text-decoration-none text-danger"
                                        data-bs-toggle="tooltip" data-bs-placement="right"
                                        data-bs-title="Delete"
