@@ -16,4 +16,9 @@ namespace GNForm3C_.Areas.MST_IncomeType.Models
 		public DateTime Created { get; set; }
 		public DateTime Modified { get; set; } 
     }
+    public class IncomeTypeDropdownModel
+    {
+        public int IncomeTypeID { get; set; }
+        public string? IncomeType { get; set; }
+    }
 }

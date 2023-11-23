@@ -1,6 +1,7 @@
 ﻿using GNForm3C_.Areas.MST_ExpenseType.Models;
 using GNForm3C_.Areas.MST_FinYear.Models;
 using GNForm3C_.Areas.MST_Hospital.Models;
+using GNForm3C_.Areas.MST_IncomeType.Models;
 using GNForm3C_.DAL;
 using System.Data;
 
@@ -44,6 +45,23 @@ namespace GNForm3C_.BAL
                 Expensetype.Add(dropDownModel);
             }
             return Expensetype;
+        }
+        #endregion
+
+        #region IncomeTypeDropDown
+        public static List<IncomeTypeDropdownModel> SelectDropDownListForIncomeType()
+        {
+            MST_DAL dalMST = new MST_DAL();
+            DataTable dt1 = dalMST.PR_IncomeType_SelectComboBox();
+            List<IncomeTypeDropdownModel> Incometype = new List<IncomeTypeDropdownModel>();
+            foreach (DataRow dr1 in dt1.Rows)
+            {
+                IncomeTypeDropdownModel dropDownModel = new IncomeTypeDropdownModel();
+                dropDownModel.IncomeTypeID = Convert.ToInt32(dr1["IncomeTypeID"]);
+                dropDownModel.IncomeType = dr1["IncomeType"].ToString();
+                Incometype.Add(dropDownModel);
+            }
+            return Incometype;
         }
         #endregion
 

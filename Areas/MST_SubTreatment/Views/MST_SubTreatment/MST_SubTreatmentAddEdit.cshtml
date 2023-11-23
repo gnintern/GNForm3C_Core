@@ -1,0 +1,266 @@
+﻿@{
+	ViewData["Title"] = TempData["Action"] + " SubTreatment";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model GNForm3C_.Areas.MST_SubTreatment.Models.MST_SubTreatmentModel;
+
+<!--begin::Toolbar-->
+<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+	<!--begin::Toolbar container-->
+	<div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+		<!--begin::Page title-->
+		<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+			<!--begin::Title-->
+			<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">SubTreatment</h1>
+			<!--end::Title-->
+			<!--begin::Breadcrumb-->
+			<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+				<!--begin::Item-->
+				<li class="breadcrumb-item text-muted">
+					<a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary">Home</a>
+				</li>
+				<!--end::Item-->
+				<!--begin::Item-->
+				<li class="breadcrumb-item">
+					<span class="bullet bg-gray-400 w-5px h-2px"></span>
+				</li>
+				<!--end::Item-->
+				<!--begin::Item-->
+				<li class="breadcrumb-item text-muted">
+					<a asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Index" class="text-muted text-hover-primary">SubTreatments</a>
+				</li>
+				<!--end::Item-->
+				<!--begin::Item-->
+				<li class="breadcrumb-item">
+					<span class="bullet bg-gray-400 w-5px h-2px"></span>
+				</li>
+				<!--end::Item-->
+				<!--begin::Item-->
+				<li class="breadcrumb-item fw-bolder">@TempData["Action"] SubTreatment</li>
+				<!--end::Item-->
+			</ul>
+			<!--end::Breadcrumb-->
+		</div>
+		<!--end::Page title-->
+
+
+
+	</div>
+	<!--end::Toolbar container-->
+</div>
+<!--end::Toolbar-->
+
+
+<form method="post" asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Save">
+	<!--begin: Validation-->
+	<div class="col-md-12 container">
+		<div id="validatediv" asp-validation-summary="All" class="text-danger"></div>
+	</div>
+	<!--end: Validation-->
+	<!--begin::Content-->
+	<div id="kt_app_content" class="app-content flex-column-fluid">
+		<!--begin::Content container-->
+		<div id="kt_app_content_container" class="app-container container-fluid">
+			<div class="card">
+				<div class="card-body p-5 px-lg-10 py-lg-7">
+					<div>
+						@Html.HiddenFor(x=>x.SubTreatmentID)
+
+						<!--begin::Input group-->
+						<div class="d-flex flex-column mb-8 fv-row">
+							<!--begin::Label-->
+							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="HospitalID">
+								<span class="text-danger">*</span>&nbsp;Hospital Name
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select hospital"></i>
+							</label>
+							<!--end::Label-->
+							<div class="col-12 col-md-12 fv-row">
+								<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+									<option value="">Select Hospital</option>
+								</select>
+							</div>
+							<span class="text-danger" asp-validation-for="HospitalID"></span>
+						</div>
+						<!--end::Input group-->
+						<!--begin::Input group-->
+						<div class="d-flex flex-column mb-8 fv-row">
+							<!--begin::Label-->
+							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="SubTreatmentName">
+								<span class="text-danger">*</span>&nbsp;SubTreatment
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique SubTreatment name"></i>
+							</label>
+							<!--end::Label-->
+							<input type="text" class="form-control form-control-solid" asp-for="SubTreatmentName" placeholder="Enter SubTreatment Name" autocomplete="off" />
+							<span class="text-danger" asp-validation-for="SubTreatmentName"></span>
+						</div>
+						<!--end::Input group-->
+
+						<div class="row">
+							<!--begin::Input group-->
+							<div class="fv-row mb-8 col-6 col-md-6">
+								<!--begin::Label-->
+								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="SequenceNo ">
+									Auto Load Sequence No
+									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only Number"></i>
+								</label>
+								<!--end::Label-->
+								<input type="number" class="form-control form-control-solid" asp-for="SequenceNo" placeholder="Enter Sequence No." autocomplete="off" />
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="fv-row mb-8 col-6 col-md-6">
+								<!--begin::Label-->
+								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="DefaultUnit ">
+									@* <span class="text-danger">*</span>&nbsp; *@Unit
+									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts Unit"></i>
+								</label>
+								<!--end::Label-->
+								<input type="text" class="form-control form-control-solid" asp-for="DefaultUnit" placeholder="Enter Unit" autocomplete="off" />
+							</div>
+							<!--end::Input group-->
+						</div>
+
+						<!--begin::Input group-->
+						<div class="d-flex flex-column mb-8 fv-row">
+							<!--begin::Label-->
+							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Rate ">
+								@* <span class="text-danger">*</span> *@Rate
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts Rate"></i>
+							</label>
+							<!--end::Label-->
+							<input type="text" class="form-control form-control-solid" asp-for="Rate" placeholder="Enter Rate" autocomplete="off" />
+						</div>
+						<!--end::Input group-->
+						<!--begin::Input group-->
+						<div class="d-flex flex-column mb-8 fv-row">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="IsInGridCheckbox" value="" />
+								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" for="IsInGridCheckbox">Auto Load In Receipt?</label>
+								<input type="hidden" asp-for="IsInGrid" />
+							</div>
+
+						</div>
+						<!--end::Input group-->
+						<!--begin::Input group-->
+						<div class="d-flex flex-column mb-8 fv-row">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="IsPerDayCheckbox" value="" />
+								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" for="IsPerDayCheckbox">Charge Per Day?</label>
+								<input type="hidden" asp-for="IsPerDay" />
+							</div>
+
+						</div>
+						<!--end::Input group-->
+						<!--begin::Input group-->
+						<div class="d-flex flex-column mb-8 fv-row">
+							<!--begin::Label-->
+							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Remarks ">
+								Remarks
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only Remarks"></i>
+							</label>
+							<!--end::Label-->
+							<textarea class="form-control form-control-solid" asp-for="Remarks" placeholder="Enter Remarks" autocomplete="off"></textarea>
+						</div>
+						<!--end::Input group-->
+						<!--begin::Actions-->
+						<div>
+							<button onclick="fn1()" type="submit" class="btn btn-primary" style="margin-right:5px;">
+								<span class="indicator-label">Submit</span>
+							</button>
+							<a type="submit" class="btn btn-light me-3" asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Index">
+								Back to List
+							</a>
+						</div>
+						<!--end::Actions-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end::Content container-->
+	</div>
+	<!--end::Content-->
+</form>
+@section Scripts{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+
+	<script>
+		// Get the initial value from the model, default to false if Model or Model.IsInGrid is null
+		var initialValue = @Html.Raw(Json.Serialize(Model?.IsInGrid ?? false));
+
+		// Set the initial state of the checkbox
+		document.getElementById('IsInGridCheckbox').checked = initialValue;
+
+		// Add script to update the hidden field when the checkbox changes
+		document.getElementById('IsInGridCheckbox').addEventListener('change', function () {
+			var hiddenField = document.querySelector('[name="IsInGrid"]');
+			hiddenField.value = this.checked ? 'true' : 'false';
+		});
+	</script>
+
+
+	<script>
+		// Get the initial value from the model, default to false if Model or Model.IsInGrid is null
+		var initialValue1 = @Html.Raw(Json.Serialize(Model?.IsPerDay ?? false));
+
+		// Set the initial state of the checkbox
+		document.getElementById('IsPerDayCheckbox').checked = initialValue1;
+
+		// Add script to update the hidden field when the checkbox changes
+		document.getElementById('IsPerDayCheckbox').addEventListener('change', function () {
+			var hiddenField = document.querySelector('[name="IsPerDay"]');
+			hiddenField.value = this.checked ? 'true' : 'false';
+		});
+	</script>
+
+	<script>
+		function fn1() {
+			document.getElementById("validatediv").classList = "alert alert-danger";
+		}
+	</script>
+}
+
+
+
+
+
+
+
+
+@*
+     for Add:
+
+     // Add script to update the hidden field when the checkbox changes
+        document.getElementById('IsInGridCheckbox').addEventListener('change', function () {
+            var hiddenField = document.querySelector('[name="IsInGrid"]');
+            hiddenField.value = this.checked ? 'true' : 'false';
+        });
+
+        for Update:
+
+         // Get the initial value from the model
+        var initialValue = @Html.Raw(Json.Serialize(Model.IsPerDay));
+
+        // Set the initial state of the checkbox
+        document.getElementById('IsPerDayCheckbox').checked = initialValue === true;
+
+        // Add script to update the hidden field when the checkbox changes
+        document.getElementById('IsPerDayCheckbox').addEventListener('change', function () {
+            var hiddenField = document.querySelector('[name="IsPerDay"]');
+            hiddenField.value = this.checked;
+        });
+        *@
+@* <div class="mt-2">
+
+                                <input type="checkbox" asp-for="IsInGrid" checked-value="true" value="false" />
+                                <span class="text-danger" asp-validation-for="IsInGrid"></span>
+                            </div>
+                           <div class="mt-2">
+                                <div class="mt-2">
+                                    <!-- Use a regular HTML checkbox for IsInGrid -->
+                                    <input type="checkbox" asp-for="IsInGrid" />
+                                </div>
+                                <span class="m-3"><input type="radio" value="true" asp-for="IsInGrid" /> Yes</span>
+                                <span class="m-3"><input type="radio" value="false" asp-for="IsInGrid" /> No</span>
+                            </div>*@

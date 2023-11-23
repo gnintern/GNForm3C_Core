@@ -1,0 +1,37 @@
+﻿@model GNForm3C_.Areas.MST_SubTreatment.Models.MST_SubTreatmentModel
+<form method="post">
+    <div class="d-flex row">
+
+        <!--begin::Input group-->
+        <div class="row mb-8">
+            <!--begin::Col-->
+            <div class="col-6 col-md-6 fv-row">
+                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+                    <option value="">Select Hospital</option>
+                </select>
+            </div>
+            <!--end::Col-->
+            <!--begin::Col-->
+            <div class="col-6 col-md-6 fv-row">
+                <!--begin::Input-->
+                <input type="search" class="form-control form-control-solid"
+                       name="SubTreatmentName" asp-for="SubTreatmentName" placeholder="Enter SubTreatment Name"
+                       autocomplete="off" />
+                <!--end::Input-->
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
+
+        <div class="col-lg-4">
+            <button type="submit" class="btn btn-primary"
+                    style="margin-right:15px;" asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Index">
+                <span class="indicator-label">Search</span>
+            </button>
+            <a type="submit" class="btn btn-light me-3"
+               asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Index">
+                Clear
+            </a>
+        </div>
+    </div>
+</form>

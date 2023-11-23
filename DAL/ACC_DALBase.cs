@@ -5,6 +5,7 @@ using System.Data;
 using GNForm3C_.Areas.ACC_Expense.Models;
 using GNForm3C_.Areas.SEC_User.Models;
 using GNForm3C_.BAL;
+using GNForm3C_.Areas.ACC_Income.Models;
 
 namespace GNForm3C_.DAL
 {
@@ -153,6 +154,154 @@ namespace GNForm3C_.DAL
                 return null;
             }
         }
+        #endregion
+
+        #region Income
+
+        #region PR_Income_SelectAll
+        public DataTable PR_Income_SelectAll(ACC_IncomeModel modelACC_Income)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Income_SelectAll");
+                DataTable dt = new DataTable();
+                if (modelACC_Income.HospitalID != null || modelACC_Income.FinYearID != null || modelACC_Income.IncomeTypeID != null || modelACC_Income.Amount != null)
+                {
+                    dbCMD = sqldb.GetStoredProcCommand("PR_Income_SelectByHospitalFinYearIncomeTypeAmount");
+                    if (modelACC_Income.HospitalID != null)
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Income.HospitalID);
+                    else
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
+
+                    if (modelACC_Income.FinYearID != null)
+                        sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, modelACC_Income.FinYearID);
+                    else
+                        sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, DBNull.Value);
+
+                    if (modelACC_Income.IncomeTypeID != null)
+                        sqldb.AddInParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, modelACC_Income.IncomeTypeID);
+                    else
+                        sqldb.AddInParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, DBNull.Value);
+
+                    if (modelACC_Income.Amount != null)
+                        sqldb.AddInParameter(dbCMD, "Amount", SqlDbType.NVarChar, modelACC_Income.Amount);
+                    else
+                        sqldb.AddInParameter(dbCMD, "Amount", SqlDbType.NVarChar, DBNull.Value);
+                }
+
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_Income_SelectPK
+        public DataTable PR_Income_SelectPK(int? IncomeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Income_SelectPK");
+                sqldb.AddInParameter(dbCMD, "IncomeID", SqlDbType.Int, IncomeID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_Income_Insert
+        public bool? PR_Income_Insert(ACC_IncomeModel modelACC_Income)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Income_Insert");
+                sqldb.AddOutParameter(dbCMD, "IncomeID", SqlDbType.Int, 4);
+                sqldb.AddInParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, modelACC_Income.IncomeTypeID);
+                sqldb.AddInParameter(dbCMD, "Amount", SqlDbType.Decimal, modelACC_Income.Amount);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Income.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Note", SqlDbType.NVarChar, modelACC_Income.Note);
+                sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, CommonVariables.FinYearID());
+                sqldb.AddInParameter(dbCMD, "Created", SqlDbType.DateTime, DBNull.Value);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.DateTime, DBNull.Value);
+                sqldb.AddInParameter(dbCMD, "Date", SqlDbType.DateTime, modelACC_Income.Date);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_Income_Update
+        public bool? PR_Income_Update(ACC_IncomeModel modelACC_Income, int IncomeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Income_Update");
+                sqldb.AddInParameter(dbCMD, "IncomeID", SqlDbType.Int, IncomeID);
+                sqldb.AddInParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, modelACC_Income.IncomeTypeID);
+                sqldb.AddInParameter(dbCMD, "Amount", SqlDbType.Decimal, modelACC_Income.Amount);
+                sqldb.AddInParameter(dbCMD, "Date", SqlDbType.DateTime, modelACC_Income.Date);
+                sqldb.AddInParameter(dbCMD, "Note", SqlDbType.NVarChar, modelACC_Income.Note);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Income.HospitalID);
+                sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, CommonVariables.FinYearID());
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.DateTime, DBNull.Value);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_Income_Delete
+        public bool? PR_Income_Delete(int IncomeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Income_Delete");
+                sqldb.AddInParameter(dbCMD, "IncomeID", SqlDbType.Int, IncomeID);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
         #endregion
     }
 }

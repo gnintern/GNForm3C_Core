@@ -4,7 +4,6 @@
 }
 @model GNForm3C_.Areas.SEC_User.Models.SEC_UserModel;
 
-
 <!--begin::Toolbar-->
 <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
 	<!--begin::Toolbar container-->
@@ -47,8 +46,6 @@
 	<!--end::Toolbar container-->
 </div>
 <!--end::Toolbar-->
-
-
 
 <form method="post" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Save">
 	<!--begin: Validation-->
@@ -93,6 +90,7 @@
 							<span class="text-danger" asp-validation-for="UserName"></span>
 						</div>
 						<!--end::Input group-->
+
 						<!--begin::Input group-->
 						<div class="row">
 							<div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
@@ -106,7 +104,7 @@
 								<div class="mb-1">
 									<!--begin::Input wrapper-->
 									<div class="position-relative mb-3">
-										<input class="form-control form-control-solid" type="password" asp-for="Password" placeholder="Password" autocomplete=" off" />
+										<input class="form-control form-control-solid" type="password" asp-for="Password" placeholder="Enter Password" autocomplete=" off" />
 										<span class="text-danger" asp-validation-for="Password"></span>
 
 										<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
@@ -142,7 +140,7 @@
 								<div class="mb-1">
 									<!--begin::Input wrapper-->
 									<div class="position-relative mb-3">
-										<input class="form-control form-control-solid" type="password" placeholder="Confirm Password" asp-for="ConfirmPassword" autocomplete=" off" />
+										<input class="form-control form-control-solid" type="password" placeholder="Enter Confirm Password" asp-for="ConfirmPassword" autocomplete=" off" />
 										<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
 											<i class="bi bi-eye-slash fs-2"></i>
 											<i class="bi bi-eye fs-2 d-none"></i>
@@ -197,7 +195,6 @@
 	</div>
 	<!--end::Content-->
 </form>
-
 
 @section Scripts{
 	@{

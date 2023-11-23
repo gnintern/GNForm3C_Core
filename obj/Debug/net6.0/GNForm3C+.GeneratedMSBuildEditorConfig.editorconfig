@@ -32,6 +32,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Sagar/GNForm3C_Core/Areas/ACC_Income/Views/ACC_Income/ACC_IncomeAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xBQ0NfSW5jb21lXEFDQ19JbmNvbWVBZGRFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/ACC_Income/Views/ACC_Income/ACC_IncomeList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xBQ0NfSW5jb21lXEFDQ19JbmNvbWVMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/ACC_Income/Views/Shared/_filterIncome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xTaGFyZWRcX2ZpbHRlckluY29tZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/ACC_Income/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Sagar/GNForm3C_Core/Areas/MST_ExpenseType/Views/MST_ExpenseType/MST_ExpenseTypeAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0V4cGVuc2VUeXBlXFZpZXdzXE1TVF9FeHBlbnNlVHlwZVxNU1RfRXhwZW5zZVR5cGVBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -94,6 +110,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Sagar/GNForm3C_Core/Areas/MST_IncomeType/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/MST_SubTreatment/Views/MST_SubTreatment/MST_SubTreatmentAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xNU1RfU3ViVHJlYXRtZW50XE1TVF9TdWJUcmVhdG1lbnRBZGRFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/MST_SubTreatment/Views/MST_SubTreatment/MST_SubTreatmentList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xNU1RfU3ViVHJlYXRtZW50XE1TVF9TdWJUcmVhdG1lbnRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/MST_SubTreatment/Views/Shared/_filterSubTreatment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xTaGFyZWRcX2ZpbHRlclN1YlRyZWF0bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sagar/GNForm3C_Core/Areas/MST_SubTreatment/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Sagar/GNForm3C_Core/Areas/MST_Treatment/Views/MST_Treatment/MST_TreatmentAddEdit.cshtml]

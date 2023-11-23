@@ -2,6 +2,7 @@
 using GNForm3C_.Areas.MST_FinYear.Models;
 using GNForm3C_.Areas.MST_Hospital.Models;
 using GNForm3C_.Areas.MST_IncomeType.Models;
+using GNForm3C_.Areas.MST_SubTreatment.Models;
 using GNForm3C_.Areas.MST_Treatment.Models;
 using GNForm3C_.Areas.SEC_User.Models;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
@@ -748,6 +749,172 @@ namespace GNForm3C_.DAL
         }
         #endregion
 
+        #region PR_IncomeType_SelectComboBox
+        public DataTable PR_IncomeType_SelectComboBox()
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_IncomeType_SelectComboBox");
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region MST_SubTreatment
+
+        #region PR_SubTreatment_SelectAll
+        public DataTable PR_SubTreatment_SelectAll(MST_SubTreatmentModel modelMST_SubTreatment)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_SubTreatment_SelectAll");
+                DataTable dt = new DataTable();
+                if (modelMST_SubTreatment.HospitalID != null || modelMST_SubTreatment.SubTreatmentName != null)
+                {
+                    dbCMD = sqldb.GetStoredProcCommand("PR_SubTreatment_SelectBySubTreatmentNameHospital");
+                    if (modelMST_SubTreatment.HospitalID != null)
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_SubTreatment.HospitalID);
+                    else
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
+
+                    if (modelMST_SubTreatment.SubTreatmentName != null)
+                        sqldb.AddInParameter(dbCMD, "SubTreatmentName", SqlDbType.NVarChar, modelMST_SubTreatment.SubTreatmentName);
+                    else
+                        sqldb.AddInParameter(dbCMD, "SubTreatmentName", SqlDbType.NVarChar, DBNull.Value);
+                }
+
+
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_SubTreatment_Delete
+        public bool? PR_SubTreatment_Delete(int SubTreatmentID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_SubTreatment_Delete");
+                sqldb.AddInParameter(dbCMD, "SubTreatmentID", SqlDbType.Int, SubTreatmentID);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_SubTreatment_Insert
+        public bool? PR_SubTreatment_Insert(MST_SubTreatmentModel modelMST_SubTreatment)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_SubTreatment_Insert");
+                sqldb.AddOutParameter(dbCMD, "SubTreatmentID", SqlDbType.Int, 4);
+                sqldb.AddInParameter(dbCMD, "SubTreatmentName", SqlDbType.NVarChar, modelMST_SubTreatment.SubTreatmentName);
+                sqldb.AddInParameter(dbCMD, "SequenceNo", SqlDbType.Int, modelMST_SubTreatment.SequenceNo);
+                sqldb.AddInParameter(dbCMD, "Rate", SqlDbType.Decimal, modelMST_SubTreatment.Rate);
+                sqldb.AddInParameter(dbCMD, "IsInGrid", SqlDbType.Bit, modelMST_SubTreatment.IsInGrid);
+                sqldb.AddInParameter(dbCMD, "IsPerDay", SqlDbType.Bit, modelMST_SubTreatment.IsPerDay);
+                sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_SubTreatment.Remarks);
+                sqldb.AddInParameter(dbCMD, "DefaultUnit", SqlDbType.NVarChar, modelMST_SubTreatment.DefaultUnit);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_SubTreatment.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_SubTreatment_Update
+        public bool? PR_SubTreatment_Update(MST_SubTreatmentModel modelMST_SubTreatment, int SubTreatmentID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_SubTreatment_Update");
+                sqldb.AddInParameter(dbCMD, "SubTreatmentID", SqlDbType.Int, SubTreatmentID);
+                sqldb.AddInParameter(dbCMD, "SubTreatmentName", SqlDbType.NVarChar, modelMST_SubTreatment.SubTreatmentName);
+                sqldb.AddInParameter(dbCMD, "SequenceNo", SqlDbType.Int, modelMST_SubTreatment.SequenceNo);
+                sqldb.AddInParameter(dbCMD, "Rate", SqlDbType.Decimal, modelMST_SubTreatment.Rate);
+                sqldb.AddInParameter(dbCMD, "IsInGrid", SqlDbType.Bit, modelMST_SubTreatment.IsInGrid);
+                sqldb.AddInParameter(dbCMD, "IsPerDay", SqlDbType.Bit, modelMST_SubTreatment.IsPerDay);
+                sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_SubTreatment.Remarks);
+                sqldb.AddInParameter(dbCMD, "DefaultUnit", SqlDbType.NVarChar, modelMST_SubTreatment.DefaultUnit);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_SubTreatment.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+
+                int result = sqldb.ExecuteNonQuery(dbCMD);
+                //return (result == -1 ? false : true);
+                return (result == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        #endregion
+
+        #region PR_SubTreatment_SelectPK
+        public DataTable PR_SubTreatment_SelectPK(int? SubTreatmentID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_SubTreatment_SelectPK");
+
+                sqldb.AddInParameter(dbCMD, "SubTreatmentID", SqlDbType.Int, SubTreatmentID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
         #endregion
     }
 }
