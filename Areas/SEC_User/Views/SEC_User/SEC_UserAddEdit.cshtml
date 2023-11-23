@@ -75,7 +75,7 @@
 									<option value="">Select Hospital</option>
 								</select>
 							</div>
-							<span class="text-danger" asp-validation-for="HospitalID"></span>
+							<span class="text-danger field-validation-error" asp-validation-for="HospitalID"></span>
 						</div>
 						<!--end::Input group-->
 						<!--begin::Input group-->
@@ -87,7 +87,7 @@
 							</label>
 							<!--end::Label-->
 							<input type="text" class="form-control form-control-solid" asp-for="UserName" placeholder="Enter User Name" autocomplete="off" />
-							<span class="text-danger" asp-validation-for="UserName"></span>
+							<span class="text-danger field-validation-error" asp-validation-for="UserName"></span>
 						</div>
 						<!--end::Input group-->
 
@@ -105,7 +105,7 @@
 									<!--begin::Input wrapper-->
 									<div class="position-relative mb-3">
 										<input class="form-control form-control-solid" type="password" asp-for="Password" placeholder="Enter Password" autocomplete=" off" />
-										<span class="text-danger" asp-validation-for="Password"></span>
+										<span class="text-danger field-validation-error" asp-validation-for="Password"></span>
 
 										<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
 											<i class="bi bi-eye-slash fs-2"></i>
@@ -145,7 +145,7 @@
 											<i class="bi bi-eye-slash fs-2"></i>
 											<i class="bi bi-eye fs-2 d-none"></i>
 										</span>
-										<span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+										<span class="text-danger field-validation-error" asp-validation-for="ConfirmPassword"></span>
 
 									</div>
 									<!--end::Input wrapper-->
@@ -203,7 +203,11 @@
 
 	<script>
 		function fn1() {
-			document.getElementById("validatediv").classList = "alert alert-danger";
+			var errorCount = document.querySelectorAll(".field-validation-error").length;
+
+			if (errorCount > 0) {
+				document.getElementById("validatediv").classList = "alert alert-danger";
+			}
 		}
 	</script>
 }
