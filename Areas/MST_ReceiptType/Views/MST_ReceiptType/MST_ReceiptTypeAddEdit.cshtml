@@ -42,9 +42,6 @@
 			<!--end::Breadcrumb-->
 		</div>
 		<!--end::Page title-->
-
-
-
 	</div>
 	<!--end::Toolbar container-->
 </div>
@@ -75,11 +72,11 @@
 							</label>
 							<!--end::Label-->
 							<div class="col-12 col-md-12 fv-row">
-								<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+								<select class="form-select form-select-solid " data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
 									<option value="">Select Hospital</option>
 								</select>
 							</div>
-							<span class="text-danger" asp-validation-for="HospitalID"></span>
+							<span class="text-danger field-validation-error" asp-validation-for="HospitalID"></span>
 						</div>
 						<!--end::Input group-->
 						<!--begin::Input group-->
@@ -91,7 +88,7 @@
 							</label>
 							<!--end::Label-->
 							<input type="text" class="form-control form-control-solid" asp-for="ReceiptTypeName" placeholder="Enter Receipt Type" autocomplete="off" />
-							<span class="text-danger" asp-validation-for="ReceiptTypeName"></span>
+							<span class="text-danger field-validation-error" asp-validation-for="ReceiptTypeName"></span>
 						</div>
 						<!--end::Input group-->
 
@@ -104,13 +101,10 @@
 							</label>
 								<!--end::Label-->
 								<input type="text" class="form-control form-control-solid" asp-for="PrintName" placeholder="Enter Print Name" autocomplete="off" />
-							<span class="text-danger" asp-validation-for="PrintName"></span>
+							<span class="text-danger field-validation-error" asp-validation-for="PrintName"></span>
 							</div>
 							<!--end::Input group-->
 
-						
-
-						
 						<!--begin::Input group-->
 						<div class="d-flex flex-column mb-8 fv-row">
 							<div class="form-check">
@@ -171,7 +165,18 @@
 
 	<script>
 		function fn1() {
-			document.getElementById("validatediv").classList = "alert alert-danger";
+			const hospitalIDInput = document.getElementById('HospitalID');
+			const receiptTypeNameInput = document.getElementById('ReceiptTypeName');
+			const printNameInput = document.getElementById('PrintName');
+
+			// Check if all input fields have values
+			if (hospitalIDInput.value && receiptTypeNameInput.value && printNameInput.value) {
+				// All fields are filled, so don't show validation line
+				document.getElementById('validatediv').classList.remove('alert alert-danger');
+			} else {
+				// At least one field is empty, so show validation line
+				document.getElementById('validatediv').classList = "alert alert-danger";
+			}
 		}
 	</script>
 }

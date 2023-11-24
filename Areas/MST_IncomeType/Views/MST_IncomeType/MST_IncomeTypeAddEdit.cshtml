@@ -127,7 +127,17 @@
 
 	<script>
 		function fn1() {
-			document.getElementById("validatediv").classList = "alert alert-danger";
+			const hospitalIDInput = document.getElementById('HospitalID');
+			const IncomeTypeInput = document.getElementById('IncomeType');
+
+			// Check if all input fields have values
+			if (hospitalIDInput.value && IncomeTypeInput.value) {
+				// All fields are filled, so don't show validation line
+				document.getElementById('validatediv').classList.remove('alert alert-danger');
+			} else {
+				// At least one field is empty, so show validation line
+				document.getElementById('validatediv').classList = "alert alert-danger";
+			}
 		}
 	</script>
 }

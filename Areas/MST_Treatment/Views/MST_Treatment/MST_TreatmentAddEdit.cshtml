@@ -127,9 +127,25 @@
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");
 	}
 
-	<script>
+	@* <script>
 		function fn1() {
 			document.getElementById("validatediv").classList = "alert alert-danger";
+		}
+	</script> *@
+
+	<script>
+		function fn1() {
+			const hospitalIDInput = document.getElementById('HospitalID');
+			const TreatmentNameInput = document.getElementById('Treatment');
+
+			// Check if all input fields have values
+			if (hospitalIDInput.value && TreatmentNameInput.value) {
+				// All fields are filled, so don't show validation line
+				document.getElementById('validatediv').classList.remove('alert alert-danger');
+			} else {
+				// At least one field is empty, so show validation line
+				document.getElementById('validatediv').classList = "alert alert-danger";
+			}
 		}
 	</script>
 }

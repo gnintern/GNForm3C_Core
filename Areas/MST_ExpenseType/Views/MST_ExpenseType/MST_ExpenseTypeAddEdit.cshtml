@@ -128,13 +128,17 @@
 
 	<script>
 		function fn1() {
-			debugger;
-			var errorCount = document.querySelectorAll("field-validation-error").length;
-			console.log(errorCount);
+			const hospitalIDInput = document.getElementById('HospitalID');
+			const ExpenseTypeInput = document.getElementById('ExpenseType');
 
-			if (errorCount > 0) {
-				
-				document.getElementById("validatediv").classList = "alert alert-danger";
+
+			// Check if all input fields have values
+			if (hospitalIDInput.value && ExpenseTypeInput.value) {
+				// All fields are filled, so don't show validation line
+				document.getElementById('validatediv').classList.remove('alert alert-danger');
+			} else {
+				// At least one field is empty, so show validation line
+				document.getElementById('validatediv').classList = "alert alert-danger";
 			}
 		}
 	</script>

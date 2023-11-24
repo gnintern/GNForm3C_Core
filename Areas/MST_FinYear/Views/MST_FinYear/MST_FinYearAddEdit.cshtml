@@ -4,7 +4,6 @@
 }
 @model GNForm3C_.Areas.MST_FinYear.Models.MST_FinYearModel;
 
-
 <!--begin::Toolbar-->
 <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
 	<!--begin::Toolbar container-->
@@ -159,9 +158,24 @@
 		updateFinYearName();
 	</script>
 
-	<script>
+	@* <script>
 		function fn1() {
 			document.getElementById("validatediv").classList = "alert alert-danger";
+		}
+	</script> *@
+	<script>
+		function fn1() {
+			const FromDateInput = document.getElementById('FromDate');
+			const ToDateInput = document.getElementById('ToDate');
+
+			// Check if all input fields have values
+			if (FromDateInput.value && ToDateInput.value) {
+				// All fields are filled, so don't show validation line
+				document.getElementById('validatediv').classList.remove('alert alert-danger');
+			} else {
+				// At least one field is empty, so show validation line
+				document.getElementById('validatediv').classList = "alert alert-danger";
+			}
 		}
 	</script>
 }
