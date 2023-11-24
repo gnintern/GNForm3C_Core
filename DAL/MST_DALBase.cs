@@ -2,6 +2,7 @@
 using GNForm3C_.Areas.MST_FinYear.Models;
 using GNForm3C_.Areas.MST_Hospital.Models;
 using GNForm3C_.Areas.MST_IncomeType.Models;
+using GNForm3C_.Areas.MST_ReceiptType.Models;
 using GNForm3C_.Areas.MST_SubTreatment.Models;
 using GNForm3C_.Areas.MST_Treatment.Models;
 using GNForm3C_.Areas.SEC_User.Models;
@@ -915,6 +916,146 @@ namespace GNForm3C_.DAL
             }
         }
         #endregion
+        #endregion
+
+        #region MST_ReceiptType
+
+        #region PR_ReceiptType_SelectAll
+        public DataTable PR_ReceiptType_SelectAll(MST_ReceiptTypeModel modelMST_ReceiptType)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ReceiptType_SelectAll");
+                DataTable dt = new DataTable();
+
+                if (modelMST_ReceiptType.HospitalID != null || modelMST_ReceiptType.ReceiptTypeName != null)
+                {
+                    dbCMD = sqldb.GetStoredProcCommand("PR_ReceiptType_SelectByReceiptTypeNameHospital");
+                    if (modelMST_ReceiptType.HospitalID != null)
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ReceiptType.HospitalID);
+                    else
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
+
+                    if (modelMST_ReceiptType.ReceiptTypeName != null)
+                        sqldb.AddInParameter(dbCMD, "ReceiptTypeName", SqlDbType.NVarChar, modelMST_ReceiptType.ReceiptTypeName);
+                    else
+                        sqldb.AddInParameter(dbCMD, "ReceiptTypeName", SqlDbType.NVarChar, DBNull.Value);
+                }
+
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_ReceiptType_Delete
+        public bool? PR_ReceiptType_Delete(int ReceiptTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ReceiptType_Delete");
+                sqldb.AddInParameter(dbCMD, "ReceiptTypeID", SqlDbType.Int, ReceiptTypeID);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_ReceiptType_Insert
+        public bool? PR_ReceiptType_Insert(MST_ReceiptTypeModel modelMST_ReceiptType)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ReceiptType_Insert");
+                sqldb.AddOutParameter(dbCMD, "ReceiptTypeID", SqlDbType.Int, 4);
+                sqldb.AddInParameter(dbCMD, "ReceiptTypeName", SqlDbType.NVarChar, modelMST_ReceiptType.ReceiptTypeName);
+                sqldb.AddInParameter(dbCMD, "PrintName", SqlDbType.NVarChar, modelMST_ReceiptType.PrintName);
+                sqldb.AddInParameter(dbCMD, "IsDefault", SqlDbType.Bit, modelMST_ReceiptType.IsDefault);
+                sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_ReceiptType.Remarks);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ReceiptType.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+                int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+
+                //return (vResultValue == -1 ? false : true);
+                return (vResultValue == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_ReceiptType_Update
+        public bool? PR_ReceiptType_Update(MST_ReceiptTypeModel modelMST_ReceiptType, int ReceiptTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ReceiptType_Update");
+                sqldb.AddInParameter(dbCMD, "ReceiptTypeID", SqlDbType.Int, ReceiptTypeID);
+                sqldb.AddInParameter(dbCMD, "ReceiptTypeName", SqlDbType.NVarChar, modelMST_ReceiptType.ReceiptTypeName);
+                sqldb.AddInParameter(dbCMD, "PrintName", SqlDbType.NVarChar, modelMST_ReceiptType.PrintName);
+                sqldb.AddInParameter(dbCMD, "IsDefault", SqlDbType.Bit, modelMST_ReceiptType.IsDefault);
+                sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_ReceiptType.Remarks);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ReceiptType.HospitalID);
+                sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
+
+                int result = sqldb.ExecuteNonQuery(dbCMD);
+                //return (result == -1 ? false : true);
+                return (result == -1 ? true : false);
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        #endregion
+
+        #region PR_ReceiptType_SelectPK
+        public DataTable PR_ReceiptType_SelectPK(int? ReceiptTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ReceiptType_SelectPK");
+
+                sqldb.AddInParameter(dbCMD, "ReceiptTypeID", SqlDbType.Int, ReceiptTypeID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
         #endregion
     }
 }

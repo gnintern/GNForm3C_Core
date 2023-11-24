@@ -66,7 +66,7 @@
 						<!--begin::Input group-->
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
-							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="HospitalID">
+							<label class="d-flex align-items-center fs-6 fw-semibold mb-2 " asp-for="HospitalID">
 								<span class="text-danger">*</span>Hospital Name
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select Hospital"></i>
 							</label>
@@ -76,7 +76,7 @@
 									<option value="">Select Hospital</option>
 								</select>
 							</div>
-							<span class="text-danger" asp-validation-for="HospitalID"></span>
+							<span class="text-danger field-validation-error" asp-validation-for="HospitalID"></span>
 						</div>
 						<!--end::Input group-->
 						<!--begin::Input group-->
@@ -88,7 +88,7 @@
 							</label>
 							<!--end::Label-->
 							<input type="text" class="form-control form-control-solid" asp-for="ExpenseType" placeholder="Enter User Name" autocomplete="off" />
-							<span class="text-danger" asp-validation-for="ExpenseType"></span>
+							<span class="text-danger field-validation-error" asp-validation-for="ExpenseType"></span>
 						</div>
 						<!--end::Input group-->
 						<!--begin::Input group-->
@@ -128,7 +128,14 @@
 
 	<script>
 		function fn1() {
-			document.getElementById("validatediv").classList = "alert alert-danger";
+			debugger;
+			var errorCount = document.querySelectorAll("field-validation-error").length;
+			console.log(errorCount);
+
+			if (errorCount > 0) {
+				
+				document.getElementById("validatediv").classList = "alert alert-danger";
+			}
 		}
 	</script>
 }
