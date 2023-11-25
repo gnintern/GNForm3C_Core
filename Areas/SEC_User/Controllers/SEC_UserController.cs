@@ -20,6 +20,7 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 			ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
 
 			DataTable dt = dalSEC.PR_SEC_User_SelectAll(modelSEC_User);
+
 			#region Fill the record into List
 			List<SEC_UserModel> Users = new List<SEC_UserModel>();
 			foreach (DataRow dr in dt.Rows)
@@ -70,7 +71,6 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 				#region Form Title
 				TempData["Action"] = "Add";
 				#endregion
-
 
 				ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
 
@@ -149,7 +149,9 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 				TempData["error"] = "password and confirm password are not matched!";
 				#endregion
 
-				return View("SEC_UserAddEdit");
+				ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+
+				return RedirectToAction("Add");
 			}
 			return RedirectToAction("Index");
 		}

@@ -31,13 +31,14 @@ namespace GNForm3C_.Areas.MST_Hospital.Controllers
                 HospitalModel.PrintLine2 = dr["PrintLine2"].ToString();
                 HospitalModel.PrintLine3 = dr["PrintLine3"].ToString();
                 //HospitalModel.Created = Convert.ToDateTime(dr["Created"]);
-                //HospitalModel.Modified = Convert.ToDateTime(dr["Modified"]);
+                HospitalModel.Modified = Convert.ToDateTime(dr["Modified"]);
                 HospitalModel.FooterName = dr["FooterName"].ToString();
                 HospitalModel.ReportHeaderName = dr["ReportHeaderName"].ToString();
                 Hospitals.Add(HospitalModel);
             }
             ViewBag.HospitalList = Hospitals;
             #endregion
+
             return View("MST_HospitalList");
         }
         #endregion
@@ -81,7 +82,7 @@ namespace GNForm3C_.Areas.MST_Hospital.Controllers
                     int id = decryptedID.Value;
                     #endregion
 
-                    #region Update record
+                    #region PR_Hospital_SelectPK
                     DataTable dt = dalMST.PR_Hospital_SelectPK(id);
                     MST_HospitalModel modelMST_Hospital = new MST_HospitalModel();
                     foreach(DataRow dr in dt.Rows)
@@ -109,8 +110,6 @@ namespace GNForm3C_.Areas.MST_Hospital.Controllers
         [HttpPost]
         public IActionResult Save(MST_HospitalModel modelMST_Hospital, string HospitalID)
         {
-
-
             if(modelMST_Hospital.HospitalID == null)
             {
                 if(HospitalID == null)

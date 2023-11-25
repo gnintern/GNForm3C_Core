@@ -6,6 +6,7 @@ using GNForm3C_.Areas.ACC_Expense.Models;
 using GNForm3C_.Areas.SEC_User.Models;
 using GNForm3C_.BAL;
 using GNForm3C_.Areas.ACC_Income.Models;
+using GNForm3C_.Areas.ACC_Receipt.Models;
 
 namespace GNForm3C_.DAL
 {
@@ -301,7 +302,117 @@ namespace GNForm3C_.DAL
                 return null;
             }
         }
-        #endregion
-        #endregion
-    }
+		#endregion
+		#endregion
+
+		#region Receipt
+		#region PR_Transaction_SelectAll
+		public DataTable PR_Transaction_SelectAll()
+		{
+			try
+			{
+				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Transaction_SelectAll");
+				DataTable dt = new DataTable();
+
+				using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+				{
+					dt.Load(dr);
+				}
+				return dt;
+			}
+			catch (Exception ex)
+			{
+				return null;
+			}
+		}
+		#endregion
+
+		#region PR_Transaction_SelectByFinYearID
+		public DataTable PR_Transaction_SelectByFinYearID(ACC_ReceiptModel modelACC_Receipt)
+		{
+			try
+			{
+				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Transaction_SelectByFinYearID");
+				sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, modelACC_Receipt.FinYearID);
+
+				DataTable dt = new DataTable();
+
+				using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+				{
+
+					dt.Load(dr);
+				}
+				return dt;
+			}
+			catch (Exception ex)
+			{
+				return null;
+			}
+		}
+		#endregion
+
+		#region PR_Transaction_SelectSerialNoReceiptNoDate
+		public DataTable PR_Transaction_SelectSerialNoReceiptNoDate()
+		{
+			try
+			{
+				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Transaction_SelectSerialNoReceiptNoDate");
+				DataTable dt = new DataTable();
+				using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+				{
+					dt.Load(dr);
+				}
+				return dt;
+			}
+			catch (Exception ex)
+			{
+				return null;
+			}
+		}
+		#endregion
+
+		#region PR_Transaction_Insert
+		public bool? PR_Transaction_Insert(ACC_ReceiptModel modelACC_Receipt)
+		{
+			try
+			{
+				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Transaction_Insert");
+				sqldb.AddOutParameter(dbCMD, "TransactionID", SqlDbType.Int, 4);
+				sqldb.AddInParameter(dbCMD, "Patient", SqlDbType.NVarChar, modelACC_Receipt.Patient);
+				sqldb.AddInParameter(dbCMD, "TreatmentID", SqlDbType.Int, modelACC_Receipt.TreatmentID);
+				sqldb.AddInParameter(dbCMD, "Amount", SqlDbType.Decimal, modelACC_Receipt.Amount);
+				sqldb.AddInParameter(dbCMD, "SerialNo", SqlDbType.Int, modelACC_Receipt.SerialNo);
+				sqldb.AddInParameter(dbCMD, "ReferenceDoctor ", SqlDbType.NVarChar, modelACC_Receipt.ReferenceDoctor);
+				sqldb.AddInParameter(dbCMD, "ReceiptNo ", SqlDbType.Int, modelACC_Receipt.ReceiptNo);
+				sqldb.AddInParameter(dbCMD, "Date", SqlDbType.DateTime, modelACC_Receipt.Date);
+				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelACC_Receipt.Remarks);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Receipt.HospitalID);
+				sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, CommonVariables.FinYearID());
+				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.DateTime, DBNull.Value);
+				sqldb.AddInParameter(dbCMD, "DateOfAdmission", SqlDbType.DateTime, modelACC_Receipt.DateOfAdmission);
+				sqldb.AddInParameter(dbCMD, "DateOfDischarge", SqlDbType.DateTime, modelACC_Receipt.DateOfDischarge);
+				sqldb.AddInParameter(dbCMD, "Deposite", SqlDbType.Decimal, modelACC_Receipt.Deposite);
+				sqldb.AddInParameter(dbCMD, "NetAmount", SqlDbType.Decimal, modelACC_Receipt.NetAmount);
+				sqldb.AddInParameter(dbCMD, "NoOfDays", SqlDbType.Int, modelACC_Receipt.NoOfDays);
+				sqldb.AddInParameter(dbCMD, "Count", SqlDbType.Int, modelACC_Receipt.Count);
+				sqldb.AddInParameter(dbCMD, "ReceiptTypeID", SqlDbType.Int, modelACC_Receipt.ReceiptTypeID);
+
+				int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
+
+				//return (vResultValue == -1 ? false : true);
+				return (vResultValue == -1 ? true : false);
+
+			}
+			catch (Exception ex)
+			{
+				return null;
+			}
+		}
+		#endregion
+		#endregion
+	}
 }

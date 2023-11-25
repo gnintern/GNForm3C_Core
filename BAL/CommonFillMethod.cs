@@ -2,6 +2,8 @@
 using GNForm3C_.Areas.MST_FinYear.Models;
 using GNForm3C_.Areas.MST_Hospital.Models;
 using GNForm3C_.Areas.MST_IncomeType.Models;
+using GNForm3C_.Areas.MST_ReceiptType.Models;
+using GNForm3C_.Areas.MST_Treatment.Models;
 using GNForm3C_.DAL;
 using System.Data;
 
@@ -97,6 +99,42 @@ namespace GNForm3C_.BAL
             }
             return FinYear;
         }
-        #endregion
-    }
+		#endregion
+
+
+		#region Receipt Type DropDown
+		public static List<ReceiptDropDownModel> SelectDropDownListForReceiptType()
+		{
+			MST_DAL dalMST = new MST_DAL();
+			DataTable dt1 = dalMST.PR_ReceiptType_SelectComboBox();
+			List<ReceiptDropDownModel> ReceiptType = new List<ReceiptDropDownModel>();
+			foreach (DataRow dr1 in dt1.Rows)
+			{
+				ReceiptDropDownModel dropDownModel = new ReceiptDropDownModel();
+				dropDownModel.ReceiptTypeID = Convert.ToInt32(dr1["ReceiptTypeID"]);
+				dropDownModel.ReceiptTypeName = dr1["ReceiptTypeName"].ToString();
+				ReceiptType.Add(dropDownModel);
+			}
+			return ReceiptType;
+		}
+		#endregion
+
+		#region Treatement DropDown Model
+		public static List<TreatementDropDownModel> SelectDropDownListForTreatment()
+		{
+			MST_DAL dalMST = new MST_DAL();
+			DataTable dt1 = dalMST.PR_Treatment_SelectComboBox();
+			List<TreatementDropDownModel> Treatement = new List<TreatementDropDownModel>();
+			foreach (DataRow dr1 in dt1.Rows)
+			{
+				TreatementDropDownModel dropDownModel = new TreatementDropDownModel();
+				dropDownModel.TreatmentID = Convert.ToInt32(dr1["TreatmentID"]);
+				dropDownModel.Treatment = dr1["Treatment"].ToString();
+				Treatement.Add(dropDownModel);
+			}
+			return Treatement;
+		}
+		#endregion
+
+	}
 }

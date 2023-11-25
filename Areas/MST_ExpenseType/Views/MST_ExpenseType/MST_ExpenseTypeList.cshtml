@@ -130,7 +130,7 @@
             <div class="card-body pt-0">
                 <hr />
                 <!--begin::Table-->
-                <table class="table align-middle table-row-dashed fs-6 gy-3" id="myTable">
+                <table class="table align-middle table-row-dashed fs-6 gy-3" >
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
@@ -142,7 +142,7 @@
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="fw-semibold text-dark-600 font-weight-normal">
+                    <tbody class="fw-semibold text-dark-600 font-weight-normal" id="myTable">
                         @foreach(MST_ExpenseTypeModel dr in ViewBag.ExpenseTypeList)
                         {
                             <tr>
@@ -151,7 +151,6 @@
                                 <td>@dr.Hospital</td>
                                 <td>@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
                                 <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
-                               
                                 <td class="text-center">
                                     <a class="text-decoration-none text-primary edit-button"
                                        data-bs-toggle="tooltip"

@@ -29,7 +29,7 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
                 FinYearmodel.FinYearName = dr["FinYearName"].ToString();
                 FinYearmodel.FromDate = Convert.ToDateTime(dr["FromDate"]);
                 FinYearmodel.ToDate = Convert.ToDateTime(dr["ToDate"]);
-                //FinYearmodel.Created = Convert.ToDateTime(dr["Created"]);
+                FinYearmodel.Created = Convert.ToDateTime(dr["Created"]);
                 FinYearmodel.Modified = Convert.ToDateTime(dr["Modified"]);
                 FinYear.Add(FinYearmodel);
             }
@@ -134,8 +134,15 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
                 return View("MST_FinYearAddEdit");
             }
 
+			bool isFinYearNameExists = dalMST.PR_FinYear_CheckISExist(modelMST_FinYear.FinYearName);
 
-            if (modelMST_FinYear.FinYearID == null)
+			if (isFinYearNameExists)
+			{
+				TempData["error"] = "FinYearName already exists.";
+				return View("MST_FinYearAddEdit");
+			}
+
+			if (modelMST_FinYear.FinYearID == null)
             {
                 if (FinYearID == null)
                 {

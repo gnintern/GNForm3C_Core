@@ -52,11 +52,14 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
         #region Function: Add Record
         public IActionResult Add(string? ExpenseID)
         {
-            if (ModelState.IsValid)
+			ACC_ExpenseModel modelACC_Expense = new ACC_ExpenseModel();
+
+			if (ModelState.IsValid)
             {
                 #region Form Title
                 TempData["Action"] = "Add";
                 #endregion
+
                 ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
                 ViewBag.ExpenseTypeDropDown = CommonFillMethod.SelectDropDownListForExpenseType().ToList();
 
@@ -74,7 +77,6 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
 
                     #region Update record
                     DataTable dt = dalACC.PR_Expense_SelectPK(id);
-                    ACC_ExpenseModel modelACC_Expense = new ACC_ExpenseModel();
                     foreach(DataRow dr in dt.Rows)
                     {
                         modelACC_Expense.ExpenseID = Convert.ToInt32(dr["ExpenseID"]);
@@ -89,7 +91,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
                     return View("ACC_ExpenseAddEdit",modelACC_Expense);
                 }
             }
-            return View("ACC_ExpenseAddEdit");
+            return View("ACC_ExpenseAddEdit", modelACC_Expense);
         }
         #endregion
 

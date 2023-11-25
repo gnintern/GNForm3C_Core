@@ -13,11 +13,11 @@ namespace GNForm3C_.Areas.MST_SubTreatment.Controllers
     public class MST_SubTreatmentController : Controller
     {
          MST_DAL dalMST = new MST_DAL();
-
+         
         #region Function: SelectAll
         public IActionResult Index(MST_SubTreatmentModel modelMST_SubTreatment)
             {
-            ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
                 DataTable dt = dalMST.PR_SubTreatment_SelectAll(modelMST_SubTreatment);
 
                 #region Fill the record into List
@@ -34,7 +34,7 @@ namespace GNForm3C_.Areas.MST_SubTreatment.Controllers
                     SubTreatmentmodel.Remarks = dr["Remarks"].ToString();
                     SubTreatmentmodel.Hospital = dr["Hospital"].ToString();
                     SubTreatmentmodel.DefaultUnit = dr["DefaultUnit"].ToString();
-                    //SubTreatmentmodel.Created = Convert.ToDateTime(dr["Created"]);
+                    SubTreatmentmodel.Created = Convert.ToDateTime(dr["Created"]);
                     SubTreatmentmodel.Modified = Convert.ToDateTime(dr["Modified"]);
                     SubTreatment.Add(SubTreatmentmodel);
                 }

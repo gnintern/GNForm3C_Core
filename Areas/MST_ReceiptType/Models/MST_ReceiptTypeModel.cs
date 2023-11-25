@@ -21,4 +21,9 @@ namespace GNForm3C_.Areas.MST_ReceiptType.Models
         public DateTime? Created { get; set; }
         public DateTime Modified { get; set; }
     }
+	public class ReceiptDropDownModel
+	{
+		public int? ReceiptTypeID { get; set; }
+		public string? ReceiptTypeName { get; set; }
+	}
 }

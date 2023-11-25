@@ -21,7 +21,7 @@ namespace GNForm3C_.Areas.ACC_Income.Models
         public decimal? Amount { get; set; }
         [Required]
         [DisplayName("Income Date")]
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;  
         public string? Note { get; set; }
         public string Remarks { get; set; }
         public DateTime Created { get; set; }

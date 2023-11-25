@@ -9,12 +9,16 @@
 
   <ItemGroup>
     <Compile Remove="Areas\MST_FinYear\Data\**" />
+    <Compile Remove="Areas\MST_Hospital\Data\**" />
     <Compile Remove="Areas\SEC_User\Data\**" />
     <Content Remove="Areas\MST_FinYear\Data\**" />
+    <Content Remove="Areas\MST_Hospital\Data\**" />
     <Content Remove="Areas\SEC_User\Data\**" />
     <EmbeddedResource Remove="Areas\MST_FinYear\Data\**" />
+    <EmbeddedResource Remove="Areas\MST_Hospital\Data\**" />
     <EmbeddedResource Remove="Areas\SEC_User\Data\**" />
     <None Remove="Areas\MST_FinYear\Data\**" />
+    <None Remove="Areas\MST_Hospital\Data\**" />
     <None Remove="Areas\SEC_User\Data\**" />
   </ItemGroup>
 
@@ -26,13 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\ACC_Expense\Data\" />
-    <Folder Include="Areas\MST_ExpenseType\Data\" />
     <Folder Include="Areas\MST_FinYear\Controllers\" />
     <Folder Include="Areas\MST_FinYear\Models\" />
     <Folder Include="Areas\MST_FinYear\Views\" />
-    <Folder Include="Areas\MST_Hospital\Data\" />
-    <Folder Include="Areas\MST_Treatment\Data\" />
   </ItemGroup>
 
 </Project>

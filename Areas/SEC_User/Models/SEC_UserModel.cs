@@ -22,9 +22,9 @@ namespace GNForm3C_.Areas.SEC_User.Models
         public string? ConfirmPassword { get; set; }
         [Required]
         public bool IsActive { get; set; }
-        public DateTime Created { get; set; } = DateTime.Now;
-        public DateTime Modified { get; set; } = DateTime.Now;
-        public FinYearDropdownModel MST_FinYear {  get; set; }
-        public HospitalDropDowmModel MST_Hospital { get; set; }
+        public DateTime Created { get; set; } 
+        public DateTime Modified { get; set; }
+        public FinYearDropdownModel? MST_FinYear {  get; set; }
+        public HospitalDropDowmModel? MST_Hospital { get; set; }
     }
 }

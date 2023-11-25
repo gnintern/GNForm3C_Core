@@ -21,7 +21,6 @@ namespace GNForm3C_.Areas.MST_Hospital.Models
         [DisplayName("Footer Name")]
         public string? FooterName { get; set; }
         public string? ReportHeaderName { get; set; }
-
     }
 
     public class HospitalDropDowmModel

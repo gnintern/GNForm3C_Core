@@ -1,13 +1,28 @@
 ﻿@model GNForm3C_.Areas.MST_ExpenseType.Models.MST_ExpenseTypeModel;
 <form method="post" asp-area="MST_ExpenseType" asp-controller="MST_ExpenseType" asp-action="Index">
     <div class="d-flex row">
+      
         <!--begin::Input group-->
-        <div class="col-lg-4 mb-8">
-            <input type="search" class="form-control form-control-solid"
-                   name="ExpenseType"
-                   asp-for="ExpenseType" placeholder="Enter Expense Type"
-                   autocomplete="off" />
+        <div class="row mb-8">
+            <!--begin::Col-->
+            <div class="col-6 col-md-6 fv-row">
+                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+                    <option value="">Select Hospital</option>
+                </select>
+            </div>
+            <!--end::Col-->
+            <!--begin::Col-->
+            <div class="col-6 col-md-6 fv-row">
+                <!--begin::Input-->
+                <input type="search" class="form-control form-control-solid"
+                       name="ExpenseType"
+                       asp-for="ExpenseType" placeholder="Enter Expense Type"
+                       autocomplete="off" />
+                <!--end::Input-->
+            </div>
+            <!--end::Col-->
         </div>
+        <!--end::Input group-->
 
         <!--end::Input group-->
         <div class="col-lg-4">

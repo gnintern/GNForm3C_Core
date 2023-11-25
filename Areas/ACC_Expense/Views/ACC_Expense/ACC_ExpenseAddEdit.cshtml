@@ -21,21 +21,25 @@
 					<a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary"><i class="bi bi-house"></i> Home</a>
 				</li>
 				<!--end::Item-->
+
 				<!--begin::Item-->
 				<li class="breadcrumb-item">
 					<span class="bullet bg-gray-400 w-5px h-2px"></span>
 				</li>
 				<!--end::Item-->
+
 				<!--begin::Item-->
 				<li class="breadcrumb-item text-muted">
-					<a asp-area="ACC_Expense" asp-controller="ACC_Expense" asp-action="Index" class="text-muted text-hover-primary">Expenses</a>
+					<a asp-area="ACC_Expense" asp-controller="ACC_Expense" asp-action="Index" class="text-muted text-hover-primary">Expense</a>
 				</li>
 				<!--end::Item-->
+
 				<!--begin::Item-->
 				<li class="breadcrumb-item">
 					<span class="bullet w-5px h-2px"></span>
 				</li>
 				<!--end::Item-->
+
 				<!--begin::Item-->
 				<li class="breadcrumb-item fw-bolder">@TempData["Action"] Expense</li>
 				<!--end::Item-->
@@ -106,7 +110,7 @@
 								</label>
 								<!--end::Label-->
 								<div class="col-12 col-md-12 fv-row">
-									<input type="date" asp-for="Date" class="form-control form-control-solid" />
+									<input type="date"  asp-for="Date" class="form-control form-control-solid" />
 								</div>
 								<span class="text-danger" asp-validation-for="Date"></span>
 							</div>
@@ -119,8 +123,7 @@
 								</label>
 								<!--end::Label-->
 								<div class="col-12 col-md-12 fv-row">
-									<input type="text" asp-for="Amount" class="form-control form-control-solid" placeholder="Enter Amount" autocomplete="off" />
-
+									<input type="number" asp-for="Amount" class="form-control form-control-solid" placeholder="Enter Amount" autocomplete="off" />
 								</div>
 								<span class="text-danger" asp-validation-for="Amount"></span>
 							</div>
@@ -160,12 +163,6 @@
 	@{
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");
 	}
-
-	@* <script>
-		function fn1() {
-			document.getElementById("validatediv").classList = "alert alert-danger";
-		}
-	</script> *@
 
 	<script>
 		function fn1() {

@@ -13,7 +13,12 @@ namespace GNForm3C_.Areas.MST_Treatment.Models
         public int? HospitalID { get; set; }
         public string Hospital {  get; set; }
         public string? Remarks { get; set; }
-        public DateTime Created { get; set; } = DateTime.Now;
-        public DateTime Modified { get; set; } = DateTime.Now;
+        public DateTime Created { get; set; } 
+        public DateTime Modified { get; set; }
     }
+	public class TreatementDropDownModel
+	{
+		public int TreatmentID { get; set; }
+		public string Treatment { get; set; }
+	}
 }

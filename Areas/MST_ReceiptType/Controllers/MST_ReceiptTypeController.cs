@@ -110,7 +110,6 @@ namespace GNForm3C_.Areas.MST_ReceiptType.Controllers
         }
         #endregion
 
-
         [HttpPost]
         #region Save Record
         public IActionResult Save(MST_ReceiptTypeModel modelReceiptType, string ReceiptTypeID)

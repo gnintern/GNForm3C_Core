@@ -13,8 +13,8 @@ namespace GNForm3C_.Areas.MST_ExpenseType.Models
         [DisplayName("Hospital Name")]
         public int? HospitalID { get; set; }
         public string Hospital { get; set; }
-        public DateTime Created { get; set; } = DateTime.Now;
-        public DateTime Modified { get; set; } = DateTime.Now;
+        public DateTime Created { get; set; } 
+        public DateTime Modified { get; set; } 
     }
     public class ExpenseTypeDropdownModel
     {

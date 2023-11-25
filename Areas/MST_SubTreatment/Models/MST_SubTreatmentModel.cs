@@ -20,7 +20,7 @@ namespace GNForm3C_.Areas.MST_SubTreatment.Models
         public string? Hospital { get; set; }
        
         public string? DefaultUnit { get; set; }
-        public DateTime Created { get; set; } = DateTime.Now;
-        public DateTime Modified { get; set; } = DateTime.Now;
+        public DateTime Created { get; set; } 
+        public DateTime Modified { get; set; } 
     }
 }

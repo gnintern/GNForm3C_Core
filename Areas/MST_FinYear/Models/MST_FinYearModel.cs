@@ -13,8 +13,8 @@ namespace GNForm3C_.Areas.MST_FinYear.Models
         [Required]
 		[DisplayName("To Date")]
 		public DateTime ToDate { get; set; }
-        public DateTime? Created { get; set; } = DateTime.Now;
-        public DateTime Modified { get; set; } = DateTime.Now;
+        public DateTime? Created { get; set; } 
+        public DateTime Modified { get; set; } 
     }
     public class FinYearDropdownModel
     {

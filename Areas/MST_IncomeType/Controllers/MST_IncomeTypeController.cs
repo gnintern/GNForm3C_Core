@@ -16,7 +16,8 @@ namespace GNForm3C_.Areas.MST_IncomeType.Controllers
         #region Function: SelectAll
         public IActionResult Index(MST_IncomeTypeModel modelMST_IncomeType)
         {
-            DataTable dt = dalMST.PR_IncomeType_SelectAll(modelMST_IncomeType);
+			ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+			DataTable dt = dalMST.PR_IncomeType_SelectAll(modelMST_IncomeType);
 
             #region Fill the record into List
             List<MST_IncomeTypeModel> IncomeType = new List<MST_IncomeTypeModel>();

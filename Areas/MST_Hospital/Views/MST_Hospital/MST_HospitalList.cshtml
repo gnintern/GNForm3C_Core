@@ -27,7 +27,7 @@
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item fw-bolder">Hospitals</li>
+                <li class="breadcrumb-item fw-bolder">Hospital</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -132,7 +132,7 @@
             <div class="card-body pt-0">
                 <hr />
                 <!--begin::Table-->
-                <table class="table align-middle table-row-dashed fs-6 gy-3 table-responsive table-responsive-md" id="myTable">
+                <table class="table align-middle table-row-dashed fs-6 gy-3 table-responsive table-responsive-md">
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-5 text-uppercase">
@@ -143,7 +143,7 @@
                             <th>Print Line - 3</th>
                             <th>Footer Name</th>
                             <th>Report Header Name</th>
-                            <th>Modified</th>
+                            <th>Modified</th> 
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -159,7 +159,6 @@
                                 <td>@dr.FooterName</td>
                                 <td>@dr.ReportHeaderName</td>
                                 <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
-
                                 <td class="text-center">
                                     <a class="text-decoration-none text-primary edit-button"
                                        data-bs-toggle="tooltip"

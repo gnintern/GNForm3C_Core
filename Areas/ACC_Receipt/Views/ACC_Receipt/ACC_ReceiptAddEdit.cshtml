@@ -1,0 +1,351 @@
+﻿@{
+    ViewData["Title"] = @TempData["Action"] + " Receipt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel;
+
+<!--begin::Toolbar-->
+<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+    <!--begin::Toolbar container-->
+    <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+        <!--begin::Page title-->
+        <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+            <!--begin::Title-->
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Receipt</h1>
+            <!--end::Title-->
+            <!--begin::Breadcrumb-->
+            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">
+                    <a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary"><i class="bi bi-house"></i> Home</a>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item">
+                    <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">
+                    <a asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index" class="text-muted text-hover-primary">Receipt</a>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item">
+                    <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item fw-bolder">@TempData["Action"] Receipt</li>
+                <!--end::Item-->
+            </ul>
+            <!--end::Breadcrumb-->
+        </div>
+        <!--end::Page title-->
+
+
+
+    </div>
+    <!--end::Toolbar container-->
+</div>
+<!--end::Toolbar-->
+<!--Utla nu chokru Start-->
+<form method="post" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Save">
+
+    <div class="col-md-12 container">
+        <div id="validatediv" asp-validation-summary="All" class="text-danger"></div>
+    </div>
+
+    <!--Utla nu chokru End-->
+    <!--begin::Content-->
+    <div id="kt_app_content" class="app-content flex-column-fluid">
+        <!--begin::Content container-->
+        <div id="kt_app_content_container" class="app-container container-fluid">
+            <div class="card">
+                <div class="card-body p-5 px-lg-10 py-lg-7">
+                    <div>
+
+                        @Html.HiddenFor(x=>x.TransactionID)
+
+                        <div class="row">
+                            <div class="mb-8 col-6 col-md-6">
+                                <!--begin::Label-->
+                                <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="SerialNo">
+                                    <span class="text-danger">*</span> &nbsp;Serial No.
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for Serial No"></i>
+                                </label>
+                                <!--end::Label-->
+                                <div class="col-12 col-md-12 ">
+
+                                    <input type="number" readonly asp-for="SerialNo" class="form-control form-control-solid" />
+                                </div>
+                                <span class="text-danger" asp-validation-for="SerialNo"></span>
+                            </div>
+
+                            <div class="mb-8 col-6 col-md-6 ">
+                                <!--begin::Label-->
+                                <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Date">
+                                    <span class="text-danger">*</span> &nbsp;Entry Date
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select Date"></i>
+                                </label>
+                                <!--end::Label-->
+                                <div class="col-12 col-md-12 ">
+                                    <input type="date" class="form-control form-control-solid" asp-for="Date" />
+                                </div>
+                                <span class="text-danger" asp-validation-for="Date"></span>
+                            </div>
+
+                        </div>
+                        <!--begin::Input group-->
+                        <div class="row">
+                            <div class="fv-row mb-8 col-6 col-md-6">
+                                <!--begin::Label-->
+                                <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="HospitalID">
+                                    <span class="text-danger">*</span> &nbsp;Hospital Name
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select Hospital"></i>
+                                </label>
+                                <!--end::Label-->
+                                <div class="col-12 col-md-12 fv-row">
+                                    <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+                                        <option value="">Select Hospital</option>
+                                    </select>
+                                </div>
+                                <span class="text-danger" asp-validation-for="HospitalID"></span>
+                            </div>
+
+                            <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
+                                <!--begin::Label-->
+                                <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ReceiptTypeID">
+                                    <span class="text-danger">*</span> &nbsp;Receipt Type
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select Receipt Type"></i>
+                                </label>
+                                <!--end::Label-->
+                                <div class="col-12 col-md-12 fv-row">
+                                    <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Expense Type" asp-for="ReceiptTypeID" asp-items="@(new SelectList(ViewBag.ReceiptTypeDropDown,"ReceiptTypeID","ReceiptTypeName"))">
+                                        <option value="">Select Receipt Type</option>
+                                    </select>
+                                </div>
+                                <span class="text-danger" asp-validation-for="ReceiptTypeID"></span>
+                            </div>
+                        </div>
+                        <!--end::Input group-->
+                        <div class="row">
+                            <!--begin::Input Hospital group-->
+                            <div class="d-flex flex-column mb-8 fv-row">
+                                <!--begin::Label-->
+                                <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Patient">
+                                    <span class="text-danger">*</span>&nbsp;Patient Name
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Used For Enter Patient Name"></i>
+                                </label>
+                                <!--end::Label-->
+                                <input type="text" class="form-control form-control-solid" asp-for="Patient" placeholder="Enter Patient Name" autocomplete="off" />
+                                <span class="text-danger" asp-validation-for="Patient"></span>
+                            </div>
+                            <!--end::Input Hospital group-->
+                        </div>
+                        <!--begin::Input group-->
+                        <!--begin::Input group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="TreatmentID">
+                                <span class="text-danger">*</span>&nbsp;Treatment
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Used For Select Treatment"></i>
+                            </label>
+                            <!--end::Label-->
+                            <div class="col-12 col-md-12 fv-row">
+                                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Treatment" asp-for="TreatmentID" asp-items="@(new SelectList(ViewBag.TreatmentDropDown,"TreatmentID","Treatment"))">
+                                    <option value="">Select Treatment</option>
+                                </select>
+                            </div>
+                            <span class="text-danger field-validation-error" asp-validation-for="TreatmentID"></span>
+                        </div>
+                        <!--end::Input group-->
+                        <div class="row">
+
+                            <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
+                                <!--begin::Label-->
+                                <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Amount">
+                                    <span class="text-danger">*</span> &nbsp;Amount
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for Enter Amount"></i>
+                                </label>
+                                <!--end::Label-->
+                                <div class="col-12 col-md-12 fv-row">
+                                    <input type="number" id="totalAmount" asp-for="Amount" class="form-control form-control-solid" />
+
+                                </div>
+                                <span class="text-danger" asp-validation-for="Amount"></span>
+                            </div>
+
+                            <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
+                                <!--begin::Label-->
+                                <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ReceiptNo">
+                                    <span class="text-danger">*</span> &nbsp;Receipt No.
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for Receipt No"></i>
+                                </label>
+                                <!--end::Label-->
+                                <div class="col-12 col-md-12 fv-row">
+                                    <input type="number" readonly asp-for="ReceiptNo" class="form-control form-control-solid" />
+
+                                </div>
+                                <span class="text-danger" asp-validation-for="ReceiptNo"></span>
+                            </div>
+
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Remarks">
+                                Remarks
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only Remarks"></i>
+                            </label>
+                            <!--end::Label-->
+                            <textarea class="form-control form-control-solid" asp-for="Remarks" placeholder="Enter Remarks" autocomplete="off"></textarea>
+                        </div>
+
+
+                       
+                        <div class="mb-8">
+                            <button type="submit" class="btn btn-primary" style="margin-right:5px;" onclick="fn1()">
+                                <span class="indicator-label">Submit</span>
+                            </button>
+                            <a type="submit" class="btn btn-light me-3" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index">
+                                Back to List
+                            </a>
+                                <button type="button" class="btn btn-success me-3" id="showDetailsBtn" onclick="toggleDetails()">
+                                    Show Details
+                                </button>
+                        </div>
+                        <!--end::Actions-->
+
+                        <div id="detailsContainer" style="display:none;">
+                            <!--end::Input group-->
+                            <div class="row">
+                                <div class="mb-8 col-6 col-md-6 ">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="DateOfAdmission">
+                                        Admission Date
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select Date"></i>
+                                    </label>
+                                    <!--end::Label-->
+                                    <div class="col-12 col-md-12 ">
+                                        <input type="date" class="form-control form-control-solid" asp-for="DateOfAdmission" />
+                                    </div>
+                                </div>
+
+                                <div class="mb-8 col-6 col-md-6 ">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="DateOfDischarge">
+                                        Discharge Date
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select Date"></i>
+                                    </label>
+                                    <!--end::Label-->
+                                    <div class="col-12 col-md-12 ">
+                                        <input type="date" class="form-control form-control-solid" asp-for="DateOfDischarge" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="fv-row mb-8 col-4 col-md-4" data-kt-password-meter="true">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="NoOfDays">
+                                        No. Of Days
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for Enter No. Of Days"></i>
+                                    </label>
+                                    <!--end::Label-->
+                                    <div class="col-12 col-md-12 fv-row">
+                                        <input type="number" asp-for="NoOfDays" class="form-control form-control-solid" />
+
+                                    </div>
+                                </div>
+
+                                <div class="fv-row mb-8 col-4 col-md-4" data-kt-password-meter="true">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Deposite">
+                                        Advance
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for Enter Advance"></i>
+                                    </label>
+                                    <!--end::Label-->
+                                    <div class="col-12 col-md-12 fv-row">
+                                        <input type="number" id="deposit" asp-for="Deposite" class="form-control form-control-solid" />
+
+                                    </div>
+                                </div>
+
+                                <div class="fv-row mb-8 col-4 col-md-4" data-kt-password-meter="true">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="NetAmount">
+                                        Net Amount
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for Net Amount"></i>
+                                    </label>
+                                    <!--end::Label-->
+                                    <div class="col-12 col-md-12 fv-row">
+                                        <input type="number" id="netAmount" asp-for="NetAmount" class="form-control form-control-solid" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--begin::Actions-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end::Content container-->
+    </div>
+    <!--end::Content-->
+</form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Get references to the input fields
+        const depositInput = document.getElementById('deposit');
+        const netAmountInput = document.getElementById('netAmount');
+        const totalAmountInput = document.getElementById('totalAmount');
+
+        // Attach an event listener to both deposit and totalAmount input fields
+        depositInput.addEventListener('input', updateNetAmount);
+        totalAmountInput.addEventListener('input', updateNetAmount);
+
+        // Function to update the net amount based on deposit and totalAmount
+        function updateNetAmount() {
+            const depositValue = parseFloat(depositInput.value) || 0;
+            const totalAmountValue = parseFloat(totalAmountInput.value) || 0;
+
+            // Calculate the net amount
+            const netAmount = totalAmountValue - depositValue;
+
+            // Update the netAmountInput value
+            netAmountInput.value = netAmount;
+        }
+    </script>
+
+    <script>
+        function fn1() {
+            document.getElementById("validatediv").classList = "alert alert-danger";
+        }
+    </script>
+
+    <script>
+        function toggleDetails() {
+            var detailsContainer = document.getElementById("detailsContainer");
+            var showDetailsBtn = document.getElementById("showDetailsBtn");
+
+            if (detailsContainer.style.display === "none") {
+                detailsContainer.style.display = "block";
+                showDetailsBtn.innerText = "Hide Details";
+            } else {
+                detailsContainer.style.display = "none";
+                showDetailsBtn.innerText = "Show Details";
+            }
+        }
+    </script>
+
+   
+
+
+}

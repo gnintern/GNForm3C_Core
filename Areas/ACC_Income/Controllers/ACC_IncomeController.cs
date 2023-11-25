@@ -49,7 +49,9 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
         #region Function: Add Record
         public IActionResult Add(string? IncomeID)
         {
-            if (ModelState.IsValid)
+			ACC_IncomeModel modelACC_Income = new ACC_IncomeModel();
+
+			if (ModelState.IsValid)
             {
                 #region Form Title
                 TempData["Action"] = "Add";
@@ -72,7 +74,6 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
 
                     #region Update record
                     DataTable dt = dalACC.PR_Income_SelectPK(id);
-                    ACC_IncomeModel modelACC_Income = new ACC_IncomeModel();
                     foreach (DataRow dr in dt.Rows)
                     {
                         modelACC_Income.IncomeID = Convert.ToInt32(dr["IncomeID"]);
@@ -87,7 +88,7 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
                     return View("ACC_IncomeAddEdit", modelACC_Income);
                 }
             }
-            return View("ACC_IncomeAddEdit");
+            return View("ACC_IncomeAddEdit", modelACC_Income);
         }
         #endregion
 

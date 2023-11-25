@@ -27,7 +27,7 @@
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item fw-bolder">Expenses</li>
+                <li class="breadcrumb-item fw-bolder">Expense</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -199,16 +199,4 @@
     <!--end::Content container-->
 </div>
 <!--end::Content-->
-@section Scripts{
-    <script>
-        $(document).ready(function () {
-            $("#myInput").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
-}
 

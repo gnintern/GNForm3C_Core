@@ -17,10 +17,11 @@ namespace GNForm3C_.Areas.MST_ExpenseType
         #region Function: SelectAll
         public IActionResult Index(MST_ExpenseTypeModel modelMST_ExpenseType)
         {
+			ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
             DataTable dt = dalMST.PR_ExpenseType_SelectAll(modelMST_ExpenseType);
 
-            #region Fill the record into List
-            List<MST_ExpenseTypeModel> ExpenseType = new List<MST_ExpenseTypeModel>();
+			#region Fill the record into List
+			List<MST_ExpenseTypeModel> ExpenseType = new List<MST_ExpenseTypeModel>();
             foreach(DataRow dr in dt.Rows)
             {
                 MST_ExpenseTypeModel ExpenseTypeModel = new MST_ExpenseTypeModel();
@@ -52,6 +53,7 @@ namespace GNForm3C_.Areas.MST_ExpenseType
 				#region Form Title
 				ViewData["Title"] = "Add";
 				#endregion
+
 				ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
                 if(ExpenseTypeID != null)
                 {
