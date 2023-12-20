@@ -34,6 +34,7 @@
     <Folder Include="Areas\MST_FinYear\Controllers\" />
     <Folder Include="Areas\MST_FinYear\Models\" />
     <Folder Include="Areas\MST_FinYear\Views\" />
+    <Folder Include="Areas\Database\" />
   </ItemGroup>
 
 </Project>
