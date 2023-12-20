@@ -6,14 +6,14 @@
         <div class="row mb-8">
             <!--begin::Col-->
             <div class="col-6 col-md-6 fv-row">
-                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+                <select class="form-select form-select-solid" data-control="select2"  data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
                     <option value="">Select Hospital</option>
                 </select>
             </div>
             <!--end::Col-->
             <!--begin::Col-->
             <div class="col-6 col-md-6 fv-row">
-                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Fin.Year" asp-for="FinYearID" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
+                <select class="form-select form-select-solid" data-control="select2"  data-placeholder="Select Fin.Year" asp-for="FinYearID" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
                     <option value="">Select Fin.Year</option>
                 </select>
             </div>
@@ -24,7 +24,7 @@
         <div class="row mb-8">
             <!--begin::Col-->
             <div class="col-6 col-md-6 fv-row">
-                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Income Type" asp-for="IncomeTypeID" asp-items="@(new SelectList(ViewBag.IncomeTypeDropDown,"IncomeTypeID","IncomeType"))">
+                <select class="form-select form-select-solid" data-control="select2"  data-placeholder="Select Income Type" asp-for="IncomeTypeID" asp-items="@(new SelectList(ViewBag.IncomeTypeDropDown,"IncomeTypeID","IncomeType"))">
                     <option value="">Select Income Type</option>
                 </select>
             </div>

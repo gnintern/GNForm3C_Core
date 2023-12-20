@@ -17,8 +17,8 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
     {
         ACC_DAL dalACC = new ACC_DAL();
         MST_DAL dalMST = new MST_DAL();
-        
-        public IActionResult Index(ACC_ReceiptModel modelACC_Receipt)
+    
+		public IActionResult Index(ACC_ReceiptModel modelACC_Receipt)
         {
             DataTable dt1 = dalMST.PR_FinYear_SelectFinYearIDFromFromDateAndToDate(modelACC_Receipt);
                 DataTable dt = dalACC.PR_Transaction_SelectByFinYearID(modelACC_Receipt);

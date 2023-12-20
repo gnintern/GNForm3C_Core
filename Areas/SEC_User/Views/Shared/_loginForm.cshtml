@@ -18,14 +18,14 @@
 	<!--begin::Input group=-->
 	<div class="fv-row mb-8">
 		<!--begin::Email-->
-		<select class="form-select form-select-solid" disabled data-control="select2" data-hide-search="true" data-placeholder="Select Finance Year" asp-for="MST_FinYear.FinYearID" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
+		<select class="form-select form-select-solid" disabled data-control="select2"  data-placeholder="Select Finance Year" asp-for="MST_FinYear.FinYearID" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
 		</select>
 		<!--end::Email-->
 	</div>
 	<!--end::Input group=-->
 	<!--begin::Input group=-->
 	<div class="fv-row mb-8">
-		<select class="form-select form-select-solid" disabled data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="MST_Hospital.HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+		<select class="form-select form-select-solid"  data-control="select2"  asp-for="MST_Hospital.HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
 			<option value="">Select Hospital</option>
 		</select>
 	</div>

@@ -106,7 +106,7 @@
                                 </label>
                                 <!--end::Label-->
                                 <div class="col-12 col-md-12 fv-row">
-                                    <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+                                    <select class="form-select form-select-solid" data-control="select2"  data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
                                         <option value="">Select Hospital</option>
                                     </select>
                                 </div>
@@ -121,7 +121,7 @@
                                 </label>
                                 <!--end::Label-->
                                 <div class="col-12 col-md-12 fv-row">
-                                    <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Expense Type" asp-for="ReceiptTypeID" asp-items="@(new SelectList(ViewBag.ReceiptTypeDropDown,"ReceiptTypeID","ReceiptTypeName"))">
+                                    <select class="form-select form-select-solid" data-control="select2"  data-placeholder="Select Expense Type" asp-for="ReceiptTypeID" asp-items="@(new SelectList(ViewBag.ReceiptTypeDropDown,"ReceiptTypeID","ReceiptTypeName"))">
                                         <option value="">Select Receipt Type</option>
                                     </select>
                                 </div>
@@ -153,7 +153,7 @@
                             </label>
                             <!--end::Label-->
                             <div class="col-12 col-md-12 fv-row">
-                                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Treatment" asp-for="TreatmentID" asp-items="@(new SelectList(ViewBag.TreatmentDropDown,"TreatmentID","Treatment"))">
+                                <select class="form-select form-select-solid" data-control="select2"  data-placeholder="Select Treatment" asp-for="TreatmentID" asp-items="@(new SelectList(ViewBag.TreatmentDropDown,"TreatmentID","Treatment"))">
                                     <option value="">Select Treatment</option>
                                 </select>
                             </div>
