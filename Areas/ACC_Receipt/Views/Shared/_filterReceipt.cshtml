@@ -1,34 +1,55 @@
-﻿@model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel
+﻿@using GNForm3C_.Areas.ACC_Receipt.Models;
+@model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel
 <form method="post">
     <div class="d-flex row">
         <!--begin::Input group-->
-        <div class="col-lg-4 mb-8">
+        <div class="col-lg-4">
+            <!--begin::Label-->
+            <label class="d-flex align-items-center fs-6 fw-semibold mb-2 " asp-for="FromDate">
+                <span class="text-danger">*</span>From Date
+                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select FromDate"></i>
+            </label>
+            <!--end::Label-->
+
             <!--begin::Input-->
             <input type="date" class="form-control form-control-solid"
-                    asp-for="FromDate" placeholder="Enter Fin Year Name"
+                   asp-for="FromDate" placeholder="Enter Fin Year Name"
                    autocomplete="off" />
             <!--end::Input-->
+            @* <span class="text-danger field-validation-error" asp-validation-for="FromDate"></span> *@
+
         </div>
         <!--end::Col-->
-        <div class="col-lg-4 mb-8">
+        <div class="col-lg-4">
+            <!--begin::Label-->
+            <label class="d-flex align-items-center fs-6 fw-semibold mb-2 " asp-for="ToDate">
+                <span class="text-danger">*</span>To Date
+                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select ToDate"></i>
+            </label>
+            <!--end::Label-->
             <!--begin::Input-->
             <input type="date" class="form-control form-control-solid"
-                    asp-for="ToDate" placeholder="Enter To Date"
+                   asp-for="ToDate" placeholder="Enter To Date"
                    autocomplete="off" />
             <!--end::Input-->
+            @* <span class="text-danger field-validation-error" asp-validation-for="ToDate"></span> *@
+
         </div>
         <!--end::Col-->
         <!--end::Input group-->
-
+     
         <div class="col-lg-4">
+            <div class="d-flex align-items-center fs-6 fw-semibold mb-2"><br /></div>
+            <div>
             <button type="submit" class="btn btn-primary"
-                    style="margin-right:15px;" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="IndexPost">
+                    style="margin-right:15px;" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index">
                 <span class="indicator-label">Search</span>
             </button>
             <a type="submit" class="btn btn-light me-3"
-              asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index">
+               asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index">
                 Clear
             </a>
+            </div>
         </div>
     </div>
 </form>

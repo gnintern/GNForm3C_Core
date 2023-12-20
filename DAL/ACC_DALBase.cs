@@ -335,7 +335,8 @@ namespace GNForm3C_.DAL
 			{
 				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Transaction_SelectByFinYearID");
-				sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, modelACC_Receipt.FinYearID);
+
+                sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, modelACC_Receipt.FinYearID);
 
 				DataTable dt = new DataTable();
 

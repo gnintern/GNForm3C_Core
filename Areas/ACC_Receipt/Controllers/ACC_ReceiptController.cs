@@ -17,13 +17,10 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
     {
         ACC_DAL dalACC = new ACC_DAL();
         MST_DAL dalMST = new MST_DAL();
-
-        public IActionResult IndexPost(ACC_ReceiptModel modelACC_Receipt)
+        
+        public IActionResult Index(ACC_ReceiptModel modelACC_Receipt)
         {
-            DataTable dt1=dalMST.PR_FinYear_SelectFinYearIDFromFromDateAndToDate(modelACC_Receipt);
-            
-
-                //DataTable dt1 = dalMST.PR_FinYear_SelectFinYearIDFromFromDateAndToDate(modelMST_FinYear);
+            DataTable dt1 = dalMST.PR_FinYear_SelectFinYearIDFromFromDateAndToDate(modelACC_Receipt);
                 DataTable dt = dalACC.PR_Transaction_SelectByFinYearID(modelACC_Receipt);
 
 
@@ -60,17 +57,12 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
                 }
                 ViewBag.ReceiptsList = Receipts;
                 #endregion
+
+                return View("ACC_ReceiptList");
             
-            return View("ACC_ReceiptList");
         }
 
-        #region Index
-        public IActionResult Index()
-        {
-            return PartialView("_filterReceipt");
-        }
-        #endregion
-
+  
         #region Add
         public IActionResult Add()
         {
@@ -113,5 +105,7 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
             return RedirectToAction("Index");
         }
         #endregion
+        
+        
     }
 }

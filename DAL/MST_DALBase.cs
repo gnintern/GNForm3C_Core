@@ -378,7 +378,7 @@ namespace GNForm3C_.DAL
 			{
 				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_SelectFinYearIDFromFromDateAndToDate");
-				sqldb.AddOutParameter(dbCMD, "FinYearID", SqlDbType.Int, modelACC_Receipt.FinYearID);
+				sqldb.AddOutParameter(dbCMD, "FinYearID", SqlDbType.Int, 4);
 				sqldb.AddInParameter(dbCMD, "FromDate", SqlDbType.DateTime, modelACC_Receipt.FromDate);
 				sqldb.AddInParameter(dbCMD, "ToDate", SqlDbType.DateTime, modelACC_Receipt.ToDate);
 

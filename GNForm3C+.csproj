@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\ACC_Receipt\Views\Shared\" />
     <Folder Include="Areas\MST_FinYear\Controllers\" />
     <Folder Include="Areas\MST_FinYear\Models\" />
     <Folder Include="Areas\MST_FinYear\Views\" />

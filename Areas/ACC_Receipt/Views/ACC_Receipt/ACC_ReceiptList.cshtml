@@ -4,6 +4,8 @@
     ViewData["Title"] = "Receipt List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel
+
 <!--begin::Toolbar-->
 <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
     <!--begin::Toolbar container-->
@@ -71,6 +73,7 @@
                     </span>
                     <!--end::Title-->
                     <hr />
+                    
                     <div class="">
                         <partial name="_filterReceipt" />
                     </div>
@@ -166,7 +169,7 @@
                                 <td>@dr.DateOfAdmission</td>
                                 <td>@dr.DateOfDischarge</td>
                                 <td>@dr.NoOfDays</td>
-                                <td>@dr.Deposite</td>   
+                                <td>@dr.Deposite</td>
                                 <td>@dr.NetAmount</td>
                                 <td>@dr.Remarks</td>
                                 <td>@dr.FinYearName</td>
