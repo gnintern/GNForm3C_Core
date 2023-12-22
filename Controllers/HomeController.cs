@@ -5,8 +5,8 @@ using System.Diagnostics;
 
 namespace GNForm3C_.Controllers
 {
-	[CheckAccess]
-	public class HomeController : Controller
+    [CheckAccess]
+    public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 

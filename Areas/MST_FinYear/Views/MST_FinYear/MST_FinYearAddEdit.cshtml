@@ -27,7 +27,7 @@
 				<!--end::Item-->
 				<!--begin::Item-->
 				<li class="breadcrumb-item text-muted">
-					<a asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Index" class="text-muted text-hover-primary">FinYear</a>
+					<a asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Index" class="text-muted text-hover-primary">Financial Year</a>
 				</li>
 				<!--end::Item-->
 				<!--begin::Item-->
@@ -36,7 +36,7 @@
 				</li>
 				<!--end::Item-->
 				<!--begin::Item-->
-				<li class="breadcrumb-item fw-bolder">@TempData["Action"] Finance Year</li>
+				<li class="breadcrumb-item fw-bolder">@TempData["Action"] Financial Year</li>
 				<!--end::Item-->
 			</ul>
 			<!--end::Breadcrumb-->
@@ -99,7 +99,7 @@
 								<div class="fv-row mb-9">
 									<!--begin::Label-->
 									<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="FinYearName">
-										<span class="text-danger">*</span>&nbsp;Financial Year Name
+										Financial Year Name
 										<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for Financial Year Name"></i>
 									</label>
 									<!--end::Label-->

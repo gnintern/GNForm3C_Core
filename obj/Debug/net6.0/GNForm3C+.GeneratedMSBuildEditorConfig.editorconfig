@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcQUNDX0V4cGVuc2VcQUNDX0V4cGVuc2VMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Expense/Views/Shared/_expenseList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcU2hhcmVkXF9leHBlbnNlTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Expense/Views/Shared/_filterExpense.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcU2hhcmVkXF9maWx0ZXJFeHBlbnNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

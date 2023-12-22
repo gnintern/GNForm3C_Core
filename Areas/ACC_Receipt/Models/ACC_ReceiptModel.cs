@@ -32,7 +32,7 @@ namespace GNForm3C_.Areas.ACC_Receipt.Models
         public DateTime Modified { get; set; }
         [Required]
         [DisplayName("From Date")]
-        public DateTime FromDate {  get; set; }
+        public DateTime FromDate { get; set; } 
         [Required]
         [DisplayName("To Date")]
         public DateTime ToDate {  get; set; } 

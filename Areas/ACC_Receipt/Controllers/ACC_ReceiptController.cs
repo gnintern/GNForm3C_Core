@@ -18,6 +18,7 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
         ACC_DAL dalACC = new ACC_DAL();
         MST_DAL dalMST = new MST_DAL();
 
+        #region Function: SelectAll
         [HttpGet]
         public IActionResult Index()
         {
@@ -28,9 +29,11 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
         [HttpPost]
         public IActionResult Index(ACC_ReceiptModel modelACC_Receipt)
         {
-            if(ModelState.IsValid)
+            
+
+            if(ModelState.IsValid || modelACC_Receipt.FromDate == null || modelACC_Receipt.ToDate ==null)
             {
-                MST_FinYearModel modelMST_FinYear=new MST_FinYearModel();
+                MST_FinYearModel modelMST_FinYear = new MST_FinYearModel();
                 var fromDate = modelACC_Receipt.FromDate;
                 var toDate = modelACC_Receipt.ToDate;
 
@@ -96,9 +99,10 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
                     return View("ACC_ReceiptList");
                 }
             }
+
             return View("ACC_ReceiptList");
         }
-
+        #endregion
 
         #region Add
         public IActionResult Add()

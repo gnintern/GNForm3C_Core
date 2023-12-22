@@ -11,6 +11,8 @@ namespace GNForm3C_.Areas.ACC_Expense.Models
         [DisplayName("Expense Type")]
         public int? ExpenseTypeID { get; set; }
         public string ExpenseType { get; set; }
+        [Required]
+        [DisplayName("Fin Year Name")]
         public int? FinYearID { get; set; }
         public string FinYearName { get; set; }
         [Required]
@@ -22,11 +24,11 @@ namespace GNForm3C_.Areas.ACC_Expense.Models
 		public decimal? Amount { get; set; }
         [Required]
         [DisplayName("Expense Date")]
-        public DateTime Date { get; set; } = DateTime.Now;
+        public DateTime? Date { get; set; }
         public string? Note {  get; set; }
         public string Remarks {  get; set; }
-        public DateTime Created { get; set; }
-        public DateTime Modified { get; set; } 
+        public DateTime? Created { get; set; } 
+        public DateTime? Modified { get; set; } 
 
     }
 }

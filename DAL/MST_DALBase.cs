@@ -281,13 +281,13 @@ namespace GNForm3C_.DAL
 		#endregion
 
 		#region PR_FinYear_Update
-		public bool? PR_FinYear_Update(MST_FinYearModel modelMST_FinYear, int FinYearID)
+		public bool? PR_FinYear_Update(MST_FinYearModel modelMST_FinYear)
 		{
 			try
 			{
 				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_Update");
-				sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, FinYearID);
+				sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, modelMST_FinYear.FinYearID);
 				sqldb.AddInParameter(dbCMD, "FinYearName", SqlDbType.NVarChar, modelMST_FinYear.FinYearName);
 				sqldb.AddInParameter(dbCMD, "FromDate", SqlDbType.DateTime, modelMST_FinYear.FromDate);
 				sqldb.AddInParameter(dbCMD, "ToDate", SqlDbType.DateTime, modelMST_FinYear.ToDate);

@@ -15,46 +15,73 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
         ACC_DAL dalACC = new ACC_DAL();
 
         #region Function: SelectAll
+        [HttpGet]
+        public IActionResult Index()
+        {
+            ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+            ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
+            ViewBag.ExpenseTypeDropDown = CommonFillMethod.SelectDropDownListForExpenseType().ToList();
+            return View("ACC_ExpenseList");
+        }
+
+        [HttpPost]
         public IActionResult Index(ACC_ExpenseModel modelACC_Expense)
         {
             ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
             ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
             ViewBag.ExpenseTypeDropDown = CommonFillMethod.SelectDropDownListForExpenseType().ToList();
-
-            DataTable dt = dalACC.PR_Expense_SelectAll(modelACC_Expense);
-
-            #region Fill the record into List
-            List<ACC_ExpenseModel> Expenses = new List<ACC_ExpenseModel>();
-            foreach (DataRow dr in dt.Rows)
+            if(ModelState.IsValid || modelACC_Expense.FinYearID!=null)
             {
-                ACC_ExpenseModel ExpenseModel = new ACC_ExpenseModel();
-                ExpenseModel.ExpenseID = Convert.ToInt32(dr["ExpenseID"]);
-                //ExpenseModel.ExpenseTypeID = Convert.ToInt32(dr["ExpenseTypeID"]);
-                ExpenseModel.ExpenseType = dr["ExpenseType"].ToString();
-                ExpenseModel.Date = Convert.ToDateTime(dr["Date"]);
-                ExpenseModel.Amount = Convert.ToDecimal(dr["Amount"].ToString());
-                ExpenseModel.Note = dr["Note"].ToString();
-                ExpenseModel.Created = Convert.ToDateTime(dr["Created"]);
-                ExpenseModel.Modified = Convert.ToDateTime(dr["Modified"]);
-                //ExpenseModel.FinYearID = Convert.ToInt32(dr["FinYearID"]);
-                ExpenseModel.FinYearName = dr["FinYearName"].ToString();
-                //ExpenseModel.HospitalID = Convert.ToInt32(dr["HospitalID"]);
-                ExpenseModel.Hospital = dr["Hospital"].ToString();
-                Expenses.Add(ExpenseModel);
-            }
-            ViewBag.ExpenseList = Expenses;
-            #endregion
 
+                if(modelACC_Expense.FinYearID == 0)
+                {
+
+                    return View("ACC_ExpenseList", modelACC_Expense);
+                }
+                else
+                {
+
+
+                    DataTable dt = dalACC.PR_Expense_SelectAll(modelACC_Expense);
+
+                    #region Fill the record into List
+                    List<ACC_ExpenseModel> Expenses = new List<ACC_ExpenseModel>();
+                    foreach(DataRow dr in dt.Rows)
+                    {
+                        ACC_ExpenseModel ExpenseModel = new ACC_ExpenseModel();
+                        ExpenseModel.ExpenseID = Convert.ToInt32(dr["ExpenseID"]);
+                        //ExpenseModel.ExpenseTypeID = Convert.ToInt32(dr["ExpenseTypeID"]);
+                        ExpenseModel.ExpenseType = dr["ExpenseType"].ToString();
+                        ExpenseModel.Date = Convert.ToDateTime(dr["Date"]);
+                        ExpenseModel.Amount = Convert.ToDecimal(dr["Amount"].ToString());
+                        ExpenseModel.Note = dr["Note"].ToString();
+                        ExpenseModel.Created = Convert.ToDateTime(dr["Created"]);
+                        ExpenseModel.Modified = Convert.ToDateTime(dr["Modified"]);
+                        //ExpenseModel.FinYearID = Convert.ToInt32(dr["FinYearID"]);
+                        ExpenseModel.FinYearName = dr["FinYearName"].ToString();
+                        //ExpenseModel.HospitalID = Convert.ToInt32(dr["HospitalID"]);
+                        ExpenseModel.Hospital = dr["Hospital"].ToString();
+                        Expenses.Add(ExpenseModel);
+                    }
+                    ViewBag.ExpenseList = Expenses;
+                    #endregion
+
+                    return View("ACC_ExpenseList");
+                }
+
+
+            }
             return View("ACC_ExpenseList");
+
         }
         #endregion
 
         #region Function: Add Record
         public IActionResult Add(string? ExpenseID)
         {
-			ACC_ExpenseModel modelACC_Expense = new ACC_ExpenseModel();
+            ACC_ExpenseModel modelACC_Expense = new ACC_ExpenseModel();
 
-			if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 #region Form Title
                 TempData["Action"] = "Add";
@@ -88,9 +115,10 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
                     }
                     #endregion
 
-                    return View("ACC_ExpenseAddEdit",modelACC_Expense);
+                    return View("ACC_ExpenseAddEdit", modelACC_Expense);
                 }
             }
+            modelACC_Expense.Date = DateTime.Now;
             return View("ACC_ExpenseAddEdit", modelACC_Expense);
         }
         #endregion
@@ -110,7 +138,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
                     if(Convert.ToBoolean(dalACC.PR_Expense_Insert(modelACC_Expense)))
                     {
                         TempData["success"] = "Record Inserted Successfully";
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index",modelACC_Expense);
                     }
                     #endregion
                 }

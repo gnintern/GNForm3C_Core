@@ -22,7 +22,7 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
 
             #region Fill the record into List
             List<MST_FinYearModel> FinYear = new List<MST_FinYearModel>();
-            foreach (DataRow dr in dt.Rows)
+            foreach(DataRow dr in dt.Rows)
             {
                 MST_FinYearModel FinYearmodel = new MST_FinYearModel();
                 FinYearmodel.FinYearID = Convert.ToInt32(dr["FinYearID"]);
@@ -49,7 +49,7 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
             #endregion
 
             #region Deleteing Record
-            if (Convert.ToBoolean(dalMST.PR_FinYear_Delete(id)))
+            if(Convert.ToBoolean(dalMST.PR_FinYear_Delete(id)))
             {
                 TempData["success"] = "Record Deleted successfully.";
             }
@@ -64,14 +64,15 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
         #region Add Record
         public IActionResult Add(string? FinYearID)
         {
+            MST_FinYearModel modelMST_FinYear = new MST_FinYearModel();
 
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 #region Form Title
                 TempData["Action"] = "Add";
                 #endregion
 
-                if (FinYearID != null)
+                if(FinYearID != null)
                 {
                     #region Form Title
                     TempData["Action"] = "Edit";
@@ -84,8 +85,7 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
 
                     #region PR_User_SelectPK record
                     DataTable dt = dalMST.PR_FinYear_SelectPK(id);
-                    MST_FinYearModel modelMST_FinYear = new MST_FinYearModel();
-                    foreach (DataRow dr in dt.Rows)
+                    foreach(DataRow dr in dt.Rows)
                     {
                         modelMST_FinYear.FinYearID = Convert.ToInt32(dr["FinYearID"].ToString());
                         modelMST_FinYear.FinYearName = dr["FinYearName"].ToString();
@@ -111,17 +111,27 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
             var fromDate = modelMST_FinYear.FromDate;
             var toDate = modelMST_FinYear.ToDate;
 
-            if (fromDate > toDate)
+            if(FinYearID != null)
+            {
+                #region Decrypt Id
+                SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(FinYearID);
+                int id = decryptedID.Value;
+                #endregion
+
+                modelMST_FinYear.FinYearID = id;
+            }
+
+            if(fromDate > toDate)
             {
                 TempData["error"] = "From Date cannot be greater than To Date.";
-                return View("MST_FinYearAddEdit");
+                return View("MST_FinYearAddEdit", modelMST_FinYear);
             }
 
             // Calculate the difference between From Date and To Date
             var daysBetweenDates = (toDate - fromDate).TotalDays;
 
             // Check if the difference is exactly one year, considering leap years
-            if (daysBetweenDates == 364 || (daysBetweenDates == 365 && IsLeapYear(toDate.Year)))
+            if(daysBetweenDates == 364 || (daysBetweenDates == 365 && IsLeapYear(toDate.Year)))
             {
                 var financialYearStart = fromDate.Year;
                 var financialYearEnd = toDate.Year;
@@ -130,65 +140,64 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
             }
             else
             {
+
+
                 TempData["error"] = "The difference between From Date and To Date must be exactly one year.";
-                if(FinYearID == null)
+                if(modelMST_FinYear.FinYearID == null)
                 {
                     return RedirectToAction("Add");
                 }
                 else
                 {
 
-                    return View("MST_FinYearAddEdit");
+                    return View("MST_FinYearAddEdit", modelMST_FinYear);
                 }
             }
 
-            if(dalMST.PR_FinYear_CheckISExist(modelMST_FinYear.FinYearName))
+
+            bool isFinYearNameExists = dalMST.PR_FinYear_CheckISExist(modelMST_FinYear.FinYearName);
+
+            if(isFinYearNameExists)
             {
                 TempData["error"] = "FinYearName already exists.";
 
-                if(FinYearID == null)
+                if(modelMST_FinYear.FinYearID == null)
                 {
                     return RedirectToAction("Add");
                 }
                 else
                 {
-                    return View("MST_FinYearAddEdit");
+                    return View("MST_FinYearAddEdit", modelMST_FinYear);
                 }
 
             }
 
 
 
-            if(modelMST_FinYear.FinYearID == null)
+            if(FinYearID == null)
             {
-                if (FinYearID == null)
+
+                #region Inserting Record
+                if(Convert.ToBoolean(dalMST.PR_FinYear_Insert(modelMST_FinYear)))
                 {
-
-                    #region Inserting Record
-                    if (Convert.ToBoolean(dalMST.PR_FinYear_Insert(modelMST_FinYear)))
-                    {
-                        TempData["success"] = "Record Inserted Successfully";
-                        return RedirectToAction("Index");
-                    }
-                    #endregion
+                    TempData["success"] = "Record Inserted Successfully";
+                    return RedirectToAction("Index");
                 }
-
-                else
-                {
-                    #region Decrypt Id
-                    SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(FinYearID);
-                    int id = decryptedID.Value;
-                    #endregion
-
-                    #region Updating Record
-                    if (Convert.ToBoolean(dalMST.PR_FinYear_Update(modelMST_FinYear, id)))
-                    {
-                        TempData["success"] = "Record Updated Successfully";
-                        return RedirectToAction("Index");
-                    }
-                    #endregion
-                }
+                #endregion
             }
+
+            else
+            {
+
+                #region Updating Record
+                if(Convert.ToBoolean(dalMST.PR_FinYear_Update(modelMST_FinYear)))
+                {
+                    TempData["success"] = "Record Updated Successfully";
+                    return RedirectToAction("Index");
+                }
+                #endregion
+            }
+
             return RedirectToAction("Index");
             #endregion
         }
@@ -197,9 +206,9 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
         #region IsLeapYear
         private bool IsLeapYear(int year)
         {
-            if (year % 4 == 0)
+            if(year % 4 == 0)
             {
-                if (year % 100 == 0)
+                if(year % 100 == 0)
                 {
                     return year % 400 == 0;
                 }
@@ -216,55 +225,3 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
         #endregion
     }
 }
-
-/*if (fromDate > toDate)
-           {
-               TempData["error"] = "From Date cannot be greater than To Date.";
-               return View("MST_FinYearAddEdit");
-           }
-
-           // Check if the FromDate is later in the calendar year than the ToDate
-           if (fromDate.Month > toDate.Month||fromDate.Month == toDate.Month && fromDate.Day > toDate.Day)
-           {
-               // Adjust the financial year end year accordingly
-               toDate = toDate.AddYears(1);
-           }*/
-
-/*private bool IsLeapYear(int year)
-{
-    if (year % 4 == 0)
-    {
-        if (year % 100 == 0)
-        {
-            return year % 400 == 0;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        return false;
-    }
-}*/
-
-/* // Check if the difference between FromDate and ToDate is exactly one year -- (toDate - fromDate).TotalDays != 365
-            if ((toDate - fromDate).TotalDays != 365)
-            {
-                TempData["error"] = "The difference between From Date and To Date must be exactly one year.";
-                return View("MST_FinYearAddEdit");
-            }
-
-            var financialYearStart = fromDate.Year;
-            var financialYearEnd = toDate.Year;
-
-            modelMST_FinYear.FinYearName = $"{financialYearStart}-{financialYearEnd.ToString().Substring(2, 2)}";
-*/
-// var Fin = modelMST_FinYear.FinYearName;
-// Check if the financial year already exists
-/* if (Fin == FinYearName)
-  {
-      TempData["error"] = "FinYearName Already Exists";
-      return View("MST_FinYearAddEdit");
-  }*/
