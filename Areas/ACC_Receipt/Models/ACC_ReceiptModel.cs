@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
 namespace GNForm3C_.Areas.ACC_Receipt.Models
@@ -30,9 +31,11 @@ namespace GNForm3C_.Areas.ACC_Receipt.Models
         public string? Remarks { get; set;}
         public DateTime Modified { get; set; }
         [Required]
-        public DateTime? FromDate {  get; set; }
+        [DisplayName("From Date")]
+        public DateTime FromDate {  get; set; }
         [Required]
-        public DateTime? ToDate {  get; set; } 
+        [DisplayName("To Date")]
+        public DateTime ToDate {  get; set; } 
 
     }
     public class ViewBagModel

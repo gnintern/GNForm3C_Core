@@ -17,52 +17,89 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
     {
         ACC_DAL dalACC = new ACC_DAL();
         MST_DAL dalMST = new MST_DAL();
-    
-		public IActionResult Index(ACC_ReceiptModel modelACC_Receipt)
+
+        [HttpGet]
+        public IActionResult Index()
         {
-            DataTable dt1 = dalMST.PR_FinYear_SelectFinYearIDFromFromDateAndToDate(modelACC_Receipt);
-                DataTable dt = dalACC.PR_Transaction_SelectByFinYearID(modelACC_Receipt);
+            return View("ACC_ReceiptList");
 
-
-                #region Fill the record into List
-                List<ACC_ReceiptModel> Receipts = new List<ACC_ReceiptModel>();
-                foreach(DataRow dr in dt.Rows)
-                {
-                    ACC_ReceiptModel ReceiptModel = new ACC_ReceiptModel();
-                    ReceiptModel.TransactionID = Convert.ToInt32(dr["TransactionID"]);
-                    ReceiptModel.Date = Convert.ToDateTime(dr["Date"]);
-                    ReceiptModel.SerialNo = Convert.ToInt32(dr["SerialNo"]);
-                    ReceiptModel.ReceiptTypeName = dr["ReceiptTypeName"].ToString();
-                    ReceiptModel.ReceiptNo = Convert.ToInt32(dr["ReceiptNo"]);
-                    ReceiptModel.Patient = dr["Patient"].ToString();
-                    ReceiptModel.Treatment = dr["Treatment"].ToString();
-                    ReceiptModel.Amount = Convert.ToDecimal(dr["Amount"].ToString());
-                    if(dr["DateOfAdmission"].ToString().Trim() != string.Empty)
-                        ReceiptModel.DateOfAdmission = Convert.ToDateTime(dr["DateOfAdmission"].ToString());
-                    if(dr["DateOfDischarge"].ToString().Trim() != string.Empty)
-                        ReceiptModel.DateOfDischarge = Convert.ToDateTime(dr["DateOfDischarge"].ToString());
-                    if(dr["NoOfDays"].ToString().Trim() != string.Empty)
-                        ReceiptModel.NoOfDays = Convert.ToInt32(dr["NoOfDays"].ToString());
-                    if(dr["Deposite"].ToString().Trim() != string.Empty)
-                        ReceiptModel.Deposite = Convert.ToDecimal(dr["Deposite"].ToString());
-                    if(dr["NetAmount"].ToString().Trim() != string.Empty)
-                        ReceiptModel.NetAmount = Convert.ToDecimal(dr["NetAmount"].ToString());
-                    if(dr["Remarks"].ToString().Trim() != string.Empty)
-                        ReceiptModel.Remarks = dr["Remarks"].ToString();
-                    ReceiptModel.FinYearName = dr["FinYearName"].ToString();
-                    ReceiptModel.Hospital = dr["Hospital"].ToString();
-                    ReceiptModel.Modified = Convert.ToDateTime(dr["Modified"]);
-
-                    Receipts.Add(ReceiptModel);
-                }
-                ViewBag.ReceiptsList = Receipts;
-                #endregion
-
-                return View("ACC_ReceiptList");
-            
         }
 
-  
+        [HttpPost]
+        public IActionResult Index(ACC_ReceiptModel modelACC_Receipt)
+        {
+            if(ModelState.IsValid)
+            {
+                MST_FinYearModel modelMST_FinYear=new MST_FinYearModel();
+                var fromDate = modelACC_Receipt.FromDate;
+                var toDate = modelACC_Receipt.ToDate;
+
+                if(fromDate > toDate)
+                {
+                    TempData["error"] = "From Date cannot be greater than To Date.";
+                    return View("ACC_ReceiptList");
+                }
+
+                // Calculate the difference between From Date and To Date
+                var daysBetweenDates = (toDate - fromDate).TotalDays;
+
+                // Check if the difference is exactly one year, considering leap years
+                if(daysBetweenDates == 364 || (daysBetweenDates == 365 && IsLeapYear(toDate.Year)))
+                {
+                    #region Fetch Record from Database
+
+                    DataTable dt1 = dalMST.PR_FinYear_SelectFinYearIDFromFromDateAndToDate(modelACC_Receipt);
+                    DataTable dt = dalACC.PR_Transaction_SelectByFinYearID(modelACC_Receipt);
+
+
+                    #region Fill the record into List
+                    List<ACC_ReceiptModel> Receipts = new List<ACC_ReceiptModel>();
+                    foreach(DataRow dr in dt.Rows)
+                    {
+                        ACC_ReceiptModel ReceiptModel = new ACC_ReceiptModel();
+                        ReceiptModel.TransactionID = Convert.ToInt32(dr["TransactionID"]);
+                        ReceiptModel.Date = Convert.ToDateTime(dr["Date"]);
+                        ReceiptModel.SerialNo = Convert.ToInt32(dr["SerialNo"]);
+                        ReceiptModel.ReceiptTypeName = dr["ReceiptTypeName"].ToString();
+                        ReceiptModel.ReceiptNo = Convert.ToInt32(dr["ReceiptNo"]);
+                        ReceiptModel.Patient = dr["Patient"].ToString();
+                        ReceiptModel.Treatment = dr["Treatment"].ToString();
+                        ReceiptModel.Amount = Convert.ToDecimal(dr["Amount"].ToString());
+                        if(dr["DateOfAdmission"].ToString().Trim() != string.Empty)
+                            ReceiptModel.DateOfAdmission = Convert.ToDateTime(dr["DateOfAdmission"].ToString());
+                        if(dr["DateOfDischarge"].ToString().Trim() != string.Empty)
+                            ReceiptModel.DateOfDischarge = Convert.ToDateTime(dr["DateOfDischarge"].ToString());
+                        if(dr["NoOfDays"].ToString().Trim() != string.Empty)
+                            ReceiptModel.NoOfDays = Convert.ToInt32(dr["NoOfDays"].ToString());
+                        if(dr["Deposite"].ToString().Trim() != string.Empty)
+                            ReceiptModel.Deposite = Convert.ToDecimal(dr["Deposite"].ToString());
+                        if(dr["NetAmount"].ToString().Trim() != string.Empty)
+                            ReceiptModel.NetAmount = Convert.ToDecimal(dr["NetAmount"].ToString());
+                        if(dr["Remarks"].ToString().Trim() != string.Empty)
+                            ReceiptModel.Remarks = dr["Remarks"].ToString();
+                        ReceiptModel.FinYearName = dr["FinYearName"].ToString();
+                        ReceiptModel.Hospital = dr["Hospital"].ToString();
+                        ReceiptModel.Modified = Convert.ToDateTime(dr["Modified"]);
+
+                        Receipts.Add(ReceiptModel);
+                    }
+                    ViewBag.ReceiptsList = Receipts;
+                    #endregion
+
+                    return View("ACC_ReceiptList");
+
+                    #endregion
+                }
+                else
+                {
+                    TempData["error"] = "The difference between From Date and To Date must be exactly one year.";
+                    return View("ACC_ReceiptList");
+                }
+            }
+            return View("ACC_ReceiptList");
+        }
+
+
         #region Add
         public IActionResult Add()
         {
@@ -105,7 +142,26 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
             return RedirectToAction("Index");
         }
         #endregion
-        
-        
+
+        #region IsLeapYear
+        private bool IsLeapYear(int year)
+        {
+            if(year % 4 == 0)
+            {
+                if(year % 100 == 0)
+                {
+                    return year % 400 == 0;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
     }
 }

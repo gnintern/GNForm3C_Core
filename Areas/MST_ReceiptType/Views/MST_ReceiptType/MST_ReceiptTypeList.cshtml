@@ -122,7 +122,7 @@
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
-                        <input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Receipt Type" id="myInput" />
+                        <input type="text" data-kt-ecommerce-order-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Receipt Type" />
                     </div>
                     <!--end::Search-->
                 </div>
@@ -133,7 +133,7 @@
             <div class="card-body pt-0">
                 <hr />
                 <!--begin::Table-->
-                <table class="table align-middle table-row-dashed fs-6 gy-3" id="kt_customers_table">
+                <table class="table align-middle table-row-dashed fs-6 gy-3" id="kt_ecommerce_report_customer_orders_table">
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
@@ -147,7 +147,7 @@
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="fw-semibold text-dark-600 font-weight-normal" id="myTable">
+                    <tbody class="fw-semibold text-dark-600 font-weight-normal" >
                         @foreach (MST_ReceiptTypeModel dr in ViewBag.ReceiptTypeList)
                         {
                             <tr>

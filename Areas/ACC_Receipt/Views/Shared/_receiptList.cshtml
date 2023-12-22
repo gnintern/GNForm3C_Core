@@ -1,0 +1,59 @@
+﻿@using GNForm3C_.Areas.ACC_Receipt.Models;
+
+@model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel
+
+<!--begin::Card body-->
+<div class="card-body pt-0">
+    <hr />
+    <div class="">
+        <!--begin::Table-->
+        <table class="table align-middle table-row-dashed fs-6 gy-3 table-responsive table-responsive-md " id="kt_ecommerce_report_customer_orders_table">
+            <thead>
+                <!--begin::Table row-->
+                <tr class="text-start text-dark fw-bold fs-5 text-uppercase">
+                    <th class="min-w-100px">Date</th>
+                    <th class="min-w-125px">Sr. No.</th>
+                    <th class="min-w-125px">Receipt Type</th>
+                    <th class="min-w-125px">Receipt No.</th>
+                    <th class="min-w-125px">Patient</th>
+                    <th class="min-w-125px">Treatment</th>
+                    <th class="min-w-125px">Amount</th>
+                    <th class="min-w-125px">Admission Dt.</th>
+                    <th class="min-w-125px">Discharge Dt.</th>
+                    <th class="min-w-50px">Days</th>
+                    <th class="min-w-100px">Advance</th>
+                    <th class="min-w-125px">Net Amount</th>
+                    <th class="min-w-80px">Remarks</th>
+                    <th class="min-w-80px">FinYear</th>
+                    <th class="min-w-150px">Hospital</th>
+                    <th class="min-w-100px">Modified</th>
+                </tr>
+            </thead>
+            <tbody class="fw-semibold text-dark-600 font-weight-normal" >
+                @foreach(ACC_ReceiptModel dr in ViewBag.ReceiptsList)
+                {
+                    <tr>
+                        <td>@dr.Date.ToString("dd-MM-yyyy")</td>
+                        <td>@dr.SerialNo</td>
+                        <td>@dr.ReceiptTypeName</td>
+                        <td>@dr.ReceiptNo</td>
+                        <td>@dr.Patient</td>
+                        <td>@dr.Treatment</td>
+                        <td>@dr.Amount</td>
+                        <td>@dr.DateOfAdmission</td>
+                        <td>@dr.DateOfDischarge</td>
+                        <td>@dr.NoOfDays</td>
+                        <td>@dr.Deposite</td>
+                        <td>@dr.NetAmount</td>
+                        <td>@dr.Remarks</td>
+                        <td>@dr.FinYearName</td>
+                        <td>@dr.Hospital</td>
+                        <td>@dr.Modified.ToString("dd-MM-yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!--end::Table-->
+    </div>
+</div>
+<!--end::Card body-->

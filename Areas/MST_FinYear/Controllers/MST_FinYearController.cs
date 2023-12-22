@@ -131,18 +131,30 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
             else
             {
                 TempData["error"] = "The difference between From Date and To Date must be exactly one year.";
-                return View("MST_FinYearAddEdit");
+                if(FinYearID == null)
+                {
+                    return RedirectToAction("Add");
+                }
+                else
+                {
+
+                    return View("MST_FinYearAddEdit");
+                }
             }
 
-			bool isFinYearNameExists = dalMST.PR_FinYear_CheckISExist(modelMST_FinYear.FinYearName);
+            if(dalMST.PR_FinYear_CheckISExist(modelMST_FinYear.FinYearName))
+            {
+                TempData["error"] = "FinYearName already exists.";
 
-			if (isFinYearNameExists)
-			{
-				TempData["error"] = "FinYearName already exists.";
-				return View("MST_FinYearAddEdit");
-			}
+                
+                    return RedirectToAction("Add");
+              
 
-			if (modelMST_FinYear.FinYearID == null)
+            }
+
+
+
+            if(modelMST_FinYear.FinYearID == null)
             {
                 if (FinYearID == null)
                 {

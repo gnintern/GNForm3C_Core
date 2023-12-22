@@ -60,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcU2hhcmVkXF9maWx0ZXJSZWNlaXB0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Receipt/Views/Shared/_receiptList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcU2hhcmVkXF9yZWNlaXB0TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Receipt/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
