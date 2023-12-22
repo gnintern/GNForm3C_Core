@@ -146,9 +146,14 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
             {
                 TempData["error"] = "FinYearName already exists.";
 
-                
+                if(FinYearID == null)
+                {
                     return RedirectToAction("Add");
-              
+                }
+                else
+                {
+                    return View("MST_FinYearAddEdit");
+                }
 
             }
 
