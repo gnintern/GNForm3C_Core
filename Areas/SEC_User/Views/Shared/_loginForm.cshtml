@@ -1,91 +1,103 @@
 ﻿@using GNForm3C_.BAL;
 @model GNForm3C_.Areas.SEC_User.Models.SEC_UserModel
-	<!--begin::Form-->
+<!--begin::Form-->
 <form method="post" class="form w-100" novalidate="novalidate" id="kt_sign_in_form" asp-area="SEC_User" asp-controller="SEC_User" asp-action="SignIn">
-	<!--begin::Heading-->
-	<div class="text-center mb-11">
-		<!--begin::Title-->
-		<img alt="Logo" src=@CommonVariables.LoginCard class="h-30px app-sidebar-logo-default" />
-		<h1 class="text-dark fw-bolder mb-3"></h1>
-		<!--end::Title-->
-	</div>
+    <!--begin::Heading-->
+    <div class="text-center mb-11">
+        <!--begin::Title-->
+        <img alt="Logo" src=@CommonVariables.LoginCard class="h-30px app-sidebar-logo-default" />
+        <h1 class="text-dark fw-bolder mb-3"></h1>
+        <!--end::Title-->
+    </div>
 
-	@if (TempData["Error"] != null)
-	{
-		<div class="col-md-12">
+    @if(TempData["Error"] != null)
+    {
+        <div class="col-md-12">
 
-			<div class="alert alert-danger margin-top-10">
-				<i class="fa fa-times-circle fa-lg text-danger"></i>
-				@Html.Raw(TempData["Error"])
-				
-			</div>
+            <div class="alert alert-danger margin-top-10">
+                <i class="fa fa-times-circle fa-lg text-danger"></i>
+                @Html.Raw(TempData["Error"])
 
-		</div>
-	}
-	<!--begin::Input group=-->
-	<div class="fv-row mb-8">
-		<!--begin::Email-->
-		<select class="form-select form-select-solid" disabled data-control="select2"  data-placeholder="Select Finance Year" asp-for="FinYearID" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
-		</select>
-		<!--end::Email-->
-	</div>
-	<!--end::Input group=-->
-	<!--begin::Input group=-->
-	<div class="fv-row mb-8">
-		<select class="form-select form-select-solid"  data-control="select2"  asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
-			<option value="">Select Hospital</option>
-		</select>
-	</div>
-	<!--end::Input group=-->
-	<!--begin::Input group=-->
-	<div class="fv-row mb-8">
-		<!--begin::Email-->
-		<input type="text" placeholder="Enter User Name" asp-for="UserName" autocomplete="off" class="form-control bg-transparent" />
-		<!--end::Email-->
-		<span class="text-danger">
+            </div>
 
-			@if (TempData["UserName"] != null)
-			{
-				@Html.Raw(TempData["UserName"])
-			}
-		</span>
-	</div>
-	<!--end::Input group=-->
-	<div class="fv-row mb-3">
-		<!--begin::Password-->
-		<input type="password" placeholder="Enter Password" asp-for="Password" autocomplete="off" class="form-control bg-transparent" />
-		<span class="text-danger">
+        </div>
+    }
+    <!--begin::Input group=-->
+    <div class="fv-row mb-8">
+        <!--begin::Email-->
+        <select class="form-select form-select-solid" disabled data-control="select2" data-placeholder="Select Finance Year" asp-for="FinYearID" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
+        </select>
+        <!--end::Email-->
+    </div>
+    <!--end::Input group=-->
+    <!--begin::Input group=-->
+    <div class="fv-row mb-8">
+        <select class="form-select form-select-solid" data-control="select2" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+            <option value="">Select Hospital</option>
+        </select>
+    </div>
+    <!--end::Input group=-->
+    <!--begin::Input group=-->
+    <div class="fv-row mb-8">
+        <!--begin::Email-->
+        <input type="text" placeholder="Enter User Name" asp-for="UserName" autocomplete="off" class="form-control bg-transparent" />
+        <!--end::Email-->
+        <span class="text-danger">
 
-			@if (TempData["Password"] != null)
-			{
-				@Html.Raw(TempData["Password"])
-			}
-		</span>
-		<!--end::Password-->
-	</div>
-	<!--end::Input group=-->
-	<!--begin::Wrapper-->
-	<div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
-		<div></div>
-		<!--begin::Link-->
-		<a href="#" class="link-primary">Forgot Password ?</a>
-		<!--end::Link-->
-	</div>
-	<!--end::Wrapper-->
-	<!--begin::Submit button-->
-	<div class="d-grid mb-10">
-		<button type="submit" class="btn btn-primary">
-			<!--begin::Indicator label-->
-			<span class="indicator-label">Sign In</span>
-			<!--end::Indicator label-->
-			<!--begin::Indicator progress-->
-			<span class="indicator-progress">
-				Please wait...
-				<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-			</span>
-			<!--end::Indicator progress-->
-		</button>
-	</div>
-	<!--end::Submit button-->
+            @if(TempData["UserName"] != null)
+            {
+                @Html.Raw(TempData["UserName"])
+            }
+        </span>
+    </div>
+    <!--end::Input group=-->
+    <div class="fv-row mb-3">
+        <!--begin::Input group-->
+        <div class="fv-row mb-8" data-kt-password-meter="true">
+            <!--begin::Wrapper-->
+            <div class="mb-1">
+                <!--begin::Input wrapper-->
+                <div class="position-relative mb-3">
+                <!--begin::Password-->
+                    <input class="form-control bg-transparent" type="password" asp-for="Password" placeholder="Enter Password" name="password" autocomplete="off" />
+                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                        <i class="bi bi-eye-slash fs-2"></i>
+                        <i class="bi bi-eye fs-2 d-none"></i>
+                    </span>
+                </div>
+                <span class="text-danger">
+
+                    @if(TempData["Password"] != null)
+                    {
+                        @Html.Raw(TempData["Password"])
+                    }
+                </span>
+                <!--end::Password-->
+                <!--end::Input wrapper-->
+            </div>
+            <!--end::Input group=-->
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
+                <div></div>
+                <!--begin::Link-->
+                <a href="#" class="link-primary">Forgot Password ?</a>
+                <!--end::Link-->
+            </div>
+            <!--end::Wrapper-->
+            <!--begin::Submit button-->
+            <div class="d-grid mb-10">
+                <button type="submit" class="btn btn-primary">
+                    <!--begin::Indicator label-->
+                    <span class="indicator-label">Sign In</span>
+                    <!--end::Indicator label-->
+                    <!--begin::Indicator progress-->
+                    <span class="indicator-progress">
+                        Please wait...
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                    <!--end::Indicator progress-->
+                </button>
+            </div>
+            <!--end::Submit button-->
 </form>
 <!--end::Form-->
