@@ -9,23 +9,30 @@
 		<h1 class="text-dark fw-bolder mb-3"></h1>
 		<!--end::Title-->
 	</div>
+
 	@if (TempData["Error"] != null)
 	{
-		<div class="text-danger mb-5 text-center fs-3">
-			@Html.Raw(TempData["Error"])
+		<div class="col-md-12">
+
+			<div class="alert alert-danger margin-top-10">
+				<i class="fa fa-times-circle fa-lg text-danger"></i>
+				@Html.Raw(TempData["Error"])
+				
+			</div>
+
 		</div>
 	}
 	<!--begin::Input group=-->
 	<div class="fv-row mb-8">
 		<!--begin::Email-->
-		<select class="form-select form-select-solid" disabled data-control="select2"  data-placeholder="Select Finance Year" asp-for="MST_FinYear.FinYearID" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
+		<select class="form-select form-select-solid" disabled data-control="select2"  data-placeholder="Select Finance Year" asp-for="FinYearID" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
 		</select>
 		<!--end::Email-->
 	</div>
 	<!--end::Input group=-->
 	<!--begin::Input group=-->
 	<div class="fv-row mb-8">
-		<select class="form-select form-select-solid"  data-control="select2"  asp-for="MST_Hospital.HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+		<select class="form-select form-select-solid"  data-control="select2"  asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
 			<option value="">Select Hospital</option>
 		</select>
 	</div>

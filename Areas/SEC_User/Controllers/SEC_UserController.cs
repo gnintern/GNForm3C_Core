@@ -174,6 +174,7 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 		[HttpPost]
 		public IActionResult SignIn(SEC_UserModel modelSEC_User)
 		{
+			
 			string error1 = null;
 			string error2 = null;
 			if (modelSEC_User.UserName == null)

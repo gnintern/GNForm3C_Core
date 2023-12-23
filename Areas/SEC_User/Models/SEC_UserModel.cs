@@ -21,10 +21,12 @@ namespace GNForm3C_.Areas.SEC_User.Models
         [DisplayName("Confirm Password")]
         public string? ConfirmPassword { get; set; }
         [Required]
-        public bool IsActive { get; set; }
-        public DateTime Created { get; set; } 
-        public DateTime Modified { get; set; }
-        public FinYearDropdownModel? MST_FinYear {  get; set; }
-        public HospitalDropDowmModel? MST_Hospital { get; set; }
-    }
+        public bool? IsActive { get; set; }
+        public DateTime? Created { get; set; } 
+        public DateTime? Modified { get; set; }
+
+		public int? FinYearID { get; set; }
+		public string? FinYearName { get; set; }
+
+	}
 }
