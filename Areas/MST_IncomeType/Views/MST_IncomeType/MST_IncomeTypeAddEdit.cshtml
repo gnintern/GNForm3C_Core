@@ -11,7 +11,7 @@
 		<!--begin::Page title-->
 		<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 			<!--begin::Title-->
-			<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">IncomeType</h1>
+			<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Income Type</h1>
 			<!--end::Title-->
 			<!--begin::Breadcrumb-->
 			<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -27,7 +27,7 @@
 				<!--end::Item-->
 				<!--begin::Item-->
 				<li class="breadcrumb-item text-muted">
-					<a asp-area="MST_IncomeType" asp-controller="MST_IncomeType" asp-action="Index" class="text-muted text-hover-primary">IncomeType</a>
+					<a asp-area="MST_IncomeType" asp-controller="MST_IncomeType" asp-action="Index" class="text-muted text-hover-primary">Income Type</a>
 				</li>
 				<!--end::Item-->
 				<!--begin::Item-->
@@ -72,7 +72,7 @@
 							</label>
 							<!--end::Label-->
 							<div class="col-12 col-md-12 fv-row">
-								<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Select Hospital" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
+								<select class="form-select form-select-solid" data-control="select2"  asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
 									<option value="">Select Hospital</option>
 								</select>
 							</div>
@@ -83,11 +83,11 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="IncomeType">
-								<span class="text-danger">*</span>IncomeType
-								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique IncomeType"></i>
+								<span class="text-danger">*</span>Income Type
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique  Income Type"></i>
 							</label>
 							<!--end::Label-->
-							<input type="text" class="form-control form-control-solid" asp-for="IncomeType" placeholder="Enter User Name" autocomplete="off" />
+							<input type="text" class="form-control form-control-solid" asp-for="IncomeType" placeholder="Enter Income Type" autocomplete="off" />
 							<span class="text-danger" asp-validation-for="IncomeType"></span>
 						</div>
 						<!--end::Input group-->
@@ -99,7 +99,7 @@
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select Remarks"></i>
 							</label>
 							<!--end::Label-->
-							<input type="text" class="form-control form-control-solid" asp-for="Remarks" placeholder="Enter Remarks" autocomplete="off" />
+							<textarea class="form-control form-control-solid" asp-for="Remarks" placeholder="Enter Remarks" autocomplete="off" ></textarea>
 						</div>
 						<!--end::Input group-->
 						<!--begin::Actions-->

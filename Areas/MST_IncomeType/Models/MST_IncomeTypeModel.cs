@@ -7,6 +7,8 @@ namespace GNForm3C_.Areas.MST_IncomeType.Models
     {
         public int? IncomeTypeID { get; set; }
         [Required]
+        [DisplayName("Income Type")]
+
         public string? IncomeType { get; set; }
         public string? Remarks { get; set; }
         [Required]

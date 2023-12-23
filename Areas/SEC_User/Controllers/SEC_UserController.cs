@@ -35,6 +35,7 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 				Users.Add(UserModel);
 			}
 			ViewBag.UserList = Users;
+			            
 			#endregion
 
 			return View("SEC_UserList");

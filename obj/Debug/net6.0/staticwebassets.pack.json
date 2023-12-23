@@ -8093,6 +8093,14 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\coins\\filecoin.svg"
     },
     {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\cost-management-inr-icon.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\cost-management-inr-icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-item-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-item-svgrepo-com.svg"
+    },
+    {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\files\\ai-dark.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\files\\ai-dark.svg"
     },

@@ -41,7 +41,7 @@
                 @* <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                 </svg>  *@
-                <span class="fs-4 fw-bold"><i class="fa fa-plus fa-2x"></i> Add ExpenseType</span>
+                <span class="fs-4 fw-bold"><i class="fa fa-plus fa-2x"></i> Add Expense Type</span>
             </a>
             <!--end::Secondary button-->
             <!--begin::Primary button-->
@@ -94,14 +94,10 @@
                     <!--begin::Toolbar-->
                     <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
                         <!--begin::Title-->
-                        <span>
-                            <h3 class="fs-x text-dark mt-5 mt-md-5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list-nested" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z" />
-                                </svg>
-                                EXPENSE TYPE LIST
-                            </h3>
-                        </span>
+                        <h3 class="text-dark align-middle mt-5 mt-md-5">
+                            <img src="~/theme/assets/media/svg/downloaded-icons/cost-management-inr-icon.svg" />
+                            <span style="position:absolute;margin-top:4px;padding-left:10px;" class="text-dark align-middle"> EXPENSE TYPE LIST</span>
+                        </h3>
                         <!--end::Title-->
                     </div>
                     <!--end::Toolbar-->
@@ -119,7 +115,7 @@
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
-                        <input type="text" data-kt-ecommerce-order-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search ExpenseType"  />
+                        <input type="text" data-kt-ecommerce-order-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Expense Type" />
                     </div>
                     <!--end::Search-->
                 </div>
@@ -130,10 +126,10 @@
             <div class="card-body pt-0">
                 <hr />
                 <!--begin::Table-->
-                <table class="table align-middle table-row-dashed fs-6 gy-3" id="kt_ecommerce_report_customer_orders_table">
+                <table class="table table-row-dashed fs-6 gy-3" id="kt_ecommerce_report_customer_orders_table">
                     <thead>
                         <!--begin::Table row-->
-                        <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
+                        <tr class="text-start text-dark fw-bold fs-4 gs-0">
                             <th>Expense Type</th>
                             <th>Remarks</th>
                             <th>Hospital</th>
@@ -142,7 +138,7 @@
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="fw-semibold text-dark-600 font-weight-normal" >
+                    <tbody class="fw-semibold text-dark-600 font-weight-normal">
                         @foreach(MST_ExpenseTypeModel dr in ViewBag.ExpenseTypeList)
                         {
                             <tr>
@@ -163,7 +159,7 @@
                                             <path fill-rule="evenodd"
                                                   d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                         </svg>
-                                    </a>&nbsp;
+                                    </a>
                                     <a class="text-decoration-none text-danger"
                                        data-bs-toggle="tooltip" data-bs-placement="right"
                                        data-bs-title="Delete"

@@ -7,6 +7,7 @@ namespace GNForm3C_.Areas.MST_ExpenseType.Models
     {
         public int? ExpenseTypeID {  get; set; }
         [Required]
+        [DisplayName("Expense Type")]
         public string? ExpenseType { get; set; }
         public string? Remarks { get; set; }
         [Required]
