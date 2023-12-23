@@ -48,10 +48,23 @@
 <!--end::Toolbar-->
 
 <form method="post" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Save">
+
 	<!--begin: Validation-->
+
 	<div class="col-md-12 container">
-		<div id="validatediv" asp-validation-summary="All" class="text-danger"></div>
+		@* <div id="validatediv" asp-validation-summary="All" class="text-danger"></div> *@
+		<div class="col-md-12 container">
+			@if(Model != null && Model.FinYearID != null)
+			{
+				<div id="validatediv" asp-validation-summary="ModelOnly" class="text-danger"></div>
+			}
+			else
+			{
+				<div id="validatediv" asp-validation-summary="All" class="text-danger"></div>
+			}
+		</div>
 	</div>
+
 	<!--end: Validation-->
 	<!--begin::Content-->
 	<div id="kt_app_content" class="app-content flex-column-fluid">
