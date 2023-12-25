@@ -8093,6 +8093,14 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\coins\\filecoin.svg"
     },
     {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\doctor-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\doctor-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\icons8-treatment-50.png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\icons8-treatment-50.png"
+    },
+    {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\cost-management-inr-icon.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\cost-management-inr-icon.svg"
     },
@@ -8241,6 +8249,10 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\general\\rhone.svg"
     },
     {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\hospital-buildings-svgrepo-com (3).svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\hospital-buildings-svgrepo-com (3).svg"
+    },
+    {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\humans\\custom-1.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\humans\\custom-1.svg"
     },
@@ -8303,6 +8315,14 @@
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\illustrations\\sigma\\volume-1.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\illustrations\\sigma\\volume-1.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\image (3).png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\image (3).png"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\image (4).png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\image (4).png"
     },
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\misc\\eolic-energy.svg",
@@ -8391,6 +8411,10 @@
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\products-categories\\watch.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\products-categories\\watch.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\recent-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\recent-svgrepo-com.svg"
     },
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\shapes\\abstract-1-dark.svg",

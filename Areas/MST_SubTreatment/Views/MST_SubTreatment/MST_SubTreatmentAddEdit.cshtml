@@ -68,7 +68,7 @@
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="HospitalID">
 								<span class="text-danger">*</span>&nbsp;Hospital Name
-								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select hospital"></i>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select hospital"></i>
 							</label>
 							<!--end::Label-->
 							<div class="col-12 col-md-12 fv-row">
@@ -84,7 +84,7 @@
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="SubTreatmentName">
 								<span class="text-danger">*</span>&nbsp;SubTreatment
-								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique SubTreatment name"></i>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only unique SubTreatment name"></i>
 							</label>
 							<!--end::Label-->
 							<input type="text" class="form-control form-control-solid" asp-for="SubTreatmentName" placeholder="Enter SubTreatment Name" autocomplete="off" />
@@ -98,7 +98,7 @@
 								<!--begin::Label-->
 								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="SequenceNo ">
 									Auto Load Sequence No
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only Number"></i>
+									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only Number"></i>
 								</label>
 								<!--end::Label-->
 								<input type="number" class="form-control form-control-solid" asp-for="SequenceNo" placeholder="Enter Sequence No." autocomplete="off" />
@@ -109,7 +109,7 @@
 								<!--begin::Label-->
 								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="DefaultUnit ">
 									@* <span class="text-danger">*</span>&nbsp; *@Unit
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts Unit"></i>
+									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts Unit"></i>
 								</label>
 								<!--end::Label-->
 								<input type="text" class="form-control form-control-solid" asp-for="DefaultUnit" placeholder="Enter Unit" autocomplete="off" />
@@ -122,7 +122,7 @@
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Rate ">
 								@* <span class="text-danger">*</span> *@Rate
-								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts Rate"></i>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts Rate"></i>
 							</label>
 							<!--end::Label-->
 							<input type="text" class="form-control form-control-solid" asp-for="Rate" placeholder="Enter Rate" autocomplete="off" />
@@ -153,7 +153,7 @@
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Remarks ">
 								Remarks
-								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only Remarks"></i>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only Remarks"></i>
 							</label>
 							<!--end::Label-->
 							<textarea class="form-control form-control-solid" asp-for="Remarks" placeholder="Enter Remarks" autocomplete="off"></textarea>

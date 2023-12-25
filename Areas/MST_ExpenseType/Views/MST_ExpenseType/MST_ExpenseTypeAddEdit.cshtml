@@ -73,7 +73,7 @@
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2 " asp-for="HospitalID">
 								<span class="text-danger">*</span>Hospital Name
-								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select Hospital"></i>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Hospital"></i>
 							</label>
 							<!--end::Label-->
 							<div class="col-12 col-md-12 fv-row">
@@ -89,7 +89,7 @@
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ExpenseType">
 								<span class="text-danger">*</span>Expense Type
-								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique Expense Type"></i>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only unique Expense Type"></i>
 							</label>
 							<!--end::Label-->
 							<input type="text" class="form-control form-control-solid" asp-for="ExpenseType" placeholder="Enter Expense Type" autocomplete="off" />
@@ -101,7 +101,7 @@
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Remarks">
 								@*    <span class="text-danger">*</span> *@Remarks
-								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="used for select Remarks"></i>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Remarks"></i>
 							</label>
 							<!--end::Label-->
 							<textarea class="form-control form-control-solid" asp-for="Remarks" placeholder="Enter Remarks" autocomplete="off"></textarea>

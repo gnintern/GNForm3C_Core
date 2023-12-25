@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kPBpKdXVHzT46bV+Tz/J+7ep08AAzb10ARp2QrbqFy8=",
+  "Hash": "555UGPIrOf5Ni4F7aMVcBf8KYKSxx8RdrhIR4vDVyFQ=",
   "Source": "GNForm3C+",
   "BasePath": "_content/GNForm3C+",
   "Mode": "Default",
@@ -35445,6 +35445,23 @@
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\coins\\filecoin.svg"
     },
     {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\doctor-svgrepo-com.svg",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/svg/doctor-svgrepo-com.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\doctor-svgrepo-com.svg"
+    },
+    {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\cost-management-inr-icon.svg",
       "SourceId": "GNForm3C+",
       "SourceType": "Discovered",
@@ -35460,6 +35477,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\cost-management-inr-icon.svg"
+    },
+    {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\icons8-treatment-50.png",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/svg/downloaded-icons/Images/icons8-treatment-50.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\icons8-treatment-50.png"
     },
     {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-item-svgrepo-com.svg",
@@ -36074,6 +36108,23 @@
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\general\\rhone.svg"
     },
     {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\hospital-buildings-svgrepo-com (3).svg",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/svg/hospital-buildings-svgrepo-com (3).svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\hospital-buildings-svgrepo-com (3).svg"
+    },
+    {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\humans\\custom-1.svg",
       "SourceId": "GNForm3C+",
       "SourceType": "Discovered",
@@ -36344,6 +36395,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\illustrations\\sigma\\volume-1-dark.svg"
+    },
+    {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\image (3).png",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/svg/image (3).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\image (3).png"
+    },
+    {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\image (4).png",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/svg/image (4).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\image (4).png"
     },
     {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\misc\\eolic-energy.svg",
@@ -36718,6 +36803,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\products-categories\\watch.svg"
+    },
+    {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\recent-svgrepo-com.svg",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/svg/recent-svgrepo-com.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\recent-svgrepo-com.svg"
     },
     {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\shapes\\abstract-1.svg",
