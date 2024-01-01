@@ -7,6 +7,7 @@ using GNForm3C_.Areas.MST_ReceiptType.Models;
 using GNForm3C_.Areas.MST_SubTreatment.Models;
 using GNForm3C_.Areas.MST_Treatment.Models;
 using GNForm3C_.Areas.SEC_User.Models;
+using GNForm3C_.BAL;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data;
 using System.Data.Common;
@@ -409,10 +410,10 @@ namespace GNForm3C_.DAL
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_SelectAll");
 				DataTable dt = new DataTable();
 
-				if (modelMST_ExpenseType.ExpenseType != null || modelMST_ExpenseType.HospitalID!=null)
+				if (modelMST_ExpenseType.ExpenseType != null || modelMST_ExpenseType.HospitalID == null)
 				{
 					dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_SearchForExpenseType");
-					sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ExpenseType.HospitalID);
+					sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 					sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, modelMST_ExpenseType.ExpenseType);
 				}
 
@@ -459,7 +460,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddOutParameter(dbCMD, "ExpenseTypeID", SqlDbType.Int, 4);
 				sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, modelMST_ExpenseType.ExpenseType);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_ExpenseType.Remarks);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ExpenseType.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 				int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
@@ -485,7 +486,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddInParameter(dbCMD, "ExpenseTypeID", SqlDbType.Int, ExpenseTypeID);
 				sqldb.AddInParameter(dbCMD, "ExpenseType", SqlDbType.NVarChar, modelMST_ExpenseType.ExpenseType);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_ExpenseType.Remarks);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ExpenseType.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 
 				int result = sqldb.ExecuteNonQuery(dbCMD);
@@ -559,10 +560,10 @@ namespace GNForm3C_.DAL
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Treatment_SelectAll");
 				DataTable dt = new DataTable();
 
-				if (modelMST_Treatment.HospitalID != null || modelMST_Treatment.Treatment != null)
+				if (modelMST_Treatment.HospitalID == null || modelMST_Treatment.Treatment != null)
 				{
 					dbCMD = sqldb.GetStoredProcCommand("PR_Treatment_SelectByTreatmentAndHospital");
-					sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_Treatment.HospitalID);
+					sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 					sqldb.AddInParameter(dbCMD, "Treatment", SqlDbType.NVarChar, modelMST_Treatment.Treatment);
 				}
 				using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
@@ -630,7 +631,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddOutParameter(dbCMD, "TreatmentID", SqlDbType.Int, 4);
 				sqldb.AddInParameter(dbCMD, "Treatment", SqlDbType.NVarChar, modelMST_Treatment.Treatment);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_Treatment.Remarks);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_Treatment.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 				int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
@@ -656,7 +657,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddInParameter(dbCMD, "TreatmentID", SqlDbType.Int, TreatmentID);
 				sqldb.AddInParameter(dbCMD, "Treatment", SqlDbType.NVarChar, modelMST_Treatment.Treatment);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_Treatment.Remarks);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_Treatment.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 
 				int result = sqldb.ExecuteNonQuery(dbCMD);
@@ -705,10 +706,10 @@ namespace GNForm3C_.DAL
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_IncomeType_SelectAll");
 				DataTable dt = new DataTable();
 
-				if (modelMST_IncomeType.IncomeType != null || modelMST_IncomeType.HospitalID!=null)
+				if (modelMST_IncomeType.IncomeType != null || modelMST_IncomeType.HospitalID ==null)
 				{
 					dbCMD = sqldb.GetStoredProcCommand("PR_IncomeType_SearchForIncomeType");
-					sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_IncomeType.HospitalID);
+					sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 					sqldb.AddInParameter(dbCMD, "IncomeType", SqlDbType.NVarChar, modelMST_IncomeType.IncomeType);
 				}
 
@@ -755,7 +756,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddOutParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, 4);
 				sqldb.AddInParameter(dbCMD, "IncomeType", SqlDbType.NVarChar, modelMST_IncomeType.IncomeType);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_IncomeType.Remarks);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_IncomeType.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 				int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
@@ -781,7 +782,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddInParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, IncomeTypeID);
 				sqldb.AddInParameter(dbCMD, "IncomeType", SqlDbType.NVarChar, modelMST_IncomeType.IncomeType);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_IncomeType.Remarks);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_IncomeType.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 
 				int result = sqldb.ExecuteNonQuery(dbCMD);
@@ -854,11 +855,11 @@ namespace GNForm3C_.DAL
 				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_SubTreatment_SelectAll");
 				DataTable dt = new DataTable();
-				if (modelMST_SubTreatment.HospitalID != null || modelMST_SubTreatment.SubTreatmentName != null)
+				if (modelMST_SubTreatment.HospitalID == null || modelMST_SubTreatment.SubTreatmentName != null)
 				{
 					dbCMD = sqldb.GetStoredProcCommand("PR_SubTreatment_SelectBySubTreatmentNameHospital");
 
-					sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_SubTreatment.HospitalID);
+					sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 					sqldb.AddInParameter(dbCMD, "SubTreatmentName", SqlDbType.NVarChar, modelMST_SubTreatment.SubTreatmentName);
 
 				}
@@ -912,7 +913,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddInParameter(dbCMD, "IsPerDay", SqlDbType.Bit, modelMST_SubTreatment.IsPerDay);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_SubTreatment.Remarks);
 				sqldb.AddInParameter(dbCMD, "DefaultUnit", SqlDbType.NVarChar, modelMST_SubTreatment.DefaultUnit);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_SubTreatment.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 				int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
@@ -943,7 +944,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddInParameter(dbCMD, "IsPerDay", SqlDbType.Bit, modelMST_SubTreatment.IsPerDay);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_SubTreatment.Remarks);
 				sqldb.AddInParameter(dbCMD, "DefaultUnit", SqlDbType.NVarChar, modelMST_SubTreatment.DefaultUnit);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_SubTreatment.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 
 				int result = sqldb.ExecuteNonQuery(dbCMD);
@@ -995,11 +996,11 @@ namespace GNForm3C_.DAL
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ReceiptType_SelectAll");
 				DataTable dt = new DataTable();
 
-				if (modelMST_ReceiptType.HospitalID != null || modelMST_ReceiptType.ReceiptTypeName != null)
+				if (modelMST_ReceiptType.HospitalID == null || modelMST_ReceiptType.ReceiptTypeName != null)
 				{
 					dbCMD = sqldb.GetStoredProcCommand("PR_ReceiptType_SelectByReceiptTypeNameHospital");
 
-					sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ReceiptType.HospitalID);
+					sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 					sqldb.AddInParameter(dbCMD, "ReceiptTypeName", SqlDbType.NVarChar, modelMST_ReceiptType.ReceiptTypeName);
 				}
 
@@ -1048,7 +1049,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddInParameter(dbCMD, "PrintName", SqlDbType.NVarChar, modelMST_ReceiptType.PrintName);
 				sqldb.AddInParameter(dbCMD, "IsDefault", SqlDbType.Bit, modelMST_ReceiptType.IsDefault);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_ReceiptType.Remarks);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ReceiptType.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "Created", SqlDbType.Int, DBNull.Value);
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 				int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
@@ -1076,7 +1077,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddInParameter(dbCMD, "PrintName", SqlDbType.NVarChar, modelMST_ReceiptType.PrintName);
 				sqldb.AddInParameter(dbCMD, "IsDefault", SqlDbType.Bit, modelMST_ReceiptType.IsDefault);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelMST_ReceiptType.Remarks);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelMST_ReceiptType.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.Int, DBNull.Value);
 
 				int result = sqldb.ExecuteNonQuery(dbCMD);
@@ -1115,6 +1116,7 @@ namespace GNForm3C_.DAL
 			}
 		}
 		#endregion
+
 		#region PR_ReceiptType_SelectComboBox
 		public DataTable PR_ReceiptType_SelectComboBox()
 		{

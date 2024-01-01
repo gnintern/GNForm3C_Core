@@ -135,16 +135,16 @@
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-4 gs-0">
-                            <th class="min-w-150px">Sub Treatment Name</th>
+                            <th class="min-w-180px">Sub Treatment Name</th>
                             <th class="min-w-150px">Sequence No.</th>
-                            <th>Rate</th>
-                            <th class="text-center min-w-250px">Auto Load in Receipt?</th>
+                            <th class="text-center min-w-50px">Rate</th>
+                            <th class="text-center min-w-240px">Auto Load in Receipt?</th>
                             <th class="text-center min-w-100px">Is Per Day?</th>
-                            <th>Remarks</th>
-                            <th>Hospital Name</th>
-                            <th>Unit</th>
-                            <th>Created</th>
-                            <th>Modified</th>
+                            <th class="min-w-50px">Remarks</th>
+                            <th class="min-w-100px">Hospital Name</th>
+                            <th class="min-w-50px">Unit</th>
+                            <th class="min-w-50px">Created</th>
+                            <th class="min-w-50px">Modified</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -152,10 +152,10 @@
                         @foreach (MST_SubTreatmentModel dr in ViewBag.SubTreatmentList)
                         {
                             <tr>
-                                <td>@dr.SubTreatmentName</td>
-                                <td>@dr.SequenceNo</td>
-                                <td>@dr.Rate</td>
-                                <td class="text-center">
+                                <td class="min-w-180px">@dr.SubTreatmentName</td>
+                                <td class="min-w-150px">@dr.SequenceNo</td>
+                                <td class="text-center min-w-50px">@dr.Rate</td>
+                                <td class="text-center min-w-230px">
                                     @if (dr.IsInGrid == true)
                                     {
                                         <h1 class="badge badge-light-success badge-circle fw-normal fs-6">Yes</h1>
@@ -166,7 +166,7 @@
                                         <h1 class="badge badge-light-danger badge-circle fw-normal fs-6">No</h1>
                                     }
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center min-w-100px">
                                         @if (dr.IsPerDay == true)
                                         {
                                         <h1 class="badge badge-light-success badge-circle fw-normal fs-6">Yes</h1>
@@ -178,11 +178,11 @@
                                         }
                                 </td>
 
-                                <td>@dr.Remarks</td>
-                                <td>@dr.Hospital</td>
-                                <td>@dr.DefaultUnit</td>
-                                <td>@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
-                                <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
+                                <td class="min-w-50px">@dr.Remarks</td>
+                                <td class="min-w-100px">@dr.Hospital</td>
+                                <td class="min-w-50px">@dr.DefaultUnit</td>
+                                <td class="min-w-50px">@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
+                                <td class="min-w-50px">@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
                                 <td class="text-center">
                                     <a class="text-decoration-none text-primary edit-button" style="padding-right:1px;"
                                        data-bs-toggle="tooltip"

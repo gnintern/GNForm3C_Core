@@ -17,7 +17,7 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
         #region Function: SelectAll
         public IActionResult Index(ACC_IncomeModel modelACC_Income)
         {
-            ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+            ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
             ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
             ViewBag.IncomeTypeDropDown = CommonFillMethod.SelectDropDownListForIncomeType().ToList();
 
@@ -57,7 +57,7 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
                 TempData["Action"] = "Add";
                 #endregion
 
-                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
                 ViewBag.IncomeTypeDropDown = CommonFillMethod.SelectDropDownListForIncomeType().ToList();
 
 

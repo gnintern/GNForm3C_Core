@@ -18,7 +18,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+            ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
             ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
             ViewBag.ExpenseTypeDropDown = CommonFillMethod.SelectDropDownListForExpenseType().ToList();
             return View("ACC_ExpenseList");
@@ -27,7 +27,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
         [HttpPost]
         public IActionResult Index(ACC_ExpenseModel modelACC_Expense)
         {
-            ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+            ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
             ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
             ViewBag.ExpenseTypeDropDown = CommonFillMethod.SelectDropDownListForExpenseType().ToList();
             if(ModelState.IsValid || modelACC_Expense.FinYearID!=null)
@@ -87,7 +87,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
                 TempData["Action"] = "Add";
                 #endregion
 
-                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
                 ViewBag.ExpenseTypeDropDown = CommonFillMethod.SelectDropDownListForExpenseType().ToList();
 
 

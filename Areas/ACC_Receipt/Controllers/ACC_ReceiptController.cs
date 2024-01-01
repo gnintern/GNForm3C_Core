@@ -108,7 +108,7 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
         public IActionResult Add()
         {
             ACC_ReceiptModel modelACC_Receipt = new ACC_ReceiptModel();
-            ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+            ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
             ViewBag.ReceiptTypeDropDown = CommonFillMethod.SelectDropDownListForReceiptType().ToList();
             ViewBag.TreatmentDropDown = CommonFillMethod.SelectDropDownListForTreatment().ToList();
             #region Add record

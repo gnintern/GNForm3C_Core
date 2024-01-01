@@ -12,8 +12,10 @@ namespace GNForm3C_.DAL
 {
     public class ACC_DALBase:DAL_Helper
     {
-        #region PR_Expense_SelectAll
-        public DataTable PR_Expense_SelectAll(ACC_ExpenseModel modelACC_Expense)
+		#region Expense
+
+		#region PR_Expense_SelectAll
+		public DataTable PR_Expense_SelectAll(ACC_ExpenseModel modelACC_Expense)
         {
             try
             {
@@ -23,10 +25,10 @@ namespace GNForm3C_.DAL
                 if (modelACC_Expense.HospitalID != null || modelACC_Expense.FinYearID != null || modelACC_Expense.ExpenseTypeID != null || modelACC_Expense.Amount != null)
                 {
                     dbCMD = sqldb.GetStoredProcCommand("PR_Expense_SelectByHospitalFinYearExpenseTypeAmount");
-                    if (modelACC_Expense.HospitalID != null)
-                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Expense.HospitalID);
-                    else
-                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
+                    if (modelACC_Expense.HospitalID == null)
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
+                    //else
+                        //sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
 
                     if (modelACC_Expense.FinYearID != null)
                         sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, modelACC_Expense.FinYearID);
@@ -90,7 +92,7 @@ namespace GNForm3C_.DAL
                 sqldb.AddOutParameter(dbCMD, "ExpenseID", SqlDbType.Int, 4);
                 sqldb.AddInParameter(dbCMD, "ExpenseTypeID", SqlDbType.Int, modelACC_Expense.ExpenseTypeID);
                 sqldb.AddInParameter(dbCMD, "Amount", SqlDbType.Decimal, modelACC_Expense.Amount);
-                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Expense.HospitalID);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
                 sqldb.AddInParameter(dbCMD, "Note", SqlDbType.NVarChar, modelACC_Expense.Note);
                 sqldb.AddInParameter(dbCMD,"FinYearID",SqlDbType.Int, CommonVariables.FinYearID());
                 sqldb.AddInParameter(dbCMD, "Created", SqlDbType.DateTime, DBNull.Value);
@@ -121,7 +123,7 @@ namespace GNForm3C_.DAL
                 sqldb.AddInParameter(dbCMD, "Amount", SqlDbType.Decimal, modelACC_Expense.Amount);
                 sqldb.AddInParameter(dbCMD, "Date", SqlDbType.DateTime, modelACC_Expense.Date);
                 sqldb.AddInParameter(dbCMD, "Note", SqlDbType.NVarChar, modelACC_Expense.Note);
-                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Expense.HospitalID);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
                 sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, CommonVariables.FinYearID());
                 sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.DateTime, DBNull.Value);
                 int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
@@ -155,25 +157,27 @@ namespace GNForm3C_.DAL
                 return null;
             }
         }
-        #endregion
+		#endregion
 
-        #region Income
+		#endregion
 
-        #region PR_Income_SelectAll
-        public DataTable PR_Income_SelectAll(ACC_IncomeModel modelACC_Income)
+		#region Income
+
+		#region PR_Income_SelectAll
+		public DataTable PR_Income_SelectAll(ACC_IncomeModel modelACC_Income)
         {
             try
             {
                 SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
                 DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Income_SelectAll");
                 DataTable dt = new DataTable();
-                if (modelACC_Income.HospitalID != null || modelACC_Income.FinYearID != null || modelACC_Income.IncomeTypeID != null || modelACC_Income.Amount != null)
+                if (modelACC_Income.HospitalID == null || modelACC_Income.FinYearID != null || modelACC_Income.IncomeTypeID != null || modelACC_Income.Amount != null)
                 {
                     dbCMD = sqldb.GetStoredProcCommand("PR_Income_SelectByHospitalFinYearIncomeTypeAmount");
-                    if (modelACC_Income.HospitalID != null)
-                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Income.HospitalID);
-                    else
-                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
+                    if (modelACC_Income.HospitalID == null)
+                        sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
+                    //else
+                        //sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, DBNull.Value);
 
                     if (modelACC_Income.FinYearID != null)
                         sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, modelACC_Income.FinYearID);
@@ -237,7 +241,7 @@ namespace GNForm3C_.DAL
                 sqldb.AddOutParameter(dbCMD, "IncomeID", SqlDbType.Int, 4);
                 sqldb.AddInParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, modelACC_Income.IncomeTypeID);
                 sqldb.AddInParameter(dbCMD, "Amount", SqlDbType.Decimal, modelACC_Income.Amount);
-                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Income.HospitalID);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
                 sqldb.AddInParameter(dbCMD, "Note", SqlDbType.NVarChar, modelACC_Income.Note);
                 sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, CommonVariables.FinYearID());
                 sqldb.AddInParameter(dbCMD, "Created", SqlDbType.DateTime, DBNull.Value);
@@ -268,7 +272,7 @@ namespace GNForm3C_.DAL
                 sqldb.AddInParameter(dbCMD, "Amount", SqlDbType.Decimal, modelACC_Income.Amount);
                 sqldb.AddInParameter(dbCMD, "Date", SqlDbType.DateTime, modelACC_Income.Date);
                 sqldb.AddInParameter(dbCMD, "Note", SqlDbType.NVarChar, modelACC_Income.Note);
-                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Income.HospitalID);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
                 sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, CommonVariables.FinYearID());
                 sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.DateTime, DBNull.Value);
                 int vResultValue = sqldb.ExecuteNonQuery(dbCMD);
@@ -391,7 +395,7 @@ namespace GNForm3C_.DAL
 				sqldb.AddInParameter(dbCMD, "ReceiptNo ", SqlDbType.Int, modelACC_Receipt.ReceiptNo);
 				sqldb.AddInParameter(dbCMD, "Date", SqlDbType.DateTime, modelACC_Receipt.Date);
 				sqldb.AddInParameter(dbCMD, "Remarks", SqlDbType.NVarChar, modelACC_Receipt.Remarks);
-				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelACC_Receipt.HospitalID);
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, CommonVariables.FinYearID());
 				sqldb.AddInParameter(dbCMD, "Modified", SqlDbType.DateTime, DBNull.Value);
 				sqldb.AddInParameter(dbCMD, "DateOfAdmission", SqlDbType.DateTime, modelACC_Receipt.DateOfAdmission);

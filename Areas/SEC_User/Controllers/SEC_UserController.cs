@@ -196,7 +196,9 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 			}
 			else
 			{
-				DataTable dt = dalSEC.PR_SEC_User_SelectByUserNamePassword(modelSEC_User.UserName, modelSEC_User.Password);
+                DataTable dt = dalSEC.PR_User_SelectByUserNamePasswordHospitalID(modelSEC_User.UserName, modelSEC_User.Password,modelSEC_User.HospitalID);
+
+                //DataTable dt = dalSEC.PR_SEC_User_SelectByUserNamePassword(modelSEC_User.UserName, modelSEC_User.Password);
 				if (dt.Rows.Count > 0)
 				{
 					foreach (DataRow dr in dt.Rows)
@@ -205,6 +207,7 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 						HttpContext.Session.SetString("UserName", dr["UserName"].ToString());
 						HttpContext.Session.SetString("Password", dr["Password"].ToString());
 						HttpContext.Session.SetString("HospitalID", dr["HospitalID"].ToString());
+						HttpContext.Session.SetString("Hospital", dr["Hospital"].ToString());
 						HttpContext.Session.SetString("FinYearID", dr["FinYearID"].ToString());
 
 						break;

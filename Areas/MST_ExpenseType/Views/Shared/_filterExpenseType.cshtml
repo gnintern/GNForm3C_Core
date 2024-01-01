@@ -6,8 +6,7 @@
         <div class="row mb-8">
             <!--begin::Col-->
             <div class="col-6 col-md-6 fv-row">
-                <select class="form-select form-select-solid" data-control="select2"   asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
-                    <option value="">Select Hospital</option>
+                <select class="form-select form-select-solid" data-control="select2"  asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))" disabled>
                 </select>
 
             </div>

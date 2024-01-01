@@ -17,7 +17,7 @@ namespace GNForm3C_.Areas.MST_SubTreatment.Controllers
         #region Function: SelectAll
         public IActionResult Index(MST_SubTreatmentModel modelMST_SubTreatment)
             {
-                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
                 DataTable dt = dalMST.PR_SubTreatment_SelectAll(modelMST_SubTreatment);
 
                 #region Fill the record into List
@@ -76,7 +76,7 @@ namespace GNForm3C_.Areas.MST_SubTreatment.Controllers
                 TempData["Action"] = "Add";
                 #endregion
 
-                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
 
                 if (SubTreatmentID != null)
                 {

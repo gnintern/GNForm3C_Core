@@ -18,7 +18,7 @@ namespace GNForm3C_.Areas.MST_ReceiptType.Controllers
             #region Function: SelectAll
             public IActionResult Index(MST_ReceiptTypeModel modelMST_ReceiptType)
             {
-			ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+			ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
 			DataTable dt = dalMST.PR_ReceiptType_SelectAll(modelMST_ReceiptType);
 
                 #region Fill the record into List
@@ -74,7 +74,7 @@ namespace GNForm3C_.Areas.MST_ReceiptType.Controllers
                 TempData["Action"] = "Add";
                 #endregion
 
-                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
 
                 if (ReceiptTypeID != null)
                 {

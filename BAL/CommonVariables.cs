@@ -72,6 +72,31 @@
             return FinYearID;
         }
         #endregion
+
+        #region HospitalID
+        public static int? HospitalID()
+        {
+            int? HospitalID = null;
+            if(_httpContextAccessor.HttpContext.Session.GetString("HospitalID") != null)
+            {
+                HospitalID = Convert.ToInt32(_httpContextAccessor.HttpContext.Session.GetString("HospitalID"));
+            }
+            return HospitalID;
+        }
+        #endregion
+
+        #region Hospital
+        public static string? Hospital()
+        {
+            string? Hospital = null;
+
+            if(_httpContextAccessor.HttpContext.Session.GetString("Hospital") != null)
+            {
+                Hospital = _httpContextAccessor.HttpContext.Session.GetString("Hospital").ToString();
+            }
+            return Hospital;
+        }
+        #endregion
     }
 
 }

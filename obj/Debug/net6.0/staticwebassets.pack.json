@@ -6869,6 +6869,14 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\stock\\food\\img-9.jpg"
     },
     {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\Expance.png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\Expance.png"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\Income.png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\Income.png"
+    },
+    {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\avatars\\001-boy.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\avatars\\001-boy.svg"
     },
@@ -8105,8 +8113,16 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\cost-management-inr-icon.svg"
     },
     {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\date-icon.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\date-icon.svg"
+    },
+    {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-item-svgrepo-com.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-item-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt.svg"
     },
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\files\\ai-dark.svg",
@@ -8315,14 +8331,6 @@
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\illustrations\\sigma\\volume-1.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\illustrations\\sigma\\volume-1.svg"
-    },
-    {
-      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\image (3).png",
-      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\image (3).png"
-    },
-    {
-      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\image (4).png",
-      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\image (4).png"
     },
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\misc\\eolic-energy.svg",

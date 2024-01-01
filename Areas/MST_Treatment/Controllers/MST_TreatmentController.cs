@@ -19,7 +19,7 @@ namespace GNForm3C_.Areas.MST_Treatment.Controllers
         {
             DataTable dt = dalMST.PR_Treatment_SelectAll(modelMST_Treatment);
 
-            ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+            ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
 
             #region Fill the record into List
             List<MST_TreatmentModel> Treatment = new List<MST_TreatmentModel>();
@@ -51,7 +51,7 @@ namespace GNForm3C_.Areas.MST_Treatment.Controllers
                 TempData["Action"] = "Add";
                 #endregion
 
-                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
                 if (TreatmentID != null)
                 {
                     #region Form Title

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "555UGPIrOf5Ni4F7aMVcBf8KYKSxx8RdrhIR4vDVyFQ=",
+  "Hash": "uhTaNHvMG5cyjfsmICku+xXGS39uNlEfXkIgc9+Setg=",
   "Source": "GNForm3C+",
   "BasePath": "_content/GNForm3C+",
   "Mode": "Default",
@@ -35479,6 +35479,23 @@
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\cost-management-inr-icon.svg"
     },
     {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\date-icon.svg",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/svg/downloaded-icons/date-icon.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\date-icon.svg"
+    },
+    {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\icons8-treatment-50.png",
       "SourceId": "GNForm3C+",
       "SourceType": "Discovered",
@@ -35496,6 +35513,23 @@
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\icons8-treatment-50.png"
     },
     {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt.svg",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/svg/downloaded-icons/receipt.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt.svg"
+    },
+    {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-item-svgrepo-com.svg",
       "SourceId": "GNForm3C+",
       "SourceType": "Discovered",
@@ -35511,6 +35545,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-item-svgrepo-com.svg"
+    },
+    {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\Expance.png",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/svg/Expance.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\Expance.png"
     },
     {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\files\\ai.svg",
@@ -36397,12 +36448,12 @@
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\illustrations\\sigma\\volume-1-dark.svg"
     },
     {
-      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\image (3).png",
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\Income.png",
       "SourceId": "GNForm3C+",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
       "BasePath": "_content/GNForm3C+",
-      "RelativePath": "Theme/assets/media/svg/image (3).png",
+      "RelativePath": "Theme/assets/media/svg/Income.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -36411,24 +36462,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\image (3).png"
-    },
-    {
-      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\image (4).png",
-      "SourceId": "GNForm3C+",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
-      "BasePath": "_content/GNForm3C+",
-      "RelativePath": "Theme/assets/media/svg/image (4).png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\image (4).png"
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\Income.png"
     },
     {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\misc\\eolic-energy.svg",

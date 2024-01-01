@@ -10,6 +10,8 @@ namespace GNForm3C_.Areas.ACC_Income.Models
         [DisplayName("Income Type")]
         public int? IncomeTypeID { get; set; }
         public string IncomeType { get; set; }
+        [Required]
+        [DisplayName("Financial Year")]
         public int? FinYearID { get; set; }
         public string FinYearName { get; set; }
         [Required]

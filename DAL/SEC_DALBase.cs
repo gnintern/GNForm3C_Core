@@ -144,7 +144,7 @@ namespace GNForm3C_.DAL
 
         #endregion
 
-        #region Method: dbo_PR_SEC_User_SelectByUserNamePassword
+        #region dbo_PR_SEC_User_SelectByUserNamePassword
         public DataTable PR_SEC_User_SelectByUserNamePassword(string UserName, string Password)
         {
             try
@@ -169,6 +169,31 @@ namespace GNForm3C_.DAL
         }
         #endregion
 
+        #region PR_User_SelectByUserNamePasswordHospitalID
+        public DataTable PR_User_SelectByUserNamePasswordHospitalID(string UserName, string Password,int HospitalID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_User_SelectByUserNamePasswordHospitalID");
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, UserName);
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.VarChar, Password);
+                sqlDB.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, HospitalID);
+
+                DataTable dt = new DataTable();
+                using(IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+
+                return dt;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
         #endregion
     }
 }

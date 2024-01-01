@@ -54,9 +54,9 @@
                 <!--end:Menu item-->
 
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion" id="menu">
                     <!--begin:Menu link-->
-                    <span class="menu-link">
+                    <span class="menu-link" >
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -78,7 +78,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index">
+                            <a class="menu-link @{@(Context.Request.Path.ToUriComponent().Contains("ACC_Receipt") ? "active" : "")}" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -90,7 +90,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" asp-area="ACC_Expense" asp-controller="ACC_Expense" asp-action="Index">
+                            <a class="menu-link  @{@(Context.Request.Path.ToUriComponent().Contains("ACC_Expense") ? "active" : "")}" asp-area="ACC_Expense" asp-controller="ACC_Expense" asp-action="Index">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -107,7 +107,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" asp-area="ACC_Income" asp-controller="ACC_Income" asp-action="Index">
+                            <a class="menu-link  @{@(Context.Request.Path.ToUriComponent().Contains("ACC_Income") ? "active" : "")}" asp-area="ACC_Income" asp-controller="ACC_Income" asp-action="Index">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -122,8 +122,7 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion" id="menu">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -142,12 +141,12 @@
                     </span>
                     <!--end:Menu link-->
                     <!--begin:Menu sub-->
-                    <div class="menu-sub menu-sub-accordion">
+                    <div class="menu-sub menu-sub-accordion ">
 
                         <!--begin:Hospital item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" asp-area="MST_Hospital" asp-controller="MST_Hospital" asp-action="Index">
+                            <a class="menu-link @{@(Context.Request.Path.ToUriComponent().Contains("MST_Hospital") ? "active" : "")}" asp-area="MST_Hospital" asp-controller="MST_Hospital" asp-action="Index">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -156,22 +155,22 @@
                             <!--end:Menu link-->
                         </div>
                         <!--end:Hospital item-->
-                        <!--begin:Fin Year item-->
+                        <!--begin:Financial Year item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Index">
+                            <a class="menu-link @{@(Context.Request.Path.ToUriComponent().Contains("MST_FinYear") ? "active" : "")}" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Index">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Fin Year</span>
+                                <span class="menu-title">Financial Year</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
-                        <!--end:Fin Year item-->
+                        <!--end:Financial Year item-->
                         <!--begin:User item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Index">
+                            <a class="menu-link @{@(Context.Request.Path.ToUriComponent().Contains("SEC_User") ? "active" : "")}" asp-area="SEC_User" asp-controller="SEC_User" asp-action="Index">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -183,7 +182,7 @@
                         <!--begin:Expense Type item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" asp-area="MST_ExpenseType" asp-controller="MST_ExpenseType" asp-action="Index">
+                            <a class="menu-link @{@(Context.Request.Path.ToUriComponent().Contains("MST_ExpenseType") ? "active" : "")}" asp-area="MST_ExpenseType" asp-controller="MST_ExpenseType" asp-action="Index">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -195,7 +194,7 @@
                         <!--begin:Income Type item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" asp-area="MST_IncomeType" asp-controller="MST_IncomeType" asp-action="Index">
+                            <a class="menu-link @{@(Context.Request.Path.ToUriComponent().Contains("MST_IncomeType") ? "active" : "")}" asp-area="MST_IncomeType" asp-controller="MST_IncomeType" asp-action="Index">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -207,7 +206,7 @@
                         <!--begin:Receipt Type item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" asp-area="MST_ReceiptType" asp-controller="MST_ReceiptType" asp-action="Index">
+                            <a class="menu-link @{@(Context.Request.Path.ToUriComponent().Contains("MST_ReceiptType") ? "active" : "")}" asp-area="MST_ReceiptType" asp-controller="MST_ReceiptType" asp-action="Index">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -232,7 +231,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" asp-area="MST_Treatment" asp-controller="MST_Treatment" asp-action="Index">
+                                    <a class="menu-link @{@(Context.Request.Path.ToUriComponent().Contains("MST_Treatment") ? "active" : "")}" asp-area="MST_Treatment" asp-controller="MST_Treatment" asp-action="Index">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -244,7 +243,7 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Index">
+                                    <a class="menu-link @{@(Context.Request.Path.ToUriComponent().Contains("MST_SubTreatment") ? "active" : "")}" asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Index">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -271,3 +270,16 @@
    
 </div>
 <!--end::sidebar-->
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#menu').on('click', function () {
+            document.getElementById('menu').classList = "show";
+            });
+            document.getElementById('menu').classList.remove('show');
+        });
+        
+       
+        
+    </script>
+}

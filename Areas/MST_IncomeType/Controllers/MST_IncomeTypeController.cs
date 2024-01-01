@@ -16,7 +16,7 @@ namespace GNForm3C_.Areas.MST_IncomeType.Controllers
         #region Function: SelectAll
         public IActionResult Index(MST_IncomeTypeModel modelMST_IncomeType)
         {
-			ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+			ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
 			DataTable dt = dalMST.PR_IncomeType_SelectAll(modelMST_IncomeType);
 
             #region Fill the record into List
@@ -52,7 +52,7 @@ namespace GNForm3C_.Areas.MST_IncomeType.Controllers
                 #region Form Title
                 ViewData["Title"] = "Add";
                 #endregion
-                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
                 if (IncomeTypeID != null)
                 {
                     #region Form Title

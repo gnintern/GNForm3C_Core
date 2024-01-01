@@ -73,8 +73,7 @@
 								</label>
 								<!--end::Label-->
 								<div class="col-12 col-md-12 fv-row">
-									<select class="form-select form-select-solid" data-control="select2"   asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
-										<option value="">Select Hospital</option>
+									<select class="form-select form-select-solid" data-control="select2"  asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))" disabled>
 									</select>
 								</div>
 								<span class="text-danger" asp-validation-for="HospitalID"></span>
