@@ -101,110 +101,118 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
 			}
 			return View("MST_FinYearAddEdit");
 		}
-		#endregion
+        #endregion
+
+        #region Save Record
+        [HttpPost]
+        public IActionResult Save(MST_FinYearModel modelMST_FinYear, string FinYearID)
+        {
+            var fromDate = modelMST_FinYear.FromDate;
+            var toDate = modelMST_FinYear.ToDate;
+
+            if(FinYearID != null)
+            {
+                #region Decrypt Id
+                SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(FinYearID);
+                int id = decryptedID.Value;
+                #endregion
+
+                modelMST_FinYear.FinYearID = id;
+            }
+
+            if(fromDate > toDate)
+            {
+                TempData["error"] = "From Date cannot be greater than To Date.";
+                //return View("MST_FinYearAddEdit", modelMST_FinYear);
+                if(modelMST_FinYear.FinYearID == null)
+                {
+                    return RedirectToAction("Add");
+                }
+                else
+                {
+                    return View("MST_FinYearAddEdit", modelMST_FinYear);
+                }
+            }
+
+            // Calculate the difference between From Date and To Date
+            var daysBetweenDates = (toDate - fromDate).TotalDays;
+
+            // Check if the difference is exactly one year, considering leap years
+            if(daysBetweenDates == 364 || (daysBetweenDates == 365 && IsLeapYear(toDate.Year)))
+            {
+                var financialYearStart = fromDate.Year;
+                var financialYearEnd = toDate.Year;
+
+                modelMST_FinYear.FinYearName = $"{financialYearStart}-{financialYearEnd.ToString().Substring(2, 2)}";
+            }
+            else
+            {
 
 
-		[HttpPost]
-		#region Save Record
-		public IActionResult Save(MST_FinYearModel modelMST_FinYear, string FinYearID)
-		{
-			var fromDate = modelMST_FinYear.FromDate;
-			var toDate = modelMST_FinYear.ToDate;
+                TempData["error"] = "The difference between From Date and To Date must be exactly one year.";
+                if(modelMST_FinYear.FinYearID == null)
+                {
+                    return RedirectToAction("Add");
+                }
+                else
+                {
 
-			if(FinYearID != null)
-			{
-				#region Decrypt Id
-				SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(FinYearID);
-				int id = decryptedID.Value;
-				#endregion
-
-				modelMST_FinYear.FinYearID = id;
-			}
-
-			if(fromDate > toDate)
-			{
-				TempData["error"] = "From Date cannot be greater than To Date.";
-				return View("MST_FinYearAddEdit", modelMST_FinYear);
-			}
-
-			// Calculate the difference between From Date and To Date
-			var daysBetweenDates = (toDate - fromDate).TotalDays;
-
-			// Check if the difference is exactly one year, considering leap years
-			if(daysBetweenDates == 364 || (daysBetweenDates == 365 && IsLeapYear(toDate.Year)))
-			{
-				var financialYearStart = fromDate.Year;
-				var financialYearEnd = toDate.Year;
-
-				modelMST_FinYear.FinYearName = $"{financialYearStart}-{financialYearEnd.ToString().Substring(2, 2)}";
-			}
-			else
-			{
+                    return View("MST_FinYearAddEdit", modelMST_FinYear);
+                }
+            }
 
 
-				TempData["error"] = "The difference between From Date and To Date must be exactly one year.";
-				if(modelMST_FinYear.FinYearID == null)
-				{
-					return RedirectToAction("Add");
-				}
-				else
-				{
+            bool isFinYearNameExists = dalMST.PR_FinYear_CheckISExist(modelMST_FinYear.FinYearName);
 
-					return View("MST_FinYearAddEdit", modelMST_FinYear);
-				}
-			}
+            if(isFinYearNameExists)
+            {
+                TempData["error"] = "FinYearName already exists.";
 
+                if(modelMST_FinYear.FinYearID == null)
+                {
+                    return RedirectToAction("Add");
+                }
+                else
+                {
+                    return View("MST_FinYearAddEdit", modelMST_FinYear);
+                }
 
-			bool isFinYearNameExists = dalMST.PR_FinYear_CheckISExist(modelMST_FinYear.FinYearName);
-
-			if(isFinYearNameExists)
-			{
-				TempData["error"] = "FinYearName already exists.";
-
-				if(modelMST_FinYear.FinYearID == null)
-				{
-					return RedirectToAction("Add");
-				}
-				else
-				{
-					return View("MST_FinYearAddEdit", modelMST_FinYear);
-				}
-
-			}
+            }
 
 
 
-			if(FinYearID == null)
-			{
+            if(FinYearID == null)
+            {
 
-				#region Inserting Record
-				if(Convert.ToBoolean(dalMST.PR_FinYear_Insert(modelMST_FinYear)))
-				{
-					TempData["success"] = "Record Inserted Successfully";
-					return RedirectToAction("Index");
-				}
-				#endregion
-			}
+                #region Inserting Record
+                if(Convert.ToBoolean(dalMST.PR_FinYear_Insert(modelMST_FinYear)))
+                {
+                    TempData["success"] = "Record Inserted Successfully";
+                    return RedirectToAction("Index");
+                }
+                #endregion
+            }
 
-			else
-			{
+            else
+            {
 
-				#region Updating Record
-				if(Convert.ToBoolean(dalMST.PR_FinYear_Update(modelMST_FinYear)))
-				{
-					TempData["success"] = "Record Updated Successfully";
-					return RedirectToAction("Index");
-				}
-				#endregion
-			}
+                #region Updating Record
+                if(Convert.ToBoolean(dalMST.PR_FinYear_Update(modelMST_FinYear)))
+                {
+                    TempData["success"] = "Record Updated Successfully";
+                    return RedirectToAction("Index");
+                }
+                #endregion
+            }
 
-			return RedirectToAction("Index");
-			#endregion
-		}
-		#endregion
+            return RedirectToAction("Index");
+        }
+        #endregion
 
-		#region IsLeapYear
-		private bool IsLeapYear(int year)
+        #endregion
+
+        #region IsLeapYear
+        private bool IsLeapYear(int year)
 		{
 			if(year % 4 == 0)
 			{

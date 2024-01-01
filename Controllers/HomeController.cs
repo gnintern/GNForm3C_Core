@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace GNForm3C_.Controllers
 {
-	[CheckAccess]
+	//[CheckAccess]
 	public class HomeController : Controller
 	{
 		MST_DAL dalMST = new MST_DAL();
