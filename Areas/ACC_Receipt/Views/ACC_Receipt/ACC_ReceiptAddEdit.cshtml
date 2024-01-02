@@ -72,7 +72,7 @@
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="SerialNo">
                                     <span class="text-danger">*</span> &nbsp;Serial No.
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for Serial No"></i>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Serial No"></i>
                                 </label>
                                 <!--end::Label-->
                                 <div class="col-12 col-md-12 ">
@@ -86,11 +86,11 @@
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Date">
                                     <span class="text-danger">*</span> &nbsp;Entry Date
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Date"></i>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for select Date"></i>
                                 </label>
                                 <!--end::Label-->
                                 <div class="col-12 col-md-12 ">
-                                    <input type="date" class="form-control form-control-solid" asp-for="Date" readonly/>
+                                    <input type="date" class="form-control form-control-solid" asp-for="Date" readonly />
                                 </div>
                                 <span class="text-danger" asp-validation-for="Date"></span>
                             </div>
@@ -102,11 +102,11 @@
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="HospitalID">
                                     <span class="text-danger">*</span> &nbsp;Hospital Name
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Hospital"></i>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for select Hospital"></i>
                                 </label>
                                 <!--end::Label-->
                                 <div class="col-12 col-md-12 fv-row">
-                                    <select class="form-select form-select-solid" data-control="select2"   asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))" disabled>
+                                    <select class="form-select form-select-solid" data-control="select2" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))" disabled>
                                     </select>
                                 </div>
                                 <span class="text-danger" asp-validation-for="HospitalID"></span>
@@ -116,11 +116,11 @@
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ReceiptTypeID">
                                     <span class="text-danger">*</span> &nbsp;Receipt Type
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Receipt Type"></i>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for select Receipt Type"></i>
                                 </label>
                                 <!--end::Label-->
                                 <div class="col-12 col-md-12 fv-row">
-                                    <select class="form-select form-select-solid" data-control="select2"  data-placeholder="Select Expense Type" asp-for="ReceiptTypeID" asp-items="@(new SelectList(ViewBag.ReceiptTypeDropDown,"ReceiptTypeID","ReceiptTypeName"))">
+                                    <select class="form-select form-select-solid" data-control="select2" asp-for="ReceiptTypeID" asp-items="@(new SelectList(ViewBag.ReceiptTypeDropDown,"ReceiptTypeID","ReceiptTypeName"))">
                                         <option value="">Select Receipt Type</option>
                                     </select>
                                 </div>
@@ -134,7 +134,7 @@
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Patient">
                                     <span class="text-danger">*</span>&nbsp;Patient Name
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="Used For Enter Patient Name"></i>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="Used For Enter Patient Name"></i>
                                 </label>
                                 <!--end::Label-->
                                 <input type="text" class="form-control form-control-solid" asp-for="Patient" placeholder="Enter Patient Name" autocomplete="off" />
@@ -148,11 +148,11 @@
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="TreatmentID">
                                 <span class="text-danger">*</span>&nbsp;Treatment
-                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="Used For Select Treatment"></i>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="Used For Select Treatment"></i>
                             </label>
                             <!--end::Label-->
                             <div class="col-12 col-md-12 fv-row">
-                                <select class="form-select form-select-solid" data-control="select2"  data-placeholder="Select Treatment" asp-for="TreatmentID" asp-items="@(new SelectList(ViewBag.TreatmentDropDown,"TreatmentID","Treatment"))">
+                                <select class="form-select form-select-solid" data-control="select2" asp-for="TreatmentID" asp-items="@(new SelectList(ViewBag.TreatmentDropDown,"TreatmentID","Treatment"))">
                                     <option value="">Select Treatment</option>
                                 </select>
                             </div>
@@ -165,21 +165,21 @@
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Amount">
                                     <span class="text-danger">*</span> &nbsp;Amount
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for Enter Amount"></i>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Enter Amount"></i>
                                 </label>
                                 <!--end::Label-->
                                 <div class="col-12 col-md-12 fv-row">
-                                    <input type="number" id="totalAmount" asp-for="Amount" class="form-control form-control-solid" />
-
+                                    <input type="text" asp-for="Amount" class="form-control form-control-solid" id="amountInput" placeholder="Enter Amount" autocomplete="off" />
                                 </div>
                                 <span class="text-danger" asp-validation-for="Amount"></span>
                             </div>
+
 
                             <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ReceiptNo">
                                     <span class="text-danger">*</span> &nbsp;Receipt No.
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for Receipt No"></i>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Receipt No"></i>
                                 </label>
                                 <!--end::Label-->
                                 <div class="col-12 col-md-12 fv-row">
@@ -196,14 +196,14 @@
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Remarks">
                                 Remarks
-                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only Remarks"></i>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="it accepts only Remarks"></i>
                             </label>
                             <!--end::Label-->
                             <textarea class="form-control form-control-solid" asp-for="Remarks" placeholder="Enter Remarks" autocomplete="off"></textarea>
                         </div>
 
 
-                       
+
                         <div class="mb-8">
                             <button type="submit" class="btn btn-primary" style="margin-right:5px;" onclick="fn1()">
                                 <span class="indicator-label">Submit</span>
@@ -211,51 +211,45 @@
                             <a type="submit" class="btn btn-light me-3" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index">
                                 Back to List
                             </a>
-                                <button type="button" class="btn btn-success me-3" id="showDetailsBtn" onclick="toggleDetails()">
-                                    Show Details
-                                </button>
+                            <button type="button" class="btn btn-success me-3" id="showDetailsBtn" onclick="toggleDetails()">
+                                Show Details
+                            </button>
                         </div>
                         <!--end::Actions-->
 
                         <div id="detailsContainer" style="display:none;">
                             <!--end::Input group-->
                             <div class="row">
-                                <div class="mb-8 col-6 col-md-6 ">
-                                    <!--begin::Label-->
+                                <div class="mb-8 col-6 col-md-6">
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="DateOfAdmission">
                                         Admission Date
-                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Date"></i>
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for select Date"></i>
                                     </label>
-                                    <!--end::Label-->
-                                    <div class="col-12 col-md-12 ">
-                                        <input type="date" class="form-control form-control-solid" asp-for="DateOfAdmission" />
+                                    <div class="col-12 col-md-12">
+                                        <input type="date" class="form-control form-control-solid" asp-for="DateOfAdmission" id="dateOfAdmission" />
                                     </div>
                                 </div>
 
-                                <div class="mb-8 col-6 col-md-6 ">
-                                    <!--begin::Label-->
+                                <div class="mb-8 col-6 col-md-6">
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="DateOfDischarge">
                                         Discharge Date
-                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Date"></i>
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for select Date"></i>
                                     </label>
-                                    <!--end::Label-->
-                                    <div class="col-12 col-md-12 ">
-                                        <input type="date" class="form-control form-control-solid" asp-for="DateOfDischarge" />
+                                    <div class="col-12 col-md-12">
+                                        <input type="date" class="form-control form-control-solid" asp-for="DateOfDischarge" id="dateOfDischarge" />
                                     </div>
                                 </div>
+
                             </div>
 
                             <div class="row">
                                 <div class="fv-row mb-8 col-4 col-md-4" data-kt-password-meter="true">
-                                    <!--begin::Label-->
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="NoOfDays">
                                         No. Of Days
-                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for Enter No. Of Days"></i>
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Enter No. Of Days"></i>
                                     </label>
-                                    <!--end::Label-->
                                     <div class="col-12 col-md-12 fv-row">
-                                        <input type="number" asp-for="NoOfDays" class="form-control form-control-solid" />
-
+                                        <input type="number" asp-for="NoOfDays" class="form-control form-control-solid" id="noOfDays" readonly />
                                     </div>
                                 </div>
 
@@ -263,25 +257,25 @@
                                     <!--begin::Label-->
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Deposite">
                                         Advance
-                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for Enter Advance"></i>
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Enter Advance"></i>
                                     </label>
                                     <!--end::Label-->
                                     <div class="col-12 col-md-12 fv-row">
-                                        <input type="number" id="deposit" asp-for="Deposite" class="form-control form-control-solid" />
-
+                                        <input type="text" name="deposit" id="advanceInput" asp-for="Deposite" class="form-control form-control-solid" />
                                     </div>
+                                    <span class="text-danger" asp-validation-for="Deposite"></span>
                                 </div>
+
 
                                 <div class="fv-row mb-8 col-4 col-md-4" data-kt-password-meter="true">
                                     <!--begin::Label-->
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="NetAmount">
                                         Net Amount
-                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for Net Amount"></i>
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Net Amount"></i>
                                     </label>
                                     <!--end::Label-->
                                     <div class="col-12 col-md-12 fv-row">
-                                        <input type="number" id="netAmount" asp-for="NetAmount" class="form-control form-control-solid" />
-
+                                        <input type="text" name="netAmount" id="netAmountInput" asp-for="NetAmount" class="form-control form-control-solid" readonly />
                                     </div>
                                 </div>
                             </div>
@@ -299,29 +293,6 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-
-    <script>
-        // Get references to the input fields
-        const depositInput = document.getElementById('deposit');
-        const netAmountInput = document.getElementById('netAmount');
-        const totalAmountInput = document.getElementById('totalAmount');
-
-        // Attach an event listener to both deposit and totalAmount input fields
-        depositInput.addEventListener('input', updateNetAmount);
-        totalAmountInput.addEventListener('input', updateNetAmount);
-
-        // Function to update the net amount based on deposit and totalAmount
-        function updateNetAmount() {
-            const depositValue = parseFloat(depositInput.value) || 0;
-            const totalAmountValue = parseFloat(totalAmountInput.value) || 0;
-
-            // Calculate the net amount
-            const netAmount = totalAmountValue - depositValue;
-
-            // Update the netAmountInput value
-            netAmountInput.value = netAmount;
-        }
-    </script>
 
     <script>
         function fn1() {
@@ -344,7 +315,77 @@
         }
     </script>
 
-   
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the date input elements
+            var dateOfAdmissionInput = document.getElementById('dateOfAdmission');
+            var dateOfDischargeInput = document.getElementById('dateOfDischarge');
+
+            // Get the NoOfDays input element
+            var noOfDaysInput = document.getElementById('noOfDays');
+
+            // Function to calculate the difference in days
+            function calculateDays() {
+                var dateOfAdmission = new Date(dateOfAdmissionInput.value);
+                var dateOfDischarge = new Date(dateOfDischargeInput.value);
+
+                // Calculate the difference in days
+                var differenceInDays = Math.ceil((dateOfDischarge - dateOfAdmission) / (1000 * 60 * 60 * 24));
+
+                // Update the NoOfDays input
+                noOfDaysInput.value = differenceInDays > 0 ? differenceInDays : 0;
+            }
+
+            // Add event listeners to date input elements
+            dateOfAdmissionInput.addEventListener('change', calculateDays);
+            dateOfDischargeInput.addEventListener('change', calculateDays);
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the input elements
+            var amountInput = document.getElementById('amountInput');
+            var advanceInput = document.getElementById('advanceInput');
+            var netAmountInput = document.getElementById('netAmountInput');
+
+            // Add an event listener to the input element for input event
+            amountInput.addEventListener('input', function (event) {
+                // Get the entered value
+                var enteredValue = amountInput.value;
+
+                // Remove any non-numeric characters and allowed symbols
+                amountInput.value = enteredValue.replace(/[^0-9]/g, '');
+            });
+
+            // Add an event listener to the input element for input event
+            advanceInput.addEventListener('input', function (event) {
+                // Get the entered value
+                var enteredValue = advanceInput.value;
+
+                // Remove any non-numeric characters and allowed symbols
+                advanceInput.value = enteredValue.replace(/[^0-9]/g, '');
+            });
+
+            // Function to calculate net amount
+            function calculateNetAmount() {
+                // Get numeric values from the input fields
+                var amount = parseInt(amountInput.value) || 0;
+                var advanceAmount = parseInt(advanceInput.value) || 0;
+
+                // Calculate net amount
+                var netAmount = amount - advanceAmount;
+
+                // Update the Net Amount field
+                netAmountInput.value = isNaN(netAmount) ? '' : netAmount.toFixed(0);
+            }
+
+            // Add event listeners to amount and advance amount input elements
+            amountInput.addEventListener('input', calculateNetAmount);
+            advanceInput.addEventListener('input', calculateNetAmount);
+        });
+    </script>
 
 
 }

@@ -118,7 +118,23 @@
             });
         });
     </script>
+    @* script for not accepting negative value *@
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the amount input element
+            var amountInput = document.getElementById('amountInput');
 
+            // Add an event listener to the input element for input event
+            amountInput.addEventListener('input', function (event) {
+                // Get the entered value
+                var enteredValue = amountInput.value;
+
+                // Remove any non-numeric characters and allowed symbols
+                amountInput.value = enteredValue.replace(/[^0-9]/g, '');
+            });
+        });
+    </script>
+    @* script for not accepting negative value *@
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
 </body>

@@ -35,6 +35,12 @@
         <select class="form-select form-select-solid" data-control="select2" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
             <option value="">Select Hospital</option>
         </select>
+        <span class="text-danger">
+            @if(TempData["HospitalID"] != null)
+            {
+                @Html.Raw(TempData["HospitalID"])
+            }
+        </span>
     </div>
     <!--end::Input group=-->
     <!--begin::Input group=-->
@@ -53,12 +59,12 @@
     <!--end::Input group=-->
     <div class="fv-row mb-3">
         <!--begin::Input group-->
-        <div class="fv-row mb-8" data-kt-password-meter="true">
+        <div class="fv-row mb-8">
             <!--begin::Wrapper-->
             <div class="mb-1">
                 <!--begin::Input wrapper-->
                 <div class="position-relative mb-3">
-                <!--begin::Password-->
+                    <!--begin::Password-->
                     <input class="form-control bg-transparent" type="password" asp-for="Password" placeholder="Enter Password" name="password" autocomplete="off" />
                     <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
                         <i class="bi bi-eye-slash fs-2"></i>
@@ -99,5 +105,7 @@
                 </button>
             </div>
             <!--end::Submit button-->
+        </div>
+    </div>
 </form>
 <!--end::Form-->

@@ -9,13 +9,14 @@ namespace GNForm3C_.Areas.SEC_User.Models
     {
         public int? UserID { get; set; }
         [Required]
-        [DisplayName("User Name")]
+        [DisplayName("Please Enter User Name")]
         public string? UserName { get; set; }
         [Required]
         [DisplayName("Hospital Name")]
         public int HospitalID { get; set; }
         public string Hospital { get; set; }
         [Required]
+        [DisplayName("Password")]
         public string? Password { get; set; }
         [Required]
         [DisplayName("Confirm Password")]

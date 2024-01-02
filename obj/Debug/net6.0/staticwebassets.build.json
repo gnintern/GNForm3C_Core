@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uhTaNHvMG5cyjfsmICku+xXGS39uNlEfXkIgc9+Setg=",
+  "Hash": "yuBAEkWLOuj9ANTPKcnTDBmLNR2xM+YoAT4ZZMmcGoI=",
   "Source": "GNForm3C+",
   "BasePath": "_content/GNForm3C+",
   "Mode": "Default",
@@ -35547,12 +35547,12 @@
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-item-svgrepo-com.svg"
     },
     {
-      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\Expance.png",
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\Expanse.png",
       "SourceId": "GNForm3C+",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
       "BasePath": "_content/GNForm3C+",
-      "RelativePath": "Theme/assets/media/svg/Expance.png",
+      "RelativePath": "Theme/assets/media/svg/Expanse.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -35561,7 +35561,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\Expance.png"
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\Expanse.png"
     },
     {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\files\\ai.svg",

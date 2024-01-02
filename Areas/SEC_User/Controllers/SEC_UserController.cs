@@ -162,41 +162,51 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 		#endregion
 
 		#region Function: Login
-		public IActionResult Login(SEC_UserModel modelSEC_User)
+		public IActionResult Login()
 		{
 			ViewBag.FinYearDropDown = CommonFillMethod.SelectComboBoxCurrentYear().ToList();
 			ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
 
-			return View(modelSEC_User);
+			return View();
 		}
 		#endregion
 
 		#region Function: SignIn
 		[HttpPost]
-		public IActionResult SignIn(SEC_UserModel modelSEC_User)
+		public IActionResult SignIn(string? UserName,string? Password,int? HospitalID)
 		{
 			
 			string error1 = null;
 			string error2 = null;
-			if (modelSEC_User.UserName == null)
-			{
-				error1 += "User Name is required";
-			}
-			if (modelSEC_User.Password == null)
-			{
-				error2 += "Password is required";
-			}
+            string error3 = null;
 
-			if (error1 != null || error2 != null)
+            if(UserName == null)
+			{
+				error1 += "Please Enter User Name";
+			}
+			if (Password == null)
+			{
+				error2 += "Please Enter Password";
+			}
+            if(HospitalID == null)
+            {
+                error3 += "Please Select Hospital";
+            }
+
+            if (error1 != null || error2 != null || error3 != null)
 			{
 				TempData["UserName"] = error1;
 				TempData["Password"] = error2;
+				TempData["HospitalID"] = error3;
 
-				return RedirectToAction("Login",modelSEC_User);
+                ViewBag.FinYearDropDown = CommonFillMethod.SelectComboBoxCurrentYear().ToList();
+                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+
+                return View("Login");
 			}
 			else
 			{
-                DataTable dt = dalSEC.PR_User_SelectByUserNamePasswordHospitalID(modelSEC_User.UserName, modelSEC_User.Password,modelSEC_User.HospitalID);
+                DataTable dt = dalSEC.PR_User_SelectByUserNamePasswordHospitalID(UserName, Password,HospitalID);
 
                 //DataTable dt = dalSEC.PR_SEC_User_SelectByUserNamePassword(modelSEC_User.UserName, modelSEC_User.Password);
 				if (dt.Rows.Count > 0)
@@ -215,8 +225,10 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 				}
 				else
 				{
-					TempData["Error"] = "User Name or Password is invalid!";
-					return RedirectToAction("Login");
+					TempData["Error"] = "User Name or Password or Hospital is invalid!";
+                    ViewBag.FinYearDropDown = CommonFillMethod.SelectComboBoxCurrentYear().ToList();
+                    ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                    return View("Login");
 				}
 				if (HttpContext.Session.GetString("UserName") != null && HttpContext.Session.GetString("Password") != null)
 				{

@@ -7,24 +7,31 @@ namespace GNForm3C_.Areas.ACC_Receipt.Models
     public class ACC_ReceiptModel
     {
         public int? TransactionID { get; set; }
+        [Required]
         public string? Patient { get; set; }
+        [Required]
         public int TreatmentID { get; set;}
         public string? Treatment {  get; set; }
+        [Required]
         public int HospitalID { get; set; }
         public string? Hospital { get; set; }
-
         public int? FinYearID {  get; set; }
         public string? FinYearName { get; set; }
+        [Required]
         public int? ReceiptTypeID { get; set; }
         public string? ReceiptTypeName { get; set; }
+        [Required]
         public decimal? Amount { get; set; }
+        [Required]
         public int SerialNo {  get; set; }
         public string? ReferenceDoctor {  get; set; }
         public int? Count {  get; set; }
+        [Required]
         public int ReceiptNo { get; set; }
         public DateTime Date { get; set; } 
         public DateTime? DateOfAdmission { get; set; } 
-        public DateTime? DateOfDischarge {  get; set; } 
+        public DateTime? DateOfDischarge {  get; set; }
+
         public decimal? Deposite { get; set; }
         public decimal? NetAmount {  get; set; }
         public int? NoOfDays { get; set; }

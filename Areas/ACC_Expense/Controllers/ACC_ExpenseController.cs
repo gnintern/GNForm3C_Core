@@ -102,7 +102,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
                     int id = decryptedID.Value;
                     #endregion
 
-                    #region Update record
+                    #region Select_PK record
                     DataTable dt = dalACC.PR_Expense_SelectPK(id);
                     foreach(DataRow dr in dt.Rows)
                     {

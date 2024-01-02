@@ -170,7 +170,7 @@ namespace GNForm3C_.DAL
         #endregion
 
         #region PR_User_SelectByUserNamePasswordHospitalID
-        public DataTable PR_User_SelectByUserNamePasswordHospitalID(string UserName, string Password,int HospitalID)
+        public DataTable PR_User_SelectByUserNamePasswordHospitalID(string? UserName, string? Password,int? HospitalID)
         {
             try
             {
