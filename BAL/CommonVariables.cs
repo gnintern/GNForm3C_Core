@@ -18,10 +18,27 @@
 		public static string LoginCard = "/Theme/assets/media/logos/GNForm3CPlus_Logo.png";
 		public static string LoginImage = "/Theme/assets/media/logos/GNForm3CFull.png";
 		public static string LoginSmallImage = "/Theme/assets/media/logos/GNWebSoftFull.png";
+		public static string ExpenseLogo = "/Theme/assets/media/svg/Expense-removebg-preview (1).png";
+        public static string IncomeLogo = "/Theme/assets/media/svg/income-removebg-preview (1).png";
+        public static string HospitalListLogo = "/Theme/assets/media/svg/downloaded-icons/hospital-buildings-black.svg";
+        public static string HospitalDashboardLogo = "/Theme/assets/media/svg/downloaded-icons/hospital-buildings-white.svg";
+        public static string FinYearListLogo = "/Theme/assets/media/svg/downloaded-icons/date-icon.svg";
+        public static string UserListLogo = "/Theme/assets/media/svg/downloaded-icons/userListLogo.svg";
+        public static string IncomeTypeListLogo = "/Theme/assets/media/svg/downloaded-icons/income-type-black.svg";
+        public static string ExpenseTypeListLogo = "/Theme/assets/media/svg/downloaded-icons/expense-type-black.svg";
+        public static string ReceiptTypeListLogo = "/Theme/assets/media/svg/downloaded-icons/receipt-type-black.svg";
+        public static string TreatmentListLogo = "/Theme/assets/media/svg/downloaded-icons/images/treatment-black.png";
+        public static string SubTreatmentListLogo = "/Theme/assets/media/svg/downloaded-icons/images/subtreatment-black.png";
+        public static string ReceiptListLogo = "/Theme/assets/media/svg/downloaded-icons/receipt.svg";
 
-		#endregion
 
-		private static IHttpContextAccessor _httpContextAccessor;
+
+
+
+
+        #endregion
+
+        private static IHttpContextAccessor _httpContextAccessor;
 
 		#region UserName
 		public static string? UserName()

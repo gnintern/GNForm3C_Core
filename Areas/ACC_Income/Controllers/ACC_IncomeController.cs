@@ -15,35 +15,94 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
         ACC_DAL dalACC = new ACC_DAL();
 
         #region Function: SelectAll
+        [HttpGet]
+        public IActionResult Index()
+        {
+            ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
+            ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
+            ViewBag.IncomeTypeDropDown = CommonFillMethod.SelectDropDownListForIncomeType().ToList();
+            return View("ACC_IncomeList");
+        }
+
+
+        [HttpPost]
         public IActionResult Index(ACC_IncomeModel modelACC_Income)
         {
             ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
             ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
             ViewBag.IncomeTypeDropDown = CommonFillMethod.SelectDropDownListForIncomeType().ToList();
 
-            DataTable dt = dalACC.PR_Income_SelectAll(modelACC_Income);
-
-            #region Fill the record into List
-            List<ACC_IncomeModel> Incomes = new List<ACC_IncomeModel>();
-            foreach (DataRow dr in dt.Rows)
+            if (ModelState.IsValid || modelACC_Income.FinYearID != null)
             {
-                ACC_IncomeModel IncomeModel = new ACC_IncomeModel();
-                IncomeModel.IncomeID = Convert.ToInt32(dr["IncomeID"]);
-                IncomeModel.IncomeType = dr["IncomeType"].ToString();
-                IncomeModel.Date = Convert.ToDateTime(dr["Date"]);
-                IncomeModel.Amount = Convert.ToDecimal(dr["Amount"].ToString());
-                IncomeModel.Note = dr["Note"].ToString();
-                IncomeModel.Created = Convert.ToDateTime(dr["Created"]);
-                IncomeModel.Modified = Convert.ToDateTime(dr["Modified"]);
-                IncomeModel.FinYearName = dr["FinYearName"].ToString();
-                IncomeModel.Hospital = dr["Hospital"].ToString();
-                Incomes.Add(IncomeModel);
-            }
-            ViewBag.IncomeList = Incomes;
-            #endregion
 
+                if (modelACC_Income.FinYearID == 0)
+                {
+                    return View("ACC_IncomeList", modelACC_Income);
+                }
+                else
+                {
+                    DataTable dt = dalACC.PR_Income_SelectAll(modelACC_Income);
+
+                    #region Fill the record into List
+                    List<ACC_IncomeModel> Incomes = new List<ACC_IncomeModel>();
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        ACC_IncomeModel IncomeModel = new ACC_IncomeModel();
+                        IncomeModel.IncomeID = Convert.ToInt32(dr["IncomeID"]);
+                        //IncomeModel.IncomeTypeID = Convert.ToInt32(dr["IncomeTypeID"]);
+                        IncomeModel.IncomeType = dr["IncomeType"].ToString();
+                        IncomeModel.Date = Convert.ToDateTime(dr["Date"]);
+                        IncomeModel.Amount = Convert.ToDecimal(dr["Amount"].ToString());
+                        IncomeModel.Note = dr["Note"].ToString();
+                        IncomeModel.Created = Convert.ToDateTime(dr["Created"]);
+                        IncomeModel.Modified = Convert.ToDateTime(dr["Modified"]);
+                        //IncomeModel.FinYearID = Convert.ToInt32(dr["FinYearID"]);
+                        IncomeModel.FinYearName = dr["FinYearName"].ToString();
+                        //IncomeModel.HospitalID = Convert.ToInt32(dr["HospitalID"]);
+                        IncomeModel.Hospital = dr["Hospital"].ToString();
+                        Incomes.Add(IncomeModel);
+                    }
+                    ViewBag.IncomeList = Incomes;
+                    #endregion
+
+                    return View("ACC_IncomeList");
+                }
+            }
             return View("ACC_IncomeList");
+
         }
+
+
+        //[HttpPost]
+        //public IActionResult Index(ACC_IncomeModel modelACC_Income)
+        //{
+        //    ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
+        //    ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
+        //    ViewBag.IncomeTypeDropDown = CommonFillMethod.SelectDropDownListForIncomeType().ToList();
+
+        //    DataTable dt = dalACC.PR_Income_SelectAll(modelACC_Income);
+
+        //    #region Fill the record into List
+        //    List<ACC_IncomeModel> Incomes = new List<ACC_IncomeModel>();
+        //    foreach (DataRow dr in dt.Rows)
+        //    {
+        //        ACC_IncomeModel IncomeModel = new ACC_IncomeModel();
+        //        IncomeModel.IncomeID = Convert.ToInt32(dr["IncomeID"]);
+        //        IncomeModel.IncomeType = dr["IncomeType"].ToString();
+        //        IncomeModel.Date = Convert.ToDateTime(dr["Date"]);
+        //        IncomeModel.Amount = Convert.ToDecimal(dr["Amount"].ToString());
+        //        IncomeModel.Note = dr["Note"].ToString();
+        //        IncomeModel.Created = Convert.ToDateTime(dr["Created"]);
+        //        IncomeModel.Modified = Convert.ToDateTime(dr["Modified"]);
+        //        IncomeModel.FinYearName = dr["FinYearName"].ToString();
+        //        IncomeModel.Hospital = dr["Hospital"].ToString();
+        //        Incomes.Add(IncomeModel);
+        //    }
+        //    ViewBag.IncomeList = Incomes;
+        //    #endregion
+
+        //    return View("ACC_IncomeList");
+        //}
         #endregion
 
         #region Function: Add Record

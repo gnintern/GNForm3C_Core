@@ -6873,6 +6873,10 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\Expanse.png"
     },
     {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\Expense-removebg-preview (1).png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\Expense-removebg-preview (1).png"
+    },
+    {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\Income.png",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\Income.png"
     },
@@ -8105,24 +8109,44 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\doctor-svgrepo-com.svg"
     },
     {
-      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\icons8-treatment-50.png",
-      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\icons8-treatment-50.png"
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\subtreatment-black.png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\subtreatment-black.png"
     },
     {
-      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\cost-management-inr-icon.svg",
-      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\cost-management-inr-icon.svg"
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\treatment-black.png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\Images\\treatment-black.png"
     },
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\date-icon.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\date-icon.svg"
     },
     {
-      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-item-svgrepo-com.svg",
-      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-item-svgrepo-com.svg"
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\expense-type-black.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\expense-type-black.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\hospital-buildings-black.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\hospital-buildings-black.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\hospital-buildings-white.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\hospital-buildings-white.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\income-type-black.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\income-type-black.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-type-black.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt-type-black.svg"
     },
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\receipt.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\userListLogo.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\userListLogo.svg"
     },
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\files\\ai-dark.svg",
@@ -8265,10 +8289,6 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\general\\rhone.svg"
     },
     {
-      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\hospital-buildings-svgrepo-com (3).svg",
-      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\hospital-buildings-svgrepo-com (3).svg"
-    },
-    {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\humans\\custom-1.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\humans\\custom-1.svg"
     },
@@ -8331,6 +8351,10 @@
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\illustrations\\sigma\\volume-1.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\illustrations\\sigma\\volume-1.svg"
+    },
+    {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\income-removebg-preview (1).png",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\income-removebg-preview (1).png"
     },
     {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\misc\\eolic-energy.svg",

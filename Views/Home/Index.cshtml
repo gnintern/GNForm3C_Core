@@ -1,5 +1,6 @@
 ﻿@using System.Data;
 @model GNForm3C_.Models.Viewmodel.DataTable_ViewModel;
+@using GNForm3C_.BAL;
 
 @{
     ViewData["Title"] = "Dashboard";
@@ -45,7 +46,7 @@
                         <div class="card-body">
                             <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
                             <span class="d-flex">
-                                <img alt="Logo" class="" width="45" height="45" src="~/Theme/assets/media/svg/hospital-buildings-svgrepo-com (3).svg" />
+                                <img alt="Logo" class="" width="45" height="45" src="@CommonVariables.HospitalDashboardLogo" />
                                 <p class="text-light count-text" id="hospitalCounter">
                                   @dr1["Hospital_Count"]
                                 </p>
