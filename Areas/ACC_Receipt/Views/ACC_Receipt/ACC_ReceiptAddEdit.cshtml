@@ -342,7 +342,6 @@
         });
     </script>
 
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Get the input elements
@@ -367,15 +366,24 @@
                 // Remove any non-numeric characters and allowed symbols
                 advanceInput.value = enteredValue.replace(/[^0-9]/g, '');
             });
-
             // Function to calculate net amount
             function calculateNetAmount() {
                 // Get numeric values from the input fields
                 var amount = parseInt(amountInput.value) || 0;
                 var advanceAmount = parseInt(advanceInput.value) || 0;
 
+                // Ensure advance amount is not greater than amount
+                if (advanceAmount > amount) {
+                    alert('Advance amount cannot be greater than the total amount.');
+                    advanceAmount = amount;
+                    advanceInput.value = advanceAmount;
+                }
+
                 // Calculate net amount
                 var netAmount = amount - advanceAmount;
+
+                // Ensure net amount is not negative
+                netAmount = Math.max(netAmount, 0);
 
                 // Update the Net Amount field
                 netAmountInput.value = isNaN(netAmount) ? '' : netAmount.toFixed(0);
