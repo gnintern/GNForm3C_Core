@@ -87,7 +87,7 @@
 								</label>
 								<!--end::Label-->
 								<div class="col-12 col-md-12 fv-row">
-									<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Select Income Type" asp-for="IncomeTypeID" asp-items="@(new SelectList(ViewBag.IncomeTypeDropDown,"IncomeTypeID","IncomeType"))">
+									<select class="form-select form-select-solid" data-control="select2"  asp-for="IncomeTypeID" asp-items="@(new SelectList(ViewBag.IncomeTypeDropDown,"IncomeTypeID","IncomeType"))">
 										<option value="">Select Income Type</option>
 									</select>
 								</div>

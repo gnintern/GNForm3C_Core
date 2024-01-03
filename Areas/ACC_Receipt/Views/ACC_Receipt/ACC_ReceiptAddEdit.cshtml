@@ -294,12 +294,14 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 
+    @* Script For Validation Button Background *@
     <script>
         function fn1() {
             document.getElementById("validatediv").classList = "alert alert-danger";
         }
     </script>
 
+    @* Script For Hide Details Button And Show Details Button *@
     <script>
         function toggleDetails() {
             var detailsContainer = document.getElementById("detailsContainer");
@@ -315,6 +317,7 @@
         }
     </script>
 
+    @* Script For No of Days Count *@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Get the date input elements
@@ -342,6 +345,7 @@
         });
     </script>
 
+    @* Script For Amount Deposit And Net Amount *@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Get the input elements
@@ -374,7 +378,11 @@
 
                 // Ensure advance amount is not greater than amount
                 if (advanceAmount > amount) {
-                    alert('Advance amount cannot be greater than the total amount.');
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Warning...",
+                        text: "Advance Amount can not be greater than the total amount!",
+                    });
                     advanceAmount = amount;
                     advanceInput.value = advanceAmount;
                 }
