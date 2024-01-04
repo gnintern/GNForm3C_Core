@@ -1,9 +1,9 @@
 ﻿@using GNForm3C_.Areas.ACC_Receipt.Models;
-@model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel
-<form method="post" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index">
-    <div asp-validation-summary="All">
+@model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel;
+@using GNForm3C_.BAL;
 
-    </div>
+<form method="post" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index">
+
     <div class="d-flex row">
         <!--begin::Input group-->
         <div class="col-lg-4">
@@ -44,11 +44,11 @@
         <div class="col-lg-4">
             <div class="d-flex align-items-center fs-6 fw-semibold mb-2"><br /></div>
             <div>
-                <button type="submit" class="btn btn-primary"
+                <button type="submit" class="@CommonVariables.searchbtncolor"
                         style="margin-right:15px;" >
                     <span class="indicator-label">Search</span>
                 </button>
-                <a type="submit" class="btn btn-light me-3"
+                <a type="submit" class="@CommonVariables.clearbtncolor me-3"
                    asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Index">
                     Clear
                 </a>

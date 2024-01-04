@@ -8,6 +8,7 @@ using System.Data.SqlTypes;
 
 namespace GNForm3C_.Areas.ACC_Income.Controllers
 {
+    [CheckAccess]
     [Area("ACC_Income")]
     [Route("[Controller]/[action]")]
     public class ACC_IncomeController : Controller
@@ -72,37 +73,6 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
 
         }
 
-
-        //[HttpPost]
-        //public IActionResult Index(ACC_IncomeModel modelACC_Income)
-        //{
-        //    ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
-        //    ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
-        //    ViewBag.IncomeTypeDropDown = CommonFillMethod.SelectDropDownListForIncomeType().ToList();
-
-        //    DataTable dt = dalACC.PR_Income_SelectAll(modelACC_Income);
-
-        //    #region Fill the record into List
-        //    List<ACC_IncomeModel> Incomes = new List<ACC_IncomeModel>();
-        //    foreach (DataRow dr in dt.Rows)
-        //    {
-        //        ACC_IncomeModel IncomeModel = new ACC_IncomeModel();
-        //        IncomeModel.IncomeID = Convert.ToInt32(dr["IncomeID"]);
-        //        IncomeModel.IncomeType = dr["IncomeType"].ToString();
-        //        IncomeModel.Date = Convert.ToDateTime(dr["Date"]);
-        //        IncomeModel.Amount = Convert.ToDecimal(dr["Amount"].ToString());
-        //        IncomeModel.Note = dr["Note"].ToString();
-        //        IncomeModel.Created = Convert.ToDateTime(dr["Created"]);
-        //        IncomeModel.Modified = Convert.ToDateTime(dr["Modified"]);
-        //        IncomeModel.FinYearName = dr["FinYearName"].ToString();
-        //        IncomeModel.Hospital = dr["Hospital"].ToString();
-        //        Incomes.Add(IncomeModel);
-        //    }
-        //    ViewBag.IncomeList = Incomes;
-        //    #endregion
-
-        //    return View("ACC_IncomeList");
-        //}
         #endregion
 
         #region Function: Add Record
@@ -204,6 +174,13 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
             }
             #endregion
 
+            return RedirectToAction("Index");
+        }
+        #endregion
+
+        #region Clear Search
+        public IActionResult Clear()
+        {
             return RedirectToAction("Index");
         }
         #endregion

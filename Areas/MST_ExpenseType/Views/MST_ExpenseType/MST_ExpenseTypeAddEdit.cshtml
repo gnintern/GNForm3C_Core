@@ -1,4 +1,5 @@
-﻿@{
+﻿@using GNForm3C_.BAL;
+@{
 	ViewData["Title"] = @TempData["Action"] +" Expense Type";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -72,7 +73,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2 " asp-for="HospitalID">
-								<span class="text-danger">*</span>Hospital Name
+								<span class="text-danger">*</span>@CommonVariables.HospitalNamelabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Hospital"></i>
 							</label>
 							<!--end::Label-->
@@ -87,7 +88,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ExpenseType">
-								<span class="text-danger">*</span>Expense Type
+								<span class="text-danger">*</span>@CommonVariables.ExpenseTypelabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only unique Expense Type"></i>
 							</label>
 							<!--end::Label-->
@@ -99,7 +100,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Remarks">
-								@*    <span class="text-danger">*</span> *@Remarks
+								@CommonVariables.Remarklabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Remarks"></i>
 							</label>
 							<!--end::Label-->

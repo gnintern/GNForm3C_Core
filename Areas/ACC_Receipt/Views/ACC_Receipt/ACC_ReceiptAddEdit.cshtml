@@ -1,4 +1,5 @@
-﻿@{
+﻿@using GNForm3C_.BAL;
+@{
     ViewData["Title"] = @TempData["Action"] + " Receipt";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -71,7 +72,7 @@
                             <div class="mb-8 col-6 col-md-6">
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="SerialNo">
-                                    <span class="text-danger">*</span> &nbsp;Serial No.
+                                    <span class="text-danger">*</span>@CommonVariables.SerialNolabel
                                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Serial No"></i>
                                 </label>
                                 <!--end::Label-->
@@ -85,7 +86,7 @@
                             <div class="mb-8 col-6 col-md-6 ">
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Date">
-                                    <span class="text-danger">*</span> &nbsp;Entry Date
+                                    <span class="text-danger">*</span>Entry Date
                                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for select Date"></i>
                                 </label>
                                 <!--end::Label-->
@@ -101,7 +102,7 @@
                             <div class="fv-row mb-8 col-6 col-md-6">
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="HospitalID">
-                                    <span class="text-danger">*</span> &nbsp;Hospital Name
+                                    <span class="text-danger">*</span>@CommonVariables.HospitalNamelabel
                                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for select Hospital"></i>
                                 </label>
                                 <!--end::Label-->
@@ -115,7 +116,7 @@
                             <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ReceiptTypeID">
-                                    <span class="text-danger">*</span> &nbsp;Receipt Type
+                                    <span class="text-danger">*</span>@CommonVariables.ReceiptTypelabel
                                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for select Receipt Type"></i>
                                 </label>
                                 <!--end::Label-->
@@ -133,7 +134,7 @@
                             <div class="d-flex flex-column mb-8 fv-row">
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Patient">
-                                    <span class="text-danger">*</span>&nbsp;Patient Name
+                                    <span class="text-danger">*</span>@CommonVariables.PatientNamelabel
                                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="Used For Enter Patient Name"></i>
                                 </label>
                                 <!--end::Label-->
@@ -147,7 +148,7 @@
                         <div class="d-flex flex-column mb-8 fv-row">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="TreatmentID">
-                                <span class="text-danger">*</span>&nbsp;Treatment
+                                <span class="text-danger">*</span>@CommonVariables.Treatmentlabel
                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="Used For Select Treatment"></i>
                             </label>
                             <!--end::Label-->
@@ -164,7 +165,7 @@
                             <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Amount">
-                                    <span class="text-danger">*</span> &nbsp;Amount
+                                    <span class="text-danger">*</span>@CommonVariables.Amountlabel
                                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Enter Amount"></i>
                                 </label>
                                 <!--end::Label-->
@@ -178,7 +179,7 @@
                             <div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
                                 <!--begin::Label-->
                                 <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ReceiptNo">
-                                    <span class="text-danger">*</span> &nbsp;Receipt No.
+                                    <span class="text-danger">*</span>@CommonVariables.ReceiptNolabel
                                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Receipt No"></i>
                                 </label>
                                 <!--end::Label-->
@@ -195,7 +196,7 @@
                         <div class="d-flex flex-column mb-8 fv-row">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Remarks">
-                                Remarks
+                                @CommonVariables.Remarklabel
                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="it accepts only Remarks"></i>
                             </label>
                             <!--end::Label-->
@@ -222,7 +223,7 @@
                             <div class="row">
                                 <div class="mb-8 col-6 col-md-6">
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="DateOfAdmission">
-                                        Admission Date
+                                        @CommonVariables.AdmissionDatelabel
                                         <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for select Date"></i>
                                     </label>
                                     <div class="col-12 col-md-12">
@@ -232,7 +233,7 @@
 
                                 <div class="mb-8 col-6 col-md-6">
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="DateOfDischarge">
-                                        Discharge Date
+                                        @CommonVariables.DischargeDatelabel
                                         <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for select Date"></i>
                                     </label>
                                     <div class="col-12 col-md-12">
@@ -245,7 +246,7 @@
                             <div class="row">
                                 <div class="fv-row mb-8 col-4 col-md-4" data-kt-password-meter="true">
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="NoOfDays">
-                                        No. Of Days
+                                        @CommonVariables.TotalDayslabel
                                         <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Enter No. Of Days"></i>
                                     </label>
                                     <div class="col-12 col-md-12 fv-row">
@@ -256,7 +257,7 @@
                                 <div class="fv-row mb-8 col-4 col-md-4" data-kt-password-meter="true">
                                     <!--begin::Label-->
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Deposite">
-                                        Advance
+                                        @CommonVariables.AdvanceAmountlabel
                                         <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Enter Advance"></i>
                                     </label>
                                     <!--end::Label-->
@@ -270,7 +271,7 @@
                                 <div class="fv-row mb-8 col-4 col-md-4" data-kt-password-meter="true">
                                     <!--begin::Label-->
                                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="NetAmount">
-                                        Net Amount
+                                        @CommonVariables.NetAmountlabel
                                         <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" data-bs-placement="right" title="used for Net Amount"></i>
                                     </label>
                                     <!--end::Label-->

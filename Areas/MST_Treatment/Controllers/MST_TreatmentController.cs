@@ -8,6 +8,7 @@ using GNForm3C_.Areas.MST_Treatment.Models;
 
 namespace GNForm3C_.Areas.MST_Treatment.Controllers
 {
+    [CheckAccess]
     [Area("MST_Treatment")]
     [Route("[Controller]/[action]")]
     public class MST_TreatmentController : Controller

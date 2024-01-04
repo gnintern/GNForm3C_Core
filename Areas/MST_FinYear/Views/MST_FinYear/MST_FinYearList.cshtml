@@ -36,8 +36,8 @@
         <!--begin::Actions-->
         <div class="d-flex align-items-center fw-bold">
             <!--begin::Secondary button-->
-            <a class="btn btn-sm btn-primary" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Add">
-                <span class="fs-4 fw-bold"><i class="fa fa-plus fa-2x"></i> Add FinYear</span>
+            <a class="@CommonVariables.addbtncolor" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Add">
+                <span class="fw-bold"><i class="fa fa-plus fa-2x"></i> Add FinYear</span>
             </a>
             <!--end::Secondary button-->
             <!--begin::Primary button-->
@@ -128,13 +128,13 @@
                 <table class="table align-middle table-row-dashed fs-6 gy-3" id="kt_ecommerce_report_customer_orders_table">
                     <thead>
                         <!--begin::Table row-->
-                        <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
-                            <th>Financial Year</th>
-                            <th>From Date</th>
-                            <th>To Date</th>
-                            <th>Created</th>
-                            <th>Modified</th>
-                            <th class="text-center">Action</th>
+                        <tr class="text-start text-dark fw-bold fs-7 gs-0">
+                            <th>@CommonVariables.FinancialYearNamelabel</th>
+                            <th>@CommonVariables.FromDatelabel</th>
+                            <th>@CommonVariables.ToDatelabel</th>
+                            <th>@CommonVariables.Created</th>
+                            <th>@CommonVariables.Modified</th>
+                            <th class="text-center">@CommonVariables.Actionlabel</th>
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-dark-600 font-weight-normal" >

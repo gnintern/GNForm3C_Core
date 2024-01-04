@@ -1,4 +1,5 @@
-﻿@{
+﻿@using GNForm3C_.BAL;
+@{
 	ViewData["Title"] = TempData["Action"] + " SubTreatment";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -67,7 +68,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="HospitalID">
-								<span class="text-danger">*</span>&nbsp;Hospital Name
+								<span class="text-danger">*</span>@CommonVariables.HospitalNamelabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select hospital"></i>
 							</label>
 							<!--end::Label-->
@@ -82,7 +83,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="SubTreatmentName">
-								<span class="text-danger">*</span>&nbsp;SubTreatment
+								<span class="text-danger">*</span>@CommonVariables.SubTreatmentlabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only unique SubTreatment name"></i>
 							</label>
 							<!--end::Label-->
@@ -96,7 +97,7 @@
 							<div class="fv-row mb-8 col-6 col-md-6">
 								<!--begin::Label-->
 								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="SequenceNo ">
-									Auto Load Sequence No
+									@CommonVariables.AutoLoadinReceiptlabel
 									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only Number"></i>
 								</label>
 								<!--end::Label-->
@@ -107,7 +108,7 @@
 							<div class="fv-row mb-8 col-6 col-md-6">
 								<!--begin::Label-->
 								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="DefaultUnit ">
-									@* <span class="text-danger">*</span>&nbsp; *@Unit
+									@CommonVariables.Unitlabel
 									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts Unit"></i>
 								</label>
 								<!--end::Label-->
@@ -120,7 +121,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Rate ">
-								@* <span class="text-danger">*</span> *@Rate
+								@CommonVariables.Ratelabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts Rate"></i>
 							</label>
 							<!--end::Label-->
@@ -131,7 +132,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" id="IsInGridCheckbox" value="" />
-								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" for="IsInGridCheckbox">Auto Load In Receipt?</label>
+								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" for="IsInGridCheckbox">@CommonVariables.AutoLoadinReceiptlabel?</label>
 								<input type="hidden" asp-for="IsInGrid" />
 							</div>
 
@@ -141,7 +142,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" id="IsPerDayCheckbox" value="" />
-								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" for="IsPerDayCheckbox">Charge Per Day?</label>
+								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" for="IsPerDayCheckbox">@CommonVariables.ChargePerDaylabel?</label>
 								<input type="hidden" asp-for="IsPerDay" />
 							</div>
 
@@ -151,7 +152,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Remarks ">
-								Remarks
+								@CommonVariables.Remarklabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only Remarks"></i>
 							</label>
 							<!--end::Label-->

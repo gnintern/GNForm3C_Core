@@ -17,8 +17,8 @@
             <!--begin::Breadcrumb-->
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                 <!--begin::Item-->
-                <li class="breadcrumb-item fw-bolder">
-                    <i class="bi bi-house"></i> &nbsp; Home
+                <li class="breadcrumb-item">
+                    <i class="bi bi-house"></i> <span style="margin-left:3px;">Home</span>
                 </li>
                 <!--end::Item-->
 
@@ -44,15 +44,16 @@
                     <a asp-area="MST_Hospital" asp-controller="MST_Hospital" asp-action="Index" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
                         <!--begin::Body-->
                         <div class="card-body">
-                            <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
+                            <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
                             <span class="d-flex">
                                 <img alt="Logo" class="" width="45" height="45" src="@CommonVariables.HospitalDashboardLogo" />
-                                <p class="text-light count-text" id="hospitalCounter">
-                                  @dr1["Hospital_Count"]
-                                </p>
+                                <div class="text-white fw-bold fs-2 mb-2 mt-4 mx-5">Hospitals</div>
+
                             </span>
+                            <p class="text-light count-text" style="font-size:2.4rem; position:relative;left:10px;">
+                                <span id="hospitalCounter">@dr1["Hospital_Count"]</span>
+                            </p>
                             <!--end::Svg Icon-->
-                            <div class="text-white fw-bold fs-2 mb-2 mt-5">Hospitals</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -63,17 +64,16 @@
                     <a asp-area="MST_Treatment" asp-controller="MST_Treatment" asp-action="Index" class="card bg-warning hoverable card-xl-stretch mb-xl-8">
                         <!--begin::Body-->
                         <div class="card-body">
-                            <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
+                            <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
                             <span class="d-flex">
-                                @* <svg fill="#ffffff" viewBox="0 0 50 50" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" overflow="inherit" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M42.924 13h-4.924v-5.226c0-3.736-2.948-6.774-6.694-6.774h-12.611c-3.748 0-6.695 3.038-6.695 6.774v5.226h-4.925c-3.356 0-6.075 2.591-6.075 5.937v23.007c0 3.345 2.719 6.056 6.075 6.056h35.849c3.355 0 6.076-2.711 6.076-6.057v-23.006c0-3.346-2.721-5.937-6.076-5.937zm-26.924-5.226c0-1.399 1.292-2.774 2.695-2.774h12.611c1.399 0 2.694 1.375 2.694 2.774v5.226h-18v-5.226zm20 27.226h-7v7h-8v-7h-7v-8h7v-7h8v7h7v8z"></path></g></svg> *@
-                                <img alt="Logo" class="text-white" width="45" height="45" src="~/Theme/assets/media/svg/doctor-svgrepo-com.svg" />
+                                <img alt="Logo" class="text-white" width="45" height="45" src="@CommonVariables.TreatmentDashboardLogo" />
+                                <div class="text-white fw-bold fs-2 mb-2 mt-4 mx-5">Treatments</div>
 
-                                <p class="text-light count-text" id="treatmentCounter">
-                                    @dr1["Treatment_Count"]
-                                </p>
                             </span>
+                            <p class="text-light count-text" style="font-size:2.4rem; position:relative;left:10px;">
+                                <span id="treatmentCounter">@dr1["Treatment_Count"]</span>
+                            </p>
                             <!--end::Svg Icon-->
-                            <div class="text-white fw-bold fs-2 mb-2 mt-5">Treatments</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -85,15 +85,16 @@
                     <a asp-area="ACC_Income" asp-controller="ACC_Income" asp-action="Index" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
                         <!--begin::Body-->
                         <div class="card-body">
-                            <!--begin::Svg Icon | path: icons/duotune/graphs/gra005.svg-->
+                            <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
                             <span class="d-flex">
-                                <img alt="Logo" class="text-white" width="50" height="50" src="~/Theme/assets/media/svg/income.png" />
-                                <p class="text-light count-text" id="incomeCounter">
-                                    @dr1["Income_Count"]
-                                </p>
+                                <img alt="Logo" class="text-white" width="50" height="50" src="@CommonVariables.IncomeDashboardLogo" />
+                                <div class="text-white fw-bold fs-2 mb-2 mt-4 mx-5">Incomes</div>
+
                             </span>
+                            <p class="text-light count-text" style="font-size:2.4rem; position:relative;left:10px;">
+                                ₹ <span id="incomeCounter">@dr1["Income_Count"]</span>
+                            </p>
                             <!--end::Svg Icon-->
-                            <div class="text-white fw-bold fs-2 mb-2 mt-5">Incomes</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -106,13 +107,14 @@
                         <div class="card-body">
                             <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
                             <span class="d-flex">
-                                <img alt="Logo" class="text-white" width="50" height="50" src="~/Theme/assets/media/svg/expanse.png" />
-                                <p class="text-light count-text" id="expenseCounter">
-                                    @dr1["Expense_Count"]
-                                </p>
+                                <img alt="Logo" class="text-white" width="50" height="50" src="@CommonVariables.ExpenseDashboardLogo" />
+                                <div class="text-white fw-bold fs-2 mb-2 mt-4 mx-5">Expenses</div>
+
                             </span>
+                                <p class="text-light count-text" style="font-size:2.4rem; position:relative;left:10px;">
+                                    ₹ <span id="expenseCounter">@dr1["Expense_Count"]</span>
+                                </p>
                             <!--end::Svg Icon-->
-                            <div class="text-white fw-bold fs-2 mb-2 mt-5">Expenses</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -137,10 +139,10 @@
 
                                     Recently Added Transaction
                                 </h3>
-                                <a class=" text-end  btn btn-success btn-sm text-light rounded-pill fw-bold" style="color:#444444; margin-left:auto;" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Add" target="_blank">
+                                <a class="@CommonVariables.addbtncolor text-end   text-light fw-bold" style="color:#444444; margin-left:auto;" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Add" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-                                    </svg> Add New Transaction
+                                    </svg> Add New 
                                 </a>
                             </div>
 
@@ -149,22 +151,17 @@
                                 <table class="table table-hover table-striped mt-3 " id="">
                                     <thead>
                                         <tr class="text-start text-dark fw-bold fs-4 gs-0">
-                                            <th class="text-center min-w-100px">Date</th>
-                                            <th class="text-center min-w-100px">Serial No.</th>
-                                            <th class="text-center min-w-150px">Receipt No.</th>
-                                            <th class="text-center min-w-100px">Patient</th>
-                                            <th class="text-center min-w-125px">Receipt Type</th>
-                                            <th class="text-center min-w-150px">Financial Year</th>
-                                            <th class="text-center min-w-125px">Hospital</th>
-                                            @* <th class="text-center">Date Of Admission</th> *@
-                                            @* <th class="text-center">Date Of Discharge</th> *@
-                                            @* <th class="text-center">No. Of Days</th> *@
-                                            <th class="text-center min-w-80px">Deposite</th>
-                                            <th class="text-center min-w-80px">Amount</th>
-                                            <th class="text-center min-w-150px">Net Amount</th>
-                                            <th class="text-center min-w-125px">Treatment</th>
-                                            @* <th class="text-center">Remarks</th> *@
-
+                                            <th class="text-center min-w-100px">@CommonVariables.Datelabel</th>
+                                            <th class="text-center min-w-100px">@CommonVariables.SerialNolabel</th>
+                                            <th class="text-center min-w-150px">@CommonVariables.ReceiptNolabel</th>
+                                            <th class="text-center min-w-100px">@CommonVariables.PatientNamelabel</th>
+                                            <th class="text-center min-w-125px">@CommonVariables.ReceiptTypelabel</th>
+                                            <th class="text-center min-w-150px">@CommonVariables.FinancialYearNamelabel</th>
+                                            <th class="text-center min-w-125px">@CommonVariables.HospitalNamelabel</th>
+                                            <th class="text-center min-w-80px">@CommonVariables.AdvanceAmountlabel</th>
+                                            <th class="text-center min-w-80px">@CommonVariables.Amountlabel</th>
+                                            <th class="text-center min-w-150px">@CommonVariables.NetAmountlabel</th>
+                                            <th class="text-center min-w-125px">@CommonVariables.Treatmentlabel</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -206,20 +203,20 @@
 
                                     Recently Added Treatment
                                 </h3>
-                                <a class="text-end  btn btn-success btn-sm text-light rounded-pill fw-bold" style="color:#444444; margin-left:auto;" asp-area="MST_Treatment" asp-controller="MST_Treatment" asp-action="Add" target="_blank">
+                                <a class="@CommonVariables.addbtncolor  text-end   text-light fw-bold" style="color:#444444; margin-left:auto;" asp-area="MST_Treatment" asp-controller="MST_Treatment" asp-action="Add" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-                                    </svg> Add New Treatment
+                                    </svg> Add New
                                 </a>
                             </div>
                             <hr />
                             <table class=" table table-hover table-striped mt-3" id="">
                                 <thead>
                                     <tr class="text-start text-dark fw-bold fs-4 gs-0">
-                                        <th class="text-center">Treatment</th>
-                                        <th class="text-center">Remarks</th>
-                                        <th class="text-center">Hospital</th>
-                                        <th class="text-center min-w-125px">Modified Date</th>
+                                        <th class="text-center">@CommonVariables.Treatmentlabel</th>
+                                        <th class="text-center">@CommonVariables.Remarklabel</th>
+                                        <th class="text-center">@CommonVariables.HospitalNamelabel</th>
+                                        <th class="text-center min-w-125px">@CommonVariables.Modified Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -266,10 +263,10 @@
                                     Recently Added Income
                                 </h3>
                               
-                                <a class="text-end  btn btn-success btn-sm text-light rounded-pill fw-bold" style="color:#444444; margin-left:auto;" asp-area="ACC_Income" asp-controller="ACC_Income" asp-action="Add" target="_blank">
+                                <a class="@CommonVariables.addbtncolor text-end text-light fw-bold" style="color:#444444; margin-left:auto;" asp-area="ACC_Income" asp-controller="ACC_Income" asp-action="Add" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-                                    </svg> Add New Income
+                                    </svg> Add New
                                 </a>
                             </div>
                      
@@ -277,12 +274,12 @@
                             <table class=" table table-hover table-striped mt-3" id="">
                                 <thead>
                                     <tr class="text-start text-dark fw-bold fs-4 gs-0">
-                                        <th class="text-center">Hospital</th>
-                                        <th class="text-center">Income Type</th>
-                                        <th class="text-center">Date</th>
-                                        <th class="text-center">Amount</th>
+                                        <th class="text-center">@CommonVariables.HospitalNamelabel</th>
+                                        <th class="text-center">@CommonVariables.IncomeTypelabel</th>
+                                        <th class="text-center">@CommonVariables.Datelabel</th>
+                                        <th class="text-center">@CommonVariables.Amountlabel</th>
                                         @* <th class="text-center">Note</th> *@
-                                        <th class="text-center min-w-125px">Financial Year</th>
+                                        <th class="text-center min-w-125px">@CommonVariables.FinancialYearNamelabel</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -321,22 +318,21 @@
                                     <img src="~/Theme//assets/media/svg/recent-svgrepo-com.svg" height="18" width="18" />
                                     Recently Added Expense
                                 </h3>
-                                <a class="text-end  btn btn-success btn-sm text-light rounded-pill fw-boldd" style="color:#444444; margin-left:auto;" asp-area="ACC_Expense" asp-controller="ACC_Expense" asp-action="Add" target="_blank">
+                                <a class="@CommonVariables.addbtncolor text-end   text-light fw-boldd" style="color:#444444; margin-left:auto;" asp-area="ACC_Expense" asp-controller="ACC_Expense" asp-action="Add" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-                                    </svg> Add New Expense
+                                    </svg> Add New
                                 </a>
                             </div>
                             <hr />
                             <table class=" table table-hover table-striped mt-3" id="">
                                 <thead>
                                     <tr class="text-start text-dark fw-bold fs-4 gs-0">
-                                        <th class="text-center">Hospital</th>
-                                        <th class="text-center">Expense Type</th>
-                                        <th class="text-center">Date</th>
-                                        <th class="text-center">Amount</th>
-                                        @* <th class="text-center">Note</th> *@
-                                        <th class="text-center min-w-125px">Financial Year</th>
+                                        <th class="text-center">@CommonVariables.HospitalNamelabel</th>
+                                        <th class="text-center">@CommonVariables.ExpenseTypelabel</th>
+                                        <th class="text-center">@CommonVariables.Datelabel</th>
+                                        <th class="text-center">@CommonVariables.Amountlabel</th>
+                                        <th class="text-center min-w-125px">@CommonVariables.FinancialYearNamelabel</th>
 
                                     </tr>
                                 </thead>

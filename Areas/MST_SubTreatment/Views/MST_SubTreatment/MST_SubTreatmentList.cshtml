@@ -37,12 +37,12 @@
         <!--begin::Actions-->
         <div class="d-flex align-items-center fw-bold">
             <!--begin::Secondary button-->
-            <a class="btn btn-sm btn-primary" asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Add">
+            <a class="@CommonVariables.addbtncolor" asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Add">
                 @* <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                 </svg>  *@
              
-                <span class="fs-4 fw-bold"><i class="fa fa-plus fa-2x"></i> Add Sub Treatment</span>
+                <span class="fw-bold"><i class="fa fa-plus fa-2x"></i> Add Sub Treatment</span>
             </a>
             <!--end::Secondary button-->
             <!--begin::Primary button-->
@@ -135,17 +135,17 @@
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-4 gs-0">
-                            <th class="min-w-180px">Sub Treatment Name</th>
-                            <th class="min-w-150px">Sequence No.</th>
-                            <th class="text-center min-w-50px">Rate</th>
-                            <th class="text-center min-w-240px">Auto Load in Receipt?</th>
-                            <th class="text-center min-w-100px">Is Per Day?</th>
-                            <th class="min-w-50px">Remarks</th>
-                            <th class="min-w-100px">Hospital Name</th>
-                            <th class="min-w-50px">Unit</th>
-                            <th class="min-w-50px">Created</th>
-                            <th class="min-w-50px">Modified</th>
-                            <th class="text-center">Action</th>
+                            <th class="min-w-180px">@CommonVariables.SubTreatmentlabel</th>
+                            <th class="min-w-150px">@CommonVariables.SequenceNolabel</th>
+                            <th class="text-center min-w-50px">@CommonVariables.Ratelabel</th>
+                            <th class="text-center min-w-240px">@CommonVariables.AutoLoadinReceiptlabel?</th>
+                            <th class="text-center min-w-100px">@CommonVariables.ChargePerDaylabel?</th>
+                            <th class="min-w-50px">@CommonVariables.Remarklabel</th>
+                            <th class="min-w-100px">@CommonVariables.HospitalNamelabel</th>
+                            <th class="min-w-50px">@CommonVariables.Unitlabel</th>
+                            <th class="min-w-50px">@CommonVariables.Created</th>
+                            <th class="min-w-50px">@CommonVariables.Modified</th>
+                            <th class="text-center">@CommonVariables.Actionlabel</th>
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-dark-600 font-weight-normal" >

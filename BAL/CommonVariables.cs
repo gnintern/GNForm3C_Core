@@ -30,13 +30,61 @@
         public static string TreatmentListLogo = "/Theme/assets/media/svg/downloaded-icons/images/treatment-black.png";
         public static string SubTreatmentListLogo = "/Theme/assets/media/svg/downloaded-icons/images/subtreatment-black.png";
         public static string ReceiptListLogo = "/Theme/assets/media/svg/downloaded-icons/receipt.svg";
-
-
-
-
-
-
+        public static string TreatmentDashboardLogo = "/Theme/assets/media/svg/downloaded-icons/treatment-dashboard-logo.svg";
+        public static string IncomeDashboardLogo = "/Theme/assets/media/svg/downloaded-icons/Income-dashboard-logo-white.png";
+        public static string ExpenseDashboardLogo = "/Theme/assets/media/svg/downloaded-icons/Expense-dashboard-logo-white.png";
         #endregion
+
+        #region Common Button
+        public static string addbtncolor = "btn btn-success btn-sm rounded-pill ";
+        public static string searchbtncolor = "btn btn-primary btn-sm";
+        public static string clearbtncolor = "btn btn-light btn-sm";
+        #endregion
+
+        #region Common Labels
+        public static string ExpenseTypelabel = "Expense Type";
+        public static string IncomeTypelabel = "Income Type";
+        public static string Datelabel = "Date";
+        public static string Amountlabel = "Amount";
+        public static string AdvanceAmountlabel = "Advance";
+        public static string NetAmountlabel = "Net Amount";
+        public static string Created = "Created";
+        public static string Modified = "Modified";
+        public static string notelabel = "Note";
+        public static string FinancialYearNamelabel = "FinancialYear";
+        public static string HospitalNamelabel = "Hospital";
+        public static string PrintNameHospitallabel = "Print Name";
+        public static string PrintLine1label = "Print Line-1";
+        public static string PrintLine2label = "Print Line-2";
+        public static string PrintLine3label = "Print Line-3";
+        public static string HeaderNamelabel = "Header Name";
+        public static string FooterNamelabel = "Footer Name";
+        public static string FromDatelabel = "From Date";
+        public static string ToDatelabel = "To Date";
+        public static string UserNamelabel = "User Name";
+        public static string Passwordlabel = "Password";
+        public static string ConfirmPasswordlabel = "Confirm Password";
+        public static string Remarklabel = "Remarks";
+        public static string ReceiptTypelabel = "Receipt Type";
+        public static string Defaultlabel = "Default";
+        public static string Activelabel = "Active";
+        public static string Treatmentlabel = "Treatment";
+        public static string SubTreatmentlabel = "Sub Treatment";
+        public static string SequenceNolabel = "Sequence No";
+        public static string ReceiptNolabel = "Serial No";
+        public static string SerialNolabel = "Receipt No";
+        public static string Ratelabel = "Rate";
+        public static string AutoLoadinReceiptlabel = "Auto Load In Receipt";
+        public static string Unitlabel = "Unit";
+        public static string ChargePerDaylabel = "Charge Per Day";
+        public static string Actionlabel = "Action";
+		public static string AdmissionDatelabel = "Admission Date";
+		public static string DischargeDatelabel = "Discharge Date";
+		public static string TotalDayslabel = "Total Days";
+        public static string PatientNamelabel = "Patient Name";
+        public static string PrintNameReceiptlabel = "Print Name";
+        #endregion
+
 
         private static IHttpContextAccessor _httpContextAccessor;
 

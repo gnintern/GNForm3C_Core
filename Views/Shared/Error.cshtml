@@ -1,25 +1,62 @@
 ﻿@model ErrorViewModel
 @{
-    ViewData["Title"] = "Error";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+@* <div class="container">
+    <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
+        <h1>@Model.StatusCode</h1>
+        <h2>The page you are looking for doesn't exist.</h2>
+        <img src="~/img/not-found.svg" class="img-fluid py-5" alt="Page Not Found">
+        <div class="credits">
+        </div>
+    </section>
+</div> *@
 
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
+<div data-kt-name="metronic" id="kt_body" class="app-blank app-blank bgi-size-cover bgi-position-center bgi-no-repeat errorbody">
+	<script>if (document.documentElement) { const defaultThemeMode = "system"; const name = document.body.getAttribute("data-kt-name"); let themeMode = localStorage.getItem("kt_" + (name !== null ? name + "_" : "") + "theme_mode_value"); if (themeMode === null) { if (defaultThemeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } else { themeMode = defaultThemeMode; } } document.documentElement.setAttribute("data-theme", themeMode); }</script>
 
-<h3>Development Mode</h3>
-<p>
-    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
-</p>
-<p>
-    <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
-    It can result in displaying sensitive information from exceptions to end users.
-    For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
-    and restarting the app.
-</p>
+	<style>
+		.errorbody {
+			background-image: url('../../Theme/assets/media/auth/bg1.jpg');
+		}
+
+		[data-theme="dark"] .errorbody {
+			background-image: url('../../Theme/assets/media/auth/bg1-dark.jpg');
+		}
+	</style>
+	<!--end::Page bg image-->
+	<!--begin::Authentication - Signup Welcome Message -->
+	<div class="d-flex flex-column flex-center flex-column-fluid">
+		<!--begin::Content-->
+		<div class="d-flex flex-column flex-center text-center p-10">
+			<!--begin::Wrapper-->
+			<div class="card card-flush w-lg-650px py-5">
+				<div class="card-body py-15 py-lg-20">
+					<!--begin::Title-->
+					<h1 class="fw-bolder fs-2hx text-gray-900 mb-4">Oops!</h1>
+					<!--end::Title-->
+					<!--begin::Text-->
+					<div class="fw-semibold fs-6 text-gray-500 mb-7">We can't find that page.</div>
+					<!--end::Text-->
+					<!--begin::Illustration-->
+					<div class="mb-3">
+						<img src="~/Theme/assets/media/auth/404-error.png" class="mw-100 mh-300px theme-light-show" alt="" />
+						<img src="~/Theme/assets/media/auth/404-error-dark.png" class="mw-100 mh-300px theme-dark-show" alt="" />
+					</div>
+					<!--end::Illustration-->
+					<!--begin::Link-->
+					<div class="mb-0">
+						<a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-primary">Return Home</a>
+					</div>
+					<!--end::Link-->
+				</div>
+			</div>
+			<!--end::Wrapper-->
+		</div>
+		<!--end::Content-->
+	</div>
+	<!--end::Authentication - Signup Welcome Message-->
+
+</div>
+

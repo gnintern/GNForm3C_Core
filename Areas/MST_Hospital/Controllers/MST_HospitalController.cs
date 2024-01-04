@@ -8,6 +8,7 @@ using System.Data.SqlTypes;
 
 namespace GNForm3C_.Areas.MST_Hospital.Controllers
 {
+    [CheckAccess]
     [Area("MST_Hospital")]
     [Route("[Controller]/[action]")]
     public class MST_HospitalController : Controller
@@ -147,6 +148,35 @@ namespace GNForm3C_.Areas.MST_Hospital.Controllers
         public IActionResult Clear()
         {
             return RedirectToAction("Index");
+        }
+        #endregion
+
+        #region Fill Hospital Modal
+        public IActionResult HospitalDetail(string? HospitalID)
+        {
+
+            #region Decrypt the Id
+            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(HospitalID);
+            int id = decryptedID.Value;
+            #endregion
+
+            #region PR_Hospital_SelectPK
+            DataTable dt = dalMST.PR_Hospital_SelectPK(id);
+            MST_HospitalModel modelMST_Hospital = new MST_HospitalModel();
+            foreach (DataRow dr in dt.Rows)
+            {
+                modelMST_Hospital.HospitalID = Convert.ToInt32(dr["HospitalID"].ToString());
+                modelMST_Hospital.Hospital = dr["Hospital"].ToString();
+                modelMST_Hospital.PrintName = dr["PrintName"].ToString();
+                modelMST_Hospital.PrintLine1 = dr["PrintLine1"].ToString();
+                modelMST_Hospital.PrintLine2 = dr["PrintLine2"].ToString();
+                modelMST_Hospital.PrintLine3 = dr["PrintLine3"].ToString();
+                modelMST_Hospital.Modified = Convert.ToDateTime(dr["Modified"].ToString());
+                modelMST_Hospital.FooterName = dr["FooterName"].ToString();
+                modelMST_Hospital.ReportHeaderName = dr["ReportHeaderName"].ToString();
+            }
+            #endregion
+            return PartialView("~/Areas/MST_Hospital/Views/Shared/_HospitalDetails.cshtml", modelMST_Hospital);
         }
         #endregion
     }

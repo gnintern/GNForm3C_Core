@@ -7,7 +7,8 @@ using System.Data.SqlTypes;
 
 namespace GNForm3C_.Areas.SEC_User.Controllers
 {
-	[Area("SEC_User")]
+    
+    [Area("SEC_User")]
 	[Route("[Controller]/[action]")]
 	public class SEC_UserController : Controller
 	{

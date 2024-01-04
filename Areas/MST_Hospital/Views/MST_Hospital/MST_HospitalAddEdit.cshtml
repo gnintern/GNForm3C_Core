@@ -1,4 +1,5 @@
-﻿@{
+﻿@using GNForm3C_.BAL;
+@{
 	ViewData["Title"] = @TempData["Action"] +" Hospital";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -67,7 +68,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Hospital">
-								<span class="text-danger">*</span>&nbsp;Hospital Name
+								<span class="text-danger">*</span>@CommonVariables.HospitalNamelabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="Used For Select Hospital"></i>
 							</label>
 							<!--end::Label-->
@@ -79,7 +80,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintName">
-								<span class="text-danger">*</span>&nbsp;Print Name
+								<span class="text-danger">*</span>@CommonVariables.PrintNameHospitallabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="Used For Enter Print Name"></i>
 							</label>
 							<!--end::Label-->
@@ -91,7 +92,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintLine1">
-								Print Line - 1
+								@CommonVariables.PrintLine1label
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="Used For Enter Print Line 1"></i>
 							</label>
 							<!--end::Label-->
@@ -102,7 +103,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintLine2">
-								Print Line - 2
+								@CommonVariables.PrintLine2label
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="Used For Enter Print Line 2"></i>
 							</label>
 							<!--end::Label-->
@@ -114,7 +115,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintLine3">
-								Print Line - 3
+								@CommonVariables.PrintLine3label
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="Used For Enter Print Line 3"></i>
 							</label>
 							<!--end::Label-->
@@ -126,7 +127,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ReportHeaderName">
-								Report Header Name
+								@CommonVariables.HeaderNamelabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="Used For Enter Report Header Name"></i>
 							</label>
 							<!--end::Label-->
@@ -137,7 +138,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="FooterName">
-								<span class="text-danger">*</span>&nbsp;Report Footer Name
+								<span class="text-danger">*</span>@CommonVariables.FooterNamelabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="Used For Enter Footer Name"></i>
 							</label>
 							<!--end::Label-->

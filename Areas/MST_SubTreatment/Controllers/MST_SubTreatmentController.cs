@@ -8,6 +8,7 @@ using System.Data.SqlTypes;
 
 namespace GNForm3C_.Areas.MST_SubTreatment.Controllers
 {
+    [CheckAccess]
     [Area("MST_SubTreatment")]
     [Route("[Controller]/[action]")]
     public class MST_SubTreatmentController : Controller

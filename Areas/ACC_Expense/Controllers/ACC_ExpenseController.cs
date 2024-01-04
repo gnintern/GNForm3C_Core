@@ -8,6 +8,7 @@ using System.Data.SqlTypes;
 
 namespace GNForm3C_.Areas.ACC_Expense.Controllers
 {
+    [CheckAccess]
     [Area("ACC_Expense")]
     [Route("[Controller]/[action]")]
     public class ACC_ExpenseController : Controller
@@ -181,5 +182,10 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
             return RedirectToAction("Index");
         }
         #endregion
+
+        public IActionResult Clear()
+        {
+            return RedirectToAction ("Index");
+        }
     }
 }

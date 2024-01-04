@@ -1,4 +1,5 @@
-﻿@{
+﻿@using GNForm3C_.BAL;
+@{
 	ViewData["Title"] = TempData["Action"] + " ReceiptType";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -67,7 +68,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="HospitalID">
-								<span class="text-danger">*</span>&nbsp;Hospital
+								<span class="text-danger">*</span>@CommonVariables.HospitalNamelabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select hospital"></i>
 							</label>
 							<!--end::Label-->
@@ -82,7 +83,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ReceiptTypeName">
-								<span class="text-danger">*</span>&nbsp;Receipt Type
+								<span class="text-danger">*</span>@CommonVariables.ReceiptTypelabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only unique Receipt Type"></i>
 							</label>
 							<!--end::Label-->
@@ -95,7 +96,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 								<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="PrintName">
-								<span class="text-danger">*</span>&nbsp;Print Name
+								<span class="text-danger">*</span>@CommonVariables.PrintNameReceiptlabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only Print name"></i>
 							</label>
 								<!--end::Label-->
@@ -108,7 +109,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" id="IsDefaultCheckbox" value="" />
-								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" for="IsDefaultCheckbox">Is Default?</label>
+								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" for="IsDefaultCheckbox">Is @CommonVariables.Defaultlabel?</label>
 								<input type="hidden" asp-for="IsDefault" />
 							</div>
 
@@ -118,7 +119,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Remarks ">
-								Remarks
+								@CommonVariables.Remarklabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="it accepts only Remarks"></i>
 							</label>
 							<!--end::Label-->

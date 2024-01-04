@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+﻿using GNForm3C_.BAL;
+using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data;
 using System.Data.Common;
 
@@ -37,6 +38,8 @@ namespace GNForm3C_.DAL
 			{
 				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Dashboard_TransactionRecentlyAdded");
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
+
 				DataTable dt = new DataTable();
 				using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
 				{
@@ -59,6 +62,7 @@ namespace GNForm3C_.DAL
 			{
 				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Dashboard_TreatmentRecentlyAdded");
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
 				DataTable dt = new DataTable();
 				using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
 				{
@@ -81,6 +85,9 @@ namespace GNForm3C_.DAL
 			{
 				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Dashboard_IncomeRecentlyAdded");
+
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
+
 				DataTable dt = new DataTable();
 				using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
 				{
@@ -103,6 +110,8 @@ namespace GNForm3C_.DAL
 			{
 				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Dashboard_ExpenseRecentlyAdded");
+				sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
+
 				DataTable dt = new DataTable();
 				using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
 				{

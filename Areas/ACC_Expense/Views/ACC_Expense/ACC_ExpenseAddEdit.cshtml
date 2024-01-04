@@ -1,4 +1,6 @@
 ﻿@model GNForm3C_.Areas.ACC_Expense.Models.ACC_ExpenseModel;
+@using GNForm3C_.BAL;
+
 @{
 	ViewData["Title"] = @TempData["Action"] + " Expense";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -72,7 +74,7 @@
 							<div class="fv-row mb-8 col-6 col-md-6">
 								<!--begin::Label-->
 								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="HospitalID">
-									<span class="text-danger">*</span> &nbsp;Hospital Name
+									<span class="text-danger">*</span>@CommonVariables.HospitalNamelabel
 									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Hospital"></i>
 								</label>
 								<!--end::Label-->
@@ -86,7 +88,7 @@
 							<div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
 								<!--begin::Label-->
 								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="ExpenseTypeID">
-									<span class="text-danger">*</span> &nbsp;Expense Type
+									<span class="text-danger">*</span>@CommonVariables.ExpenseTypelabel
 									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Expense Type"></i>
 								</label>
 								<!--end::Label-->
@@ -104,7 +106,7 @@
 							<div class="fv-row mb-8 col-6 col-md-6">
 								<!--begin::Label-->
 								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Date">
-									<span class="text-danger">*</span> &nbsp;Expense Date
+									<span class="text-danger">*</span>@CommonVariables.Datelabel
 									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for select Date"></i>
 								</label>
 								<!--end::Label-->
@@ -117,7 +119,7 @@
 							<div class="fv-row mb-8 col-6 col-md-6" data-kt-password-meter="true">
 								<!--begin::Label-->
 								<label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="Amount">
-									<span class="text-danger">*</span> &nbsp;Amount
+									<span class="text-danger">*</span>@CommonVariables.Amountlabel
 									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for Enter Amount"></i>
 								</label>
 								<!--end::Label-->
@@ -132,7 +134,7 @@
 						<div class="d-flex flex-column mb-8 fv-row">
 							<!--begin::Label-->
 							<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-								Note
+								@CommonVariables.notelabel
 								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  data-bs-placement="right" title="used for Note"></i>
 							</label>
 							<!--end::Label-->

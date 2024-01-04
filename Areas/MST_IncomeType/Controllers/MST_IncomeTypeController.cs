@@ -7,6 +7,7 @@ using System.Data;
 
 namespace GNForm3C_.Areas.MST_IncomeType.Controllers
 {
+    [CheckAccess]
     [Area("MST_IncomeType")]
     [Route("[Controller]/[action]")]
     public class MST_IncomeTypeController : Controller

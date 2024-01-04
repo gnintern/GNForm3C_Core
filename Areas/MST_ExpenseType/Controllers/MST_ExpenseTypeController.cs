@@ -8,7 +8,8 @@ using System.Data.SqlTypes;
 
 namespace GNForm3C_.Areas.MST_ExpenseType
 {
-     [Area("MST_ExpenseType")]
+    [CheckAccess]
+    [Area("MST_ExpenseType")]
      [Route("[Controller]/[action]")]
     public class MST_ExpenseTypeController : Controller 
     { 

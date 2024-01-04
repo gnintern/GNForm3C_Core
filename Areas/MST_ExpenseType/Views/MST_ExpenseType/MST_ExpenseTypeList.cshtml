@@ -37,11 +37,11 @@
         <!--begin::Actions-->
         <div class="d-flex align-items-center fw-bold">
             <!--begin::Secondary button-->
-            <a class="btn btn-sm btn-primary" asp-area="MST_ExpenseType" asp-controller="MST_ExpenseType" asp-action="Add">
+            <a class="@CommonVariables.addbtncolor" asp-area="MST_ExpenseType" asp-controller="MST_ExpenseType" asp-action="Add">
                 @* <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                 </svg>  *@
-                <span class="fs-4 fw-bold"><i class="fa fa-plus fa-2x"></i> Add Expense Type</span>
+                <span class="fw-bold"><i class="fa fa-plus fa-2x"></i> Add Expense Type</span>
             </a>
             <!--end::Secondary button-->
             <!--begin::Primary button-->
@@ -130,12 +130,12 @@
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-4 gs-0">
-                            <th>Expense Type</th>
-                            <th>Remarks</th>
-                            <th>Hospital</th>
-                            <th>Created</th>
-                            <th>Modified</th>
-                            <th class="text-center">Action</th>
+                            <th>@CommonVariables.ExpenseTypelabel</th>
+                            <th>@CommonVariables.Remarklabel</th>
+                            <th>@CommonVariables.HospitalNamelabel</th>
+                            <th>@CommonVariables.Created</th>
+                            <th>@CommonVariables.Modified</th>
+                            <th class="text-center">@CommonVariables.Actionlabel</th>
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-dark-600 font-weight-normal">

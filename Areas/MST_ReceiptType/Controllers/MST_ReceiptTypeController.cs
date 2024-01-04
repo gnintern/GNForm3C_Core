@@ -9,6 +9,7 @@ using System.Data.SqlTypes;
 
 namespace GNForm3C_.Areas.MST_ReceiptType.Controllers
 {
+    [CheckAccess]
     [Area("MST_ReceiptType")]
     [Route("[Controller]/[action]")]
     public class MST_ReceiptTypeController : Controller

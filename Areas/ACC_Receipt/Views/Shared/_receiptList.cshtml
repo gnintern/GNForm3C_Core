@@ -1,27 +1,28 @@
 ﻿@using GNForm3C_.Areas.ACC_Receipt.Models;
+@using GNForm3C_.BAL;
 @model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel;
 
 <!--begin::Table-->
 <table class="table align-middle table-row-dashed fs-6 gy-3 table-responsive table-responsive-md " id="kt_ecommerce_report_customer_orders_table">
     <thead>
         <!--begin::Table row-->
-        <tr class="text-start text-dark fw-bold fs-5 text-uppercase">
-            <th class="min-w-100px">Date</th>
-            <th class="min-w-125px">Sr. No.</th>
-            <th class="min-w-125px">Receipt Type</th>
-            <th class="min-w-125px">Receipt No.</th>
-            <th class="min-w-125px">Patient</th>
-            <th class="min-w-125px">Treatment</th>
-            <th class="min-w-125px">Amount</th>
-            <th class="min-w-125px">Admission Dt.</th>
-            <th class="min-w-125px">Discharge Dt.</th>
-            <th class="min-w-50px">Days</th>
-            <th class="min-w-100px">Advance</th>
-            <th class="min-w-125px">Net Amount</th>
-            <th class="min-w-80px">Remarks</th>
-            <th class="min-w-80px">FinYear</th>
-            <th class="min-w-150px">Hospital</th>
-            <th class="min-w-100px">Modified</th>
+        <tr class="text-start text-dark fw-bold fs-5 ">
+            <th class="min-w-100px">@CommonVariables.Datelabel</th>
+            <th class="min-w-125px">@CommonVariables.SerialNolabel</th>
+            <th class="min-w-125px">@CommonVariables.ReceiptTypelabel</th>
+            <th class="min-w-125px">@CommonVariables.ReceiptNolabel</th>
+            <th class="min-w-125px">@CommonVariables.PatientNamelabel</th>
+            <th class="min-w-125px">@CommonVariables.Treatmentlabel</th>
+            <th class="min-w-125px">@CommonVariables.Amountlabel</th>
+            <th class="min-w-125px">@CommonVariables.AdmissionDatelabel</th>
+            <th class="min-w-125px">@CommonVariables.DischargeDatelabel</th>
+            <th class="min-w-50px">@CommonVariables.TotalDayslabel</th>
+            <th class="min-w-100px">@CommonVariables.AdvanceAmountlabel</th>
+            <th class="min-w-125px">@CommonVariables.NetAmountlabel</th>
+            <th class="min-w-80px">@CommonVariables.Remarklabel</th>
+            <th class="min-w-80px">@CommonVariables.FinancialYearNamelabel</th>
+            <th class="min-w-150px">@CommonVariables.HospitalNamelabel</th>
+            <th class="min-w-100px">@CommonVariables.Modified</th>
         </tr>
     </thead>
     <tbody class="fw-semibold text-dark-600 font-weight-normal">

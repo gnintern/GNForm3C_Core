@@ -9,7 +9,8 @@ using System.Reflection;
 
 namespace GNForm3C_.Areas.MST_FinYear.Controllers
 {
-	[Area("MST_FinYear")]
+    [CheckAccess]
+    [Area("MST_FinYear")]
 	[Route("[Controller]/[action]")]
 	public class MST_FinYearController : Controller
 	{

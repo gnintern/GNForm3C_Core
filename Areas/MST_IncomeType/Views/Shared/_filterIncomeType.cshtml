@@ -1,4 +1,6 @@
 ﻿@model GNForm3C_.Areas.MST_IncomeType.Models.MST_IncomeTypeModel;
+@using GNForm3C_.BAL;
+
 <form method="post" asp-area="MST_IncomeType" asp-controller="MST_IncomeType" asp-action="Index">
     <div class="d-flex row">
         <!--begin::Input group-->
@@ -24,11 +26,11 @@
 
         <!--end::Input group-->
         <div class="col-lg-4">
-            <button type="submit" class="btn btn-primary" asp-area="MST_IncomeType" asp-controller="MST_IncomeType" asp-action="Index"
+            <button type="submit" class="@CommonVariables.searchbtncolor" asp-area="MST_IncomeType" asp-controller="MST_IncomeType" asp-action="Index"
                style="margin-right:15px;">
                 <span class="indicator-label">Search</span>
             </button>
-            <a type="submit" class="btn btn-light me-3"
+            <a type="submit" class="@CommonVariables.clearbtncolor me-3"
                asp-area="MST_IncomeType" asp-controller="MST_IncomeType" asp-action="Index">
                 Clear
             </a>

@@ -9,253 +9,257 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GNForm3C_
 build_property.RootNamespace = GNForm3C_
-build_property.ProjectDir = C:\Users\mayur\source\repos\GNForm3C_Core\
+build_property.ProjectDir = C:\Users\mayur\Desktop\GNForm3C_Core\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\mayur\source\repos\GNForm3C_Core
+build_property.MSBuildProjectDirectory = C:\Users\mayur\Desktop\GNForm3C_Core
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Expense/Views/ACC_Expense/ACC_ExpenseAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Expense/Views/ACC_Expense/ACC_ExpenseAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcQUNDX0V4cGVuc2VcQUNDX0V4cGVuc2VBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Expense/Views/ACC_Expense/ACC_ExpenseList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Expense/Views/ACC_Expense/ACC_ExpenseList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcQUNDX0V4cGVuc2VcQUNDX0V4cGVuc2VMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Expense/Views/Shared/_expenseList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Expense/Views/Shared/_expenseList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcU2hhcmVkXF9leHBlbnNlTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Expense/Views/Shared/_filterExpense.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Expense/Views/Shared/_filterExpense.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcU2hhcmVkXF9maWx0ZXJFeHBlbnNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Expense/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Expense/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Income/Views/ACC_Income/ACC_IncomeAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Income/Views/ACC_Income/ACC_IncomeAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xBQ0NfSW5jb21lXEFDQ19JbmNvbWVBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Income/Views/ACC_Income/ACC_IncomeList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Income/Views/ACC_Income/ACC_IncomeList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xBQ0NfSW5jb21lXEFDQ19JbmNvbWVMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Income/Views/Shared/_filterIncome.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Income/Views/Shared/_filterIncome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xTaGFyZWRcX2ZpbHRlckluY29tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Income/Views/Shared/_incomeList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Income/Views/Shared/_incomeList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xTaGFyZWRcX2luY29tZUxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Income/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Income/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Receipt/Views/ACC_Receipt/ACC_ReceiptAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Receipt/Views/ACC_Receipt/ACC_ReceiptAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcQUNDX1JlY2VpcHRcQUNDX1JlY2VpcHRBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Receipt/Views/ACC_Receipt/ACC_ReceiptList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Receipt/Views/ACC_Receipt/ACC_ReceiptList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcQUNDX1JlY2VpcHRcQUNDX1JlY2VpcHRMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Receipt/Views/Shared/_filterReceipt.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Receipt/Views/Shared/_filterReceipt.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcU2hhcmVkXF9maWx0ZXJSZWNlaXB0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Receipt/Views/Shared/_receiptList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Receipt/Views/Shared/_receiptList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcU2hhcmVkXF9yZWNlaXB0TGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Receipt/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/ACC_Receipt/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ExpenseType/Views/MST_ExpenseType/MST_ExpenseTypeAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_ExpenseType/Views/MST_ExpenseType/MST_ExpenseTypeAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0V4cGVuc2VUeXBlXFZpZXdzXE1TVF9FeHBlbnNlVHlwZVxNU1RfRXhwZW5zZVR5cGVBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ExpenseType/Views/MST_ExpenseType/MST_ExpenseTypeList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_ExpenseType/Views/MST_ExpenseType/MST_ExpenseTypeList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0V4cGVuc2VUeXBlXFZpZXdzXE1TVF9FeHBlbnNlVHlwZVxNU1RfRXhwZW5zZVR5cGVMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ExpenseType/Views/Shared/_filterExpenseType.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_ExpenseType/Views/Shared/_filterExpenseType.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0V4cGVuc2VUeXBlXFZpZXdzXFNoYXJlZFxfZmlsdGVyRXhwZW5zZVR5cGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ExpenseType/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_ExpenseType/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0V4cGVuc2VUeXBlXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/MST_FinYear/MST_FinYearAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_FinYear/Views/MST_FinYear/MST_FinYearAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0ZpblllYXJcVmlld3NcTVNUX0ZpblllYXJcTVNUX0ZpblllYXJBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/MST_FinYear/MST_FinYearList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_FinYear/Views/MST_FinYear/MST_FinYearList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0ZpblllYXJcVmlld3NcTVNUX0ZpblllYXJcTVNUX0ZpblllYXJMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/Shared/_filterFinYear.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_FinYear/Views/Shared/_filterFinYear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0ZpblllYXJcVmlld3NcU2hhcmVkXF9maWx0ZXJGaW5ZZWFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_FinYear/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0ZpblllYXJcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Hospital/Views/MST_Hospital/MST_HospitalAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_Hospital/Views/MST_Hospital/MST_HospitalAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0hvc3BpdGFsXFZpZXdzXE1TVF9Ib3NwaXRhbFxNU1RfSG9zcGl0YWxBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Hospital/Views/MST_Hospital/MST_HospitalList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_Hospital/Views/MST_Hospital/MST_HospitalList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0hvc3BpdGFsXFZpZXdzXE1TVF9Ib3NwaXRhbFxNU1RfSG9zcGl0YWxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Hospital/Views/Shared/_filterHospital.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_Hospital/Views/Shared/_filterHospital.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0hvc3BpdGFsXFZpZXdzXFNoYXJlZFxfZmlsdGVySG9zcGl0YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Hospital/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_Hospital/Views/Shared/_HospitalDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0hvc3BpdGFsXFZpZXdzXFNoYXJlZFxfSG9zcGl0YWxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_Hospital/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0hvc3BpdGFsXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_IncomeType/Views/MST_IncomeType/MST_IncomeTypeAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_IncomeType/Views/MST_IncomeType/MST_IncomeTypeAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcTVNUX0luY29tZVR5cGVcTVNUX0luY29tZVR5cGVBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_IncomeType/Views/MST_IncomeType/MST_IncomeTypeList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_IncomeType/Views/MST_IncomeType/MST_IncomeTypeList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcTVNUX0luY29tZVR5cGVcTVNUX0luY29tZVR5cGVMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_IncomeType/Views/Shared/_filterIncomeType.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_IncomeType/Views/Shared/_filterIncomeType.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcU2hhcmVkXF9maWx0ZXJJbmNvbWVUeXBlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_IncomeType/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_IncomeType/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ReceiptType/Views/MST_ReceiptType/MST_ReceiptTypeAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_ReceiptType/Views/MST_ReceiptType/MST_ReceiptTypeAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1JlY2VpcHRUeXBlXFZpZXdzXE1TVF9SZWNlaXB0VHlwZVxNU1RfUmVjZWlwdFR5cGVBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ReceiptType/Views/MST_ReceiptType/MST_ReceiptTypeList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_ReceiptType/Views/MST_ReceiptType/MST_ReceiptTypeList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1JlY2VpcHRUeXBlXFZpZXdzXE1TVF9SZWNlaXB0VHlwZVxNU1RfUmVjZWlwdFR5cGVMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ReceiptType/Views/Shared/_filterReceiptType.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_ReceiptType/Views/Shared/_filterReceiptType.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1JlY2VpcHRUeXBlXFZpZXdzXFNoYXJlZFxfZmlsdGVyUmVjZWlwdFR5cGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ReceiptType/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_ReceiptType/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1JlY2VpcHRUeXBlXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_SubTreatment/Views/MST_SubTreatment/MST_SubTreatmentAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_SubTreatment/Views/MST_SubTreatment/MST_SubTreatmentAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xNU1RfU3ViVHJlYXRtZW50XE1TVF9TdWJUcmVhdG1lbnRBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_SubTreatment/Views/MST_SubTreatment/MST_SubTreatmentList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_SubTreatment/Views/MST_SubTreatment/MST_SubTreatmentList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xNU1RfU3ViVHJlYXRtZW50XE1TVF9TdWJUcmVhdG1lbnRMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_SubTreatment/Views/Shared/_filterSubTreatment.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_SubTreatment/Views/Shared/_filterSubTreatment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xTaGFyZWRcX2ZpbHRlclN1YlRyZWF0bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_SubTreatment/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_SubTreatment/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Treatment/Views/MST_Treatment/MST_TreatmentAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_Treatment/Views/MST_Treatment/MST_TreatmentAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xNU1RfVHJlYXRtZW50XE1TVF9UcmVhdG1lbnRBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Treatment/Views/MST_Treatment/MST_TreatmentList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_Treatment/Views/MST_Treatment/MST_TreatmentList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xNU1RfVHJlYXRtZW50XE1TVF9UcmVhdG1lbnRMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Treatment/Views/Shared/_filterTreatment.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_Treatment/Views/Shared/_filterTreatment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xTaGFyZWRcX2ZpbHRlclRyZWF0bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Treatment/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/MST_Treatment/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/SEC_User/Views/SEC_User/Login.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/SEC_User/Views/SEC_User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcU0VDX1VzZXJcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/SEC_User/Views/SEC_User/SEC_UserAddEdit.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/SEC_User/Views/SEC_User/SEC_UserAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcU0VDX1VzZXJcU0VDX1VzZXJBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/SEC_User/Views/SEC_User/SEC_UserList.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/SEC_User/Views/SEC_User/SEC_UserList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcU0VDX1VzZXJcU0VDX1VzZXJMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/SEC_User/Views/Shared/_filterUser.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/SEC_User/Views/Shared/_filterUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcU2hhcmVkXF9maWx0ZXJVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/SEC_User/Views/Shared/_loginForm.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/SEC_User/Views/Shared/_loginForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcU2hhcmVkXF9sb2dpbkZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/SEC_User/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Areas/SEC_User/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/Home/Index.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/Home/Privacy.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/Shared/Error.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/Shared/_Footer.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/Shared/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/Shared/_Header.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/Shared/_Header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/Shared/_LoginLayout.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/Shared/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/Shared/_Notification.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/Shared/_Notification.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/Shared/_Sidebar.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/Shared/_Sidebar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlYmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/_ViewImports.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/_ViewStart.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mayur/source/repos/GNForm3C_Core/Views/Shared/_Layout.cshtml]
+[C:/Users/mayur/Desktop/GNForm3C_Core/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1pnos7tfav

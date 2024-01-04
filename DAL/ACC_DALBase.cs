@@ -417,7 +417,34 @@ namespace GNForm3C_.DAL
 				return null;
 			}
 		}
-		#endregion
-		#endregion
-	}
+        #endregion
+
+        #region PP_Transaction_SelectReceiptsByFromDateToDateHospitalID
+        public DataTable PP_Transaction_SelectReceiptsByFromDateToDateHospitalID(ViewBagReceiptModel modelViewBagReceiptModel)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("[PP_Transaction_SelectReceiptsByFromDateToDateHospitalID]");
+                sqldb.AddInParameter(dbCMD, "FromDate", SqlDbType.DateTime, modelViewBagReceiptModel.FromDate);
+                sqldb.AddInParameter(dbCMD, "ToDate", SqlDbType.DateTime, modelViewBagReceiptModel.ToDate);
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
+
+                DataTable dt = new DataTable();
+
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+        #endregion
+    }
 }

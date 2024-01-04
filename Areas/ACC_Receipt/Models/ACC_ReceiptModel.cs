@@ -51,4 +51,14 @@ namespace GNForm3C_.Areas.ACC_Receipt.Models
         public int? ReceiptNo { get; set; }
 
     }
+    public class ViewBagReceiptModel
+    {
+        [Required(ErrorMessage = "Please Enter From Date")]
+        [DisplayName("From Date")]
+        public DateTime? FromDate { get; set; }
+        [Required(ErrorMessage = "Please Enter To Date")]
+        [DisplayName("To Date")]
+        public DateTime? ToDate { get; set; }
+
+    }
 }
