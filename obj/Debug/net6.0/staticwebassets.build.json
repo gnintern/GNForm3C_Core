@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LM/jFoBAg8pyBniK3s+K0VSPUWbh5aQCSB8XVtUiq20=",
+  "Hash": "jMIaUGpjdIiXJI2Q1f8DR+xWd+F5uJ6D9fCl3cdilrs=",
   "Source": "GNForm3C+",
   "BasePath": "_content/GNForm3C+",
   "Mode": "Default",
@@ -35681,6 +35681,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\userListLogo.svg"
+    },
+    {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\userListLogoWhite.svg",
+      "SourceId": "GNForm3C+",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\",
+      "BasePath": "_content/GNForm3C+",
+      "RelativePath": "Theme/assets/media/svg/downloaded-icons/userListLogoWhite.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\userListLogoWhite.svg"
     },
     {
       "Identity": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\Expanse.png",

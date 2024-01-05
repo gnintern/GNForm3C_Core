@@ -157,14 +157,37 @@ namespace GNForm3C_.DAL
                 return null;
             }
         }
-		#endregion
+        #endregion
 
-		#endregion
+        #region PR_Expense_SelectView
+        public DataTable PR_Expense_SelectView(int? ExpenseID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Expense_SelectView");
+                sqldb.AddInParameter(dbCMD, "ExpenseID", SqlDbType.Int, ExpenseID);
 
-		#region Income
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
 
-		#region PR_Income_SelectAll
-		public DataTable PR_Income_SelectAll(ACC_IncomeModel modelACC_Income)
+        #endregion
+
+        #region Income
+
+        #region PR_Income_SelectAll
+        public DataTable PR_Income_SelectAll(ACC_IncomeModel modelACC_Income)
         {
             try
             {
@@ -306,12 +329,35 @@ namespace GNForm3C_.DAL
                 return null;
             }
         }
-		#endregion
-		#endregion
+        #endregion
 
-		#region Receipt
-		#region PR_Transaction_SelectAll
-		public DataTable PR_Transaction_SelectAll()
+        #region PR_Income_SelectView
+        public DataTable PR_Income_SelectView(int? IncomeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Income_SelectView");
+                sqldb.AddInParameter(dbCMD, "IncomeID", SqlDbType.Int, IncomeID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+        #endregion
+
+        #region Receipt
+        #region PR_Transaction_SelectAll
+        public DataTable PR_Transaction_SelectAll()
 		{
 			try
 			{
@@ -435,6 +481,29 @@ namespace GNForm3C_.DAL
                 using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
                 {
 
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_Transaction_SelectView
+        public DataTable PR_Transaction_SelectView(int? TransactionID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Transaction_SelectView");
+                sqldb.AddInParameter(dbCMD, "TransactionID", SqlDbType.Int, TransactionID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
                     dt.Load(dr);
                 }
                 return dt;

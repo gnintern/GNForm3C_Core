@@ -192,5 +192,35 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
             return RedirectToAction("Index");
         }
         #endregion
+
+        #region Fill Income Modal
+        public IActionResult IncomeDetail(string? modalID)
+        {
+
+            ACC_IncomeModel modelACC_Income = new ACC_IncomeModel();
+            #region Decrypt the Id
+            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(modalID);
+            int id = decryptedID.Value;
+            #endregion
+
+            #region Select_PK record
+            DataTable dt = dalACC.PR_Income_SelectView(id);
+            foreach (DataRow dr in dt.Rows)
+            {
+                modelACC_Income.IncomeID = Convert.ToInt32(dr["IncomeID"]);
+                modelACC_Income.IncomeTypeID = Convert.ToInt32(dr["IncomeTypeID"]);
+                modelACC_Income.IncomeType = dr["IncomeType"].ToString();
+                modelACC_Income.HospitalID = Convert.ToInt32(dr["HospitalID"]);
+                modelACC_Income.Hospital = dr["Hospital"].ToString();
+                modelACC_Income.Date = Convert.ToDateTime(dr["Date"]);
+                modelACC_Income.FinYearName = dr["FinYearName"].ToString();
+                modelACC_Income.Amount = Convert.ToDecimal(dr["Amount"].ToString());
+                modelACC_Income.Note = dr["Note"].ToString();
+                modelACC_Income.Modified = Convert.ToDateTime(dr["Modified"]);
+            }
+            #endregion
+            return PartialView("~/Areas/ACC_Income/Views/Shared/_IncomeDetails.cshtml", modelACC_Income);
+        }
+        #endregion
     }
 }

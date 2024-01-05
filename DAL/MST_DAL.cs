@@ -16,7 +16,9 @@ namespace GNForm3C_.DAL
 			{
 				SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
 				DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_MST_CountHospitalTreatmentIncomeExpenseDashboard");
-				DataTable dt = new DataTable();
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, CommonVariables.HospitalID());
+
+                DataTable dt = new DataTable();
 				using(IDataReader dr = sqldb.ExecuteReader(dbCMD))
 				{
 					dt.Load(dr);

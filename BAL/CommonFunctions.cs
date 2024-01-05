@@ -1,10 +1,18 @@
-﻿using System.Data.SqlTypes;
+﻿using ClosedXML.Excel;
+using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlTypes;
 using System.Text;
 
 namespace GNForm3C_.BAL
 {
-    public class CommonFunctions
+    public class CommonFunctions : Controller
     {
+        #region GLOBAL DECLARATION
+        //Content of table Data to Download the excel
+        public static List<Dictionary<int, string>> tableData = new List<Dictionary<int, string>>();
+
+        #endregion
+
         #region For Encryption
         public static string EncryptBase64(string password)
         {
@@ -82,5 +90,67 @@ namespace GNForm3C_.BAL
 
         }
         #endregion'
+
+        #region Excel Export Operation
+
+        #region Get The Table Data
+        [HttpPost]
+        public bool ExportTable([FromBody] List<Dictionary<int, string>> listOfData)
+        {
+            if (listOfData[1].Count > 0)
+            {
+                tableData = listOfData;
+                return true;
+            }
+            else
+            {
+                TempData["error"] = "No Data Found";
+                return false;
+            }
+        }
+        #endregion
+
+        #region Download Excel
+        public IActionResult DownloadExcel(string FileName)
+        {
+            var workbook = new XLWorkbook();
+            // Add a worksheet to the workbook
+            var worksheet = workbook.Worksheets.Add(FileName);
+
+            //Write the Values in Cell
+            int i = 1;
+            foreach (var row in tableData)
+            {
+                int j = 1;
+                foreach (var data in row)
+                {
+                    //set the values in the cell
+                    worksheet.Cell(i, j).Value = data.Value.Trim();
+                    j++;
+                }
+                i++;
+            }
+
+            // Make the header row bold
+            worksheet.Row(1).Style.Font.Bold = true;
+
+            // Adjust column widths based on content
+            worksheet.Columns().AdjustToContents();
+
+            //Set the content type and file name for the response
+            var contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            var fileName = $"{FileName}_{DateTime.Now.ToString("dd/MM/yyyy")}.xlsx";
+
+            // Return the Excel file as the response
+            using (var stream = new MemoryStream())
+            {
+                workbook.SaveAs(stream);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream.ToArray(), contentType, fileName);
+            }
+        }
+        #endregion
+
+        #endregion
     }
 }

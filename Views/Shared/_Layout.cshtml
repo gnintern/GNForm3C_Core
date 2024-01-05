@@ -122,6 +122,7 @@
             });
         });
     </script>
+
     @* script for not accepting negative value *@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -140,6 +141,7 @@
     </script>
     @* script for not accepting negative value *@
 
+    // script foe freeze specific column
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -151,6 +153,71 @@
             });
         });
     </script>
+
+    // script for download excel
+    <script type="text/javascript">
+        $("#exportBtn").on('click', function () {
+            let table = $("#kt_ecommerce_report_customer_orders_table").DataTable();
+            let arrayOfArrays = [];
+
+            // Get the table headers and store them in the arrayOfArrays
+            let headers = [];
+            table.columns().every(function () {
+                let headerText = $(this.header()).text().replace(/\s+/g, ' ').trim();
+                headers.push(headerText);
+            });
+            headers.pop();
+            // headers.shift();
+            arrayOfArrays.push(headers);
+            table.rows().every(function () {
+                let rowData = [];
+                let rowNode = this.node();
+
+                // Get the cells in the current row
+                let cells = $(rowNode).find('td');
+
+                // Process each cell in the row
+                cells.each(function () {
+                    // Get the text of each cell, replace excess whitespace with a single space, and push to rowData
+                    let cellText = $(this).text().replace(/\s+/g, ' ').trim();
+                    cellText = cellText.replace('Actions Edit Delete', '').trim();
+
+                    rowData.push(cellText);
+                });
+                rowData.pop();
+                // rowData.shift();
+                arrayOfArrays.push(rowData);
+            });
+            // Convert Table Value Array of Array into Array Of Object
+            var tableObjects = arrayOfArrays.map(function (row) {
+                var obj = {};
+                row.forEach(function (value, index) {
+                    obj[index] = value;
+                });
+                return obj;
+            });
+            // console.log(tableObjects);
+            // Download Excel File
+            $.ajax({
+                url: '@Url.Action("ExportTable","CommonFunctions")',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(tableObjects),
+                success: function (response) {
+                    if (response == true) {
+                        window.location.href = '@Url.Action("DownloadExcel","CommonFunctions", new { FileName = @ViewData["Title"] })';
+                    }
+                    else
+                        window.location.reload();
+                },
+                error: function (error) {
+                    // Handle errors if any
+                    console.log(error);
+                }
+            });
+        });
+    </script>
+
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
 </body>

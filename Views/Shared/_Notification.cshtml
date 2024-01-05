@@ -15,3 +15,24 @@
         toastr.error('@TempData["error"]');
     </script>
 }
+
+
+<script>
+    function ShowDetails(data) {
+        var url = $(data).data('url');
+        var modalID = $(data).attr('id');
+        var modalName = $(data).data('name');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: { modalID: modalID },
+            success: function (data) {
+                $("#ModalBox").html(data);
+                $(modalName).modal('show');
+            },
+            error: function (error) {
+                console.error('Error loading income data:', error);
+            }
+        });
+    }
+</script>

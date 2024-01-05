@@ -41,17 +41,17 @@
             <div class="row g-5 g-xl-8">
                 <div class="col-xl-3">
                     <!--begin::Statistics Widget 5-->
-                    <a asp-area="MST_Hospital" asp-controller="MST_Hospital" asp-action="Index" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
+                    <a asp-area="SEC_User" asp-controller="SEC_User" asp-action="Index" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
                         <!--begin::Body-->
                         <div class="card-body">
                             <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
                             <span class="d-flex">
-                                <img alt="Logo" class="" width="45" height="45" src="@CommonVariables.HospitalDashboardLogo" />
-                                <div class="text-white fw-bold fs-2 mb-2 mt-4 mx-5">Hospitals</div>
+                                <img alt="Logo" class="" width="45" height="45" src="@CommonVariables.UserListLogoWhite" />
+                                <div class="text-white fw-bold fs-2 mb-2 mt-4 mx-5">Users</div>
 
                             </span>
                             <p class="text-light count-text" style="font-size:2.4rem; position:relative;left:10px;">
-                                <span id="hospitalCounter">@dr1["Hospital_Count"]</span>
+                                <span id="UserCounter">@dr1["User_Count"]</span>
                             </p>
                             <!--end::Svg Icon-->
                         </div>
@@ -388,7 +388,7 @@
             }
 
             // Initialize Counter Up for each counter element
-            initializeCounter('#hospitalCounter');
+            initializeCounter('#UserCounter');
             initializeCounter('#treatmentCounter');
             initializeCounter('#incomeCounter');
             initializeCounter('#expenseCounter');

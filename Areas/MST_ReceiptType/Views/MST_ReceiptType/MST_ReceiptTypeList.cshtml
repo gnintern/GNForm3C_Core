@@ -109,6 +109,7 @@
                 <!--end::Card toolbar-->
                 <!--begin::Card title-->
                 <div class="card-title">
+                    <div class="d-flex">
                     <!--begin::Search-->
                     <div class="d-flex align-items-center position-relative">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
@@ -122,6 +123,17 @@
                         <input type="text" data-kt-ecommerce-order-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Receipt Type" />
                     </div>
                     <!--end::Search-->
+                        <!--begin::Download Excel-->
+                        @if (ViewBag.ReceiptTypeList.Count != 0)
+                        {
+                            <div style="padding-left:10px;">
+                                <button class="btn btn-success" id="exportBtn">
+                                    <i class="fa-solid fa-file-excel fa-5x"></i> <span style="position:relative;top:1px;">Export</span>
+                                </button>
+                            </div>
+                        }
+                        <!--end::Download Excel-->
+                    </div>
                 </div>
                 <!--begin::Card title-->
             </div>

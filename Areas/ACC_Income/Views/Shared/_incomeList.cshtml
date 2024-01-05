@@ -32,6 +32,10 @@
                 <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
 
                 <td class="text-center">
+                    <a onclick="ShowDetails(this)" data-url="/ACC_Income/IncomeDetail" data-name="#incomeDetails" id="@CommonFunctions.EncryptBase64(dr.IncomeID.ToString())"
+                       data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="View" class="fs-1 cursor-pointer" style="position:relative;top:5px;">
+                        <i class="fa-regular fa-file fa-sm"></i>
+                    </a>
                     <a class="text-decoration-none text-primary edit-button"
                        data-bs-toggle="tooltip"
                        data-bs-placement="left" data-bs-title="Edit"
@@ -43,7 +47,7 @@
                             <path fill-rule="evenodd"
                                   d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                         </svg>
-                    </a>&nbsp;
+                    </a>
                     <a class="text-decoration-none text-danger"
                        data-bs-toggle="tooltip" data-bs-placement="right"
                        data-bs-title="Delete"

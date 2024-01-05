@@ -24,6 +24,7 @@
         public static string HospitalDashboardLogo = "/Theme/assets/media/svg/downloaded-icons/hospital-buildings-white.svg";
         public static string FinYearListLogo = "/Theme/assets/media/svg/downloaded-icons/date-icon.svg";
         public static string UserListLogo = "/Theme/assets/media/svg/downloaded-icons/userListLogo.svg";
+        public static string UserListLogoWhite = "/Theme/assets/media/svg/downloaded-icons/userListLogoWhite.svg";
         public static string IncomeTypeListLogo = "/Theme/assets/media/svg/downloaded-icons/income-type-black.svg";
         public static string ExpenseTypeListLogo = "/Theme/assets/media/svg/downloaded-icons/expense-type-black.svg";
         public static string ReceiptTypeListLogo = "/Theme/assets/media/svg/downloaded-icons/receipt-type-black.svg";

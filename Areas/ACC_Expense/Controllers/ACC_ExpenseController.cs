@@ -195,5 +195,35 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
         {
             return RedirectToAction ("Index");
         }
+
+        #region Fill Expense Modal
+        public IActionResult ExpenseDetail(string? modalID)
+        {
+
+            ACC_ExpenseModel modelACC_Expense = new ACC_ExpenseModel();
+            #region Decrypt the Id
+            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(modalID);
+            int id = decryptedID.Value;
+            #endregion
+
+            #region Select_PK record
+            DataTable dt = dalACC.PR_Expense_SelectView(id);
+            foreach (DataRow dr in dt.Rows)
+            {
+                modelACC_Expense.ExpenseID = Convert.ToInt32(dr["ExpenseID"]);
+                modelACC_Expense.ExpenseTypeID = Convert.ToInt32(dr["ExpenseTypeID"]);
+                modelACC_Expense.ExpenseType = dr["ExpenseType"].ToString();
+                modelACC_Expense.HospitalID = Convert.ToInt32(dr["HospitalID"]);
+                modelACC_Expense.Hospital = dr["Hospital"].ToString();
+                modelACC_Expense.Date = Convert.ToDateTime(dr["Date"]);
+                modelACC_Expense.FinYearName = dr["FinYearName"].ToString();
+                modelACC_Expense.Amount = Convert.ToDecimal(dr["Amount"].ToString());
+                modelACC_Expense.Note = dr["Note"].ToString();
+                modelACC_Expense.Modified = Convert.ToDateTime(dr["Modified"]);
+            }
+            #endregion
+            return PartialView("~/Areas/ACC_Expense/Views/Shared/_ExpenseDetails.cshtml", modelACC_Expense);
+        }
+        #endregion
     }
 }

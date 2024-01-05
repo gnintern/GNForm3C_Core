@@ -397,6 +397,30 @@ namespace GNForm3C_.DAL
             }
         }
         #endregion
+
+        #region PR_FinYear_SelectView
+        public DataTable PR_FinYear_SelectView(int? FinYearID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_FinYear_SelectView");
+
+                sqldb.AddInParameter(dbCMD, "FinYearID", SqlDbType.Int, FinYearID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
         #endregion
 
         #region MST_ExpenseType
@@ -547,6 +571,30 @@ namespace GNForm3C_.DAL
         }
         #endregion
 
+        #region PR_ExpenseType_SelectView
+        public DataTable PR_ExpenseType_SelectView(int? ExpenseTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ExpenseType_SelectView");
+
+                sqldb.AddInParameter(dbCMD, "ExpenseTypeID", SqlDbType.Int, ExpenseTypeID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
         #endregion
 
         #region MST_Treatment
@@ -688,6 +736,30 @@ namespace GNForm3C_.DAL
                 return dt;
             }
             catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_Treatment_SelectView
+        public DataTable PR_Treatment_SelectView(int? TreatmentID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Treatment_SelectView");
+
+                sqldb.AddInParameter(dbCMD, "TreatmentID", SqlDbType.Int, TreatmentID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
             {
                 return null;
             }
@@ -843,6 +915,30 @@ namespace GNForm3C_.DAL
         }
         #endregion
 
+        #region PR_IncomeType_SelectView
+        public DataTable PR_IncomeType_SelectView(int? IncomeTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_IncomeType_SelectView");
+
+                sqldb.AddInParameter(dbCMD, "IncomeTypeID", SqlDbType.Int, IncomeTypeID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
         #endregion
 
         #region MST_SubTreatment
@@ -978,6 +1074,30 @@ namespace GNForm3C_.DAL
                 return dt;
             }
             catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region PR_SubTreatment_SelectView
+        public DataTable PR_SubTreatment_SelectView(int? SubTreatmentID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_SubTreatment_SelectView");
+
+                sqldb.AddInParameter(dbCMD, "SubTreatmentID", SqlDbType.Int, SubTreatmentID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
             {
                 return null;
             }
@@ -1137,6 +1257,30 @@ namespace GNForm3C_.DAL
             }
         }
         #endregion
+
+        #region PR_ReceiptType_SelectView
+        public DataTable PR_ReceiptType_SelectView(int? ReceiptTypeID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_ReceiptType_SelectView");
+
+                sqldb.AddInParameter(dbCMD, "ReceiptTypeID", SqlDbType.Int, ReceiptTypeID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion        #endregion
         #endregion
     }
 }

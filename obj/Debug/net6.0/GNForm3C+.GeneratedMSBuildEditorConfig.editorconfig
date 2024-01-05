@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcQUNDX0V4cGVuc2VcQUNDX0V4cGVuc2VMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Expense/Views/Shared/_ExpenseDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcU2hhcmVkXF9FeHBlbnNlRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Expense/Views/Shared/_expenseList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0V4cGVuc2VcVmlld3NcU2hhcmVkXF9leHBlbnNlTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xTaGFyZWRcX2ZpbHRlckluY29tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Income/Views/Shared/_IncomeDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xTaGFyZWRcX0luY29tZURldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Income/Views/Shared/_incomeList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX0luY29tZVxWaWV3c1xTaGFyZWRcX2luY29tZUxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -68,6 +76,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcU2hhcmVkXF9maWx0ZXJSZWNlaXB0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Receipt/Views/Shared/_ReceiptDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcU2hhcmVkXF9SZWNlaXB0RGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/ACC_Receipt/Views/Shared/_receiptList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQUNDX1JlY2VpcHRcVmlld3NcU2hhcmVkXF9yZWNlaXB0TGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -82,6 +94,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ExpenseType/Views/MST_ExpenseType/MST_ExpenseTypeList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0V4cGVuc2VUeXBlXFZpZXdzXE1TVF9FeHBlbnNlVHlwZVxNU1RfRXhwZW5zZVR5cGVMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ExpenseType/Views/Shared/_ExpenseTypeDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0V4cGVuc2VUeXBlXFZpZXdzXFNoYXJlZFxfRXhwZW5zZVR5cGVEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ExpenseType/Views/Shared/_filterExpenseType.cshtml]
@@ -102,6 +118,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/Shared/_filterFinYear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0ZpblllYXJcVmlld3NcU2hhcmVkXF9maWx0ZXJGaW5ZZWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/Shared/_FinYearDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0ZpblllYXJcVmlld3NcU2hhcmVkXF9GaW5ZZWFyRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_FinYear/Views/_ViewImports.cshtml]
@@ -140,6 +160,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcU2hhcmVkXF9maWx0ZXJJbmNvbWVUeXBlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_IncomeType/Views/Shared/_IncomeTypeDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcU2hhcmVkXF9JbmNvbWVUeXBlRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_IncomeType/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0luY29tZVR5cGVcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -154,6 +178,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ReceiptType/Views/Shared/_filterReceiptType.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1JlY2VpcHRUeXBlXFZpZXdzXFNoYXJlZFxfZmlsdGVyUmVjZWlwdFR5cGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ReceiptType/Views/Shared/_ReceiptTypeDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1JlY2VpcHRUeXBlXFZpZXdzXFNoYXJlZFxfUmVjZWlwdFR5cGVEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_ReceiptType/Views/_ViewImports.cshtml]
@@ -172,6 +200,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xTaGFyZWRcX2ZpbHRlclN1YlRyZWF0bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_SubTreatment/Views/Shared/_SubTreatmentDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xTaGFyZWRcX1N1YlRyZWF0bWVudERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_SubTreatment/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1N1YlRyZWF0bWVudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -186,6 +218,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Treatment/Views/Shared/_filterTreatment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xTaGFyZWRcX2ZpbHRlclRyZWF0bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Treatment/Views/Shared/_TreatmentDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1RyZWF0bWVudFxWaWV3c1xTaGFyZWRcX1RyZWF0bWVudERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mayur/source/repos/GNForm3C_Core/Areas/MST_Treatment/Views/_ViewImports.cshtml]

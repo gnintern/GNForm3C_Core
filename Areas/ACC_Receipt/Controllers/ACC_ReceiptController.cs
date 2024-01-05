@@ -163,5 +163,51 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
             }
         }
         #endregion
+
+        #region Fill Receipt Modal
+        public IActionResult ReceiptDetail(int? modalID)
+        {
+
+            ACC_ReceiptModel ReceiptModel = new ACC_ReceiptModel();
+
+            #region Select_PK record
+            DataTable dt = dalACC.PR_Transaction_SelectView(modalID);
+            foreach (DataRow dr in dt.Rows)
+            {
+                ReceiptModel.TransactionID = Convert.ToInt32(dr["TransactionID"]);
+                ReceiptModel.Patient = dr["Patient"].ToString();
+                ReceiptModel.TreatmentID = Convert.ToInt32(dr["TreatmentID"]);
+                ReceiptModel.Treatment = dr["Treatment"].ToString();
+                ReceiptModel.Amount = Convert.ToDecimal(dr["SerialNo"].ToString());
+                ReceiptModel.SerialNo = Convert.ToInt32(dr["TransactionID"]);
+                ReceiptModel.ReferenceDoctor = dr["ReferenceDoctor"].ToString();
+                if (dr["Count"].ToString().Trim() != string.Empty)
+                    ReceiptModel.Count = Convert.ToInt32(dr["Count"]);
+                ReceiptModel.ReceiptNo = Convert.ToInt32(dr["ReceiptNo"]);
+                ReceiptModel.Date = Convert.ToDateTime(dr["Date"]);
+                if (dr["DateOfAdmission"].ToString().Trim() != string.Empty)
+                    ReceiptModel.DateOfAdmission = Convert.ToDateTime(dr["DateOfAdmission"].ToString());
+                if (dr["DateOfDischarge"].ToString().Trim() != string.Empty)
+                    ReceiptModel.DateOfDischarge = Convert.ToDateTime(dr["DateOfDischarge"].ToString());
+                if (dr["NoOfDays"].ToString().Trim() != string.Empty)
+                    ReceiptModel.NoOfDays = Convert.ToInt32(dr["NoOfDays"].ToString());
+                if (dr["Deposite"].ToString().Trim() != string.Empty)
+                    ReceiptModel.Deposite = Convert.ToDecimal(dr["Deposite"].ToString());
+                if (dr["NetAmount"].ToString().Trim() != string.Empty)
+                    ReceiptModel.NetAmount = Convert.ToDecimal(dr["NetAmount"].ToString());
+                if (dr["Remarks"].ToString().Trim() != string.Empty)
+                    ReceiptModel.Remarks = dr["Remarks"].ToString();
+                ReceiptModel.HospitalID = Convert.ToInt32(dr["HospitalID"]);
+                ReceiptModel.Hospital = dr["Hospital"].ToString();
+                ReceiptModel.FinYearID = Convert.ToInt32(dr["FinYearID"]);
+                ReceiptModel.FinYearName = dr["FinYearName"].ToString();
+                ReceiptModel.Modified = Convert.ToDateTime(dr["Modified"]);
+
+
+            }
+            #endregion
+            return PartialView("~/Areas/ACC_Receipt/Views/Shared/_ReceiptDetails.cshtml", ReceiptModel);
+        }
+        #endregion
     }
 }

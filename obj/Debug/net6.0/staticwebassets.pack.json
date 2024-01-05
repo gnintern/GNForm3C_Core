@@ -8161,6 +8161,10 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\userListLogo.svg"
     },
     {
+      "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\downloaded-icons\\userListLogoWhite.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\downloaded-icons\\userListLogoWhite.svg"
+    },
+    {
       "Id": "C:\\Users\\mayur\\source\\repos\\GNForm3C_Core\\wwwroot\\Theme\\assets\\media\\svg\\files\\ai-dark.svg",
       "PackagePath": "staticwebassets\\Theme\\assets\\media\\svg\\files\\ai-dark.svg"
     },

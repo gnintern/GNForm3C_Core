@@ -41,7 +41,7 @@
                 @* <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                 </svg>  *@
-             
+
                 <span class="fw-bold"><i class="fa fa-plus fa-2x"></i> Add Sub Treatment</span>
             </a>
             <!--end::Secondary button-->
@@ -53,7 +53,6 @@
     <!--end::Toolbar container-->
 </div>
 <!--end::Toolbar-->
-
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
@@ -110,19 +109,31 @@
                 <!--end::Card toolbar-->
                 <!--begin::Card title-->
                 <div class="card-title">
-                    <!--begin::Search-->
-                    <div class="d-flex align-items-center position-relative">
-                        <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-                        <span class="svg-icon svg-icon-1 position-absolute ms-6">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
-                                <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
-                            </svg>
-                        </span>
-                        <!--end::Svg Icon-->
-                        <input type="text" data-kt-ecommerce-order-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Sub Treatment" />
+                    <div class="d-flex">
+                        <!--begin::Search-->
+                        <div class="d-flex align-items-center position-relative">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                            <span class="svg-icon svg-icon-1 position-absolute ms-6">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                    <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                            <input type="text" data-kt-ecommerce-order-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Sub Treatment" />
+                        </div>
+                        <!--end::Search-->
+                        <!--begin::Download Excel-->
+                        @if (ViewBag.SubTreatmentList.Count != 0)
+                        {
+                            <div style="padding-left:10px;">
+                                <button class="btn btn-success" id="exportBtn">
+                                    <i class="fa-solid fa-file-excel fa-5x"></i> <span style="position:relative;top:1px;">Export</span>
+                                </button>
+                            </div>
+                        }
+                        <!--end::Download Excel-->
                     </div>
-                    <!--end::Search-->
                 </div>
                 <!--begin::Card title-->
             </div>
@@ -148,7 +159,7 @@
                             <th class="text-center">@CommonVariables.Actionlabel</th>
                         </tr>
                     </thead>
-                    <tbody class="fw-semibold text-dark-600 font-weight-normal" >
+                    <tbody class="fw-semibold text-dark-600 font-weight-normal">
                         @foreach (MST_SubTreatmentModel dr in ViewBag.SubTreatmentList)
                         {
                             <tr>
@@ -169,15 +180,15 @@
                                     }
                                 </td>
                                 <td class="text-center min-w-100px">
-                                        @if (dr.IsPerDay == true)
-                                        {
+                                    @if (dr.IsPerDay == true)
+                                    {
                                         <h1 class="badge badge-light-success badge-circle fw-normal fs-6">Yes</h1>
 
-                                        }
-                                        else
-                                        {
+                                    }
+                                    else
+                                    {
                                         <h1 class="badge badge-light-danger badge-circle fw-normal fs-6">No</h1>
-                                        }
+                                    }
                                 </td>
 
                                 <td class="min-w-50px">@dr.Remarks</td>

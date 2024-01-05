@@ -1238,3 +1238,10 @@ C:\Users\mayur\Desktop\GNForm3C_Core\obj\Debug\net6.0\refint\GNForm3C+.dll
 C:\Users\mayur\Desktop\GNForm3C_Core\obj\Debug\net6.0\GNForm3C+.pdb
 C:\Users\mayur\Desktop\GNForm3C_Core\obj\Debug\net6.0\GNForm3C+.genruntimeconfig.cache
 C:\Users\mayur\Desktop\GNForm3C_Core\obj\Debug\net6.0\ref\GNForm3C+.dll
+C:\Users\mayur\source\repos\GNForm3C_Core\bin\Debug\net6.0\ClosedXML.dll
+C:\Users\mayur\source\repos\GNForm3C_Core\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\mayur\source\repos\GNForm3C_Core\bin\Debug\net6.0\ExcelNumberFormat.dll
+C:\Users\mayur\source\repos\GNForm3C_Core\bin\Debug\net6.0\Irony.dll
+C:\Users\mayur\source\repos\GNForm3C_Core\bin\Debug\net6.0\SixLabors.Fonts.dll
+C:\Users\mayur\source\repos\GNForm3C_Core\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\Users\mayur\source\repos\GNForm3C_Core\bin\Debug\net6.0\XLParser.dll

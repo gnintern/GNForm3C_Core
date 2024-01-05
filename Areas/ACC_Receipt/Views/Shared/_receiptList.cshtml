@@ -7,6 +7,7 @@
     <thead>
         <!--begin::Table row-->
         <tr class="text-start text-dark fw-bold fs-5 ">
+            <th class="min-w-250px">@CommonVariables.Actionlabel</th>
             <th class="min-w-250px">@CommonVariables.HospitalNamelabel</th>
             <th class="min-w-125px">@CommonVariables.Treatmentlabel</th>
             <th class="min-w-125px">@CommonVariables.PatientNamelabel</th>
@@ -29,6 +30,12 @@
         @foreach(ACC_ReceiptModel dr in ViewBag.ReceiptsList)
         {
             <tr>
+                <td>
+                    <a onclick="ShowDetails(this)" data-url="/ACC_Receipt/ReceiptDetail" data-name="#receiptDetails" id="@dr.TransactionID"
+                       data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="View" class="fs-1 cursor-pointer" style="position:relative;top:5px;">
+                        <i class="fa-regular fa-file fa-sm"></i>
+                    </a>
+                </td>
                 <td>@dr.Hospital</td>
                 <td>@dr.Treatment</td>
                 <td>@dr.Patient</td>
