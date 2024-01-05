@@ -6,12 +6,11 @@ namespace GNForm3C_.Areas.MST_FinYear.Models
     public class MST_FinYearModel
     {
         public int? FinYearID { get; set; }
-        [Required]
         public string? FinYearName { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Please Enter From Date")]
         [DisplayName("From Date")]
         public DateTime FromDate { get; set; }
-        [Required]
+		[Required(ErrorMessage = "Please Enter To Date")]
 		[DisplayName("To Date")]
 		public DateTime ToDate { get; set; }
         public DateTime? Created { get; set; } 

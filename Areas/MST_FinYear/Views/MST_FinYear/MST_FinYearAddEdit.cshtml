@@ -126,10 +126,10 @@
 
 						<!--begin::Actions-->
 						<div>
-							<button onclick="fn1()" type="submit" class="btn btn-primary" style="margin-right:5px;">
+							<button onclick="fn1()" type="submit" class="@CommonVariables.SaveBtnColor" style="margin-right:5px;">
 								<span class="indicator-label">@TempData["ButtonAction"]</span>
 							</button>
-							<a type="submit" class="btn btn-light me-3" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Index">
+							<a type="submit" class="@CommonVariables.BackToListBtnColor me-3" asp-area="MST_FinYear" asp-controller="MST_FinYear" asp-action="Index">
 								Back to List
 							</a>
 						</div>

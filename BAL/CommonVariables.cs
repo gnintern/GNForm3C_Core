@@ -36,16 +36,21 @@
         #endregion
 
         #region Common Button
-        public static string addbtncolor = "btn btn-success btn-sm rounded-pill ";
-        public static string searchbtncolor = "btn btn-primary btn-sm";
-        public static string clearbtncolor = "btn btn-light btn-sm";
+        public static string AddBtnColor = "btn btn-success btn-sm rounded-pill ";
+        public static string SearchBtnColor = "btn btn-primary btn-sm";
+        public static string ClearBtnColor = "btn btn-light btn-sm";
+        public static string SaveBtnColor = "btn btn-primary btn-sm";
+        public static string BackToListBtnColor = "btn btn-light btn-sm";
+
         #endregion
 
         #region Common Labels
         public static string ExpenseTypelabel = "Expense Type";
         public static string IncomeTypelabel = "Income Type";
-        public static string Datelabel = "Date";
-        public static string Amountlabel = "Amount";
+        public static string ExpenseDatelabel = "Expense Date";
+		public static string IncomeDatelabel = "Income Date";
+		public static string ReceiptDatelabel = "Receipt Date";
+		public static string Amountlabel = "Amount";
         public static string AdvanceAmountlabel = "Advance";
         public static string NetAmountlabel = "Net Amount";
         public static string Created = "Created";

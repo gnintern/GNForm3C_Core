@@ -2,25 +2,24 @@
 using System.ComponentModel.DataAnnotations;
 namespace GNForm3C_.Areas.MST_SubTreatment.Models
 {
-    public class MST_SubTreatmentModel
-    {
-        public int? SubTreatmentID { get; set; }
-        [Required]
-        [DisplayName("SubTreatment Name")]
-        public string? SubTreatmentName { get; set; }
-        public int? SequenceNo { get; set; }
-        public decimal? Rate { get; set; }
-        public bool? IsInGrid { get; set; }
-        public bool? IsPerDay { get; set; }
-      
-        public string? Remarks { get; set; }
-        [Required]
-        [DisplayName("Hospital Name")]
-        public int? HospitalID { get; set; }  
-        public string? Hospital { get; set; }
-       
-        public string? DefaultUnit { get; set; }
-        public DateTime Created { get; set; } 
-        public DateTime Modified { get; set; } 
-    }
+	public class MST_SubTreatmentModel
+	{
+		public int? SubTreatmentID { get; set; }
+		[Required(ErrorMessage = "Please Enter Sub Treatment")]
+		[DisplayName("SubTreatment Name")]
+		public string? SubTreatmentName { get; set; }
+		public int? SequenceNo { get; set; }
+		public decimal? Rate { get; set; }
+		public bool? IsInGrid { get; set; }
+		public bool? IsPerDay { get; set; }
+		public string? Remarks { get; set; }
+		[Required(ErrorMessage = "Please Select Hospital")]
+		[DisplayName("Hospital Name")]
+		public int? HospitalID { get; set; }
+		public string? Hospital { get; set; }
+
+		public string? DefaultUnit { get; set; }
+		public DateTime Created { get; set; }
+		public DateTime Modified { get; set; }
+	}
 }

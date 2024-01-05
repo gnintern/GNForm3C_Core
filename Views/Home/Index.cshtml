@@ -139,7 +139,7 @@
 
                                     Recently Added Transaction
                                 </h3>
-                                <a class="@CommonVariables.addbtncolor text-end   text-light fw-bold" style="color:#444444; margin-left:auto;" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Add" target="_blank">
+                                <a class="@CommonVariables.AddBtnColor text-end   text-light fw-bold" style="color:#444444; margin-left:auto;" asp-area="ACC_Receipt" asp-controller="ACC_Receipt" asp-action="Add" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                                     </svg> Add New 
@@ -151,7 +151,7 @@
                                 <table class="table table-hover table-striped mt-3 " id="">
                                     <thead>
                                         <tr class="text-start text-dark fw-bold fs-4 gs-0">
-                                            <th class="text-center min-w-100px">@CommonVariables.Datelabel</th>
+                                            <th class="text-center min-w-150px">@CommonVariables.ReceiptDatelabel</th>
                                             <th class="text-center min-w-100px">@CommonVariables.SerialNolabel</th>
                                             <th class="text-center min-w-150px">@CommonVariables.ReceiptNolabel</th>
                                             <th class="text-center min-w-150px">@CommonVariables.PatientNamelabel</th>
@@ -203,7 +203,7 @@
 
                                     Recently Added Treatment
                                 </h3>
-                                <a class="@CommonVariables.addbtncolor  text-end   text-light fw-bold" style="color:#444444; margin-left:auto;" asp-area="MST_Treatment" asp-controller="MST_Treatment" asp-action="Add" target="_blank">
+                                <a class="@CommonVariables.AddBtnColor  text-end   text-light fw-bold" style="color:#444444; margin-left:auto;" asp-area="MST_Treatment" asp-controller="MST_Treatment" asp-action="Add" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                                     </svg> Add New
@@ -263,7 +263,7 @@
                                     Recently Added Income
                                 </h3>
                               
-                                <a class="@CommonVariables.addbtncolor text-end text-light fw-bold" style="color:#444444; margin-left:auto;" asp-area="ACC_Income" asp-controller="ACC_Income" asp-action="Add" target="_blank">
+                                <a class="@CommonVariables.AddBtnColor text-end text-light fw-bold" style="color:#444444; margin-left:auto;" asp-area="ACC_Income" asp-controller="ACC_Income" asp-action="Add" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                                     </svg> Add New
@@ -276,7 +276,7 @@
                                     <tr class="text-start text-dark fw-bold fs-4 gs-0">
                                         <th class="text-center">@CommonVariables.HospitalNamelabel</th>
                                         <th class="text-center">@CommonVariables.IncomeTypelabel</th>
-                                        <th class="text-center">@CommonVariables.Datelabel</th>
+                                        <th class="text-center">@CommonVariables.IncomeDatelabel</th>
                                         <th class="text-center">@CommonVariables.Amountlabel</th>
                                         @* <th class="text-center">Note</th> *@
                                         <th class="text-center min-w-125px">@CommonVariables.FinancialYearNamelabel</th>
@@ -318,7 +318,7 @@
                                     <img src="~/Theme//assets/media/svg/recent-svgrepo-com.svg" height="18" width="18" />
                                     Recently Added Expense
                                 </h3>
-                                <a class="@CommonVariables.addbtncolor text-end   text-light fw-boldd" style="color:#444444; margin-left:auto;" asp-area="ACC_Expense" asp-controller="ACC_Expense" asp-action="Add" target="_blank">
+                                <a class="@CommonVariables.AddBtnColor text-end   text-light fw-boldd" style="color:#444444; margin-left:auto;" asp-area="ACC_Expense" asp-controller="ACC_Expense" asp-action="Add" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                                     </svg> Add New
@@ -330,7 +330,7 @@
                                     <tr class="text-start text-dark fw-bold fs-4 gs-0">
                                         <th class="text-center">@CommonVariables.HospitalNamelabel</th>
                                         <th class="text-center">@CommonVariables.ExpenseTypelabel</th>
-                                        <th class="text-center">@CommonVariables.Datelabel</th>
+                                        <th class="text-center">@CommonVariables.ExpenseDatelabel</th>
                                         <th class="text-center">@CommonVariables.Amountlabel</th>
                                         <th class="text-center min-w-125px">@CommonVariables.FinancialYearNamelabel</th>
 
