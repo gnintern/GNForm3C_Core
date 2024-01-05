@@ -51,7 +51,7 @@
         public static string Created = "Created";
         public static string Modified = "Modified";
         public static string notelabel = "Note";
-        public static string FinancialYearNamelabel = "FinancialYear";
+        public static string FinancialYearNamelabel = "Financial Year";
         public static string HospitalNamelabel = "Hospital";
         public static string PrintNameHospitallabel = "Print Name";
         public static string PrintLine1label = "Print Line-1";
@@ -71,8 +71,8 @@
         public static string Treatmentlabel = "Treatment";
         public static string SubTreatmentlabel = "Sub Treatment";
         public static string SequenceNolabel = "Sequence No";
-        public static string ReceiptNolabel = "Serial No";
-        public static string SerialNolabel = "Receipt No";
+        public static string ReceiptNolabel = "Receipt No";
+        public static string SerialNolabel = "Serial No";
         public static string Ratelabel = "Rate";
         public static string AutoLoadinReceiptlabel = "Auto Load In Receipt";
         public static string Unitlabel = "Unit";

@@ -44,7 +44,7 @@ namespace GNForm3C_.Areas.MST_ReceiptType.Controllers
             }
         #endregion
 
-        #region Function: Delete record
+            #region Function: Delete record
         public IActionResult Delete(string? ReceiptTypeID)
         {
             #region Decrypt the Id
@@ -63,9 +63,7 @@ namespace GNForm3C_.Areas.MST_ReceiptType.Controllers
         }
         #endregion
 
-        #region Function: Upsert the Record
-
-        #region Add Record
+            #region Add Record
         public IActionResult Add(string? ReceiptTypeID)
         {
 
@@ -73,18 +71,26 @@ namespace GNForm3C_.Areas.MST_ReceiptType.Controllers
             {
                 #region Form Title
                 TempData["Action"] = "Add";
-                #endregion
+				#endregion
 
-                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
+				#region Button Title
+				TempData["ButtonAction"] = "Save";
+				#endregion
+
+				ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
 
                 if (ReceiptTypeID != null)
                 {
                     #region Form Title
                     TempData["Action"] = "Edit";
-                    #endregion
+					#endregion
 
-                    #region Decrypt the Id
-                    SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(ReceiptTypeID);
+					#region Button Title
+					TempData["ButtonAction"] = "Update";
+					#endregion
+
+					#region Decrypt the Id
+					SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(ReceiptTypeID);
                     int id = decryptedID.Value;
                     #endregion
 
@@ -111,8 +117,10 @@ namespace GNForm3C_.Areas.MST_ReceiptType.Controllers
         }
         #endregion
 
-        [HttpPost]
+        
+
         #region Save Record
+        [HttpPost]
         public IActionResult Save(MST_ReceiptTypeModel modelReceiptType, string ReceiptTypeID)
         {
 
@@ -150,7 +158,7 @@ namespace GNForm3C_.Areas.MST_ReceiptType.Controllers
 
         #endregion
 
-        #endregion
+       
     }
 }
 

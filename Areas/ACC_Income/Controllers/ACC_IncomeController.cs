@@ -84,9 +84,13 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
             {
                 #region Form Title
                 TempData["Action"] = "Add";
-                #endregion
+				#endregion
 
-                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
+				#region Button Title
+				TempData["ButtonAction"] = "Save";
+				#endregion
+
+				ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
                 ViewBag.IncomeTypeDropDown = CommonFillMethod.SelectDropDownListForIncomeType().ToList();
 
 
@@ -94,10 +98,14 @@ namespace GNForm3C_.Areas.ACC_Income.Controllers
                 {
                     #region Form Title
                     TempData["Action"] = "Edit";
-                    #endregion
+					#endregion
 
-                    #region Decrypt the Id
-                    SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(IncomeID);
+					#region Button Title
+					TempData["ButtonAction"] = "Update";
+					#endregion
+
+					#region Decrypt the Id
+					SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(IncomeID);
                     int id = decryptedID.Value;
                     #endregion
 

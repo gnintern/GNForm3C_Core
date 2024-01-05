@@ -51,9 +51,10 @@ namespace GNForm3C_.Areas.MST_ExpenseType
                 TempData["Action"] = "Add";
 				#endregion
 
-				#region Form Title
-				ViewData["Title"] = "Add";
+				#region Button Title
+				TempData["ButtonAction"] = "Save";
 				#endregion
+
 
 				ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
                 if(ExpenseTypeID != null)
@@ -62,8 +63,8 @@ namespace GNForm3C_.Areas.MST_ExpenseType
                     TempData["Action"] = "Edit";
 					#endregion
 
-					#region Form Title
-					ViewData["Title"] = "Edit";
+					#region Button Title
+					TempData["ButtonAction"] = "Update";
 					#endregion
 
 					#region Decrypt the Id

@@ -1,6 +1,6 @@
 ﻿@using GNForm3C_.BAL;
 @{
-	ViewData["Title"] = TempData["Action"] + " SubTreatment";
+	ViewData["Title"] = TempData["Action"] + " Sub Treatment";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model GNForm3C_.Areas.MST_SubTreatment.Models.MST_SubTreatmentModel;
@@ -12,7 +12,7 @@
 		<!--begin::Page title-->
 		<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 			<!--begin::Title-->
-			<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">SubTreatment</h1>
+			<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Sub Treatment</h1>
 			<!--end::Title-->
 			<!--begin::Breadcrumb-->
 			<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -28,7 +28,7 @@
 				<!--end::Item-->
 				<!--begin::Item-->
 				<li class="breadcrumb-item text-muted">
-					<a asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Index" class="text-muted text-hover-primary">SubTreatments</a>
+					<a asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Index" class="text-muted text-hover-primary">Sub Treatment</a>
 				</li>
 				<!--end::Item-->
 				<!--begin::Item-->
@@ -37,7 +37,7 @@
 				</li>
 				<!--end::Item-->
 				<!--begin::Item-->
-				<li class="breadcrumb-item fw-bolder">@TempData["Action"] SubTreatment</li>
+				<li class="breadcrumb-item fw-bolder">@TempData["Action"] Sub Treatment</li>
 				<!--end::Item-->
 			</ul>
 			<!--end::Breadcrumb-->
@@ -162,7 +162,7 @@
 						<!--begin::Actions-->
 						<div>
 							<button onclick="fn1()" type="submit" class="btn btn-primary" style="margin-right:5px;">
-								<span class="indicator-label">Submit</span>
+								<span class="indicator-label">@TempData["ButtonAction"]</span>
 							</button>
 							<a type="submit" class="btn btn-light me-3" asp-area="MST_SubTreatment" asp-controller="MST_SubTreatment" asp-action="Index">
 								Back to List

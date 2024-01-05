@@ -60,7 +60,7 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
 		}
 		#endregion
 
-		#region Function: Upsert the Record
+		
 
 		#region Add Record
 		public IActionResult Add(string? FinYearID)
@@ -73,10 +73,18 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
 				TempData["Action"] = "Add";
 				#endregion
 
-				if(FinYearID != null)
+				#region Button Title
+				TempData["ButtonAction"] = "Save";
+				#endregion
+
+				if (FinYearID != null)
 				{
 					#region Form Title
 					TempData["Action"] = "Edit";
+					#endregion
+
+					#region Button Title
+					TempData["ButtonAction"] = "Update";
 					#endregion
 
 					#region Decrypt the Id
@@ -210,7 +218,7 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
         }
         #endregion
 
-        #endregion
+       
 
         #region IsLeapYear
         private bool IsLeapYear(int year)

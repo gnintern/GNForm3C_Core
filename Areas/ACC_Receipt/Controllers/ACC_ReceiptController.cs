@@ -97,10 +97,16 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
         #region Add
         public IActionResult Add()
         {
+
+            #region Button Title
+            TempData["ButtonAction"] = "Save";
+            #endregion
+
             ACC_ReceiptModel modelACC_Receipt = new ACC_ReceiptModel();
             ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
             ViewBag.ReceiptTypeDropDown = CommonFillMethod.SelectDropDownListForReceiptType().ToList();
             ViewBag.TreatmentDropDown = CommonFillMethod.SelectDropDownListForTreatment().ToList();
+            
             #region Add record
             DataTable dt = dalACC.PR_Transaction_SelectSerialNoReceiptNoDate();
             foreach (DataRow dr in dt.Rows)

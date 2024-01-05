@@ -65,7 +65,7 @@ namespace GNForm3C_.Areas.MST_SubTreatment.Controllers
         }
         #endregion
 
-        #region Function: Upsert the Record
+        
 
         #region Add Record
         public IActionResult Add(string? SubTreatmentID)
@@ -75,18 +75,26 @@ namespace GNForm3C_.Areas.MST_SubTreatment.Controllers
             {
                 #region Form Title
                 TempData["Action"] = "Add";
-                #endregion
+				#endregion
 
-                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
+				#region Button Title
+				TempData["ButtonAction"] = "Save";
+				#endregion
+
+				ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
 
                 if (SubTreatmentID != null)
                 {
                     #region Form Title
                     TempData["Action"] = "Edit";
-                    #endregion
+					#endregion
 
-                    #region Decrypt the Id
-                    SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(SubTreatmentID);
+					#region Button Title
+					TempData["ButtonAction"] = "Update";
+					#endregion
+
+					#region Decrypt the Id
+					SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(SubTreatmentID);
                     int id = decryptedID.Value;
                     #endregion
 
@@ -117,8 +125,8 @@ namespace GNForm3C_.Areas.MST_SubTreatment.Controllers
         #endregion
 
 
-        [HttpPost]
         #region Save Record
+        [HttpPost]
         public IActionResult Save(MST_SubTreatmentModel modelSubTreatment, string SubTreatmentID)
         {
 
@@ -156,7 +164,7 @@ namespace GNForm3C_.Areas.MST_SubTreatment.Controllers
 
         #endregion
 
-        #endregion
+       
     }
 }
 

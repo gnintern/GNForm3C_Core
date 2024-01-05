@@ -48,24 +48,26 @@ namespace GNForm3C_.Areas.MST_IncomeType.Controllers
             {
                 #region Form Title
                 TempData["Action"] = "Add";
-                #endregion
+				#endregion
 
-                #region Form Title
-                ViewData["Title"] = "Add";
-                #endregion
-                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
+				#region Button Title
+				TempData["ButtonAction"] = "Save";
+				#endregion
+
+
+				ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
                 if (IncomeTypeID != null)
                 {
                     #region Form Title
                     TempData["Action"] = "Edit";
-                    #endregion
+					#endregion
 
-                    #region Form Title
-                    ViewData["Title"] = "Edit";
-                    #endregion
+					#region Button Title
+					TempData["ButtonAction"] = "Update";
+					#endregion
 
-                    #region Decrypt the Id
-                    SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(IncomeTypeID);
+					#region Decrypt the Id
+					SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(IncomeTypeID);
                     int id = decryptedID.Value;
 					#endregion
 

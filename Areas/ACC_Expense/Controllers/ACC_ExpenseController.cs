@@ -88,6 +88,10 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
                 TempData["Action"] = "Add";
                 #endregion
 
+                #region Button Title
+                TempData["ButtonAction"] = "Save";
+                #endregion
+
                 ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
                 ViewBag.ExpenseTypeDropDown = CommonFillMethod.SelectDropDownListForExpenseType().ToList();
 
@@ -96,6 +100,10 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
                 {
                     #region Form Title
                     TempData["Action"] = "Edit";
+                    #endregion
+
+                    #region Button Title
+                    TempData["ButtonAction"] = "Update";
                     #endregion
 
                     #region Decrypt the Id

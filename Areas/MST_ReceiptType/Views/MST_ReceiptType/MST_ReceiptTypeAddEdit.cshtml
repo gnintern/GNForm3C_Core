@@ -1,6 +1,6 @@
 ﻿@using GNForm3C_.BAL;
 @{
-	ViewData["Title"] = TempData["Action"] + " ReceiptType";
+	ViewData["Title"] = TempData["Action"] + " Receipt Type";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model GNForm3C_.Areas.MST_ReceiptType.Models.MST_ReceiptTypeModel;
@@ -129,7 +129,7 @@
 						<!--begin::Actions-->
 						<div>
 							<button onclick="fn1()" type="submit" class="btn btn-primary" style="margin-right:5px;">
-								<span class="indicator-label">Submit</span>
+								<span class="indicator-label">@TempData["ButtonAction"]</span>
 							</button>
 							<a type="submit" class="btn btn-light me-3" asp-area="MST_ReceiptType" asp-controller="MST_ReceiptType" asp-action="Index">
 								Back to List

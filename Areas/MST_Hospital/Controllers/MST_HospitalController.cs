@@ -70,16 +70,24 @@ namespace GNForm3C_.Areas.MST_Hospital.Controllers
             {
                 #region Form Title
                 TempData["Action"] = "Add";
-                #endregion
+				#endregion
 
-                if(HospitalID != null)
+				#region Button Title
+				TempData["ButtonAction"] = "Save";
+				#endregion
+
+				if (HospitalID != null)
                 {
                     #region Form Title
                     TempData["Action"] = "Edit";
-                    #endregion
+					#endregion
 
-                    #region Decrypt the Id
-                    SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(HospitalID);
+					#region Button Title
+					TempData["ButtonAction"] = "Update";
+					#endregion
+
+					#region Decrypt the Id
+					SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(HospitalID);
                     int id = decryptedID.Value;
                     #endregion
 

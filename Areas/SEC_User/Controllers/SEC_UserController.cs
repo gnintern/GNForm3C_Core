@@ -62,8 +62,6 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 		}
 		#endregion 
 
-		#region Function: Upsert the Record
-
 		#region Add Record
 		public IActionResult Add(string? UserID)
 		{
@@ -72,18 +70,26 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 			{
 				#region Form Title
 				TempData["Action"] = "Add";
-				#endregion
+                #endregion
 
-				ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                #region Button Title
+                TempData["ButtonAction"] = "Save";
+                #endregion
+
+                ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
 
 				if (UserID != null)
 				{
 					#region Form Title
 					TempData["Action"] = "Edit";
-					#endregion
+                    #endregion
 
-					#region Decrypt the Id
-					SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(UserID);
+                    #region Button Title
+                    TempData["ButtonAction"] = "Update";
+                    #endregion
+
+                    #region Decrypt the Id
+                    SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(UserID);
 					int id = decryptedID.Value;
 					#endregion
 
@@ -107,9 +113,8 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 		}
 		#endregion
 
-
-		[HttpPost]
 		#region Save Record
+		[HttpPost]
 		public IActionResult Save(SEC_UserModel modelSEC_User, string UserID)
 		{
 			if (modelSEC_User.Password == modelSEC_User.ConfirmPassword)
@@ -157,9 +162,6 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 			}
 			return RedirectToAction("Index");
 		}
-		#endregion
-
-
 		#endregion
 
 		#region Function: Login

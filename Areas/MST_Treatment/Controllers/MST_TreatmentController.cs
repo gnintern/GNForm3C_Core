@@ -50,17 +50,25 @@ namespace GNForm3C_.Areas.MST_Treatment.Controllers
             {
                 #region Form Title
                 TempData["Action"] = "Add";
-                #endregion
+				#endregion
 
-                ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
+				#region Button Title
+				TempData["ButtonAction"] = "Save";
+				#endregion
+
+				ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
                 if (TreatmentID != null)
                 {
                     #region Form Title
                     TempData["Action"] = "Edit";
-                    #endregion
+					#endregion
 
-                    #region Decrypt the Id
-                    SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(TreatmentID);
+					#region Button Title
+					TempData["ButtonAction"] = "Update";
+					#endregion
+
+					#region Decrypt the Id
+					SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(TreatmentID);
                     int id = decryptedID.Value;
                     #endregion
 
