@@ -147,7 +147,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
                     if(Convert.ToBoolean(dalACC.PR_Expense_Insert(modelACC_Expense)))
                     {
                         TempData["success"] = "Record Inserted Successfully";
-                        return RedirectToAction("Index",modelACC_Expense);
+                        return RedirectToAction("Index");
                     }
                     #endregion
                 }

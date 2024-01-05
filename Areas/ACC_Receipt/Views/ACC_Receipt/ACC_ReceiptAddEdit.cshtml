@@ -170,7 +170,7 @@
                                 </label>
                                 <!--end::Label-->
                                 <div class="col-12 col-md-12 fv-row">
-                                    <input type="text" asp-for="Amount" class="form-control form-control-solid" id="amountInput" placeholder="Enter Amount" autocomplete="off" />
+                                    <input type="text" asp-for="Amount" class="form-control form-control-solid" id="amountInput" maxlength="7" placeholder="Enter Amount" autocomplete="off" />
                                 </div>
                                 <span class="text-danger" asp-validation-for="Amount"></span>
                             </div>
@@ -262,7 +262,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <div class="col-12 col-md-12 fv-row">
-                                        <input type="text" name="deposit" id="advanceInput" asp-for="Deposite" class="form-control form-control-solid" />
+                                        <input type="text" name="deposit" id="advanceInput" maxlength="7" asp-for="Deposite" class="form-control form-control-solid" />
                                     </div>
                                     <span class="text-danger" asp-validation-for="Deposite"></span>
                                 </div>
@@ -276,7 +276,7 @@
                                     </label>
                                     <!--end::Label-->
                                     <div class="col-12 col-md-12 fv-row">
-                                        <input type="text" name="netAmount" id="netAmountInput" asp-for="NetAmount" class="form-control form-control-solid" readonly />
+                                        <input type="text" name="netAmount" id="netAmountInput" maxlength="7" asp-for="NetAmount" class="form-control form-control-solid" readonly />
                                     </div>
                                 </div>
                             </div>
