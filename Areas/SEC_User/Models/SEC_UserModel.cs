@@ -30,4 +30,21 @@ namespace GNForm3C_.Areas.SEC_User.Models
 		public string? FinYearName { get; set; }
 
 	}
+    public class Login_SEC_UserModel
+    {
+
+
+        [Required(ErrorMessage = "Please Enter User Name")]
+        [DisplayName("User Name")]
+        public string? UserName { get; set; }
+
+        [Required(ErrorMessage = "Please Select Hospital")]
+        [DisplayName("Hospital")]
+        public int? HospitalID { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Password")]
+        [DisplayName("Password")]
+        public string? Password { get; set; }
+
+    }
 }

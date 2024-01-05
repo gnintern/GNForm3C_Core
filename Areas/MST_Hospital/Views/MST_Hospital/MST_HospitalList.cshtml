@@ -128,19 +128,19 @@
             <div class="card-body pt-0">
                 <hr />
                 <!--begin::Table-->
-                <table class="table table-row-dashed fs-6 gy-3" id="kt_ecommerce_report_customer_orders_table">
+                <table class="table table-row-dashed fs-6 gy-3 Freeze-Table" id="kt_ecommerce_report_customer_orders_table">
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-4 gs-0">
-                            <th class="min-w-100px">@CommonVariables.HospitalNamelabel</th>
-                            <th class="min-w-100px">@CommonVariables.PrintNameHospitallabel</th>
-                            <th class="min-w-100px">@CommonVariables.PrintLine1label</th>
-                            <th class="min-w-100px">@CommonVariables.PrintLine2label</th>
-                            <th class="min-w-100px">@CommonVariables.PrintLine3label</th>
-                            <th class="min-w-100px">@CommonVariables.FooterNamelabel</th>
+                            <th class="min-w-250px">@CommonVariables.HospitalNamelabel</th>
+                            <th class="min-w-250px">@CommonVariables.PrintNameHospitallabel</th>
+                            <th class="min-w-200px">@CommonVariables.PrintLine1label</th>
+                            <th class="min-w-200px">@CommonVariables.PrintLine2label</th>
+                            <th class="min-w-200px">@CommonVariables.PrintLine3label</th>
                             <th class="min-w-200px">@CommonVariables.HeaderNamelabel</th>
-                            <th class="min-w-100px">@CommonVariables.Modified</th>
-                            <th class="min-w-200px text-center">@CommonVariables.Actionlabel</th>
+                            <th class="min-w-200px">@CommonVariables.FooterNamelabel</th>
+                            @* <th class="min-w-100px">@CommonVariables.Modified</th> *@
+                            <th class="min-w-200px text-center ">@CommonVariables.Actionlabel</th>
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-dark-600 font-weight-normal">
@@ -152,9 +152,9 @@
                                 <td>@dr.PrintLine1</td>
                                 <td>@dr.PrintLine2</td>
                                 <td>@dr.PrintLine3</td>
-                                <td>@dr.FooterName</td>
                                 <td>@dr.ReportHeaderName</td>
-                                <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
+                                <td>@dr.FooterName</td>
+                                @* <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td> *@
                                 <td class="text-center">
                                     <a id="ShowDetails" data-id="@CommonFunctions.EncryptBase64(dr.HospitalID.ToString())"
                                        data-bs-toggle="tooltip" data-bs-placement="right"
@@ -201,6 +201,12 @@
 @section Scripts {
     <script type="text/javascript">
         $(document).ready(function () {
+
+          
+           
+
+
+
             //Modal Box Open Close Ajax Call
             $("tr td #ShowDetails, #ShowDetails").on('click', function () {
                 var HospitalID = $(this).data("id");
@@ -219,4 +225,6 @@
             });
         });
     </script>
+
+    
 }

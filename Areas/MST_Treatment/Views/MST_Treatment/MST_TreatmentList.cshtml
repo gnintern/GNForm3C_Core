@@ -131,13 +131,13 @@
             <div class="card-body pt-0">
                 <hr />
                 <!--begin::Table-->
-                <table class="table table-row-dashed fs-6 gy-3" id="kt_ecommerce_report_customer_orders_table">
+                <table class="table table-row-dashed fs-6 gy-3 Freeze-Table" id="kt_ecommerce_report_customer_orders_table">
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-4 gs-0">
+                            <th>@CommonVariables.HospitalNamelabel</th>
                             <th>@CommonVariables.Treatmentlabel</th>
                             <th>@CommonVariables.Remarklabel</th>
-                            <th>@CommonVariables.HospitalNamelabel</th>
                             <th>@CommonVariables.Created</th>
                             <th>@CommonVariables.Modified</th>
                             <th class="text-center">@CommonVariables.Actionlabel</th>
@@ -147,9 +147,9 @@
                         @foreach(MST_TreatmentModel dr in ViewBag.TreatmentList)
                         {
                             <tr>
+                                <td>@dr.Hospital</td>
                                 <td>@dr.Treatment</td>
                                 <td>@dr.Remarks</td>
-                                <td>@dr.Hospital</td>
                                 <td>@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
                                 <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
                                 <td class="text-center">

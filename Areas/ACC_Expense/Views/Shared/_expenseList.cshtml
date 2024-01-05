@@ -3,18 +3,18 @@
 @using GNForm3C_.BAL;
 
 <!--begin::Table-->
-<table class="table align-middle table-row-dashed fs-6 gy-3 table-responsive table-responsive-md" id="kt_ecommerce_report_customer_orders_table">
+<table class="table align-middle table-row-dashed fs-6 gy-3 table-responsive table-responsive-md Freeze-Table" id="kt_ecommerce_report_customer_orders_table">
     <thead>
         <!--begin::Table row-->
         <tr class="text-start text-dark fw-bold fs-5 ">
+            <th>@CommonVariables.HospitalNamelabel</th>
             <th>@CommonVariables.ExpenseTypelabel</th>
-            <th>@CommonVariables.ExpenseDatelabel</th>
             <th>@CommonVariables.Amountlabel</th>
-            <th>@CommonVariables.notelabel</th>
+            <th>@CommonVariables.ExpenseDatelabel</th>
+            <th>@CommonVariables.FinancialYearNamelabel</th>
+            <th class="min-w-50px">@CommonVariables.notelabel</th>
             <th>@CommonVariables.Created</th>
             <th>@CommonVariables.Modified</th>
-            <th>@CommonVariables.FinancialYearNamelabel</th>
-            <th>@CommonVariables.HospitalNamelabel</th>
             <th class="text-center">@CommonVariables.Actionlabel</th>
         </tr>
     </thead>
@@ -22,14 +22,14 @@
         @foreach(ACC_ExpenseModel dr in ViewBag.ExpenseList)
         {
             <tr>
+                <td>@dr.Hospital</td>
                 <td>@dr.ExpenseType</td>
-                <td>@Convert.ToDateTime(dr.Date).ToString("dd-MM-yyyy")</td>
                 <td>@dr.Amount</td>
+                <td>@Convert.ToDateTime(dr.Date).ToString("dd-MM-yyyy")</td>
+                <td>@dr.FinYearName</td>
                 <td>@dr.Note</td>
                 <td>@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
                 <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
-                <td>@dr.FinYearName</td>
-                <td>@dr.Hospital</td>
 
                 <td class="text-center">
                     <a class="text-decoration-none text-primary edit-button"

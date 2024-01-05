@@ -63,11 +63,9 @@
     </div>
     <!--end::Page-->
     <!--end::App-->
-
     <!--begin::modal-->
     <div id="ModalBox"></div>
     <!--end::modal-->
-
     <!--begin::Javascript-->
     <script>var hostUrl = "~/Theme/assets/";</script>
     <!--begin::Global Javascript Bundle(used by all pages)-->
@@ -141,6 +139,18 @@
         });
     </script>
     @* script for not accepting negative value *@
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var table = $('.Freeze-Table').DataTable();
+            new $.fn.dataTable.FixedColumns(table, {
+                leftColumns: 0, // Number of columns to freeze on the left (0 in this case)
+                rightColumns: 1 // Number of columns to freeze on the right (1 in this case, for the last column)
+            });
+        });
+    </script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
 </body>

@@ -1,5 +1,5 @@
 ﻿@using GNForm3C_.BAL;
-@model GNForm3C_.Areas.SEC_User.Models.SEC_UserModel
+@model GNForm3C_.Areas.SEC_User.Models.Login_SEC_UserModel
 <!--begin::Form-->
 <form method="post" class="form w-100" novalidate="novalidate" id="kt_sign_in_form" asp-area="SEC_User" asp-controller="SEC_User" asp-action="SignIn">
     <!--begin::Heading-->
@@ -10,7 +10,7 @@
         <!--end::Title-->
     </div>
 
-    @if(TempData["Error"] != null)
+    @if (TempData["Error"] != null)
     {
         <div class="col-md-12">
 
@@ -25,7 +25,7 @@
     <!--begin::Input group=-->
     <div class="fv-row mb-8">
         <!--begin::Email-->
-        <select class="form-select form-select-solid" disabled data-control="select2" data-placeholder="Select Finance Year" asp-for="FinYearID" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
+        <select class="form-select form-select-solid" disabled data-control="select2" data-placeholder="Select Finance Year" asp-items="@(new SelectList(ViewBag.FinYearDropDown,"FinYearID","FinYearName"))">
         </select>
         <!--end::Email-->
     </div>
@@ -35,25 +35,25 @@
         <select class="form-select form-select-solid" data-control="select2" asp-for="HospitalID" asp-items="@(new SelectList(ViewBag.HospitalDropDown,"HospitalID","Hospital"))">
             <option value="">Select Hospital</option>
         </select>
-        <span class="text-danger">
-            @if(TempData["HospitalID"] != null)
+        <span class="text-danger" asp-validation-for="HospitalID">
+            @*  @if(TempData["HospitalID"] != null)
             {
-                @Html.Raw(TempData["HospitalID"])
-            }
+            @Html.Raw(TempData["HospitalID"])
+            } *@
         </span>
     </div>
     <!--end::Input group=-->
     <!--begin::Input group=-->
     <div class="fv-row mb-8">
         <!--begin::Email-->
-        <input type="text" placeholder="Enter User Name" asp-for="UserName" autocomplete="off" class="form-control bg-transparent" />
+        <input type="text" placeholder="Enter User Name" asp-for="UserName" autocomplete="off" class="form-control form-control-solid" />
         <!--end::Email-->
-        <span class="text-danger">
+        <span class="text-danger" asp-validation-for="UserName">
 
-            @if(TempData["UserName"] != null)
+            @* @if(TempData["UserName"] != null)
             {
-                @Html.Raw(TempData["UserName"])
-            }
+            @Html.Raw(TempData["UserName"])
+            } *@
         </span>
     </div>
     <!--end::Input group=-->
@@ -65,18 +65,18 @@
                 <!--begin::Input wrapper-->
                 <div class="position-relative mb-3">
                     <!--begin::Password-->
-                    <input class="form-control bg-transparent" type="password" asp-for="Password" placeholder="Enter Password" name="password" autocomplete="off" />
+                    <input class="form-control form-control-solid" type="password" asp-for="Password" placeholder="Enter Password" name="password" autocomplete="off" />
                     <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
                         <i class="bi bi-eye-slash fs-2"></i>
                         <i class="bi bi-eye fs-2 d-none"></i>
                     </span>
                 </div>
-                <span class="text-danger">
+                <span class="text-danger" asp-validation-for="Password">
 
-                    @if(TempData["Password"] != null)
+                    @*  @if(TempData["Password"] != null)
                     {
-                        @Html.Raw(TempData["Password"])
-                    }
+                    @Html.Raw(TempData["Password"])
+                    } *@
                 </span>
                 <!--end::Password-->
                 <!--end::Input wrapper-->

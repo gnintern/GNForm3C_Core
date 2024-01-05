@@ -172,80 +172,60 @@ namespace GNForm3C_.Areas.SEC_User.Controllers
 
 			return View();
 		}
-		#endregion
+        #endregion
 
-		#region Function: SignIn
-		[HttpPost]
-		public IActionResult SignIn(string? UserName,string? Password,int? HospitalID)
-		{
-			
-			string error1 = null;
-			string error2 = null;
-            string error3 = null;
-
-            if(UserName == null)
-			{
-				error1 += "Please Enter User Name";
-			}
-			if (Password == null)
-			{
-				error2 += "Please Enter Password";
-			}
-            if(HospitalID == null)
+        #region Function: SignIn
+        [HttpPost]
+        public IActionResult SignIn(Login_SEC_UserModel modelLogin_SEC_UserModel)
+        {
+            if (ModelState.IsValid)
             {
-                error3 += "Please Select Hospital";
+                DataTable dt = dalSEC.PR_User_SelectByUserNamePasswordHospitalID(modelLogin_SEC_UserModel);
+
+                //DataTable dt = dalSEC.PR_SEC_User_SelectByUserNamePassword(modelSEC_User.UserName, modelSEC_User.Password);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        HttpContext.Session.SetString("UserID", dr["UserID"].ToString());
+                        HttpContext.Session.SetString("UserName", dr["UserName"].ToString());
+                        HttpContext.Session.SetString("Password", dr["Password"].ToString());
+                        HttpContext.Session.SetString("HospitalID", dr["HospitalID"].ToString());
+                        HttpContext.Session.SetString("Hospital", dr["Hospital"].ToString());
+                        HttpContext.Session.SetString("FinYearID", dr["FinYearID"].ToString());
+
+                        break;
+                    }
+                }
+                else
+                {
+                    TempData["Error"] = "User Name or Password or Hospital is invalid!";
+                    ViewBag.FinYearDropDown = CommonFillMethod.SelectComboBoxCurrentYear().ToList();
+                    ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
+                    return View("Login");
+                }
+                if (HttpContext.Session.GetString("UserName") != null && HttpContext.Session.GetString("Password") != null)
+                {
+                    TempData["success"] = "Sign in Successfully ! ";
+
+                    return RedirectToAction("Index", "Home");
+                }
+
+
             }
-
-            if (error1 != null || error2 != null || error3 != null)
-			{
-				TempData["UserName"] = error1;
-				TempData["Password"] = error2;
-				TempData["HospitalID"] = error3;
-
+            else
+            {
                 ViewBag.FinYearDropDown = CommonFillMethod.SelectComboBoxCurrentYear().ToList();
                 ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
 
                 return View("Login");
-			}
-			else
-			{
-                DataTable dt = dalSEC.PR_User_SelectByUserNamePasswordHospitalID(UserName, Password,HospitalID);
+            }
+            return RedirectToAction("Login");
+        }
+        #endregion
 
-                //DataTable dt = dalSEC.PR_SEC_User_SelectByUserNamePassword(modelSEC_User.UserName, modelSEC_User.Password);
-				if (dt.Rows.Count > 0)
-				{
-					foreach (DataRow dr in dt.Rows)
-					{
-						HttpContext.Session.SetString("UserID", dr["UserID"].ToString());
-						HttpContext.Session.SetString("UserName", dr["UserName"].ToString());
-						HttpContext.Session.SetString("Password", dr["Password"].ToString());
-						HttpContext.Session.SetString("HospitalID", dr["HospitalID"].ToString());
-						HttpContext.Session.SetString("Hospital", dr["Hospital"].ToString());
-						HttpContext.Session.SetString("FinYearID", dr["FinYearID"].ToString());
-
-						break;
-					}
-				}
-				else
-				{
-					TempData["Error"] = "User Name or Password or Hospital is invalid!";
-                    ViewBag.FinYearDropDown = CommonFillMethod.SelectComboBoxCurrentYear().ToList();
-                    ViewBag.HospitalDropDown = CommonFillMethod.SelectDropDownListForHospital().ToList();
-                    return View("Login");
-				}
-				if (HttpContext.Session.GetString("UserName") != null && HttpContext.Session.GetString("Password") != null)
-				{
-					TempData["success"] = "Sign in Successfully ! ";
-
-					return RedirectToAction("Index", "Home");
-				}
-			}
-			return RedirectToAction("Login");
-		}
-		#endregion
-
-		#region Function: Logout
-		public IActionResult Logout()
+        #region Function: Logout
+        public IActionResult Logout()
 		{
 			HttpContext.Session.Clear();
 			return RedirectToAction("Login");

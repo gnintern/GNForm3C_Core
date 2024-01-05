@@ -131,20 +131,20 @@
             <div class="card-body pt-0">
                 <hr />
                 <!--begin::Table-->
-                <table class="table table-row-dashed fs-6 gy-3" id="kt_ecommerce_report_customer_orders_table">
+                <table class="table table-row-dashed fs-6 gy-3 Freeze-Table" id="kt_ecommerce_report_customer_orders_table">
                     <thead>
                         <!--begin::Table row-->
                         <tr class="text-start text-dark fw-bold fs-4 gs-0">
-                            <th class="min-w-180px">@CommonVariables.SubTreatmentlabel</th>
-                            <th class="min-w-150px">@CommonVariables.SequenceNolabel</th>
-                            <th class="text-center min-w-50px">@CommonVariables.Ratelabel</th>
-                            <th class="text-center min-w-240px">@CommonVariables.AutoLoadinReceiptlabel?</th>
-                            <th class="text-center min-w-100px">@CommonVariables.ChargePerDaylabel?</th>
-                            <th class="min-w-50px">@CommonVariables.Remarklabel</th>
-                            <th class="min-w-100px">@CommonVariables.HospitalNamelabel</th>
+                            <th class="min-w-250px">@CommonVariables.HospitalNamelabel</th>
+                            <th class="min-w-200px">@CommonVariables.SubTreatmentlabel</th>
+                            <th class="text-center ">@CommonVariables.Ratelabel</th>
+                            @* <th class="min-w-150px">@CommonVariables.SequenceNolabel</th> *@
+                            <th class="text-center min-w-300px">@CommonVariables.AutoLoadinReceiptlabel?</th>
+                            <th class="text-center min-w-150px">@CommonVariables.ChargePerDaylabel?</th>
+                            <th class="min-w-100px">@CommonVariables.Remarklabel</th>
                             <th class="min-w-50px">@CommonVariables.Unitlabel</th>
-                            <th class="min-w-50px">@CommonVariables.Created</th>
-                            <th class="min-w-50px">@CommonVariables.Modified</th>
+                            @* <th class="min-w-50px">@CommonVariables.Created</th> *@
+                            @* <th class="min-w-50px">@CommonVariables.Modified</th> *@
                             <th class="text-center">@CommonVariables.Actionlabel</th>
                         </tr>
                     </thead>
@@ -152,9 +152,11 @@
                         @foreach (MST_SubTreatmentModel dr in ViewBag.SubTreatmentList)
                         {
                             <tr>
+                                <td class="min-w-100px">@dr.Hospital</td>
+
                                 <td class="min-w-180px">@dr.SubTreatmentName</td>
-                                <td class="min-w-150px">@dr.SequenceNo</td>
                                 <td class="text-center min-w-50px">@dr.Rate</td>
+                                @* <td class="min-w-150px">@dr.SequenceNo</td> *@
                                 <td class="text-center min-w-230px">
                                     @if (dr.IsInGrid == true)
                                     {
@@ -179,10 +181,9 @@
                                 </td>
 
                                 <td class="min-w-50px">@dr.Remarks</td>
-                                <td class="min-w-100px">@dr.Hospital</td>
                                 <td class="min-w-50px">@dr.DefaultUnit</td>
-                                <td class="min-w-50px">@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
-                                <td class="min-w-50px">@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
+                                @* <td class="min-w-50px">@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td> *@
+                                @* <td class="min-w-50px">@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td> *@
                                 <td class="text-center">
                                     <a class="text-decoration-none text-primary edit-button" style="padding-right:1px;"
                                        data-bs-toggle="tooltip"

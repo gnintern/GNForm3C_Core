@@ -170,15 +170,15 @@ namespace GNForm3C_.DAL
         #endregion
 
         #region PR_User_SelectByUserNamePasswordHospitalID
-        public DataTable PR_User_SelectByUserNamePasswordHospitalID(string? UserName, string? Password,int? HospitalID)
+        public DataTable PR_User_SelectByUserNamePasswordHospitalID(Login_SEC_UserModel modelLogin_SEC_UserModel)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(ConnectionStr);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_User_SelectByUserNamePasswordHospitalID");
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, UserName);
-                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.VarChar, Password);
-                sqlDB.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, HospitalID);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, modelLogin_SEC_UserModel.UserName);
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.VarChar, modelLogin_SEC_UserModel.Password);
+                sqlDB.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, modelLogin_SEC_UserModel.HospitalID);
 
                 DataTable dt = new DataTable();
                 using(IDataReader dr = sqlDB.ExecuteReader(dbCMD))
