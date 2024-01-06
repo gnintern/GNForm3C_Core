@@ -69,7 +69,15 @@
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.IsInGrid</span>
+
+                        @if (@Model.IsInGrid == true)
+                        {
+                            <span class="fw-bold fs-6 text-gray-800">Yes</span>
+                        }
+                        else
+                        {
+                            <span class="fw-bold fs-6 text-gray-800">No</span>
+                        }
                     </div>
                     <!--end::Col-->
                 </div>
@@ -80,7 +88,16 @@
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.IsPerDay</span>
+
+                        @if (@Model.IsPerDay == true)
+                        {
+                            <span class="fw-bold fs-6 text-gray-800">Yes</span>
+                        }
+                        else
+                        {
+                            <span class="fw-bold fs-6 text-gray-800">No</span>
+                        }
+
                     </div>
                     <!--end::Col-->
                 </div>

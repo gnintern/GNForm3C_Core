@@ -5,6 +5,7 @@ using GNForm3C_.DAL;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlTypes;
+using System.IO;
 
 namespace GNForm3C_.Areas.ACC_Expense.Controllers
 {
@@ -31,10 +32,10 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
             ViewBag.HospitalDropDown = CommonFillMethod.SetDropDownListForHospital().ToList();
             ViewBag.FinYearDropDown = CommonFillMethod.SelectDropDownListForFinYear().ToList();
             ViewBag.ExpenseTypeDropDown = CommonFillMethod.SelectDropDownListForExpenseType().ToList();
-            if(ModelState.IsValid || modelACC_Expense.FinYearID!=null)
+            if (ModelState.IsValid || modelACC_Expense.FinYearID != null)
             {
 
-                if(modelACC_Expense.FinYearID == 0)
+                if (modelACC_Expense.FinYearID == 0)
                 {
 
                     return View("ACC_ExpenseList", modelACC_Expense);
@@ -47,7 +48,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
 
                     #region Fill the record into List
                     List<ACC_ExpenseModel> Expenses = new List<ACC_ExpenseModel>();
-                    foreach(DataRow dr in dt.Rows)
+                    foreach (DataRow dr in dt.Rows)
                     {
                         ACC_ExpenseModel ExpenseModel = new ACC_ExpenseModel();
                         ExpenseModel.ExpenseID = Convert.ToInt32(dr["ExpenseID"]);
@@ -82,7 +83,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
         {
             ACC_ExpenseModel modelACC_Expense = new ACC_ExpenseModel();
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 #region Form Title
                 TempData["Action"] = "Add";
@@ -96,7 +97,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
                 ViewBag.ExpenseTypeDropDown = CommonFillMethod.SelectDropDownListForExpenseType().ToList();
 
 
-                if(ExpenseID != null)
+                if (ExpenseID != null)
                 {
                     #region Form Title
                     TempData["Action"] = "Edit";
@@ -113,7 +114,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
 
                     #region Select_PK record
                     DataTable dt = dalACC.PR_Expense_SelectPK(id);
-                    foreach(DataRow dr in dt.Rows)
+                    foreach (DataRow dr in dt.Rows)
                     {
                         modelACC_Expense.ExpenseID = Convert.ToInt32(dr["ExpenseID"]);
                         modelACC_Expense.ExpenseTypeID = Convert.ToInt32(dr["ExpenseTypeID"]);
@@ -132,19 +133,19 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
         }
         #endregion
 
+       
         #region Function: Save Record
         [HttpPost]
         public IActionResult Save(ACC_ExpenseModel modelACC_Expense, string ExpenseID)
         {
 
-
-            if(modelACC_Expense.ExpenseID == null)
+            if (modelACC_Expense.ExpenseID == null)
             {
-                if(ExpenseID == null)
+                if (ExpenseID == null)
                 {
                     #region Inserting Record
 
-                    if(Convert.ToBoolean(dalACC.PR_Expense_Insert(modelACC_Expense)))
+                    if (Convert.ToBoolean(dalACC.PR_Expense_Insert(modelACC_Expense)))
                     {
                         TempData["success"] = "Record Inserted Successfully";
                         return RedirectToAction("Index");
@@ -160,7 +161,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
                     #endregion
 
                     #region Updating Record
-                    if(Convert.ToBoolean(dalACC.PR_Expense_Update(modelACC_Expense, id)))
+                    if (Convert.ToBoolean(dalACC.PR_Expense_Update(modelACC_Expense, id)))
                     {
                         TempData["success"] = "Record Updated Successfully";
                         return RedirectToAction("Index");
@@ -172,6 +173,10 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
         }
         #endregion
 
+
+
+
+
         #region Function: Delete record
         public IActionResult Delete(string? ExpenseID)
         {
@@ -181,7 +186,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
             #endregion
 
             #region Deleteing Record
-            if(Convert.ToBoolean(dalACC.PR_Expense_Delete(id)))
+            if (Convert.ToBoolean(dalACC.PR_Expense_Delete(id)))
             {
                 TempData["success"] = "Record Deleted successfully.";
             }
@@ -193,7 +198,7 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
 
         public IActionResult Clear()
         {
-            return RedirectToAction ("Index");
+            return RedirectToAction("Index");
         }
 
         #region Fill Expense Modal
@@ -225,5 +230,6 @@ namespace GNForm3C_.Areas.ACC_Expense.Controllers
             return PartialView("~/Areas/ACC_Expense/Views/Shared/_ExpenseDetails.cshtml", modelACC_Expense);
         }
         #endregion
+
     }
 }
