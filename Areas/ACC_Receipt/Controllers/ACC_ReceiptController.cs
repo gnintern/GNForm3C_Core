@@ -1,4 +1,5 @@
-﻿using GNForm3C_.Areas.ACC_Expense.Models;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using GNForm3C_.Areas.ACC_Expense.Models;
 using GNForm3C_.Areas.ACC_Receipt.Models;
 using GNForm3C_.Areas.MST_FinYear.Models;
 using GNForm3C_.Areas.MST_Hospital.Models;
@@ -8,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlTypes;
 using System.Transactions;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 
 namespace GNForm3C_.Areas.ACC_Receipt.Controllers
 {
@@ -18,6 +22,7 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
     {
         ACC_DAL dalACC = new ACC_DAL();
         MST_DAL dalMST = new MST_DAL();
+        static string data = "";
 
         #region Function: SelectAll
         [HttpGet]
@@ -210,5 +215,76 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
             return PartialView("~/Areas/ACC_Receipt/Views/Shared/_ReceiptDetails.cshtml", ReceiptModel);
         }
         #endregion
+
+        public IActionResult Receipt(int TransactionID)
+        {
+
+            ACC_ReceiptModel ReceiptModel = new ACC_ReceiptModel();
+
+            #region Select_PK record
+            DataTable dt = dalACC.PR_Transaction_SelectView(TransactionID);
+            foreach (DataRow dr in dt.Rows)
+            {
+                ReceiptModel.TransactionID = Convert.ToInt32(dr["TransactionID"]);
+                ReceiptModel.Patient = dr["Patient"].ToString();
+                ReceiptModel.TreatmentID = Convert.ToInt32(dr["TreatmentID"]);
+                ReceiptModel.Treatment = dr["Treatment"].ToString();
+                ReceiptModel.Amount = Convert.ToDecimal(dr["SerialNo"].ToString());
+                ReceiptModel.SerialNo = Convert.ToInt32(dr["TransactionID"]);
+                ReceiptModel.ReferenceDoctor = dr["ReferenceDoctor"].ToString();
+                if (dr["Count"].ToString().Trim() != string.Empty)
+                    ReceiptModel.Count = Convert.ToInt32(dr["Count"]);
+                ReceiptModel.ReceiptNo = Convert.ToInt32(dr["ReceiptNo"]);
+                ReceiptModel.Date = Convert.ToDateTime(dr["Date"]);
+                if (dr["DateOfAdmission"].ToString().Trim() != string.Empty)
+                    ReceiptModel.DateOfAdmission = Convert.ToDateTime(dr["DateOfAdmission"].ToString());
+                if (dr["DateOfDischarge"].ToString().Trim() != string.Empty)
+                    ReceiptModel.DateOfDischarge = Convert.ToDateTime(dr["DateOfDischarge"].ToString());
+                if (dr["NoOfDays"].ToString().Trim() != string.Empty)
+                    ReceiptModel.NoOfDays = Convert.ToInt32(dr["NoOfDays"].ToString());
+                if (dr["Deposite"].ToString().Trim() != string.Empty)
+                    ReceiptModel.Deposite = Convert.ToDecimal(dr["Deposite"].ToString());
+                if (dr["NetAmount"].ToString().Trim() != string.Empty)
+                    ReceiptModel.NetAmount = Convert.ToDecimal(dr["NetAmount"].ToString());
+                if (dr["Remarks"].ToString().Trim() != string.Empty)
+                    ReceiptModel.Remarks = dr["Remarks"].ToString();
+                ReceiptModel.HospitalID = Convert.ToInt32(dr["HospitalID"]);
+                ReceiptModel.Hospital = dr["Hospital"].ToString();
+                ReceiptModel.FinYearID = Convert.ToInt32(dr["FinYearID"]);
+                ReceiptModel.FinYearName = dr["FinYearName"].ToString();
+                ReceiptModel.Modified = Convert.ToDateTime(dr["Modified"]);
+
+
+            }
+            #endregion
+            return View("ReceiptView", ReceiptModel);
+        }
+        [HttpPost]
+        public bool LoadData(string GridHtml)
+        {
+            if (GridHtml != "")
+            {
+                data = GridHtml;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public FileResult DownloadPdf()
+        {
+            using (MemoryStream stream = new System.IO.MemoryStream())
+            {
+                StringReader sr = new StringReader(data);
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                pdfDoc.Close();
+                return File(stream.ToArray(), "application/pdf", "Grid.pdf");
+            }
+        }
     }
 }

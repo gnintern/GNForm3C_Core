@@ -1,0 +1,241 @@
+﻿@using GNForm3C_.BAL;
+@model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel;
+@{
+    ViewData["Title"] = "ReceiptView";
+}
+
+<html>
+    <head>
+        <title>@ViewData["Title"] - GNForm3C+</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <!--end::Global Stylesheets Bundle-->
+    </head>
+<body>
+    <!-- _ReceiptDetails.cshtml -->
+    <!--begin::Modal - Create App-->
+    <!--begin::Content-->
+
+    <div id="kt_app_content" class="app-content flex-column-fluid">
+        <!--begin::Content container-->
+        <div id="kt_app_content_container" class="app-container container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <!--begin::Modal title-->
+                    <h2>Receipt Detail View</h2>
+                    <!--end::Modal title-->
+                    <div style="padding-left:10px;">
+                        <button class="btn btn-danger" id="exportPdf">
+                            <i class="fa-solid fa-file-excel fa-5x"></i> <span style="position:relative;top:1px;">PDF</span>
+                        </button>
+                    </div>
+                    <div style="padding-left:10px;">
+                        <button class="btn btn-danger" id="buttonReceipt">
+                            <i class="fa-solid fa-file-excel fa-5x"></i> <span style="position:relative;top:1px;">Receipt</span>
+                        </button>
+                    </div>
+                    <!--begin::Close-->
+                    <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                        <span class="svg-icon svg-icon-1">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                      transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                      fill="currentColor" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </div>
+                    <!--end::Close-->
+                </div>
+                <!--end::Modal header-->
+                <!--begin::Modal body-->
+                <div class="card-body py-lg-10 px-lg-10">
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Serial No.</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.SerialNo</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Hospital </label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.Hospital</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Patient Name</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.Patient</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Treatment </label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.Treatment</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Amount </label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.Amount</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Reference Doctor</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.ReferenceDoctor</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Receipt No.</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.ReceiptNo</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Receipt Date </label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.Date.ToShortDateString()</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Date Of Admission </label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.DateOfAdmission</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Date Of Discharge </label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.DateOfDischarge</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Deposite</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.Deposite</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Net Amount</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.NetAmount</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">No. Of Days</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.NoOfDays</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Remarks</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.Remarks</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Financial Year </label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.FinYearName</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Modified </label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800">@Model.Modified.ToShortDateString()</span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                </div>
+                <!--end::Modal body-->
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
+<!--end::Modal - Create App-->

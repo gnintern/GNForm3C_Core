@@ -35,6 +35,9 @@
                        data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="View" class="fs-1 cursor-pointer" style="position:relative;top:5px;">
                         <i class="fa-regular fa-file fa-sm"></i>
                     </a>
+                    <a id="exportPdf" data-id="@dr.TransactionID" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="View" class="fs-1 cursor-pointer" style="position:relative;top:5px;">
+                        <i class="fa-regular fa-file fa-sm"></i>
+                    </a>
                 </td>
                 <td>@dr.Hospital</td>
                 <td>@dr.Treatment</td>
@@ -57,3 +60,45 @@
     </tbody>
 </table>
 <!--end::Table-->
+<script>
+    $(document).ready(function () {
+        $("#exportPdf").on('click', function () {
+            var TransactionID = $(this).data('id');
+            $.ajax({
+                url: '@Url.Action("Receipt","ACC_Receipt", new { area = "ACC_Receipt" })',
+                type: 'GET',
+                contentType: 'application/json',
+                data: { TransactionID: TransactionID },
+                success: function (response) {
+                    if (response != "") {
+                        $.ajax({
+                            // var gridHtml = $("#kt_ecommerce_report_customer_orders_table").html();
+                            url: '@Url.Action("LoadData","ACC_Receipt", new { area = "ACC_Receipt" })',
+                            type: 'POST',
+                            contentType: 'application/json',
+                            dataType: "string",
+                            data: { GridHtml: /* gridHtml */ "<h1>" },
+                            success: function (data) {
+                                if (data) {
+                                    window.location.href = "@Url.Action("DownloadPdf","ACC_Receipt", new { area = "ACC_Receipt" })";
+                                }
+                                else
+                                    window.location.reload();
+                            },
+                            error: function (error) {
+                                // Handle errors if any
+                                console.log(error);
+                            }
+                        });
+                    }
+                    else
+                        window.location.reload();
+                },
+                error: function (error) {
+                    // Handle errors if any
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
