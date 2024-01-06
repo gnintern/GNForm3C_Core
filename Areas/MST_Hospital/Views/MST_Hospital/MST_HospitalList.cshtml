@@ -168,9 +168,8 @@
                                 <td>@dr.FooterName</td>
                                 @* <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td> *@
                                 <td class="text-center">
-                                    <a id="ShowDetails" data-id="@CommonFunctions.EncryptBase64(dr.HospitalID.ToString())"
-                                       data-bs-toggle="tooltip" data-bs-placement="right"
-                                       data-bs-title="View" class="fs-1 cursor-pointer" style="position:relative;top:5px;">
+                                    <a onclick="ShowDetails(this)" data-url="/MST_Hospital/HospitalDetail" data-name="#hospitalDetails" id="@CommonFunctions.EncryptBase64(dr.HospitalID.ToString())"
+                                       data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="View" class="fs-1 cursor-pointer" style="position:relative;top:5px;">
                                         <i class="fa-regular fa-file fa-sm"></i>
                                     </a>
 
@@ -211,7 +210,7 @@
 </div>
 <!--end::Content-->
 @section Scripts {
-    <script type="text/javascript">
+   @*  <script type="text/javascript">
         $(document).ready(function () {
 
 
@@ -236,7 +235,7 @@
                 });
             });
         });
-    </script>
+    </script> *@
 
 
 }

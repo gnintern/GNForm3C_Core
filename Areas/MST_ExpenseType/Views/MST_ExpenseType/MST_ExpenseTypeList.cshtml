@@ -160,6 +160,10 @@
                                 <td>@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td>
                                 <td>@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
                                 <td class="text-center">
+                                    <a onclick="ShowDetails(this)" data-url="/MST_ExpenseType/ExpenseTypeDetail" data-name="#expenseTypeDetails" id="@CommonFunctions.EncryptBase64(dr.ExpenseTypeID.ToString())"
+                                       data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="View" class="fs-1 cursor-pointer" style="position:relative;top:5px;">
+                                        <i class="fa-regular fa-file fa-sm"></i>
+                                    </a>
                                     <a class="text-decoration-none text-primary edit-button"
                                        data-bs-toggle="tooltip"
                                        data-bs-placement="left" data-bs-title="Edit"

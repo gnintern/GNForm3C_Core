@@ -160,16 +160,16 @@ namespace GNForm3C_.Areas.MST_Hospital.Controllers
         #endregion
 
         #region Fill Hospital Modal
-        public IActionResult HospitalDetail(string? HospitalID)
+        public IActionResult HospitalDetail(string? modalID)
         {
 
             #region Decrypt the Id
-            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(HospitalID);
+            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(modalID);
             int id = decryptedID.Value;
             #endregion
 
-            #region PR_Hospital_SelectPK
-            DataTable dt = dalMST.PR_Hospital_SelectPK(id);
+            #region PR_Hospital_SelectView
+            DataTable dt = dalMST.PR_Hospital_SelectView(id);
             MST_HospitalModel modelMST_Hospital = new MST_HospitalModel();
             foreach (DataRow dr in dt.Rows)
             {

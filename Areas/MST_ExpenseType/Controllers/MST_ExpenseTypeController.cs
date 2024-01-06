@@ -150,5 +150,31 @@ namespace GNForm3C_.Areas.MST_ExpenseType
         }
         #endregion
 
+        #region Fill ExpenseType Modal
+        public IActionResult ExpenseTypeDetail(string? modalID)
+        {
+
+            MST_ExpenseTypeModel modelMST_ExpenseType = new MST_ExpenseTypeModel();
+            #region Decrypt the Id
+            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(modalID);
+            int id = decryptedID.Value;
+            #endregion
+
+            #region Select_PK record
+            DataTable dt = dalMST.PR_ExpenseType_SelectView(id);
+            foreach (DataRow dr in dt.Rows)
+            {
+                modelMST_ExpenseType.ExpenseTypeID = Convert.ToInt32(dr["ExpenseTypeID"].ToString());
+                modelMST_ExpenseType.ExpenseType = dr["ExpenseType"].ToString();
+                modelMST_ExpenseType.HospitalID = Convert.ToInt32(dr["HospitalID"]);
+                modelMST_ExpenseType.Hospital = dr["Hospital"].ToString();
+                modelMST_ExpenseType.Remarks = dr["Remarks"].ToString();
+                modelMST_ExpenseType.Modified = Convert.ToDateTime(dr["Modified"]);
+            }
+            #endregion
+            return PartialView("~/Areas/MST_ExpenseType/Views/Shared/_ExpenseTypeDetails.cshtml", modelMST_ExpenseType);
+        }
+        #endregion
+
     }
 }

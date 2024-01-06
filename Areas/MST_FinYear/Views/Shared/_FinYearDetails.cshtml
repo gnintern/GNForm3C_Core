@@ -1,4 +1,5 @@
-﻿@model GNForm3C_.Areas.MST_FinYear.Models.MST_FinYearModel;
+﻿@using GNForm3C_.BAL;
+@model GNForm3C_.Areas.MST_FinYear.Models.MST_FinYearModel;
 <!-- _FinYearDetails.cshtml -->
 <!--begin::Modal - Create App-->
 <div class="modal fade" id="finyearDetails" tabindex="-1" aria-hidden="true">
@@ -30,7 +31,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Financial Year </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.FinancialYearNamelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -41,7 +42,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">From Date</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.FromDatelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -52,7 +53,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">To Date</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.ToDatelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -63,7 +64,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Modified Date </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Modified</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">

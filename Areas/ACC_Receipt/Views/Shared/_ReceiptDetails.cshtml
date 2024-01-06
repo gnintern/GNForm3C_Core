@@ -1,4 +1,5 @@
-﻿@model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel;
+﻿@using GNForm3C_.BAL;
+@model GNForm3C_.Areas.ACC_Receipt.Models.ACC_ReceiptModel;
 <!-- _ReceiptDetails.cshtml -->
 <!--begin::Modal - Create App-->
 <div class="modal fade" id="receiptDetails" tabindex="-1" aria-hidden="true">
@@ -26,11 +27,157 @@
             </div>
             <!--end::Modal header-->
             <!--begin::Modal body-->
-            <div class="modal-body py-lg-10 px-lg-10">
 
-                 <div class="row mb-7">
+            <div class="modal-body py-lg-10 px-lg-10">
+            <div class="row mb-7">
+                <!--begin::Label-->
+                <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.HospitalNamelabel </label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.Hospital</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Treatmentlabel </label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.Treatment</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.PatientNamelabel</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.Patient</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.ReceiptTypelabel </label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.ReceiptTypeName</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.ReceiptDatelabel</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.Date.ToShortDateString()</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Amountlabel</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.Amount</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.AdvanceAmountlabel</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.Deposite</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.NetAmountlabel</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.NetAmount</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.AdmissionDatelabel</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.DateOfAdmission</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.DischargeDatelabel</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.DateOfDischarge</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.TotalDayslabel</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.NoOfDays</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.FinancialYearNamelabel</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.FinYearName</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+            <div class="row mb-7">
+                <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.ReceiptNolabel</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                    <span class="fw-bold fs-6 text-gray-800">@Model.ReceiptNo</span>
+                </div>
+                <!--end::Col-->
+            </div>
+
+
+                <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Serial No.</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.SerialNolabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -41,151 +188,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Hospital </label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.Hospital</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Patient Name</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.Patient</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Treatment </label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.Treatment</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Amount </label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.Amount</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-               
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Reference Doctor</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.ReferenceDoctor</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-              @*   <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Count</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.Count</span>
-                    </div>
-                    <!--end::Col-->
-                </div> *@
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Receipt No.</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.ReceiptNo</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Receipt Date </label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.Date.ToShortDateString()</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Date Of Admission </label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.DateOfAdmission</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Date Of Discharge </label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.DateOfDischarge</span>
-                    </div>
-                    <!--end::Col-->
-                </div> 
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Deposite</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.Deposite</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Net Amount</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.NetAmount</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">No. Of Days</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.NoOfDays</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Remarks</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Remarklabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -194,20 +197,10 @@
                     <!--end::Col-->
                 </div>
 
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Financial Year </label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.FinYearName</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Modified </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Modified</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -215,6 +208,29 @@
                     </div>
                     <!--end::Col-->
                 </div>
+
+
+                @* <div class="row mb-7">
+                <!--begin::Label-->
+                <label class="col-lg-4 fw-semibold text-muted">Reference Doctor</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                <span class="fw-bold fs-6 text-gray-800">@Model.ReferenceDoctor</span>
+                </div>
+                <!--end::Col-->
+                </div>
+                <div class="row mb-7">
+                <!--begin::Label-->
+                <label class="col-lg-4 fw-semibold text-muted">Count</label>
+                <!--end::Label-->
+                <!--begin::Col-->
+                <div class="col-lg-8">
+                <span class="fw-bold fs-6 text-gray-800">@Model.Count</span>
+                </div>
+                <!--end::Col-->
+                </div> *@
+
             </div>
             <!--end::Modal body-->
         </div>

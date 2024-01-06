@@ -155,8 +155,8 @@
                             <th class="min-w-100px">@CommonVariables.Remarklabel</th>
                             <th class="min-w-50px">@CommonVariables.Unitlabel</th>
                             @* <th class="min-w-50px">@CommonVariables.Created</th> *@
-                            @* <th class="min-w-50px">@CommonVariables.Modified</th> *@
-                            <th class="text-center">@CommonVariables.Actionlabel</th>
+                            <th class="min-w-100px">@CommonVariables.Modified</th>
+                            <th class="text-center min-w-150px">@CommonVariables.Actionlabel</th>
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-dark-600 font-weight-normal">
@@ -194,8 +194,12 @@
                                 <td class="min-w-50px">@dr.Remarks</td>
                                 <td class="min-w-50px">@dr.DefaultUnit</td>
                                 @* <td class="min-w-50px">@Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy")</td> *@
-                                @* <td class="min-w-50px">@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td> *@
+                                <td class="min-w-50px">@Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy")</td>
                                 <td class="text-center">
+                                    <a onclick="ShowDetails(this)" data-url="/MST_SubTreatment/SubTreatmentDetail" data-name="#subTreatmentDetails" id="@CommonFunctions.EncryptBase64(dr.SubTreatmentID.ToString())"
+                                       data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="View" class="fs-1 cursor-pointer" style="position:relative;top:5px;">
+                                        <i class="fa-regular fa-file fa-sm"></i>
+                                    </a>
                                     <a class="text-decoration-none text-primary edit-button" style="padding-right:1px;"
                                        data-bs-toggle="tooltip"
                                        data-bs-placement="left" data-bs-title="Edit"

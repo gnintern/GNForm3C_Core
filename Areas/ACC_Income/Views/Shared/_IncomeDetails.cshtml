@@ -1,4 +1,5 @@
-﻿@model GNForm3C_.Areas.ACC_Income.Models.ACC_IncomeModel;
+﻿@using GNForm3C_.BAL;
+@model GNForm3C_.Areas.ACC_Income.Models.ACC_IncomeModel;
 <!-- _IncomeDetails.cshtml -->
 <!--begin::Modal - Create App-->
 <div class="modal fade" id="incomeDetails" tabindex="-1" aria-hidden="true">
@@ -30,7 +31,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Hospital </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.HospitalNamelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -41,7 +42,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Income Type </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.IncomeTypelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -52,7 +53,29 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Financial Year</label> 
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Amountlabel</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <span class="fw-bold fs-6 text-gray-800">@Model.Amount</span>
+                    </div>
+                    <!--end::Col-->
+                </div>
+
+                <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.IncomeDatelabel</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <span class="fw-bold fs-6 text-gray-800">@Model.Date.ToShortDateString()</span>
+                    </div>
+                    <!--end::Col-->
+                </div>
+
+                <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.FinancialYearNamelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -63,29 +86,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Income Date </label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.Date.ToShortDateString()</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-              
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Amount </label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.Amount</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-  
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Note </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.notelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -93,9 +94,10 @@
                     </div>
                     <!--end::Col-->
                 </div>
+
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Modified </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Modified</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">

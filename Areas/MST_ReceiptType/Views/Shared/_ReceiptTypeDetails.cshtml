@@ -1,4 +1,5 @@
-﻿@model GNForm3C_.Areas.MST_ReceiptType.Models.MST_ReceiptTypeModel;
+﻿@using GNForm3C_.BAL;
+@model GNForm3C_.Areas.MST_ReceiptType.Models.MST_ReceiptTypeModel;
 <!-- _ReceiptTypeDetails.cshtml -->
 <!--begin::Modal - Create App-->
 <div class="modal fade" id="receiptTypeDetails" tabindex="-1" aria-hidden="true">
@@ -30,7 +31,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Hospital</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.HospitalNamelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -41,7 +42,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Receipt Type</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.ReceiptTypelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -53,7 +54,7 @@
               
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Print Name </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.PrintNameReceiptlabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -64,7 +65,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Is Default ? </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Defaultlabel?</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -75,7 +76,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Remarks </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Remarklabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -86,7 +87,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Modified  </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Modified</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">

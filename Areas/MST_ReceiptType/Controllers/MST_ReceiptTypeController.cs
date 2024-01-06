@@ -158,7 +158,34 @@ namespace GNForm3C_.Areas.MST_ReceiptType.Controllers
 
         #endregion
 
-       
+        #region Fill ReceiptType Modal
+        public IActionResult ReceiptTypeDetail(string? modalID)
+        {
+
+            MST_ReceiptTypeModel modelMST_ReceiptType = new MST_ReceiptTypeModel();
+            #region Decrypt the Id
+            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(modalID);
+            int id = decryptedID.Value;
+            #endregion
+
+            #region Select_PK record
+            DataTable dt = dalMST.PR_ReceiptType_SelectView(id);
+            foreach (DataRow dr in dt.Rows)
+            {
+                modelMST_ReceiptType.ReceiptTypeID = Convert.ToInt32(dr["ReceiptTypeID"].ToString());
+                modelMST_ReceiptType.ReceiptTypeName = dr["ReceiptTypeName"].ToString();
+                modelMST_ReceiptType.PrintName = dr["PrintName"].ToString();
+                modelMST_ReceiptType.IsDefault = Convert.ToBoolean(dr["IsDefault"]);
+                modelMST_ReceiptType.Remarks = dr["Remarks"].ToString();
+                modelMST_ReceiptType.Hospital = dr["Hospital"].ToString();
+                modelMST_ReceiptType.Modified = Convert.ToDateTime(dr["Modified"]);
+            }
+            #endregion
+            return PartialView("~/Areas/MST_ReceiptType/Views/Shared/_ReceiptTypeDetails.cshtml", modelMST_ReceiptType);
+        }
+        #endregion
+
+
     }
 }
 

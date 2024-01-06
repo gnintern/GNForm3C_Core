@@ -1,4 +1,5 @@
-﻿@model GNForm3C_.Areas.MST_ExpenseType.Models.MST_ExpenseTypeModel;
+﻿@using GNForm3C_.BAL;
+@model GNForm3C_.Areas.MST_ExpenseType.Models.MST_ExpenseTypeModel;
 <!-- _ExpenseTypeDetails.cshtml -->
 <!--begin::Modal - Create App-->
 <div class="modal fade" id="expenseTypeDetails" tabindex="-1" aria-hidden="true">
@@ -30,7 +31,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Hospital</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.HospitalNamelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -41,7 +42,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Expense Type</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.ExpenseTypelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -52,7 +53,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Modified  </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Modified</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">

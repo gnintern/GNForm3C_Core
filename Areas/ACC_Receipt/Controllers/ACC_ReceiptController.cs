@@ -125,8 +125,6 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
         [HttpPost]
         public IActionResult Save(ACC_ReceiptModel modelACC_Receipt)
         {
-
-
             if (modelACC_Receipt.TransactionID == null)
             {
                 #region Inserting Record
@@ -178,13 +176,16 @@ namespace GNForm3C_.Areas.ACC_Receipt.Controllers
                 ReceiptModel.Patient = dr["Patient"].ToString();
                 ReceiptModel.TreatmentID = Convert.ToInt32(dr["TreatmentID"]);
                 ReceiptModel.Treatment = dr["Treatment"].ToString();
-                ReceiptModel.Amount = Convert.ToDecimal(dr["SerialNo"].ToString());
-                ReceiptModel.SerialNo = Convert.ToInt32(dr["TransactionID"]);
+                ReceiptModel.ReceiptNo = Convert.ToInt32(dr["ReceiptNo"]);
+                ReceiptModel.ReceiptTypeName = dr["ReceiptTypeName"].ToString();
+                ReceiptModel.Date = Convert.ToDateTime(dr["Date"]);
+                ReceiptModel.TransactionID = Convert.ToInt32(dr["TransactionID"]);
                 ReceiptModel.ReferenceDoctor = dr["ReferenceDoctor"].ToString();
+                ReceiptModel.Amount = Convert.ToDecimal(dr["Amount"].ToString());
                 if (dr["Count"].ToString().Trim() != string.Empty)
                     ReceiptModel.Count = Convert.ToInt32(dr["Count"]);
-                ReceiptModel.ReceiptNo = Convert.ToInt32(dr["ReceiptNo"]);
-                ReceiptModel.Date = Convert.ToDateTime(dr["Date"]);
+                if (dr["SerialNo"].ToString().Trim() != string.Empty)
+                    ReceiptModel.SerialNo = Convert.ToInt32(dr["SerialNo"]);
                 if (dr["DateOfAdmission"].ToString().Trim() != string.Empty)
                     ReceiptModel.DateOfAdmission = Convert.ToDateTime(dr["DateOfAdmission"].ToString());
                 if (dr["DateOfDischarge"].ToString().Trim() != string.Empty)

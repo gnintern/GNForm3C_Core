@@ -37,7 +37,7 @@
         #endregion
 
         #region Common Button
-        public static string AddBtnColor = "btn btn-success btn-sm rounded-pill ";
+        public static string AddBtnColor = "btn btn-primary btn-sm rounded-pill ";
         public static string SearchBtnColor = "btn btn-primary btn-sm";
         public static string ClearBtnColor = "btn btn-light btn-sm";
         public static string SaveBtnColor = "btn btn-primary btn-sm";

@@ -146,5 +146,32 @@ namespace GNForm3C_.Areas.MST_Treatment.Controllers
             return RedirectToAction("Index");
         }
         #endregion
+
+        #region FillTreatment Modal
+        public IActionResult TreatmentDetail(string? modalID)
+        {
+
+            MST_TreatmentModel modelMST_Treatment = new MST_TreatmentModel();
+            #region Decrypt the Id
+            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(modalID);
+            int id = decryptedID.Value;
+            #endregion
+
+            #region Select_PK record
+            DataTable dt = dalMST.PR_Treatment_SelectView(id);
+            foreach (DataRow dr in dt.Rows)
+            {
+                modelMST_Treatment.TreatmentID = Convert.ToInt32(dr["TreatmentID"].ToString());
+                modelMST_Treatment.Treatment = dr["Treatment"].ToString();
+                modelMST_Treatment.HospitalID = Convert.ToInt32(dr["HospitalID"]);
+                modelMST_Treatment.Hospital = dr["Hospital"].ToString();
+                modelMST_Treatment.Remarks = dr["Remarks"].ToString();
+                modelMST_Treatment.Modified= Convert.ToDateTime(dr["Modified"]);
+            }
+            #endregion
+
+            return PartialView("~/Areas/MST_Treatment/Views/Shared/_TreatmentDetails.cshtml", modelMST_Treatment);
+        }
+        #endregion
     }
 }

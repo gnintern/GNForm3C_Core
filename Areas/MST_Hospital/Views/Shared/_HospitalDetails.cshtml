@@ -1,4 +1,5 @@
-﻿@model GNForm3C_.Areas.MST_Hospital.Models.MST_HospitalModel;
+﻿@using GNForm3C_.BAL;
+@model GNForm3C_.Areas.MST_Hospital.Models.MST_HospitalModel;
 <!-- _HospitalDetails.cshtml -->
 <!--begin::Modal - Create App-->
 <div class="modal fade" id="hospitalDetails" tabindex="-1" aria-hidden="true">
@@ -30,7 +31,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Hospital Name :</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.HospitalNamelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -41,7 +42,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Print Name :</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.PrintNameHospitallabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -52,7 +53,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Print Line1 :</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.PrintLine1label</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -63,7 +64,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Print Line 2 :</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.PrintLine2label</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -74,7 +75,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Print Line 3:</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.PrintLine3label</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -85,7 +86,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Report Header Name:</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.HeaderNamelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -96,7 +97,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Footer Name:</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.FooterNamelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">

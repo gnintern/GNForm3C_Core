@@ -175,6 +175,30 @@ namespace GNForm3C_.DAL
         }
         #endregion
 
+        #region PR_Hospital_SelectView
+        public DataTable PR_Hospital_SelectView(int? HospitalID)
+        {
+            try
+            {
+                SqlDatabase sqldb = new SqlDatabase(ConnectionStr);
+                DbCommand dbCMD = sqldb.GetStoredProcCommand("PR_Hospital_SelectView");
+
+                sqldb.AddInParameter(dbCMD, "HospitalID", SqlDbType.Int, HospitalID);
+
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqldb.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
         #endregion
 
         #region MST_FinYear

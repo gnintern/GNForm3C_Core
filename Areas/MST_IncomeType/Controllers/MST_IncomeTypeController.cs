@@ -149,5 +149,31 @@ namespace GNForm3C_.Areas.MST_IncomeType.Controllers
             return RedirectToAction("Index");
         }
         #endregion
+
+        #region Fill IncomeType Modal
+        public IActionResult IncomeTypeDetail(string? modalID)
+        {
+
+            MST_IncomeTypeModel modelMST_IncomeType = new MST_IncomeTypeModel();
+            #region Decrypt the Id
+            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(modalID);
+            int id = decryptedID.Value;
+            #endregion
+
+            #region Select_PK record
+            DataTable dt = dalMST.PR_IncomeType_SelectView(id);
+            foreach (DataRow dr in dt.Rows)
+            {
+                modelMST_IncomeType.IncomeTypeID = Convert.ToInt32(dr["IncomeTypeID"].ToString());
+                modelMST_IncomeType.IncomeType = dr["IncomeType"].ToString();
+                modelMST_IncomeType.HospitalID = Convert.ToInt32(dr["HospitalID"]);
+                modelMST_IncomeType.Hospital = dr["Hospital"].ToString();
+                modelMST_IncomeType.Remarks = dr["Remarks"].ToString();
+                modelMST_IncomeType.Modified = Convert.ToDateTime(dr["Modified"]);
+            }
+            #endregion
+            return PartialView("~/Areas/MST_IncomeType/Views/Shared/_IncomeTypeDetails.cshtml", modelMST_IncomeType);
+        }
+        #endregion
     }
 }

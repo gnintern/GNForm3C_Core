@@ -239,6 +239,33 @@ namespace GNForm3C_.Areas.MST_FinYear.Controllers
 				return false;
 			}
 		}
-		#endregion
-	}
+        #endregion
+
+        #region Fill FinYear Modal
+        public IActionResult FinYearDetail(string? modalID)
+        {
+
+            MST_FinYearModel modelMST_FinYear = new MST_FinYearModel();
+            #region Decrypt the Id
+            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(modalID);
+            int id = decryptedID.Value;
+            #endregion
+
+            #region Select_PK record
+            DataTable dt = dalMST.PR_FinYear_SelectView(id);
+            foreach (DataRow dr in dt.Rows)
+            {
+                modelMST_FinYear.FinYearID = Convert.ToInt32(dr["FinYearID"].ToString());
+                modelMST_FinYear.FinYearName = dr["FinYearName"].ToString();
+                modelMST_FinYear.FromDate = Convert.ToDateTime(dr["FromDate"]);
+                modelMST_FinYear.ToDate = Convert.ToDateTime(dr["ToDate"]);
+                modelMST_FinYear.Modified = Convert.ToDateTime(dr["Modified"]);
+
+            }
+            #endregion
+
+            return PartialView("~/Areas/MST_FinYear/Views/Shared/_FinYearDetails.cshtml", modelMST_FinYear);
+        }
+        #endregion
+    }
 }

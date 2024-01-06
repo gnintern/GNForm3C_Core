@@ -1,4 +1,5 @@
-﻿@model GNForm3C_.Areas.MST_SubTreatment.Models.MST_SubTreatmentModel;
+﻿@using GNForm3C_.BAL;
+@model GNForm3C_.Areas.MST_SubTreatment.Models.MST_SubTreatmentModel;
 <!-- _SubTreatmentDetails.cshtml -->
 <!--begin::Modal - Create App-->
 <div class="modal fade" id="subTreatmentDetails" tabindex="-1" aria-hidden="true">
@@ -30,7 +31,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Hospital </label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.HospitalNamelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -42,7 +43,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">SubTreatmentName</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.SubTreatmentlabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -53,18 +54,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">SequenceNo</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.SequenceNo</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Rate</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Ratelabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -75,7 +65,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">IsInGrid</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.AutoLoadinReceiptlabel?</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -86,7 +76,33 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Remarks</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.ChargePerDaylabel?</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <span class="fw-bold fs-6 text-gray-800">@Model.IsPerDay</span>
+                    </div>
+                    <!--end::Col-->
+                </div>
+
+                @* <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">SequenceNo</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <span class="fw-bold fs-6 text-gray-800">@Model.SequenceNo</span>
+                    </div>
+                    <!--end::Col-->
+                </div> *@
+
+                
+
+                
+
+                <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Remarklabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -97,29 +113,7 @@
 
                 <div class="row mb-7">
                     <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">SequenceNo</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.SequenceNo</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">IsPerDay</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">@Model.IsPerDay</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">DefaultUnit</label>
+                    <label class="col-lg-4 fw-semibold text-muted">@CommonVariables.Unitlabel</label>
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
@@ -127,6 +121,20 @@
                     </div>
                     <!--end::Col-->
                 </div>
+                @* <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">SequenceNo</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <span class="fw-bold fs-6 text-gray-800">@Model.SequenceNo</span>
+                    </div>
+                    <!--end::Col-->
+                </div> *@
+
+                
+
+                
 
                 <div class="row mb-7">
                     <!--begin::Label-->

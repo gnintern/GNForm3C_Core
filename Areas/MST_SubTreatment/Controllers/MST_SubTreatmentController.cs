@@ -164,7 +164,39 @@ namespace GNForm3C_.Areas.MST_SubTreatment.Controllers
 
         #endregion
 
-       
+        #region Fill SubTreatment Modal
+        public IActionResult SubTreatmentDetail(string? modalID)
+        {
+
+            MST_SubTreatmentModel modelMST_SubTreatment = new MST_SubTreatmentModel();
+            #region Decrypt the Id
+            SqlInt32 decryptedID = CommonFunctions.DecryptBase64Int32(modalID);
+            int id = decryptedID.Value;
+            #endregion
+
+            #region Select_PK record
+            DataTable dt = dalMST.PR_SubTreatment_SelectView(id);
+            foreach (DataRow dr in dt.Rows)
+            {
+                modelMST_SubTreatment.SubTreatmentID = Convert.ToInt32(dr["SubTreatmentID"].ToString());
+                modelMST_SubTreatment.SubTreatmentName = dr["SubTreatmentName"].ToString();
+                modelMST_SubTreatment.SequenceNo = Convert.IsDBNull(dr["SequenceNo"]) ? null : Convert.ToInt32(dr["SequenceNo"]);
+                modelMST_SubTreatment.Rate = Convert.IsDBNull(dr["Rate"]) ? null : Convert.ToDecimal(dr["Rate"]);
+                modelMST_SubTreatment.IsInGrid = Convert.ToBoolean(dr["IsInGrid"]);
+                modelMST_SubTreatment.IsPerDay = Convert.ToBoolean(dr["IsPerDay"]);
+                modelMST_SubTreatment.Remarks = dr["Remarks"].ToString();
+                modelMST_SubTreatment.Hospital = dr["Hospital"].ToString();
+                modelMST_SubTreatment.DefaultUnit = dr["DefaultUnit"].ToString();
+                //SubTreatmentmodel.Created = Convert.ToDateTime(dr["Created"]);
+                modelMST_SubTreatment.Modified = Convert.ToDateTime(dr["Modified"]);
+            }
+            #endregion
+
+            return PartialView("~/Areas/MST_SubTreatment/Views/Shared/_SubTreatmentDetails.cshtml", modelMST_SubTreatment);
+        }
+        #endregion
+
+
     }
 }
 
